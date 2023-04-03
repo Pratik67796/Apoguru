@@ -24,10 +24,9 @@ class Userhome extends Controller
     }
     public function school_dashboard(Request $request){
         $schoolparentcat = ParentSubCategory::where('main_category_id',1)->get();
-        // dd($schoolparentcat);
         $school_course = Course::where('main_category_id',1)->get();
+        // dd($school_course);
         $new = Course::where('main_category_id',1)->orderBy("id", "DESC")->take(10)->get();
-        // dd($new);
     	return view('user.dashboard.school-dashboard',compact('schoolparentcat','new'));
     }
 
