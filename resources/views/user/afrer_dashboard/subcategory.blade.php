@@ -25,7 +25,7 @@ Subcategory @endsection @section('content')
           <div class="course__item white-bg mb-30 fix">
             <div class="course__thumb w-img p-relative fix">
               <a href="{{ route('course-buy') }}">
-              <img src="{{ URL::asset('assets/img/3.jpg')}}" alt="">
+              <img src="{{asset('course_images/').'/'.$data2['image']}}" alt="">
               </a>
               <div class="course__tag">
                 <a href="#" class="pink">BESTSELLER</a>

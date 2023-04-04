@@ -178,11 +178,12 @@ School Dashboard
         </div>
      </div>
      <div class="row grid">
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat5 cat2 cat4 cat6">
+      @foreach($new as $key=> $course)
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat3 cat5 cat2 cat4 cat6">
            <div class="course__item white-bg mb-30 fix">
               <div class="course__thumb w-img p-relative fix">
                  <a href="{{ route('course-buy') }}">
-                    <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
+                    <img src="{{asset('course_images/').'/'.$course['image']}}" alt="">
                  </a>
                  <div class="course__tag">
                     <a href="#" class="pink">BESTSELLER</a>
@@ -197,12 +198,12 @@ School Dashboard
                        <span><i class="icon_star"></i>4.5 (44)</span>
                     </div>
                  </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills & job.</a></h3>
+                 <h3 class="course__title"><a href="{{ route('course-buy') }}">{{strip_tags($course['title'])}}</a></h3>
                  <div class="course__teacher d-flex align-items-center">
                     <div class="course__teacher-thumb mr-15">
                        <img src="{{ URL::asset('assets/img/course/teacher/teacher-1.jpg')}}" alt="">
                     </div>
-                    <h6><a href="instructor-details.html">Jim Séchen</a></h6>
+                    <h6><a href="instructor-details.html">{{isset($course['User']['name'])?$course['User']['name']:'Admin'}}</a></h6>
                  </div>
               </div>
               <div class="course__more d-flex justify-content-between align-items-center">
@@ -219,216 +220,7 @@ School Dashboard
               </div>
            </div>
         </div>
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat3 cat5">
-           <div class="course__item white-bg mb-30 fix">
-              <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy') }}">
-                    <img src="{{ URL::asset('assets/img/2.jpg')}}" alt="">
-                 </a>
-                 <div class="course__tag">
-                    <a href="#" class="pink">BESTSELLER</a>
-                 </div>
-              </div>
-              <div class="course__content">
-                 <div class="course__meta d-flex align-items-center justify-content-between">
-                    <div class="course__lesson">
-                       <span><i class="far fa-book-alt"></i>72 Lesson</span>
-                    </div>
-                    <div class="course__rating">
-                       <span><i class="icon_star"></i>4.5 (44)</span>
-                    </div>
-                 </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">Fundamentals of music theory Learn new</a></h3>
-                 <div class="course__teacher d-flex align-items-center">
-                    <div class="course__teacher-thumb mr-15">
-                       <img src="{{ URL::asset('assets/img/course/teacher/teacher-2.jpg')}}" alt="">
-                    </div>
-                    <h6><a href="instructor-details.html">Barry Tone</a></h6>
-                 </div>
-              </div>
-              <div class="course__more d-flex justify-content-between align-items-center">
-                 <div class="course__status d-flex align-items-center">
-                    <span class="sky-blue">$32.00</span>
-                    <span class="old-price">$68.00</span>
-                 </div>
-                 <div class="course__btn">
-                    <a href="{{ route('course-buy') }}" class="link-btn">
-                       Know Details
-                       <i class="far fa-arrow-right"></i>
-                       <i class="far fa-arrow-right"></i>
-                    </a>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat3 cat5 cat6">
-           <div class="course__item white-bg mb-30 fix">
-              <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy') }}">
-                    <img src="{{ URL::asset('assets/img/3.jpg')}}" alt="">
-                 </a>
-                 <div class="course__tag">
-                    <a href="#" class="pink">BESTSELLER</a>
-                 </div>
-              </div>
-              <div class="course__content">
-                 <div class="course__meta d-flex align-items-center justify-content-between">
-                    <div class="course__lesson">
-                       <span><i class="far fa-book-alt"></i>14 Lesson</span>
-                    </div>
-                    <div class="course__rating">
-                       <span><i class="icon_star"></i>3.5 (55)</span>
-                    </div>
-                 </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">Strategy law and organization Foundation</a></h3>
-                 <div class="course__teacher d-flex align-items-center">
-                    <div class="course__teacher-thumb mr-15">
-                       <img src="{{ URL::asset('assets/img/course/teacher/teacher-3.jpg')}}" alt="">
-                    </div>
-                    <h6><a href="instructor-details.html">Elon Gated</a></h6>
-                 </div>
-              </div>
-              <div class="course__more d-flex justify-content-between align-items-center">
-                 <div class="course__status d-flex align-items-center">
-                    <span class="green">$46.00</span>
-                    <span class="old-price">$68.00</span>
-                 </div>
-                 <div class="course__btn">
-                    <a href="{{ route('course-buy') }}" class="link-btn">
-                       Know Details
-                       <i class="far fa-arrow-right"></i>
-                       <i class="far fa-arrow-right"></i>
-                    </a>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat3 cat4 cat6">
-           <div class="course__item white-bg mb-30 fix">
-              <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy') }}">
-                    <img src="{{ URL::asset('assets/img/5.jpg')}}" alt="">
-                 </a>
-                 <div class="course__tag">
-                    <a href="#" class="pink">BESTSELLER</a>
-                 </div>
-              </div>
-              <div class="course__content">
-                 <div class="course__meta d-flex align-items-center justify-content-between">
-                    <div class="course__lesson">
-                       <span><i class="far fa-book-alt"></i>18 Lesson</span>
-                    </div>
-                    <div class="course__rating">
-                       <span><i class="icon_star"></i>4.5 (37)</span>
-                    </div>
-                 </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">Build your media and Public presence</a></h3>
-                 <div class="course__teacher d-flex align-items-center">
-                    <div class="course__teacher-thumb mr-15">
-                       <img src="{{ URL::asset('assets/img/course/teacher/teacher-5.jpg')}}" alt="">
-                    </div>
-                    <h6><a href="instructor-details.html">Pelican Steve</a></h6>
-                 </div>
-              </div>
-              <div class="course__more d-flex justify-content-between align-items-center">
-                 <div class="course__status d-flex align-items-center">
-                    <span class="orange">$62.00</span>
-                    <span class="old-price">$97.00</span>
-                 </div>
-                 <div class="course__btn">
-                    <a href="{{ route('course-buy') }}" class="link-btn">
-                       Know Details
-                       <i class="far fa-arrow-right"></i>
-                       <i class="far fa-arrow-right"></i>
-                    </a>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat2 cat3 cat5">
-           <div class="course__item white-bg mb-30 fix">
-              <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy') }}">
-                    <img src="{{ URL::asset('assets/img/6.jpg')}}" alt="">
-                 </a>
-                 <div class="course__tag">
-                    <a href="#" class="pink">BESTSELLER</a>
-                 </div>
-              </div>
-              <div class="course__content">
-                 <div class="course__meta d-flex align-items-center justify-content-between">
-                    <div class="course__lesson">
-                       <span><i class="far fa-book-alt"></i>13 Lesson</span>
-                    </div>
-                    <div class="course__rating">
-                       <span><i class="icon_star"></i>4.5 (72)</span>
-                    </div>
-                 </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">Creative writing through Storytelling</a></h3>
-                 <div class="course__teacher d-flex align-items-center">
-                    <div class="course__teacher-thumb mr-15">
-                       <img src="{{ URL::asset('assets/img/course/teacher/teacher-6.jpg')}}" alt="">
-                    </div>
-                    <h6><a href="instructor-details.html">Shahnewaz Sakil</a></h6>
-                 </div>
-              </div>
-              <div class="course__more d-flex justify-content-between align-items-center">
-                 <div class="course__status d-flex align-items-center">
-                    <span class="pink">$46.00</span>
-                    <span class="old-price">$72.00</span>
-                 </div>
-                 <div class="course__btn">
-                    <a href="{{ route('course-buy') }}" class="link-btn">
-                       Know Details
-                       <i class="far fa-arrow-right"></i>
-                       <i class="far fa-arrow-right"></i>
-                    </a>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat4 cat6">
-           <div class="course__item white-bg mb-30 fix">
-              <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy') }}">
-                    <img src="{{ URL::asset('assets/img/7.jpg')}}" alt="">
-                 </a>
-                 <div class="course__tag">
-                    <a href="#" class="pink">BESTSELLER</a>
-                 </div>
-              </div>
-              <div class="course__content">
-                 <div class="course__meta d-flex align-items-center justify-content-between">
-                    <div class="course__lesson">
-                       <span><i class="far fa-book-alt"></i>13 Lesson</span>
-                    </div>
-                    <div class="course__rating">
-                       <span><i class="icon_star"></i>4.5 (72)</span>
-                    </div>
-                 </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">Creative writing through Storytelling</a></h3>
-                 <div class="course__teacher d-flex align-items-center">
-                    <div class="course__teacher-thumb mr-15">
-                       <img src="{{ URL::asset('assets/img/course/teacher/teacher-6.jpg')}}" alt="">
-                    </div>
-                    <h6><a href="instructor-details.html">Shahnewaz Sakil</a></h6>
-                 </div>
-              </div>
-              <div class="course__more d-flex justify-content-between align-items-center">
-                 <div class="course__status d-flex align-items-center">
-                    <span class="pink">$46.00</span>
-                    <span class="old-price">$72.00</span>
-                 </div>
-                 <div class="course__btn">
-                    <a href="{{ route('course-buy') }}" class="link-btn">
-                       Know Details
-                       <i class="far fa-arrow-right"></i>
-                       <i class="far fa-arrow-right"></i>
-                    </a>
-                 </div>
-              </div>
-           </div>
-        </div>
+      @endforeach
      </div>
   </div>
 </section>

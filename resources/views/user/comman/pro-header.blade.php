@@ -71,12 +71,20 @@
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
+              @if(Auth::guard('user_new')->check())
               <div class="header-sign-in-up d-none d-lg-block">
                 <ul>
-                  <li><a class="sign-in" href="login.html">Sign In</a></li>
-                  <li><a class="sign-up" href="register.html">Sign Up</a></li>
+                  <li><a class="sign-up" href="{{ route('logout') }}">Logout</a></li>
                 </ul>
               </div>
+              @else
+              <div class="header-sign-in-up d-none d-lg-block">
+                <ul>
+                  <li><a class="sign-in" href="{{ route('login') }}">Sign In</a></li>
+                  <li><a class="sign-up" href="{{ route('signup') }}">Sign Up</a></li>
+                </ul>
+              </div>
+              @endif
               <div class="header-toggle d-lg-none">
                 <a class="menu-toggle" href="javascript:void(0)">
                 <span></span>
