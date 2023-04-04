@@ -16,6 +16,70 @@
   font-weight: 500;
 }
 
+.float-section {
+  position: fixed;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  background: #f1f3fb;
+  padding-top: 1rem;
+  box-shadow: 0px 0px 9px #3f98a2;
+}
+
+.members-tab .single-team .team-thumb{
+  filter: blur(2px);
+}
+.members-tab .single-team .team-content .name{
+  filter: blur(2px);
+}
+
+/***************************** Vertical Review ******************************/
+.vertical_reviews{
+  padding: 1rem;
+  border: 1px solid rgba(48,146,85,0.2);
+  border-radius: 10px;
+  max-height: 1000px;
+  overflow: auto;
+}
+
+.vertical_reviews .single-review{
+  margin-top: 2rem
+}
+
+/************************************************/
+.sidebar-widget .info-btn {
+  margin-top: 20px;
+}
+
+.sidebar-widget .info-btn a{
+  line-height: 1.6;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sidebar-widget .info-btn a span{
+  font-size: 12px;
+}
+
+.float-buttons a {
+  height: 100%;
+  line-height: 1.2;
+  padding: 1rem;
+  background: #3f98a2;
+  font-size: 16px;
+  min-width: 122px;
+  font-weight: 500;
+}
+
+.float-buttons a i {
+  font-size: 17px;
+}
+
+.float-buttons a span{
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 /*********************************************/
 
 .pro-pc .single-user:hover{
@@ -35,7 +99,99 @@
   color: #d4efde;
 }
 
-/***********************************************/
+.course__curriculum .accordion-item .accordion-body {
+  padding: 0;
+}
+
+.accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  color: #212529;
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0;
+  overflow-anchor: none;
+}
+
+.course__curriculum .accordion-item .accordion-button {
+  outline: none;
+  border: 1px solid #edeef2;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  background: #e7f8ee;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0e1133;
+  padding-top: 18px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-width: 1px;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
+
+
+.course__curriculum .accordion-item .accordion-button.collapsed {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.course__curriculum-info{
+  display: flex;
+  align-items: center;
+}
+
+.course__curriculum-info svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 7px;
+}
+
+.course__curriculum-info h3 {
+  display: inline-block;
+  font-size: 16px;
+  color: #53545b;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.course__curriculum-content {
+  padding: 13px 30px;
+  border-bottom: 1px solid #edeef2;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+.course__curriculum-info h3 span {
+  color: #0e1133;
+  font-weight: 500;
+}
+
+.course__curriculum-info svg .st0 {
+  fill: none;
+  stroke: #6D6E75;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.course__curriculum-content:hover {
+  background: #e7f8ee;
+}
+
+/****************************************************/
 
 .how-it-work-wrapper{
 	justify-content: space-evenly;
@@ -88,6 +244,11 @@ h1, h2, h3, h4, h5, h6{
   margin-bottom: 10px;
 }
 
+/***************************************************/
+a .wishlist-heart:hover{
+  transform: scale(1.2);
+}
+
 
 /*********************************************/
 
@@ -120,6 +281,18 @@ h1, h2, h3, h4, h5, h6{
 .single-courses{
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+
+/************************************/
+.share-widget{
+  background-color: #e7f8ee;
+  padding: 30px 30px 40px;
+  border: 1px solid rgba(48,146,85,0.2);
+  border-radius: 10px;
+}
+
+.share-widget h6{
+  margin-bottom: 0;
 }
 
 
@@ -244,11 +417,11 @@ h1, h2, h3, h4, h5, h6{
    left: 0;
    box-shadow: 0px 0px 22px -4px #52565b;
    transition: .4s;
-  }
+ }
 
-  .in-pr-main-content-wrapper{
-    padding-left: 22px !important;
-  }
+ .in-pr-main-content-wrapper{
+  padding-left: 22px !important;
+}
 }
 
 .modal .modal-body p{
@@ -260,10 +433,10 @@ h1, h2, h3, h4, h5, h6{
 
 /*************************************/
 
-    body.profile-body {
-      background-color: #b9e1bda8;
-    }
-    .profile-body .pro-header{
+body.profile-body {
+  background-color: #b9e1bda8;
+}
+.profile-body .pro-header{
       /*background: #fafafa;
       border-radius: 25px;*/
       margin-bottom: 1.5rem;
@@ -377,8 +550,21 @@ h1, h2, h3, h4, h5, h6{
     .login-header-action .cust-dropdown p{
       font-size: 14px;
     }
+
     /**********************/
 
     .dropdown .nice-select{
       font-weight: 500;
     }
+
+    .extra-buttons i{
+      font-size: 18px;
+    }
+
+    .extra-buttons .wishlist-heart.fas{
+      color: red;
+    }
+
+    .wishlist-heart.fas{
+  color: red;
+}
