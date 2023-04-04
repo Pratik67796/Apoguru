@@ -185,6 +185,7 @@ School Dashboard
                  <a href="{{ route('course-buy') }}">
                     <img src="{{asset('course_images/').'/'.$course['image']}}" alt="">
                  </a>
+                 
                  <div class="course__tag">
                     <a href="#" class="pink">BESTSELLER</a>
                  </div>
