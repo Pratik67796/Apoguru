@@ -57,8 +57,10 @@ class Userhome extends Controller
     	return view('user.afrer_dashboard.pro-course-buy');
     }   
 
-    public function course_buy(){
-        return view('user.afrer_dashboard.course-buy');
+    public function course_buy(Request $request,$courseid){
+        $singlecourse = Course::where('id',$courseid)->first();
+        // dd($singlecourse);
+        return view('user.afrer_dashboard.course-buy',compact('singlecourse'));
     }
     
     public function pro_subcategory(Request $request){

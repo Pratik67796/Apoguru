@@ -237,7 +237,7 @@
                     <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                       <div class="course__description">
                         <h3>Course Overview</h3>
-                        <p>Only a quid me old mucker squiffy tomfoolery grub cheers ruddy cor blimey guvnor in my flat, up the duff Eaton car boot up the kyver pardon you A bit of how's your father David skive off sloshed, don't get shirty with me chip shop vagabond crikey bugger Queen's English chap. Matie boy nancy boy bite your arm off up the kyver old no biggie fantastic boot, David have it show off show off pick your nose and blow off lost the plot porkies bits and bobs only a quid bugger all mate, absolutely bladdered bamboozled it's your round don't get shirty with me down the pub well. Give us a bell bits and bobs Charles he lost his bottle super my lady cras starkers bite your arm off Queen's English, pardon me horse play Elizabeth a blinding shot chinwag knees up do one David, blag cup of tea Eaton so I said bleeding haggle James Bond cup of char. Gosh William ummm I'm telling crikey burke I don't want no agro A bit of how's your father bugger all mate off his nut that, what a plonker cuppa owt to do with me nancy boy show off show off pick your nose and blow off spiffing good time lavatory me old mucker, chimney pot what a load of rubbish boot squiffy lost the plot brolly wellies excuse my french.</p>
+                        <p>{{strip_tags($singlecourse['description'])}}</p>
                         <div class="course__tag-2 mb-35 mt-35">
                           <i class="fal fa-tag"></i>
                           <a href="javascript:void(0)">Big data,</a>
@@ -707,21 +707,13 @@
                         <div class="course__form">
                           <h3>Write a Review</h3>
                           <div class="course__form-inner">
-                            <form action="#">
+                            <form action="{{route('course_rating_add')}}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              <input type="hidden" name="course_id" value="{{$singlecourse['id']}}">
                               <div class="row">
-                                <!-- <div class="col-xxl-6">
-                                  <div class="course__form-input">
-                                    <input type="text" placeholder="Your Name">
-                                  </div>
-                                </div>
-                                <div class="col-xxl-6">
-                                  <div class="course__form-input">
-                                    <input type="email" placeholder="Your Email">
-                                  </div>
-                                </div> -->
                                 <div class="col-xxl-12">
                                   <div class="course__form-input">
-                                    <input type="text" placeholder="Review Title">
+                                    <input type="text" placeholder="Review Title" name="review_title">
                                   </div>
                                 </div>
                                 <div class="col-xxl-12">
@@ -736,7 +728,7 @@
                                         <li><a href="javascript:void(0)" class="no-rating" > <i class="icon_star"></i> </a></li>
                                       </ul>
                                     </div>
-                                    <textarea placeholder="Review Summary"></textarea>
+                                    <textarea placeholder="Review Summary" name="description"></textarea>
                                   </div>
                                 </div>
                               </div>
@@ -1072,15 +1064,15 @@
                 <div class="course__sidebar-widget-2 white-bg mb-20">
                   <div class="course__video">
                     <div class="course__video-thumb w-img mb-25">
-                      <img src="assets/img/course/video/course-video.jpg" alt="">
+                      <img src="{{asset('course_images/').'/'.$singlecourse['image']}}" alt="">
                       <div class="course__video-play"> 
                         <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
                       </div>
                     </div>
                     <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
                       <div class="course__video-price">
-                        <h5>$74.<span>00</span> </h5>
-                        <h5 class="old-price">$129.00</h5>
+                        <h5 id="actual_price"></h5>
+                        <h5 class="old-price" id="sell_price"></h5>
                       </div>
                       <div class="course__video-discount">
                         <span>68% OFF</span>
@@ -1285,6 +1277,52 @@
           $(this).toggleClass("fas");
         })
       });
+    </script>
+   
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script>
+      var resultFrom;
+      var resultTo;
+      var simbol
+      var searchValue;
+
+      $(document).ready(function() {
+          const api = "https://api.exchangerate-api.com/v4/latest/USD";
+          searchValue = <?php echo json_encode($singlecourse['actual_price']);?>;
+          searchValue_sell = <?php echo json_encode($singlecourse['sell_price']);?>;
+          resultFrom = <?php echo json_encode($singlecourse['currency']);?>;
+          resultTo = geoplugin_currencyCode();
+          simbol = getCurrencySymbol('en', resultTo);
+          fetch(`${api}`).then(currency =>{
+            return currency.json();
+          }).then(displayResults); 
+      });
+
+      function displayResults(currency) {
+        let fromRate = currency.rates[resultFrom];
+        let toRate = currency.rates[resultTo];
+        console.log("toRate",toRate);
+        console.log('fromRate',fromRate);
+        console.log(((toRate / fromRate) * searchValue).toFixed(2));
+        // $('#amount').val(((toRate / fromRate) * searchValue).toFixed(2));
+        // $('#amount_someone').val(((toRate / fromRate) * searchValue).toFixed(2));
+        $('#actual_price').text(simbol+((toRate / fromRate) * searchValue).toFixed(2));
+        $('#sell_price').text(simbol+((toRate / fromRate) * searchValue_sell).toFixed(2));
+        $('#curr').val(resultTo);
+        $('#curr_someone').val(resultTo);
+      }
+
+      function getCurrencySymbol (locale, currency) {
+        return (0).toLocaleString(
+          locale,
+          {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          }
+        ).replace(/\d/g, '').trim()
+      }
     </script>
 @endsection
 

@@ -201,36 +201,24 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
 //   Route::get('/payment', 'Front\PaymentController@paymentPage')->name('payment');
 // });
 
-$currentURL = url()->current();
+// $currentURL = url()->current();
   
-if($currentURL == "http://www.apoguru.com"){
-  Route::get('/','Front\PaymentController@index')->name('index');  
-}
+// if($currentURL == "http://www.apoguru.com"){
+//   Route::get('/','Front\PaymentController@index')->name('index');  
+// }
 // user site
 // ---------------------------------------All new design you can do it ik --------------------------------------
 
 Route::get('/', 'Front\Userhome@index')->name('index');
-
 Route::get('/school-dashboard', 'Front\Userhome@school_dashboard')->name('school-dashboard');
-
-
-
-// Route::get('/login', 'Front\Userhome@login')->name('login');
-
 Route::get('/professional-dashboard', 'Front\Userhome@professional_dashboard')->name('professional-dashboard');
 
 // Route::get('/subcategory', 'Front\Userhome@subcategory')->name('subcategory');
 Route::get('/subcategory/{id?}', 'Front\Userhome@subcategory')->name('subcategory');
-
-Route::get('/course-buy', 'Front\Userhome@course_buy')->name('course-buy');
-
+Route::get('/course-buy/{courseid?}', 'Front\Userhome@course_buy')->name('course-buy');
 Route::get('/course/{id}', 'Front\Userhome@course')->name('course');
-
 Route::get('/pro-subcategory/{id?}', 'Front\Userhome@pro_subcategory')->name('pro-subcategory');
-
 Route::get('/pro-course-buy', 'Front\Userhome@pro_course_buy')->name('pro-course-buy');
-
-
 
 //user register
 Route::get('/signup', 'Front\Logincontroller@registration')->name('signup');
@@ -240,3 +228,5 @@ Route::post('/reg','Front\Logincontroller@reg_post')->name('reg');
 Route::get('/login', 'Front\Logincontroller@login')->name('login');
 Route::post('post-login', 'Front\Logincontroller@postLogin')->name('post-login');
 Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
+
+Route::post('/course_rating_add', 'Front\Coursecontroller@course_rating_add')->name('course_rating_add');

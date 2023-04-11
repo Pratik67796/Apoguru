@@ -182,7 +182,7 @@ School Dashboard
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat3 cat5 cat2 cat4 cat6">
            <div class="course__item white-bg mb-30 fix">
               <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy') }}">
+                 <a href="{{ route('course-buy').'/'.$course['id'] }}">
                     <img src="{{asset('course_images/').'/'.$course['image']}}" alt="">
                  </a>
                  <div class="course__tag">
@@ -198,12 +198,12 @@ School Dashboard
                        <span><i class="icon_star"></i>4.5 (44)</span>
                     </div>
                  </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy') }}">{{strip_tags($course['title'])}}</a></h3>
+                 <h3 class="course__title"><a href="{{ route('course-buy').'/'.$course['id'] }}">{{strip_tags($course['title'])}}</a></h3>
                  <div class="course__teacher d-flex align-items-center">
                     <div class="course__teacher-thumb mr-15">
                        <img src="{{ URL::asset('assets/img/course/teacher/teacher-1.jpg')}}" alt="">
                     </div>
-                    <h6><a href="instructor-details.html">{{isset($course['User']['name'])?$course['User']['name']:'Admin'}}</a></h6>
+                    <h6><a href="#">{{isset($course['User']['name'])?$course['User']['name']:'Admin'}}</a></h6>
                  </div>
               </div>
               <div class="course__more d-flex justify-content-between align-items-center">
@@ -211,7 +211,7 @@ School Dashboard
                     <span>Free</span>
                  </div>
                  <div class="course__btn">
-                    <a href="{{ route('course-buy') }}" class="link-btn">
+                    <a href="{{ route('course-buy').'/'.$course['id'] }}" class="link-btn">
                        Know Details
                        <i class="far fa-arrow-right"></i>
                        <i class="far fa-arrow-right"></i>
