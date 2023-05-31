@@ -1286,6 +1286,7 @@
       var simbol
       var searchValue;
 
+      
       $(document).ready(function() {
           const api = "https://api.exchangerate-api.com/v4/latest/USD";
           searchValue = <?php echo json_encode($singlecourse['actual_price']);?>;
