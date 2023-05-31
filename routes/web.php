@@ -241,3 +241,5 @@ Route::get('/login', 'Front\Logincontroller@login')->name('login');
 Route::post('post-login', 'Front\Logincontroller@postLogin')->name('post-login');
 Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
 
+//User Profile
+Route::get('/s-cart', 'profile\profilecontroller@cart')->name('cart');

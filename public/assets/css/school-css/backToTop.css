@@ -41,8 +41,6 @@
     transition: all 200ms linear;
   }
 
-
-  
   .progress-wrap svg path { 
     fill: none; 
   }
