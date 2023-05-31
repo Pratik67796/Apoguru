@@ -242,4 +242,8 @@ Route::post('post-login', 'Front\Logincontroller@postLogin')->name('post-login')
 Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
 
 //User Profile
-Route::get('/s-cart', 'profile\profilecontroller@cart')->name('cart');
+Route::get('/cart', 'Front\profilecontroller@cart')->name('cart');
+Route::get('/my-course', 'Front\profilecontroller@cart')->name('cart');
+Route::get('/my-wishlist', 'Front\profilecontroller@cart')->name('cart');
+Route::get('/subscription-history', 'Front\profilecontroller@cart')->name('cart');
+Route::get('/learner-profile', 'Front\profilecontroller@cart')->name('cart');

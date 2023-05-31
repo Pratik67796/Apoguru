@@ -18,5 +18,14 @@ class profileController extends Controller
   public function cart(){
     return view('user.profile.s-profile.s-cart');
   }
+
+  public function my_course(){
+    return view('user.profile.s-profile.s-cart');
+  }
+
+
+  public function my_wishlist(){
+    return view('user.profile.s-profile.s-cart');
+  }
     
 }
