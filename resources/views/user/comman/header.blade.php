@@ -112,7 +112,7 @@
                  <div class="footer__widget mb-50">
                     <div class="footer__widget-head mb-22">
                        <div class="footer__logo">
-                          <a href="index.html">
+                          <a href="{{ route('index') }}">
                              <img src="assets/images/apoGuru-logo.png" alt="" width="120">
                           </a>
                        </div>

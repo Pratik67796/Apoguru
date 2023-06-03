@@ -243,15 +243,15 @@
     <div class="section overflow-hidden position-relative" id="wrapper">
       <div class="page-content-wrapper py-0">
         <div class="nav flex-column admin-tab-menu in-pro-admin-tab-menu">
-          <a class="action author" href="index.html" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
+          <a class="action author" href="{{ route('index') }}" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
           </a>
           <h5 class="title"> Instructor Dashboard</h5>
           <!-- <a href="profile-home.html"><i class="icofont-home"></i> Home</a> -->
-          <a href="my-profile.html"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="creat-course.html"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
-          <a href="created-course.html"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
-          <a class="active" href="wallet.html"><i class="fas fa-sack-dollar"></i> Wallet</a>
+          <a href="{{ route('instructor-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('create-course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
+          <a href="{{ route('course-i-have-created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
+          <a class="active" href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i> Wallet</a>
           <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
           <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
           <a href="subscription-history"><i class="icofont-history"></i> Subscription History</a>
@@ -268,7 +268,7 @@
 
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Learner Dashboard">
                   <li>
-                    <a href="../s-profile/s-my-profile.html">
+                    <a href="{{ route('learner-profile') }}">
                       <label class="switch on">
                         <span class="slider round"><img src="{{ URL::asset('assets/images/icon-instructor-switch.png')}}" width="40"></span>
                       </label>
@@ -779,7 +779,7 @@
             <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
               <div class="footer-widget">
                 <div class="widget-logo">
-                  <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                  <a href="{{ route('index') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                 </div>
                 <div class="widget-address">
                   <h4 class="footer-widget-title">Caribbean Ct</h4>

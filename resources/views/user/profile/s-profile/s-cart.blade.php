@@ -292,15 +292,15 @@
       </div>
       <div class="page-content-wrapper py-0">
         <div class="nav flex-column admin-tab-menu in-pro-admin-tab-menu">
-          <a class="action author" href="../index.html" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
+          <a class="action author" href="" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
             <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
           </a>
           <h5 class="title"> Learner Dashboard</h5>
-          <a href="s-my-profile.html"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="s-my-course.html"><i class="icofont-computer"></i> My Courses</a>
-          <a href="s-my-wishlist.html"><i class="icofont-heart"></i> My Wishlist</a>
-          <a href="s-subscription-history.html"><i class="icofont-history"></i> Subscription History</a>
-          <a href="s-cart.html" class="active"><i class="icofont-shopping-cart"></i> View Cart</a>
+          <a href="{{ route('learner_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my-wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
+          <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription History</a>
+          <a href="{{ route('cart') }}" class="active"><i class="icofont-shopping-cart"></i> View Cart</a>
         </div>
 
         <div class="main-content-wrapper in-pr-main-content-wrapper">
@@ -312,7 +312,7 @@
                 
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Instructor Dashboard">
                   <li>
-                    <a href="../profile/my-profile.html">
+                    <a href="{{ route('/instructor-profile') }}">
                       <label class="switch off">
                         <span class="slider round"><img src="{{ URL::asset('assets/images/icon-learner-switch.png')}}" width="40"></span>
                       </label>
@@ -434,7 +434,7 @@
                         </div>
                       </div>
 
-                      <h4 class="title mb-3"><a href="../pro-course-buy.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                      <h4 class="title mb-3"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
 
                       <div class="courses-price">
                         <span class="sale-price">$385.00</span>
@@ -467,7 +467,7 @@
                         </div>
                       </div>
                       
-                      <h4 class="title mb-3"><a href="../pro-course-buy.html">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                      <h4 class="title mb-3"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
 
                       <div class="courses-price">
                         <span class="sale-price">$295.00</span>
@@ -499,7 +499,7 @@
                           <a class="name" data-bs-toggle="modal" data-bs-target="#ins_Modal">Jason Williams</a>
                         </div>
                       </div>
-                      <h4 class="title mb-3"><a href="../pro-course-buy.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                      <h4 class="title mb-3"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                       <div class="courses-price">
                         <spans class="sale-price">$355.00</span>
                         <span class="old-price">$380.00</span>
@@ -537,7 +537,7 @@
             <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
               <div class="footer-widget">
                 <div class="widget-logo">
-                  <a href="../index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                  <a href=""><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                 </div>
                 <div class="widget-address">
                   <h4 class="footer-widget-title">Caribbean Ct</h4>

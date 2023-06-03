@@ -28,7 +28,7 @@
           <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
               <div class="d-flex flex-column align-items-center justify-content-center mb-5">
-                <img class="img-fluid mb-3" src="../{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
+                <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
                 <div>
                   <h4 class="mb-3">Martin nel</h4>
                 </div>
@@ -66,9 +66,7 @@
                     <h5>25 (Twenty five)</h5>
                   </div>
                 </div>
-                
               </div>
-              
             </form>
           </div>
         </div>
@@ -108,7 +106,7 @@
           <div class="container">
             <div class="header-main-wrapper">
               <div class="header-logo">
-                <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
+                <a href="{{ route('/') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
               </div>
               @if(Auth::guard('user_new')->check())
               <div class="header-sign-in-up d-none d-lg-block">
@@ -152,12 +150,12 @@
         </div>
         <div class="mobile-menu-items">
           <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ route('index') }}">Home</a></li>
             <li>
               <a href="#">All Course</a>
               <ul class="sub-menu">
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="courses-details.html">Courses Details</a></li>
+                <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
               </ul>
             </li>
             <li>
@@ -1025,7 +1023,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="courses-details.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="{{ route('courses-details') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">

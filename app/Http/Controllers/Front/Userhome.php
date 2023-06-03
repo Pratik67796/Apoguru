@@ -71,4 +71,12 @@ class Userhome extends Controller
         return view('user.afrer_dashboard.pro-subcategory',['childsubcat' => $childsubcat,'parentcat_name' => $parentcat_name]);
     }
 
+    public function buyed_course(){
+        return view('user.afrer_dashboard.buyed-course');
+    }   
+
+    public function s_buyed_course(){
+        return view('user.afrer_dashboard.s-buyed-course');
+    } 
+
 }

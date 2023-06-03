@@ -140,7 +140,7 @@ School Dashboard
     </div>
     <div class="sidebar__content">
        <div class="logo mb-40">
-          <a href="index.html">
+          <a href="{{ route('index') }}">
           <img src="{{ URL::asset('assets/img/logo/logo.png')}}" alt="logo">
           </a>
        </div>

@@ -21,7 +21,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-6 col-lg-4 mb-2">
                         <div class="section-block">
-                            <a href="school-dashboard.html">
+                            <a href="{{ route('school-dashboard') }}">
                                 <div class="img-section">
                                     <img class="w-100" src="images/school.jpg">
                                 </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 mb-2">
                         <div class="section-block">
-                            <a href="professional-dashboard.html">
+                            <a href="{{ route('professional-dashboard') }}">
                                 <div class="img-section">
                                     <img class="w-100" src="images/school.jpg">
                                 </div>

@@ -7,7 +7,7 @@
   <title>apoGuru - Profile</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/images/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/images/favicon.ico')}}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/vendor/plugins.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/style.min.css')}}">
@@ -185,15 +185,15 @@ small{
       </div>
       <div class="page-content-wrapper py-0">
         <div class="nav flex-column admin-tab-menu in-pro-admin-tab-menu">
-          <a class="action author" href="../index.html" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
+          <a class="action author" href="" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
           </a>
           <h5 class="title"> Learner Dashboard</h5>
-          <a href="s-my-profile.html"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="s-my-course.html"><i class="icofont-computer"></i> My Courses</a>
-          <a href="s-my-wishlist.html"><i class="icofont-heart"></i> My Wishlist</a>
-          <a href="s-subscription-history.html" class="active"><i class="icofont-history"></i> Subscription History</a>
-          <a href="s-cart.html"><i class="icofont-shopping-cart"></i> View Cart</a>
+          <a href="{{ route('learner-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my-wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
+          <a href="{{ route('subscription-history') }}" class="active"><i class="icofont-history"></i> Subscription History</a>
+          <a href="{{ route('cart') }}"><i class="icofont-shopping-cart"></i> View Cart</a>
         </div>
         <div class="main-content-wrapper in-pr-main-content-wrapper">
           <div class="pro-header mb-1">
@@ -204,7 +204,7 @@ small{
 
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Instructor Dashboard">
                   <li>
-                    <a href="../profile/my-profile.html">
+                    <a href="{{ route('/instructor-profile') }}">
                         <label class="switch off">
                           <span class="slider round"><img src="{{ URL::asset('assets/images/icon-learner-switch.png')}}" width="40"></span>
                         </label>
@@ -275,7 +275,7 @@ small{
                   </div>
                 </div>
                 <a class="action author" href="#">
-                  <img src="{{ URL::asset('assets/images/author/author-07.jpg" alt="Author">
+                  <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                 </a>
                 <div class="dropdown">
                   <!-- <button class="action more" data-bs-toggle="dropdown">
@@ -321,7 +321,7 @@ small{
                   <div class="media">
                     <div class="row">
                       <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-                        <img class="align-self-center img-fluid" src="{{ URL::asset('assets/images/courses/courses-01.jpg" width=" " height="">
+                        <img class="align-self-center img-fluid" src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" width=" " height="">
                       </div>
                       <div class="col-12 col-lg-6 my-auto">
                         <div class="media-body">
@@ -347,7 +347,7 @@ small{
                   <div class="media">
                     <div class="row">
                       <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-                        <img class="align-self-center img-fluid" src="{{ URL::asset('assets/images/courses/courses-02.jpg" width=" " height="">
+                        <img class="align-self-center img-fluid" src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" width=" " height="">
                       </div>
                       <div class="col-12 col-lg-6 my-auto">
                         <div class="media-body">
@@ -374,7 +374,7 @@ small{
             <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
               <div class="footer-widget">
                 <div class="widget-logo">
-                  <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                  <a href=""><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                 </div>
                 <div class="widget-address">
                   <h4 class="footer-widget-title">Caribbean Ct</h4>

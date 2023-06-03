@@ -252,15 +252,15 @@
       <div class="page-content-wrapper py-0">
 
         <div class="nav flex-column admin-tab-menu in-pro-admin-tab-menu">
-          <a class="action author" href="../index.html" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
+          <a class="action author" href="{{ route('/') }}" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
             </a>
           <h5 class="title" > Learner Dashboard</h5>
-          <a href="s-my-profile.html"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="s-my-course.html" class="active"><i class="icofont-computer"></i> My Courses</a>
-          <a href="s-my-wishlist.html"><i class="icofont-heart"></i> My Wishlist</a>
-          <a href="s-subscription-history.html"><i class="icofont-history"></i> Subscription History</a>
-          <a href="s-cart.html"><i class="icofont-shopping-cart"></i> View Cart</a>
+          <a href="{{ route('learner-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('my-course') }}" class="active"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my-wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
+          <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription History</a>
+          <a href="{{ route('cart') }}"><i class="icofont-shopping-cart"></i> View Cart</a>
         </div>
         <div class="main-content-wrapper in-pr-main-content-wrapper">
           <div class="pro-header mb-1">
@@ -271,7 +271,7 @@
 
                   <ul class="list-inline text-center switch-toggler-list icon-switch" title="Instructor Dashboard">
                   <li>
-                    <a href="../profile/my-profile.html">
+                    <a href="{{ route('/instructor-profile') }}">
                       <label class="switch off">
                         <span class="slider round"><img src="{{ URL::asset('assets/images/icon-learner-switch.png')}}" width="40"></span>
                       </label>
@@ -394,7 +394,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -411,7 +411,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -440,7 +440,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="course__item white-bg mb-30 fix">
                           <div class="course__thumb w-img p-relative fix">
-                             <a href="course-buy.html">
+                             <a href="{{ route('course-buy') }}">
                                 <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
                              </a>
                              <!-- <div class="course__tag">
@@ -464,7 +464,7 @@
                                  </div>
                              </div>
 
-                             <h3 class="course__title"><a href="course-buy.html">Become a product Manager learn the skills &amp; job.</a></h3>
+                             <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills &amp; job.</a></h3>
                              
                               <div class="course__meta d-flex align-items-center justify-content-between">
                                 <div class="course__lesson">
@@ -481,7 +481,7 @@
                                 <!-- <span>$ 250</span> -->
                              </div>
                              <div class="course__btn">
-                                <a href="course-buy.html" class="link-btn">
+                                <a href="{{ route('course-buy') }}" class="link-btn">
                                    Know Details
                                    <i class="far fa-arrow-right"></i>
                                    <i class="far fa-arrow-right"></i>
@@ -502,7 +502,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -519,7 +519,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -548,7 +548,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="course__item white-bg mb-30 fix">
                           <div class="course__thumb w-img p-relative fix">
-                             <a href="course-buy.html">
+                             <a href="{{ route('course-buy') }}">
                                 <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
                              </a>
                              <!-- <div class="course__tag">
@@ -572,7 +572,7 @@
                                  </div>
                              </div>
 
-                             <h3 class="course__title"><a href="course-buy.html">Become a product Manager learn the skills &amp; job.</a></h3>
+                             <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills &amp; job.</a></h3>
                              
                               <div class="course__meta d-flex align-items-center justify-content-between">
                                 <div class="course__lesson">
@@ -589,7 +589,7 @@
                                 <!-- <span>$ 250</span> -->
                              </div>
                              <div class="course__btn">
-                                <a href="course-buy.html" class="link-btn">
+                                <a href="{{ route('course-buy') }}" class="link-btn">
                                    Know Details
                                    <i class="far fa-arrow-right"></i>
                                    <i class="far fa-arrow-right"></i>
@@ -613,7 +613,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html">
+                            <a href="{{ route('buyed-course') }}">
                               <img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses">
                             </a>
                           </div>
@@ -632,7 +632,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -660,7 +660,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -677,7 +677,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -711,7 +711,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -728,7 +728,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -757,7 +757,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -774,7 +774,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -802,7 +802,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -819,7 +819,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -848,7 +848,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -865,7 +865,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -893,7 +893,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -910,7 +910,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -938,7 +938,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -955,7 +955,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -989,7 +989,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1006,7 +1006,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1035,7 +1035,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1052,7 +1052,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1080,7 +1080,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1097,7 +1097,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1126,7 +1126,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1143,7 +1143,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1171,7 +1171,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1188,7 +1188,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1216,7 +1216,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1233,7 +1233,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1267,7 +1267,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1284,7 +1284,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1313,7 +1313,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1330,7 +1330,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1358,7 +1358,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1375,7 +1375,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1404,7 +1404,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1421,7 +1421,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1449,7 +1449,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1466,7 +1466,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1494,7 +1494,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1511,7 +1511,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1545,7 +1545,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1562,7 +1562,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1590,7 +1590,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1607,7 +1607,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1636,7 +1636,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1653,7 +1653,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1681,7 +1681,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1698,7 +1698,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1728,7 +1728,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1745,7 +1745,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1773,7 +1773,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1790,7 +1790,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1824,7 +1824,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1841,7 +1841,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1870,7 +1870,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1887,7 +1887,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1916,7 +1916,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1933,7 +1933,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1961,7 +1961,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -1978,7 +1978,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -2006,7 +2006,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -2023,7 +2023,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -2052,7 +2052,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
                           <div class="courses-images">
-                            <a href="../buyed-course.html"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                            <a href="{{ route('buyed-course') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                           </div>
                           <div class="courses-content">
                             <div class="courses-author">
@@ -2069,7 +2069,7 @@
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
                               </div>
                             </div>
-                            <h4 class="title"><a href="../buyed-course.html">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                            <h4 class="title"><a href="{{ route('buyed-course') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                             <div class="courses-meta">
                               <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                               <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -2110,7 +2110,7 @@
               <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
                 <div class="footer-widget">
                   <div class="widget-logo">
-                    <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                    <a href="{{ route('/') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                   </div>
                   <div class="widget-address">
                     <h4 class="footer-widget-title">Caribbean Ct</h4>
