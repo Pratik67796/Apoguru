@@ -370,9 +370,9 @@ form .flex-input-field .icon-input{
           </a>
           <h5 class="title"> Instructor Dashboard</h5>
           <!-- <a href="profile-home.html"><i class="icofont-home"></i> Home</a> -->
-          <a href="{{ route('instructor-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="{{ route('create-course') }}" class="active"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
-          <a href="{{ route('course-i-have-created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
+          <a href="{{ route('instructor_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('create_course') }}" class="active"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
+          <a href="{{ route('course_i_have_created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
           <a href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i>Wallet</a>
           <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
           <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
@@ -389,7 +389,7 @@ form .flex-input-field .icon-input{
                 <h5 class="mb-0">Create Course</h5>
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Learner Dashboard">
                   <li>
-                    <a href="{{ route('learner-profile') }}">
+                    <a href="{{ route('learner_profile') }}">
                       <label class="switch on">
                         <span class="slider round"><img src="{{ URL::asset('assets/images/icon-instructor-switch.png')}}" width="40"></span>
                       </label>
@@ -772,16 +772,15 @@ form .flex-input-field .icon-input{
   </a>
 
 </div>
+    <script src="{{ URL::asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/plugins.min.js')}}"></script>
 
-    <script src="{{ URL::asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/plugins.min.js"></script>
-
-    <script src="{{ URL::asset('assets/js/professional-js/main.js"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.min.js"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.world.js"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.sampledata.js"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/student-map.js"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/main.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.world.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.sampledata.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/professional-js/student-map.js')}}"></script>
 
   <script type="">
     $(".switch.on").click(function(){

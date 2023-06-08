@@ -234,13 +234,13 @@
       <div class="page-content-wrapper py-0">
 
         <div class="nav flex-column admin-tab-menu in-pro-admin-tab-menu flex-nowrap">
-          <a class="action author" href="{{ route('/') }}" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
+          <a class="action author" href="" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
             </a>
           <h5 class="title"> Learner Dashboard</h5>
-          <a href="{{ route('learner-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
-          <a href="{{ route('my-wishlist') }}" class="active"><i class="icofont-heart"></i> My Wishlist</a>
+          <a href="{{ route('learner_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('my_course') }}"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my_wishlist') }}" class="active"><i class="icofont-heart"></i> My Wishlist</a>
           <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription History</a>
           <a href="{{ route('cart') }}"><i class="icofont-shopping-cart"></i> View Cart</a>
         </div>
@@ -253,7 +253,7 @@
 
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Instructor Dashboard">
                   <li>
-                    <a href="{{ route('/instructor-profile') }}">
+                    <a href="{{ route('instructor_profile') }}">
                         <label class="switch off">
                           <span class="slider round"><img src="{{ URL::asset('assets/images/icon-learner-switch.png')}}" width="40"></span>
                         </label>
@@ -613,7 +613,7 @@
 
               <div class="footer-widget">
                 <div class="widget-logo">
-                  <a href="{{ route('/') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                  <a href=" "><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                 </div>
 
                 <div class="widget-address">

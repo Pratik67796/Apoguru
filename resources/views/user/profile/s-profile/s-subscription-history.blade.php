@@ -189,9 +189,9 @@ small{
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
           </a>
           <h5 class="title"> Learner Dashboard</h5>
-          <a href="{{ route('learner-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
-          <a href="{{ route('my-wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
+          <a href="{{ route('learner_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('my_course') }}"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my_wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
           <a href="{{ route('subscription-history') }}" class="active"><i class="icofont-history"></i> Subscription History</a>
           <a href="{{ route('cart') }}"><i class="icofont-shopping-cart"></i> View Cart</a>
         </div>
@@ -204,7 +204,7 @@ small{
 
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Instructor Dashboard">
                   <li>
-                    <a href="{{ route('/instructor-profile') }}">
+                    <a href="{{ route('instructor_profile') }}">
                         <label class="switch off">
                           <span class="slider round"><img src="{{ URL::asset('assets/images/icon-learner-switch.png')}}" width="40"></span>
                         </label>

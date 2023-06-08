@@ -196,9 +196,9 @@
             </a>
           <h5 class="title"> Instructor Dashboard</h5>
           <!-- <a href="profile-home.html"><i class="icofont-home"></i> Home</a> -->
-          <a href="{{ route('instructor-profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="{{ route('create-course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
-          <a href="{{ route('course-i-have-created') }}" class="active"><i class="icofont-ruler-compass-alt"></i> Course I have Created</a>
+          <a href="{{ route('instructor_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
+          <a href="{{ route('create_course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
+          <a href="{{ route('course_i_have_created') }}" class="active"><i class="icofont-ruler-compass-alt"></i> Course I have Created</a>
           <a href="{{ route('wallet') }}" class=""><i class="fas fa-sack-dollar"></i>Wallet</a>
           <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
           <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
@@ -217,7 +217,7 @@
 
                 <ul class="list-inline text-center switch-toggler-list icon-switch" title="Learner Dashboard">
                   <li>
-                    <a href="{{ route('learner-profile') }}">
+                    <a href="{{ route('learner_profile') }}">
                       <label class="switch on">
                         <span class="slider round"><img src="{{ URL::asset('assets/images/icon-instructor-switch.png')}}" width="40"></span>
                       </label>
