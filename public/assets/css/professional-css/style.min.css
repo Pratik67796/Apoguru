@@ -301,7 +301,7 @@ select:disabled{
     -webkit-appearance:button
 }
 [type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){
-    cursor:pointer
+    cursor:pointer;
 }
 ::-moz-focus-inner{
     padding:0;
@@ -364,7 +364,7 @@ iframe{
 }
 summary{
     display:list-item;
-    cursor:pointer
+    cursor:pointer;
 }
 progress{
     vertical-align:baseline
@@ -483,7 +483,7 @@ progress{
     height:auto
 }
 .figure{
-    display:inline-block
+    display:inline-block;
 }
 .figure-img{
     margin-bottom:0.5rem;
@@ -491,7 +491,7 @@ progress{
 }
 .figure-caption{
     font-size:0.875em;
-    color:#6c757d
+    color:#6c757d;
 }
 .container,.container-fluid,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl{
     --bs-gutter-x:30px;
@@ -500,7 +500,7 @@ progress{
     padding-right:calc(var(--bs-gutter-x) * 0.5);
     padding-left:calc(var(--bs-gutter-x) * 0.5);
     margin-right:auto;
-    margin-left:auto
+    margin-left:auto;
 }
 @media (min-width:576px){
     .container,.container-sm{
@@ -557,7 +557,7 @@ progress{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:auto
+    width:auto;
 }
 .row-cols-1>*{
     -webkit-box-flex:0;
@@ -569,43 +569,43 @@ progress{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:50%
+    width:50%;
 }
 .row-cols-3>*{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:33.3333333333%
+    width:33.3333333333%;
 }
 .row-cols-4>*{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:25%
+    width:25%;
 }
 .row-cols-5>*{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:20%
+    width:20%;
 }
 .row-cols-6>*{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:16.6666666667%
+    width:16.6666666667%;
 }
 .col-auto{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:auto
+    width:auto;
 }
 .col-1{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:8.33333333%
+    width:8.33333333%;
 }
 .col-2{
     -webkit-box-flex:0;
@@ -617,13 +617,13 @@ progress{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:25%
+    width:25%;
 }
 .col-4{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:33.33333333%
+    width:33.33333333%;
 }
 .col-5{
     -webkit-box-flex:0;
@@ -635,13 +635,13 @@ progress{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:50%
+    width:50%;
 }
 .col-7{
     -webkit-box-flex:0;
     -ms-flex:0 0 auto;
     flex:0 0 auto;
-    width:58.33333333%
+    width:58.33333333%;
 }
 .col-8{
     -webkit-box-flex:0;

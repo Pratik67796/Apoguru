@@ -4,10 +4,102 @@ School Dashboard
 @endsection
 
 @section('content') 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Championship</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-40">
+          <a href="javascript:void(0)"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" width="130"></a>
+        </div>
+        <div class="d-flex align-items-center justify-content-between my-4">
+          <button class="e-btn cust-fixed-btn fixed-pq-btn">Create a Challenge</button>
+          <p class="mb-0">OR</p>
+          <button class="e-btn cust-fixed-btn fixed-pq-btn">Accept a Challenge</button>
+         </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="ins_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ins_ModalLabel">Instructor Profile Preview</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
+          <div class="">
+              <div class="d-flex flex-column align-items-center justify-content-center mb-5">
+                <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
+                <div>
+                  <h4 class="mb-3">Martin nel</h4>
+                </div>
+              </div>
+
+            <form class="profile-form ins-details">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Qualification: </h6>
+                    <h5>Diploma Engenearing</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Profection / Workplace:</h6>
+                    <h5>London, England</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Teaching / Mentorship Experience:</h6>
+                    <h5>10+ Years Experience in teaching</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Students:</h6>
+                    <h5>120 (One hundred and twenty)</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Courses:</h6>
+                    <h5>25 (Twenty five)</h5>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <div id="floating-icon" class="pq-section">
   <button href="" class="e-btn cust-fixed-btn fixed-pq-btn"><img src="{{ URL::asset('assets/ficon/bowling.gif')}}" width="35"> Past Questions </button>
   <button href="" class="e-btn cust-fixed-btn fixed-champ-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="{{ URL::asset('assets/ficon/trophy.gif')}}" width="35"> Championship </button>
-  
 </div>
 
 <form class="hide-pq-dropdown">
@@ -48,7 +140,7 @@ School Dashboard
     </div>
     <div class="sidebar__content">
        <div class="logo mb-40">
-          <a href="index.html">
+          <a href="{{ route('index') }}">
           <img src="{{ URL::asset('assets/img/logo/logo.png')}}" alt="logo">
           </a>
        </div>
@@ -201,9 +293,9 @@ School Dashboard
                  <h3 class="course__title"><a href="{{ route('course-buy').'/'.$course['id'] }}">{{strip_tags($course['title'])}}</a></h3>
                  <div class="course__teacher d-flex align-items-center">
                     <div class="course__teacher-thumb mr-15">
-                       <img src="{{ URL::asset('assets/img/course/teacher/teacher-1.jpg')}}" alt="">
+                       <img data-bs-toggle="modal" data-bs-target="#ins_Modal" src="{{ URL::asset('assets/img/course/teacher/teacher-1.jpg')}}" alt="">
                     </div>
-                    <h6><a href="#">{{isset($course['User']['name'])?$course['User']['name']:'Admin'}}</a></h6>
+                    <h6><a data-bs-toggle="modal" data-bs-target="#ins_Modal">{{isset($course['User']['name'])?$course['User']['name']:'Admin'}}</a></h6>
                  </div>
               </div>
               <div class="course__more d-flex justify-content-between align-items-center">

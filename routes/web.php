@@ -229,4 +229,23 @@ Route::get('/login', 'Front\Logincontroller@login')->name('login');
 Route::post('post-login', 'Front\Logincontroller@postLogin')->name('post-login');
 Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
 
+
 Route::post('/course_rating_add', 'Front\Coursecontroller@course_rating_add')->name('course_rating_add');
+
+//User Profile
+Route::get('/cart', 'Front\profilecontroller@cart')->name('cart');
+Route::get('/my-course', 'Front\profilecontroller@my_course')->name('my_course');
+Route::get('/my-wishlist', 'Front\profilecontroller@my_wishlist')->name('my_wishlist');
+Route::get('/subscription_history', 'Front\profilecontroller@subscription_history')->name('subscription-history');
+Route::get('/learner-profile', 'Front\profilecontroller@learner_profile')->name('learner_profile');
+
+
+//Instructor Profile
+Route::get('/create-course', 'Front\profilecontroller@create_course')->name('create_course');
+Route::get('/course-i-have-created', 'Front\profilecontroller@course_i_have_created')->name('course_i_have_created');
+Route::get('/instructor-profile', 'Front\profilecontroller@instructor_profile')->name('instructor_profile');
+Route::get('/wallet', 'Front\profilecontroller@wallet')->name('wallet');
+
+Route::get('/buyed-course', 'Front\Userhome@buyed_course')->name('buyed_course');
+Route::get('/course-details', 'Front\Userhome@course_details')->name('course_details');
+Route::get('/s-buyed-course', 'Front\Userhome@s_buyed_course')->name('s_buyed_course');

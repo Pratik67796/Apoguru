@@ -78,7 +78,6 @@
                 }
             }
         });
-
         $( ".sub-menu" ).parent( "li" ).addClass( "menu-item-has-children" );
     }
     menuScript();
@@ -288,7 +287,7 @@
 
     /*--
 		Back to top Script
-	-----------------------------------*/
+	------------------------------------*/
     // Show or hide the sticky footer button
     $(window).on('scroll', function (event) {
         if ($(this).scrollTop() > 600) {

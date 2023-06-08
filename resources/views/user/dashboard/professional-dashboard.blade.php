@@ -14,6 +14,69 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/custom.css')}}">
   </head>
   <body>
+
+    <div class="modal fade" id="ins_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ins_ModalLabel">Instructor Profile Preview</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
+          <div class="">
+              <div class="d-flex flex-column align-items-center justify-content-center mb-5">
+                <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
+                <div>
+                  <h4 class="mb-3">Martin nel</h4>
+                </div>
+              </div>
+
+            <form class="profile-form ins-details">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Qualification: </h6>
+                    <h5>Diploma Engenearing</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Profection / Workplace:</h6>
+                    <h5>London, England</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Teaching / Mentorship Experience:</h6>
+                    <h5>10+ Years Experience in teaching</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Students:</h6>
+                    <h5>120 (One hundred and twenty)</h5>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <h6 class="mb-1">Courses:</h6>
+                    <h5>25 (Twenty five)</h5>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="main-wrapper">
       <div class="header-section">
         <!-- <div class="header-top d-none d-lg-block">
@@ -43,7 +106,7 @@
           <div class="container">
             <div class="header-main-wrapper">
               <div class="header-logo">
-                <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
+                <a href="{{ route('/') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
               </div>
               @if(Auth::guard('user_new')->check())
               <div class="header-sign-in-up d-none d-lg-block">
@@ -87,12 +150,12 @@
         </div>
         <div class="mobile-menu-items">
           <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ route('index') }}">Home</a></li>
             <li>
               <a href="#">All Course</a>
               <ul class="sub-menu">
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="courses-details.html">Courses Details</a></li>
+                <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
               </ul>
             </li>
             <li>
@@ -200,7 +263,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
                   <div class="single-user">
                     <div class="user-author">
-                        <img src="{{URL::asset('parent_sub_category_images')}}/{{$value['image']}}" alt="Author">
+                        <img  src="{{URL::asset('parent_sub_category_images')}}/{{$value['image']}}" alt="Author">
                     </div>
                     <div class="user-content">
                         <a href="<?php echo '/pro-subcategory/'.$value['id']?>" class="name">{{$value['name']}}</a>
@@ -256,10 +319,10 @@
                         <div class="courses-author">
                           <div class="author">
                             <div class="author-thumb">
-                              <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
+                              <a  data-bs-toggle="modal" data-bs-target="#ins_Modal"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" data-bs-toggle="modal" data-bs-target="#ins_Modal">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
@@ -960,7 +1023,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="courses-details.html"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="{{ route('courses-details') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">

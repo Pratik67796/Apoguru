@@ -12,7 +12,7 @@
             data: [0, 500, 50, 680, 210, 480, 310]
         }],
         chart: {
-            height: 370,
+            height: 370,profile/created-course.html
             type: 'line',
             stacked: false,
             toolbar: {

@@ -22,12 +22,12 @@
 
               <div class="header-menu d-none ">
                 <ul class="nav-menu">
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="{{ route('index') }}">Home</a></li>
                   <li>
                     <a href="#">All Course</a>
                     <ul class="sub-menu">
                       <li><a href="courses.html">Courses</a></li>
-                      <li><a href="courses-details.html">Courses Details</a></li>
+                      <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
                     </ul>
                   </li>
                   <li>
@@ -106,18 +106,18 @@
         </div>
         <div class="mobile-sign-in-up">
           <ul>
-            <li><a class="sign-in" href="login.html">Sign In</a></li>
-            <li><a class="sign-up" href="register.html">Sign Up</a></li>
+            <li><a class="sign-in" href="{{ route('login') }}">Sign In</a></li>
+            <li><a class="sign-up" href="{{ route('signup') }}">Sign Up</a></li>
           </ul>
         </div>
         <div class="mobile-menu-items">
           <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ route('index') }}">Home</a></li>
             <li>
               <a href="#">All Course</a>
               <ul class="sub-menu">
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="courses-details.html">Courses Details</a></li>
+                <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
               </ul>
             </li>
             <li>
