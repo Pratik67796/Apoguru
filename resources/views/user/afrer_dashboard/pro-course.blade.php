@@ -29,7 +29,6 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
               <div class="d-flex flex-column align-items-center justify-content-center mb-5">
                 <img class="img-fluid mb-3" src="../{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">

@@ -19,12 +19,9 @@
       background-image: url('{{ URL::asset('assets/images/bg-2.png')}}');
     }
     .profile-body .pro-header{
-     /* background: #fafafa;
-      border-radius: 25px;*/
       margin-bottom: 1.5rem;
     }
     .profile-body .in-pr-main-content-wrapper {
-      /*padding-left: 216px;*/
       padding-right: 20px;
       padding-top: 20px;
     }
@@ -123,7 +120,6 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
               <div class="d-flex flex-column align-items-center justify-content-center mb-5">
                 <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
@@ -195,18 +191,13 @@
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
             </a>
           <h5 class="title"> Instructor Dashboard</h5>
+
           <!-- <a href="profile-home.html"><i class="icofont-home"></i> Home</a> -->
           <a href="{{ route('instructor_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
           <a href="{{ route('create_course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
           <a href="{{ route('course_i_have_created') }}" class="active"><i class="icofont-ruler-compass-alt"></i> Course I have Created</a>
+
           <a href="{{ route('wallet') }}" class=""><i class="fas fa-sack-dollar"></i>Wallet</a>
-          <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
-          <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
-          <a href="subscription-history"><i class="icofont-history"></i> Subscription History</a>
-          <a href="cart"><i class="icofont-shopping-cart"></i> View Cart</a>
-          
-          <a href="payouts"><i class="icofont-credit-card"></i> Payouts</a>
-          <button data-bs-toggle="modal" data-bs-target="#logout_Modal"><i class="icofont-logout"></i> Logout</button> -->
         </div>
         <div class="main-content-wrapper in-pr-main-content-wrapper">
           <div class="pro-header mb-1">
@@ -291,11 +282,6 @@
                   <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                 </a>
                 <div class="dropdown">
-                  <!-- <button class="action more" data-bs-toggle="dropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button> -->
                   <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>

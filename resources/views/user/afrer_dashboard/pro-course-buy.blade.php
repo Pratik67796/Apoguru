@@ -5,12 +5,34 @@
 <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/custom.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css')}}">
 
+  <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog course-vdo-modal" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="course_vdo_ModalLabel">Video</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <video class="" poster="assets/images/school-dashboard-main.jpeg" width="100%" height="" controls>
+            <source src="assets/video/school-dashboard-main.mp4" type="">
+            <source src="assets/video/school-dashboard-main.ogg" type="">
+          </video>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="float-section w-100">
     <div class="container">
       <div class="float-buttons" style="">
         <div class="d-flex align-items-center justify-content-start flex-wrap">
           <a href="" class="btn btn-primary btn-hover-dark text-center me-3 mb-2"><i class="fas fa-sack-dollar me-1"></i> Pay</a>
-          <!-- <a href="" class="btn btn-primary btn-hover-dark text-center me-3 mb-2"><i class="fas fa-sack-dollar"></i>  Binance Pay</a> -->
+          
           <a href="" class="btn btn-primary btn-hover-dark text-center me-3 mb-2">
             <svg class="me-1" role="img" fill="#fff" width="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>  Binance Pay
           </a>
@@ -161,64 +183,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="row gx-10">
-                          <div class="col-lg-6">
-                            <div class="tab-rating-content">
-                              <h3 class="tab-title">Rating:</h3>
-                              <p>Lorem Ipsum is simply dummy text of printing and typesetting industry. Lorem Ipsum has been the i dustry's standard dummy text ever since the 1500 unknown printer took a galley of type.</p>
-                              <p>Lorem Ipsum is simply dummy text of printing and typesetting industry text ever since</p>
-                              <p>Lorem Ipsum is simply dummy text of printing and dustry's standard dummy text ever since the 1500 unknown printer took a galley of type.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="tab-rating-box">
-                              <span class="count">4.8 <i class="icofont-star"></i></span>
-                              <p>Rating (86K+)</p>
-                              <div class="rating-box-wrapper">
-                                <div class="single-rating">
-                                  <span class="rating-star">
-                                    <span class="rating-bar" style="width: 100%;"></span>
-                                  </span>
-                                  <div class="rating-progress-bar">
-                                    <div class="rating-line" style="width: 75%;"></div>
-                                  </div>
-                                </div>
-                                <div class="single-rating">
-                                  <span class="rating-star">
-                                    <span class="rating-bar" style="width: 80%;"></span>
-                                  </span>
-                                  <div class="rating-progress-bar">
-                                    <div class="rating-line" style="width: 90%;"></div>
-                                  </div>
-                                </div>
-                                <div class="single-rating">
-                                  <span class="rating-star">
-                                    <span class="rating-bar" style="width: 60%;"></span>
-                                  </span>
-                                  <div class="rating-progress-bar">
-                                    <div class="rating-line" style="width: 500%;"></div>
-                                  </div>
-                                </div>
-                                <div class="single-rating">
-                                  <span class="rating-star">
-                                    <span class="rating-bar" style="width: 40%;"></span>
-                                  </span>
-                                  <div class="rating-progress-bar">
-                                    <div class="rating-line" style="width: 80%;"></div>
-                                  </div>
-                                </div>
-                                <div class="single-rating">
-                                  <span class="rating-star">
-                                    <span class="rating-bar" style="width: 20%;"></span>
-                                  </span>
-                                  <div class="rating-progress-bar">
-                                    <div class="rating-line" style="width: 40%;"></div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div> -->
+                        
                       </div>
                     </div>
                     <div class="tab-pane fade" id="reviews">
@@ -346,16 +311,7 @@
                               <div class="modal-body reviews-form">
                                 <form action="#">
                                   <div class="row">
-                                    <!-- <div class="col-md-6">
-                                      <div class="single-form">
-                                        <input type="text" placeholder="Enter your name">
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="single-form">
-                                        <input type="text" placeholder="Enter your Email">
-                                      </div>
-                                    </div> -->
+
                                     <div class="col-md-12">
                                       <div class="reviews-rating">
                                         <label>Rating</label>
@@ -691,7 +647,6 @@
                   <a href="#" class="btn btn-primary btn-hover-dark"><i class="fas fa-sack-dollar me-1"></i> Pay </a>
                 </div>
                 <div class="info-btn">
-                  <!-- <a href="#" class="btn btn-primary btn-hover-dark"><i class="fas fa-sack-dollar"></i> Binance Pay </a> -->
                   <a href="#" class="btn btn-primary btn-hover-dark">
                     <svg class="me-1" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Binance Pay 
                   </a>
@@ -703,13 +658,6 @@
                 </div>
                 <div class="sidebar-widget share-widget">
                   <h4 class="widget-title">Surprise Discount:</h4>
-                <!-- <ul class="social">
-                  <li><a href="#"><i class="flaticon-facebook"></i></a></li>
-                  <li><a href="#"><i class="flaticon-linkedin"></i></a></li>
-                  <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                  <li><a href="#"><i class="flaticon-skype"></i></a></li>
-                  <li><a href="#"><i class="flaticon-instagram"></i></a></li>
-                </ul> -->
                 <a class="btn btn-primary btn-hover-dark mt-5 text-start p-3" href="javascript:void(0)" style="font-size: 30px;">
                   <div class="d-flex align-items-center">
                     <i class="far fa-paper-plane me-5"></i>
@@ -768,14 +716,6 @@
     $("#btn-vertical_reviews").click(function(){
       $(".reviews-wrapper").slideToggle("fast");
       $(".vertical_reviews").slideToggle("slow");
-      
-      // var x = $("#btn-vertical_reviews");
-      // if (x.innerHTML === "View Reviews Vertically"){
-      //   x.innerHTML = "View Reviews Horrizontaly";
-      // }
-      // else {
-      //    x.innerHTML = "View Reviews Vertically";
-      // }
     })
   </script>
 @endsection

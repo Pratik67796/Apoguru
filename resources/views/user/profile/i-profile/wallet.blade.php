@@ -19,12 +19,9 @@
       background-image: url('{{ URL::asset('assets/images/bg-2.png')}}');
     }
     .profile-body .pro-header{
-      /*background: #fafafa;
-      border-radius: 25px;*/
       margin-bottom: 1.5rem;
     }
     .profile-body .in-pr-main-content-wrapper {
-      /*padding-left: 216px;*/
       padding-right: 20px;
       padding-top: 20px;
     }
@@ -251,13 +248,8 @@
           <a href="{{ route('instructor_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
           <a href="{{ route('create_course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
           <a href="{{ route('course_i_have_created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
+
           <a class="active" href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i> Wallet</a>
-          <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
-          <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
-          <a href="subscription-history"><i class="icofont-history"></i> Subscription History</a>
-          <a href="cart"><i class="icofont-shopping-cart"></i> View Cart</a>
-          <a href="payouts"  class="active"><i class="icofont-credit-card"></i> Payouts</a>
-          <button data-bs-toggle="modal" data-bs-target="#logout_Modal"><i class="icofont-logout"></i> Logout</button> -->
         </div>
         <div class="main-content-wrapper in-pr-main-content-wrapper">
           <div class="pro-header mb-1">
@@ -341,11 +333,6 @@
                   <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                 </a>
                 <div class="dropdown">
-                  <!-- <button class="action more" data-bs-toggle="dropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button> -->
                   <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
@@ -390,16 +377,7 @@
                     <a class="btn btn-cust-success" data-bs-toggle="modal" data-bs-target="#withdraw_Modal">Withdraw</a>
                   </div>
                 </div>
-              </div>
-              <!-- <div class="col-12 col-md-6">
-                <div class="total-bal">
-                  <span>Total Balance</span>
-                  <h4 class="text-center my-4">$ 7610.00</h4>
-                  <a href="" class="btn btn-cust-light">Deposit</a>
-                  <a href="" class="btn btn-cust-success">Withdraw</a>
-                </div>
-              </div> -->
-              
+              </div>              
             </div>
             
             <div class="history-table">
@@ -502,271 +480,6 @@
               </div>
             </div>
 
-            <!-- <div class="students-map">
-              <h4 class="title">Student's locations and languages.</h4>
-              <div class="map">
-                <div id="vmap"></div>
-              </div>
-            </div> -->
-            <!-- <div class="students-widget">
-              <div class="row">
-                <div class="col-xxl-4">
-                  <div class="single-student-widget widget-color-01">
-                    <h4 class="widget-title">95 Country</h4>
-                    <div class="widget-items">
-                      <div class="single-item">
-                        <div class="item-flag">
-                          <div class="flag">
-                            <img src="{{ URL::asset('assets/images/flag/flag-2.png')}}" alt="Flag">
-                          </div>
-                          <div class="title">Bangladesh</div>
-                        </div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 80%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>80%</span> (722)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="item-flag">
-                          <div class="flag">
-                            <img src="{{ URL::asset('assets/images/flag/flag-3.png')}}" alt="Flag">
-                          </div>
-                          <div class="title">Pakistan</div>
-                        </div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 15%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>15%</span> (284)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="item-flag">
-                          <div class="flag">
-                            <img src="{{ URL::asset('assets/images/flag/flag-4.png')}}" alt="Flag">
-                          </div>
-                          <div class="title">USA</div>
-                        </div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 30%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>30%</span> (306)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="item-flag">
-                          <div class="flag">
-                            <img src="{{ URL::asset('assets/images/flag/flag-1.png')}}" alt="Flag">
-                          </div>
-                          <div class="title">Brazil</div>
-                        </div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 90%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>90%</span> (835)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="item-flag">
-                          <div class="flag">
-                            <img src="{{ URL::asset('assets/images/flag/flag-5.png')}}" alt="Flag">
-                          </div>
-                          <div class="title">Belgium</div>
-                        </div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 10%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>10%</span> (152)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="item-flag">
-                          <div class="flag">
-                            <img src="{{ URL::asset('assets/images/flag/flag-6.png')}}" alt="Flag">
-                          </div>
-                          <div class="title">Azerbaijan</div>
-                        </div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 50%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>50%</span> (635)</p>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="page-pagination">
-                      <ul class="pagination justify-content-center">
-                        <li><a href="#"><i class="icofont-rounded-left"></i></a></li>
-                        <li><a class="active" href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-                      </ul>
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div class="col-xxl-4">
-
-                  <div class="single-student-widget widget-color-02">
-                    <h4 class="widget-title">30 Languages</h4>
-
-                    <div class="widget-items">
-
-                      <div class="single-item">
-                        <div class="title">1. English</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 80%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>80%</span> (538)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="title">2. Spanish</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 2.5%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>2.5%</span> (189)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">3. French</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 6.8%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>6.8%</span> (263)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">4. Arabic</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 92%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>92%</span> (794)</p>
-                        </div>
-                      </div>
-
-                      <div class="single-item">
-                        <div class="title">5. Greek</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 9.2%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>9.2%</span> (212)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">6. Russian</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 83%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>83%</span> (516)</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="page-pagination">
-                      <ul class="pagination justify-content-center">
-                        <li><a href="#"><i class="icofont-rounded-left"></i></a></li>
-                        <li><a class="active" href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xxl-4">
-                  <div class="single-student-widget widget-color-03">
-                    <h4 class="widget-title">Additional Student Interests</h4>
-                    <div class="widget-items">
-                      <div class="single-item">
-                        <div class="title">1. WordPress</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 80%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>80%</span> (538)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">2. SEO</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 25%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>25%</span> (189)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">3. Python</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 60%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>60%</span> (263)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">4. Marketing</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 92%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>92%</span> (794)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">5. Development</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 39%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>39%</span> (212)</p>
-                        </div>
-                      </div>
-                      <div class="single-item">
-                        <div class="title">6. UX Design</div>
-                        <div class="item-bar">
-                          <div class="bar-line" style="width: 83%;"></div>
-                        </div>
-                        <div class="item-percentage">
-                          <p><span>83%</span> (516)</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="page-pagination">
-                      <ul class="pagination justify-content-center">
-                        <li><a href="#"><i class="icofont-rounded-left"></i></a></li>
-                        <li><a class="active" href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -871,7 +584,6 @@
   <script src="{{ URL::asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
   <script src="{{ URL::asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
   <script src="{{ URL::asset('assets/js/professional-js/plugins.min.js')}}"></script>
-
   <script src="{{ URL::asset('assets/js/professional-js/main.js')}}"></script>
   <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.min.js')}}"></script>
   <script src="{{ URL::asset('assets/js/professional-js/plugins/jquery.vmap.world.js')}}"></script>
@@ -888,11 +600,11 @@
 
   <script>
     $(document).ready(function(){
-        $('.select-withrow').on('change', function(){
-          var demovalue = $(this).val(); 
-            $("div.myDiv").hide();
-            $("#show"+demovalue).show();
-        });
+      $('.select-withrow').on('change', function(){
+        var demovalue = $(this).val(); 
+        $("div.myDiv").hide();
+        $("#show"+demovalue).show();
+      });
     });
   </script> 
 

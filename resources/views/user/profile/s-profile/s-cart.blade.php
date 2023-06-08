@@ -224,6 +224,8 @@
           </button>
         </div>
         <div class="modal-body">
+          <span class="text-white">
+          </span>
           <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
               <div class="d-flex flex-column align-items-center justify-content-center mb-5">

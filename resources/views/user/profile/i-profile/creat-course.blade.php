@@ -373,13 +373,9 @@ form .flex-input-field .icon-input{
           <a href="{{ route('instructor_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
           <a href="{{ route('create_course') }}" class="active"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
           <a href="{{ route('course_i_have_created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
+
           <a href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i>Wallet</a>
-          <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
-          <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
-          <a href="subscription-history"><i class="icofont-history"></i> Subscription History</a>
-          <a href="cart"><i class="icofont-shopping-cart"></i> View Cart</a>
-          <a href="payouts"><i class="icofont-credit-card"></i> Payouts</a>
-          <button data-bs-toggle="modal" data-bs-target="#logout_Modal"><i class="icofont-logout"></i> Logout</button> -->
+
         </div>
         <div class="main-content-wrapper in-pr-main-content-wrapper">
           <div class="pro-header mb-1">
@@ -462,11 +458,6 @@ form .flex-input-field .icon-input{
                   <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                 </a>
                 <div class="dropdown">
-                  <!-- <button class="action more" data-bs-toggle="dropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button> -->
                   <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
@@ -630,7 +621,6 @@ form .flex-input-field .icon-input{
 
                 <div class="col-12 col-sm-6 col-md-5 col-lg-3">
                   <div class="form-group">
-                    <!-- <label>Add</label><br> -->
                     <a class="btn default-btn w-100 mb-3">Add New</a>
                   </div>
                 </div>
@@ -797,10 +787,6 @@ form .flex-input-field .icon-input{
     $("#add_question").click(function(){
       $(".add-course-section").slideToggle("slow");
     });
-
-    // $("#add-option").click(function(){
-    //   $(".option").slideDown("slow");
-    // });
 
     $("#add-option").click(function () {
        $("#option_list").append('<div class="col-12 col-md-6 option"><div class="form-group"><label>Option A</label><input class="form-control" type="text" placeholder="Write here..." name=""></div></div>');

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledbSy="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog course-vdo-modal" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -46,14 +46,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
-              <div class="d-flex flex-column align-items-center justify-content-center mb-5">
-                <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-01.jpg')}}" style="border-radius: 9%;">
-                <div>
-                  <h4 class="mb-3">Martin nel</h4>
-                </div>
+            <div class="d-flex flex-column align-items-center justify-content-center mb-5">
+              <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-01.jpg')}}" style="border-radius: 9%;">
+              <div>
+                <h4 class="mb-3">Martin nel</h4>
               </div>
+
+            </div>
 
             <form class="profile-form ins-details">
               <div class="row">
@@ -87,9 +87,7 @@
                     <h5>25 (Twenty five)</h5>
                   </div>
                 </div>
-                
               </div>
-              
             </form>
           </div>
         </div>
@@ -393,64 +391,6 @@
                               </div>
                             </div>
                           </div>
-                          <!-- <div class="row gx-10">
-                            <div class="col-lg-6">
-                              <div class="tab-rating-content">
-                                <h3 class="tab-title">Rating:</h3>
-                                <p>Lorem Ipsum is simply dummy text of printing and typesetting industry. Lorem Ipsum has been the i dustry's standard dummy text ever since the 1500 unknown printer took a galley of type.</p>
-                                <p>Lorem Ipsum is simply dummy text of printing and typesetting industry text ever since</p>
-                                <p>Lorem Ipsum is simply dummy text of printing and dustry's standard dummy text ever since the 1500 unknown printer took a galley of type.</p>
-                              </div>
-                            </div>
-                            <div class="col-lg-6">
-                              <div class="tab-rating-box">
-                                <span class="count">4.8 <i class="icofont-star"></i></span>
-                                <p>Rating (86K+)</p>
-                                <div class="rating-box-wrapper">
-                                  <div class="single-rating">
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 100%;"></span>
-                                    </span>
-                                    <div class="rating-progress-bar">
-                                      <div class="rating-line" style="width: 75%;"></div>
-                                    </div>
-                                  </div>
-                                  <div class="single-rating">
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 80%;"></span>
-                                    </span>
-                                    <div class="rating-progress-bar">
-                                      <div class="rating-line" style="width: 90%;"></div>
-                                    </div>
-                                  </div>
-                                  <div class="single-rating">
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 60%;"></span>
-                                    </span>
-                                    <div class="rating-progress-bar">
-                                      <div class="rating-line" style="width: 500%;"></div>
-                                    </div>
-                                  </div>
-                                  <div class="single-rating">
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 40%;"></span>
-                                    </span>
-                                    <div class="rating-progress-bar">
-                                      <div class="rating-line" style="width: 80%;"></div>
-                                    </div>
-                                  </div>
-                                  <div class="single-rating">
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 20%;"></span>
-                                    </span>
-                                    <div class="rating-progress-bar">
-                                      <div class="rating-line" style="width: 40%;"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div> -->
                         </div>
                       </div>
                       <div class="tab-pane fade" id="reviews">
@@ -578,16 +518,6 @@
                                 <div class="modal-body reviews-form">
                                   <form action="#">
                                     <div class="row">
-                                      <!-- <div class="col-md-6">
-                                        <div class="single-form">
-                                          <input type="text" placeholder="Enter your name">
-                                        </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="single-form">
-                                          <input type="text" placeholder="Enter your Email">
-                                        </div>
-                                      </div> -->
                                       <div class="col-md-12">
                                         <div class="reviews-rating">
                                           <label>Rating</label>
@@ -906,19 +836,6 @@
             <div class="col-lg-5">
               <div class="sidebar course-content-siderbar">
                 <div class="sidebar-widget widget-information">
-                  <!-- <div class="info-price">
-                    <span class="price">$420.38</span>
-                  </div> -->
-                  <!-- <div class="info-list">
-                    <ul>
-                      <li><i class="icofont-man-in-glasses"></i> <strong>Instructor</strong> <span>Pamela Foster</span></li>
-                      <li><i class="icofont-clock-time"></i> <strong>Duration</strong> <span>08 hr 15 mins</span></li>
-                      <li><i class="icofont-ui-video-play"></i> <strong>Lectures</strong> <span>29</span></li>
-                      <li><i class="icofont-bars"></i> <strong>Level</strong> <span>Professional</span></li>
-                      <li><i class="icofont-book-alt"></i> <strong>Language</strong> <span>English</span></li>
-                      <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
-                    </ul>
-                  </div> -->
                   <h4>Course Content</h4>
 
                   <div class="accordion mt-4" id="course__accordion">
@@ -1131,14 +1048,6 @@
       $("#btn-vertical_reviews").click(function(){
         $(".reviews-wrapper").slideToggle("fast");
         $(".vertical_reviews").slideToggle("slow");
-        
-        // var x = $("#btn-vertical_reviews");
-        // if (x.innerHTML === "View Reviews Vertically"){
-        //   x.innerHTML = "View Reviews Horrizontaly";
-        // }
-        // else {
-        //    x.innerHTML = "View Reviews Vertically";
-        // }
       })
     </script>
 

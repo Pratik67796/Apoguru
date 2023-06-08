@@ -14,50 +14,6 @@
         <h3 class="mb-20"><img class="mr-5" src="{{URL::asset('child_sub_category_images')}}/{{$course[0]['childSubCategory']['image']}}" width="50">{{$course[0]['childSubCategory']['name']}}</h3>
       </div>
       <div class="row">
-        <!-- free course design in comment -->
-        <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-          <div class="grid-item cat5 cat2 cat4 cat6">
-            <div class="course__item white-bg mb-30 fix">
-              <div class="course__thumb w-img p-relative fix">
-                <a href="{{ route('course-buy') }}">
-                  <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
-                </a>
-                <div class="course__tag">
-                  <a href="#" class="pink">BESTSELLER</a>
-                </div>
-              </div>
-              <div class="course__content">
-                <div class="course__meta d-flex align-items-center justify-content-between">
-                  <div class="course__lesson">
-                    <span><i class="far fa-book-alt"></i>43 Lesson</span>
-                  </div>
-                  <div class="course__rating">
-                    <span><i class="icon_star"></i>4.5 (44)</span>
-                  </div>
-                </div>
-                <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills & job.</a></h3>
-                <div class="course__teacher d-flex align-items-center">
-                  <div class="course__teacher-thumb mr-15">
-                    <img src="{{ URL::asset('assets/img/course/teacher/teacher-1.jpg')}}" alt="">
-                  </div>
-                  <h6><a href="{{ route('course-buy') }}">Jim Séchen</a></h6>
-                </div>
-              </div>
-              <div class="course__more d-flex justify-content-between align-items-center">
-                <div class="course__status">
-                  <span>Free</span>
-                </div>
-                <div class="course__btn">
-                  <a href="{{ route('course-buy') }}" class="link-btn">
-                    Know Details
-                    <i class="far fa-arrow-right"></i>
-                    <i class="far fa-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
         @foreach($course as $k => $val)
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
               <div class="grid-item cat1 cat3 cat5">

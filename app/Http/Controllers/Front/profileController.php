@@ -50,5 +50,4 @@ class profileController extends Controller
   public function wallet(){
     return view('user.profile.i-profile.wallet');
   }
-    
 }

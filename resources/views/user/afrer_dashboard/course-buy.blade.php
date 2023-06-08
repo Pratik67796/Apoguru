@@ -15,6 +15,43 @@
   <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/style.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/custom.css')}}">
 
+  <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog course-vdo-modal" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="course_vdo_ModalLabel">Video</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body position-relative">
+          <video class="" poster="assets/images/school-dashboard-main.jpeg" width="100%" height="" controls>
+            <source src="assets/video/school-dashboard-main.mp4" type="">
+            <source src="assets/video/school-dashboard-main.ogg" type="">
+          </video>
+
+          <div class="question-section">
+            <div class="form-group mb-4">
+              <p>Which is option A ?</p>
+            </div>
+            <div class="form-group cust-label cust-option-label mb-3">
+              <input id="first" type="radio" name="ookk">
+              <label for="first">Here is my A option</label>
+            </div> 
+
+            <div class="form-group cust-label cust-option-label mb-3">
+              <input id="first" type="radio" name="ookk">
+              <label for="first">Here is my B option</label>
+            </div>      
+
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <div class="float-section w-100">
@@ -22,7 +59,6 @@
       <div class="pay-float-buttons float-buttons">
         <div class="d-flex align-items-center justify-content-start flex-wrap">
           <a href="" class="e-btn e-btn-7 text-center me-3 mb-20 pay-btn"><i class="fas fa-sack-dollar me-2"></i> Pay</a>
-          <!-- <a href="" class="e-btn e-btn-7 text-center me-3 mb-20"><i class="fas fa-sack-dollar me-2"></i> Binance Pay</a> -->
           <a href="" class="e-btn e-btn-7 text-center me-3 mb-20">
             <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Binance Pay
           </a>
@@ -116,8 +152,7 @@
     </div>
   </div>
   <div class="body-overlay"></div>
-  <!-- cart mini area end -->
-  <!-- sidebar area start -->
+
   <div class="sidebar__area">
     <div class="sidebar__wrapper">
       <div class="sidebar__close">
@@ -154,11 +189,11 @@
       </div>
     </div>
   </div>
-  <!-- sidebar area end -->      
+    
   <div class="body-overlay"></div>
-  <!-- sidebar area end -->
+
   <main>
-    <!-- page title area start -->
+
     <section class="page__title-area pt-120 pb-90">
       <div class="page__title-shape">
         <img class="page-title-shape-5 d-none d-sm-block" src="assets/img/page-title/page-title-shape-1.png" alt="">
@@ -169,19 +204,7 @@
         <div class="row">
           <div class="col-xxl-8 col-xl-8 col-lg-8">
             <div class="course__wrapper">
-                <!-- <div class="page__title-content mb-25">
-                  <div class="page__title-breadcrumb">                            
-                      <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                          <li class="breadcrumb-item"><a href="course-grid.html">Courses</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">The business Intelligence analyst Course 2022</li>
-                        </ol>
-                      </nav>
-                  </div>
-                  <span class="page__title-pre">Development</span>
-                  <h5 class="page__title-3">The business Intelligence analyst Course 2022</h5>
-                </div> -->
+                
                 <div class="course__meta-2 d-sm-flex mb-30">
                   <div class="course__teacher-3 d-flex align-items-center mr-70 mb-30">
                     <div class="course__teacher-thumb-3 mr-15">
@@ -311,7 +334,7 @@
                                     <div class="row justify-content-end">
                                       <div class="col-12 col-lg-10">
                                         <div class="course__curriculum-content d-sm-flex justify-content-between border-0">
-                                          <div class="course__curriculum-info">
+                                          <div c/lass="course__curriculum-info">
                                             <svg class="document" viewBox="0 0 24 24">
                                               <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
                                               <polyline class="st0" points="14,2 14,8 20,8 "/>
@@ -536,117 +559,13 @@
                                 </div>
                               </div>
                             </div>
-
                           </div>
-
-
-                         <!--  <div class="accordion-item mb-50">
-                            <h2 class="accordion-header" id="week-01">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week-01-content" aria-expanded="true" aria-controls="week-01-content">
-                                Principal Topic
-                              </button>
-                            </h2>
-                            <div id="week-01-content" class="accordion-collapse collapse show" aria-labelledby="week-01" >
-
-                            </div>
-                          </div>
-                          <div class="accordion-item mb-50">
-                            <h2 class="accordion-header" id="week-02">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week-02-content" aria-expanded="false" aria-controls="week-02-content">
-                                Principal Topic
-                              </button>
-                            </h2>
-                            <div id="week-02-content" class="accordion-collapse  collapse" aria-labelledby="week-02" >
-                            </div>
-                          </div> -->
-
                       </div>
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                       <div class="course__review">
                         <h3>Reviews</h3>
-                        <!-- <p>Gosh william I'm telling crikey burke I don't want no agro A bit of how's your father bugger all mate off his nut that, what a plonker cuppa owt to do</p> -->
-                        <!-- <div class="course__review-rating mb-50">
-                          <div class="row g-0">
-                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                              <div class="course__review-rating-info grey-bg text-center">
-                                <h5>5</h5>
-                                <ul>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                </ul>
-                                <p>4 Ratings</p>
-                              </div>
-                            </div>
-                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                              <div class="course__review-details grey-bg">
-                                <h5>Detailed Rating</h5>
-                                <div class="course__review-content mb-20">
-                                  <div class="course__review-item d-flex align-items-center justify-content-between">
-                                    <div class="course__review-text">
-                                      <span>5 stars</span>
-                                    </div>
-                                    <div class="course__review-progress">
-                                      <div class="single-progress" data-width="100%"></div>
-                                    </div>
-                                    <div class="course__review-percent">
-                                      <h5>100%</h5>
-                                    </div>
-                                  </div>
-                                  <div class="course__review-item d-flex align-items-center justify-content-between">
-                                    <div class="course__review-text">
-                                      <span>4 stars</span>
-                                    </div>
-                                    <div class="course__review-progress">
-                                      <div class="single-progress" data-width="30%"></div>
-                                    </div>
-                                    <div class="course__review-percent">
-                                      <h5>30%</h5>
-                                    </div>
-                                  </div>
-                                  <div class="course__review-item d-flex align-items-center justify-content-between">
-                                    <div class="course__review-text">
-                                      <span>3 stars</span>
-                                    </div>
-                                    <div class="course__review-progress">
-                                      <div class="single-progress" data-width="0%"></div>
-                                    </div>
-                                    <div class="course__review-percent">
-                                      <h5>0%</h5>
-                                    </div>
-                                  </div>
-                                  <div class="course__review-item d-flex align-items-center justify-content-between">
-                                    <div class="course__review-text">
-                                      <span>2 stars</span>
-                                    </div>
-                                    <div class="course__review-progress">
-                                      <div class="single-progress" data-width="0%"></div>
-                                    </div>
-                                    <div class="course__review-percent">
-                                      <h5>0%</h5>
-                                    </div>
-                                  </div>
-                                  <div class="course__review-item d-flex align-items-center justify-content-between">
-                                    <div class="course__review-text">
-                                      <span>1 stars</span>
-                                    </div>
-                                    <div class="course__review-progress">
-                                      <div class="single-progress" data-width="0%"></div>
-                                    </div>
-                                    <div class="course__review-percent">
-                                      <h5>0%</h5>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div> -->
                         <div class="course__comment mb-75">
-                          <!-- <h3>2 Comments</h3> -->
                           <ul>
                             <li>
                               <div class="course__comment-box ">
@@ -841,14 +760,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="course__share">
-                      <h3>Share :</h3>
-                      <ul>
-                        <li><a href="javascript:void(0)" class="fb" ><i class="social_facebook"></i></a></li>
-                        <li><a href="javascript:void(0)" class="tw" ><i class="social_twitter"></i></a></li>
-                        <li><a href="javascript:void(0)" class="pin" ><i class="social_pinterest"></i></a></li>
-                      </ul>
-                    </div> -->
+                    
                   </div>
                 </div>
                 <div class="course__related">
@@ -1066,7 +978,7 @@
                     <div class="course__video-thumb w-img mb-25">
                       <img src="{{asset('course_images/').'/'.$singlecourse['image']}}" alt="">
                       <div class="course__video-play"> 
-                        <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
+                        <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"  data-bs-toggle="modal" data-bs-target="#course_vdo_Modal"> <i class="fas fa-play"></i> </a>
                       </div>
                     </div>
                     <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
@@ -1145,7 +1057,7 @@
                       <a href="{{ route('signup') }}" class="e-btn e-btn-7 w-100">
                       <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>Binance Pay
                     </a>
-                    <!-- <a href="{{ route('signup') }}" class="e-btn e-btn-7 w-100"><i class="fas fa-sack-dollar me-2"></i> Binance Pay</a> -->
+
                     </div>
                     <div class="course__enroll-btn mt-20">
                       <a href="{{ route('signup') }}" class="e-btn e-btn-7 w-100"><i class="fas fa-sack-dollar me-2"></i> Pay for me</a>
@@ -1163,73 +1075,13 @@
                               <i class="far fa-paper-plane" style="font-size: 17px;"></i>
                             </div>
                             <div class="course__sm-content">
-                              <!-- <div class="course__sm-rating">
-                                <ul>a
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                  <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                </ul>
-                              </div> -->
+                              
                               <h6 class="mb-0 text-white">Share for a surprise discount</h6>
-                              <!-- <div class="course__sm-price">
-                                <span>$54.00</span>
-                              </div> -->
+                              
                             </div>
                           </div>
                         </a>
                       </li>
-                      <!-- <li>
-                        <div class="course__sm d-flex align-items-center mb-30">
-                          <div class="course__sm-thumb mr-20">
-                            <a href="javascript:void(0)">
-                            <img src="assets/img/course/sm/course-sm-2.jpg" alt="">
-                            </a>
-                          </div>
-                          <div class="course__sm-content">
-                            <div class="course__sm-rating">
-                              <ul>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                              </ul>
-                            </div>
-                            <h5><a href="javascript:void(0)">English Language </a></h5>
-                            <div class="course__sm-price">
-                              <span>$72.00</span>
-                            </div>
-                          </div>
-                        </div>
-                        </li>
-                        <li>
-                        <div class="course__sm d-flex align-items-center mb-10">
-                          <div class="course__sm-thumb mr-20">
-                            <a href="javascript:void(0)">
-                            <img src="assets/img/course/sm/course-sm-3.jpg" alt="">
-                            </a>
-                          </div>
-                          <div class="course__sm-content">
-                            <div class="course__sm-rating">
-                              <ul>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                              </ul>
-                            </div>
-                            <h5>
-                              <a href="javascript:void(0)">UX Design</a>
-                            </h5>
-                            <div class="course__sm-price">
-                              <span>Free</span>
-                            </div>
-                          </div>
-                        </div>
-                      </li> -->
                     </ul>
                   </div>
                 </div>
@@ -1238,7 +1090,6 @@
           </div>
         </div>
       </section>
-      <!-- page title area end -->
     </main>
 
 

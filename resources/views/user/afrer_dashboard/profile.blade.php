@@ -109,7 +109,8 @@
                             <span></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
+                            <li>
+                                <a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
                             <li><a class="" href="#"><i class="icofont-inbox"></i> Inbox</a></li>
                             <li><a class="" href="#"><i class="icofont-logout"></i> Sign Out</a></li>
                         </ul>

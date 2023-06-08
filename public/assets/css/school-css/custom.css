@@ -17,19 +17,12 @@ a.e-btn{
   padding-bottom: 15px;
 }
 
-
-element {
-
-}
 .hero__quote-animation {
-
   animation-duration: 5s;
-
 }
+
 .school-instructor-quote {
-
-    padding-bottom: 15px;
-
+  padding-bottom: 15px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px){
@@ -658,7 +651,7 @@ ul.switch-toggler-list .switch.off .slider::before {
     border-top-right-radius:var(--bs-accordion-inner-border-radius)
 }
 .accordion-item:not(:first-of-type){
-    border-top:0
+    border-top:0;
 }
 .accordion-item:last-of-type{
     border-bottom-right-radius:var(--bs-accordion-border-radius);
@@ -693,7 +686,6 @@ ul.switch-toggler-list .switch.off .slider::before {
     border-radius:0
 }
 
-
 #ins_Modal .modal-dialog{
   width: 850px;
   max-width: 90%;
@@ -714,3 +706,14 @@ ul.switch-toggler-list .switch.off .slider::before {
   font-size: 15px;
 }
 
+/************************** cust-option-label ********************/
+
+.question-section{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); 
+  z-index: 2;
+  background-color: #f3f3f3;
+  padding: 1rem;
+}

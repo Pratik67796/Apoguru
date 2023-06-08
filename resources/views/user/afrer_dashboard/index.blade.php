@@ -24,43 +24,16 @@
         </div>
       </div>
       <div class="container">
-      <!-- <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 mb-2">
-          <div class="section-block">
-            <a href="school-dashboard.html">
-              <div class="img-section">
-                <img class="w-100" src="{{ URL::asset('assets/img/school.jpg')}}">
-              </div>
-              <h3 class="text-center py-2">School</h3>
-            </a>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-2">
-          <div class="section-block">
-            <a href="professional-dashboard.html">
-              <div class="img-section">
-                <img class="w-100" src="{{ URL::asset('assets/img/school.jpg')}}">
-              </div>
-              <h3 class="text-center py-2">Professional</h3>
-            </a>
-          </div>
-        </div>
-      </div> -->
-
       <div class="row justify-content-center">
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
          <div class="teacher__item text-center grey-bg-5 transition-3 mb-30" style="background: #edeef3;">
           <div class="teacher__thumb w-img fix">
-           <!-- <a href="school-dashboard.html">
-              <img src="{{ URL::asset('assets/img/main-section-img.jpg')}}" alt="">
-            </a> -->
-
             <a href="{{ route('school-dashboard') }}">
               <img src="{{ URL::asset('assets/img/main-section-img.jpg')}}" alt="">
             </a>
           </div>
           <div class="teacher__content">
-           <h3 class="teacher__title"><a href="{{ route('school-dashboard') }}">apoGuru <sup>School</sup></a></h3> 
+           <h3 class="teacher__title"><a href="{{ route('school-dashboard') }}">apoGuru <sup>School</sup></a></h3>
          </div>
        </div>
      </div>

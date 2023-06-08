@@ -186,12 +186,12 @@
         <div class="modal-body">
           <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
-              <div class="d-flex flex-column align-items-center justify-content-center mb-5">
-                <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
-                <div>
-                  <h4 class="mb-3">Martin nel</h4>
-                </div>
+            <div class="d-flex flex-column align-items-center justify-content-center mb-5">
+              <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
+              <div>
+                <h4 class="mb-3">Martin nel</h4>
               </div>
+            </div>
 
             <form class="profile-form ins-details">
               <div class="row">
@@ -225,9 +225,7 @@
                     <h5>25 (Twenty five)</h5>
                   </div>
                 </div>
-                
               </div>
-              
             </form>
           </div>
         </div>
@@ -268,7 +266,6 @@
               <div class="d-flex align-items-center">
                   <i class="fas fa-chevron-circle-right mob-menu-opener me-3 d-md-none" style="font-size: 18px;"></i>
                   <h5 class="mb-0">My Course</h5>
-
                   <ul class="list-inline text-center switch-toggler-list icon-switch" title="Instructor Dashboard">
                   <li>
                     <a href="{{ route('instructor_profile') }}">
@@ -379,7 +376,6 @@
               <div class="course-swipe">
                 <ul class="nav flex-wrap">
                   <li class="me-3 mb-1"><button class="active course-cust-btn" data-bs-toggle="tab" data-bs-target="#tabs1">See All</button></li>
-                  <!-- <li class="me-3 mb-1"><button class="course-cust-btn" data-bs-toggle="tab" data-bs-target="#tabs2">Active</button></li> -->
                   <li class="me-3 mb-1"><button class="course-cust-btn" data-bs-toggle="tab" data-bs-target="#tabs4">Completed</button></li>
                   <li class="me-3 mb-1"><button class="course-cust-btn" data-bs-toggle="tab" data-bs-target="#tabs5">Active Subscription</button></li>
                   <li class="me-3 mb-1"><button class="course-cust-btn" data-bs-toggle="tab" data-bs-target="#tabs6">Expired Subscription</button>
@@ -606,9 +602,6 @@
                             </div>
                           </div>
                         </div>
-
-
-
                       </div>
                       <div class="col-lg-6 col-md-12">
                         <div class="single-courses">
