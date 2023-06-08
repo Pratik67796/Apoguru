@@ -224,6 +224,8 @@
           </button>
         </div>
         <div class="modal-body">
+          <span class="text-white">
+          </span>
           <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
               <div class="d-flex flex-column align-items-center justify-content-center mb-5">
@@ -297,8 +299,8 @@
           </a>
           <h5 class="title"> Learner Dashboard</h5>
           <a href="{{ route('learner_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
-          <a href="{{ route('my-wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
+          <a href="{{ route('my_course') }}"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my_wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
           <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription History</a>
           <a href="{{ route('cart') }}" class="active"><i class="icofont-shopping-cart"></i> View Cart</a>
         </div>

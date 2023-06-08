@@ -145,28 +145,9 @@
         <div class="main-content-wrapper in-pr-main-content-wrapper ms-md-4 ps-0">
           <div class="pro-header mb-1">
             <div class="d-flex align-items-center justify-content-between mb-4">
-              <!-- <div class="d-flex align-items-center">
-                <i class="fas fa-chevron-circle-right mob-menu-opener me-3 d-md-none" style="font-size: 18px;"></i>
-                <h5 class="mb-0">Create Course</h5>
-                <ul class="list-inline text-center switch-toggler-list icon-switch" title="Learner Dashboard">
-                  <li>
-                    <a href="../s-profile/s-my-profile.html">
-                      <label class="switch on">
-                        <span class="slider round"><img src="{{ URL::asset('assets/images/icon-instructor-switch.png')}}" width="40"></span>
-                      </label>
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
+
               <div>
                 <a href="" class="course-back-btn"><i class="icofont-simple-left"></i> Back</a>
-
-                <!-- <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item" title="Home"><a href="" style="color: #309255;font-size: 23px;line-height: 20px;"><i class="icofont-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Course details</li>
-                  </ol>
-                </nav> -->
               </div>
 
               <div class="login-header-action ml-auto pe-0">
@@ -234,11 +215,7 @@
                   <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                 </a>
                 <div class="dropdown">
-                  <!-- <button class="action more" data-bs-toggle="dropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button> -->
+                  
                   <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
@@ -264,7 +241,6 @@
             </div>
           </div>
           <div class="container-fluid main__div">
-
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-5">
                 <h6 class="me-3">Course Status : Published </h6>
                 <h6 class="me-3">Number of subscription : 185 </h6>
@@ -282,86 +258,6 @@
                 <a href="" class="btn default-btn w-100">View Course Certificate </a>
               </div>
             </div>
-
-            <!-- <h4 class="my-3">Edit Course Information</h4>
-            <form class="row cust-drop">
-              <div class="form-group pb-3">
-                <label for="course-type">Choose Course Type</label>
-                <select id="course-type" class="w-100">
-                  <option>Select Course Type</option>
-                  <option>Course Type</option>
-                  <option>Course Type</option>
-                </select>
-              </div>
-              <div class="form-group pb-3">
-                <label for="parent-sub-category">Parent Subcategory</label>
-                <select id="parent-sub-category" class="w-100" >
-                  <option>Select Parent Subcategory</option>
-                  <option>Parent Subcategory</option>
-                  <option>Parent Subcategory</option>
-                </select>
-              </div>
-              <div class="form-group pb-3">
-                <label for="child-subcategory">Child Subcategory</label>
-                <select class="w-100" id="child-subcategory">
-                  <option>Select Child Subcategory</option>
-                  <option>Child Subcategory</option>
-                  <option>Child Subcategory</option>
-                </select>
-              </div>
-              <div class="form-group pb-3">
-                <label for="course-name">Course Name</label>
-                <input class="w-100 nice-select float-none" type="text" placeholder="Write here..." name="course-name" id="course-name">
-              </div>
-
-              <div class="row g-0">
-                <div class="col-12 col-sm-12 col-md-6 px-3">
-                  <div class="form-group pb-3">
-                    <label for="course-name">Actual Selling Price</label>
-                    <div class="flex-input-field">
-                      <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                      <input class="w-100 nice-select float-none" type="text" placeholder="Write here..." name="course-name" id="course-name">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 px-3">
-                  <div class="form-group pb-3">
-                    <label for="usd-price">Price In USD</label>
-                    <div class="flex-input-field">
-                      <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                      <input class="w-100 nice-select float-none" type="text" placeholder="Price In USD" name="usd-price" id="usd-price">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 px-3">
-                  <div class="form-group pb-3">
-                    <label for="sell-price">Sell Price (Optional)</label>
-                    <div class="flex-input-field">
-                      <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                      <input type="text" class="w-100 nice-select float-none" placeholder="Write here..." name="sell-price" id="sell-price">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 px-3">
-                  <div class="form-group pb-3">
-                    <label for="sell-price">Sell Price In USD</label>
-                    <div class="flex-input-field">
-                      <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                      <input type="text" class="w-100 nice-select float-none" placeholder="Sell Price In USD" name="sell-price" id="sell-price">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group mb-3">
-                <label>Description</label>
-                <textarea class="w-100 nice-select float-none" placeholder="Write here..." id="desc" name="desc"></textarea>
-              </div>
-
-              <div class="form-group mb-3 text-center">
-                <a id="creat_course" href="" class="btn btn-success">Update</a>
-              </div>
-            </form> -->
 
             <div class="history-table">
               <div class="row align-items-center justify-content-between">
@@ -420,43 +316,7 @@
 
           </div>
 
-          <!-- <div class="container-fluid main__div mt-4">
-            <h4 class="mb-3">Edit Topics</h4>
-            <form class="row cust-drop">
-              <div class="form-group pb-3">
-                <label for="course-type">Choose Course</label>
-                <select id="course-type" class="w-100">
-                  <option>Select Course Type</option>
-                  <option>Course Type</option>
-                  <option>Course Type</option>
-                </select>
-              </div>
-              <div class="form-group pb-3">
-                <label for="course-name">Add Principle Topic</label>
-                <input class="w-100 nice-select float-none" type="text" placeholder="Write here..." name="course-name" id="course-name">
-              </div>
-              <div class="form-group mb-3 text-center">
-                <a id="creat_course" href="" class="btn btn-success">Update</a>
-              </div>
-            </form>
-          </div>
-
-          <div class="container-fluid main__div mt-4">
-            <h4 class="my-3">Edit Course Resources</h4>
-            <form class="row cust-drop">
-              <div class="form-group pb-3">
-                <label for="course-type">Select Course</label>
-                <select id="course-type" class="w-100">
-                  <option>Select Course Type</option>
-                  <option>Course Type</option>
-                  <option>Course Type</option>
-                </select>
-              </div>
-              <div class="form-group mb-3 text-center">
-                <a id="creat_course" href="" class="btn btn-success">Update</a>
-              </div>
-            </form>
-          </div> -->
+        
         </div>
       </div>
     </div>

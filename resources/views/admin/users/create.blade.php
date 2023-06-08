@@ -17,19 +17,6 @@ apoGuru - Create User
             <h2>Users</h2>
         </div>
 
-        <!-- Vertical Layout -->
-
-        <!-- #END# Vertical Layout -->
-        <!-- Vertical Layout | With Floating Label -->
-
-        <!-- Vertical Layout | With Floating Label -->
-        <!-- Horizontal Layout -->
-
-        <!-- #END# Horizontal Layout -->
-        <!-- Inline Layout -->
-
-        <!-- #END# Inline Layout -->
-        <!-- Inline Layout | With Floating Label -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               @if ($errors->any())
@@ -172,18 +159,6 @@ apoGuru - Create User
                                   </div>
                                 </div>
                             </div>
-                              <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
-                                    <input data-id="" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" >
-                                 
-                              </div> -->
-                              <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
-                                  <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="verification_status" class="form-control">
-                                        <label class="form-label">Verification Status</label>
-                                    </div>
-                                  </div>
-                              </div> -->
                               
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
                                     <div class="form-group form-float">
@@ -193,8 +168,6 @@ apoGuru - Create User
                                       </div>
                                     </div>
                                 </div>
-                                
-                                <!-- <input type="hidden" name="" id="d&t" value="">  -->
 
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <input type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect" value="Add User"/>

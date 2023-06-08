@@ -140,28 +140,9 @@
         <div class="main-content-wrapper in-pr-main-content-wrapper ms-md-4 ps-0">
           <div class="pro-header mb-1">
             <div class="d-flex align-items-center justify-content-between mb-4">
-              <!-- <div class="d-flex align-items-center">
-                <i class="fas fa-chevron-circle-right mob-menu-opener me-3 d-md-none" style="font-size: 18px;"></i>
-                <h5 class="mb-0">Create Course</h5>
-                <ul class="list-inline text-center switch-toggler-list icon-switch" title="Learner Dashboard">
-                  <li>
-                    <a href="../s-profile/s-my-profile.html">
-                      <label class="switch on">
-                        <span class="slider round"><img src="{{ URL::asset('assets/images/icon-instructor-switch.png')}}" width="40"></span>
-                      </label>
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
               <div>
                 <a href="{{ route('details-course') }}" class="course-back-btn"><i class="icofont-simple-left"></i> Back</a>
 
-                <!-- <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item" title="Home"><a href="" style="color: #309255;font-size: 23px;line-height: 20px;"><i class="icofont-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Course details</li>
-                  </ol>
-                </nav> -->
               </div>
               <div class="login-header-action ml-auto pe-0">
                 <div class="dropdown">
@@ -228,11 +209,6 @@
                   <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                 </a>
                 <div class="dropdown">
-                  <!-- <button class="action more" data-bs-toggle="dropdown">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button> -->
                   <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                   <ul class="dropdown-menu">
                     <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
@@ -338,8 +314,6 @@
                 <a id="creat_course" href="" class="btn btn-success">Update</a>
               </div>
             </form>
-
-
           </div>
 
           <div class="container-fluid main__div mt-4">
@@ -465,7 +439,6 @@
       </div>
       <div class="footer-copyright">
         <div class="container">
-
           <div class="copyright-wrapper">
             <div class="copyright-link">
               <a href="#">Terms of Service</a>

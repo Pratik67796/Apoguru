@@ -58,12 +58,12 @@
         <div class="modal-body">
           <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
-              <div class="d-flex flex-column align-items-center justify-content-center mb-5">
-                <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
-                <div>
-                  <h4 class="mb-3">Martin nel</h4>
-                </div>
+            <div class="d-flex flex-column align-items-center justify-content-center mb-5">
+              <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
+              <div>
+                <h4 class="mb-3">Martin nel</h4>
               </div>
+            </div>
 
             <form class="profile-form ins-details">
               <div class="row">
@@ -97,9 +97,7 @@
                     <h5>25 (Twenty five)</h5>
                   </div>
                 </div>
-                
               </div>
-              
             </form>
           </div>
         </div>
@@ -179,7 +177,7 @@
       </div>
     </div>
   </header>
-  <!-- cart mini area start -->
+
   <div class="cartmini__area">
     <div class="cartmini__wrapper">
       <div class="cartmini__title">
@@ -264,8 +262,7 @@
     </div>
   </div>
   <div class="body-overlay"></div>
-  <!-- cart mini area end -->
-  <!-- sidebar area start -->
+
   <div class="sidebar__area">
     <div class="sidebar__wrapper">
       <div class="sidebar__close">
@@ -302,11 +299,11 @@
       </div>
     </div>
   </div>
-  <!-- sidebar area end -->      
+     
   <div class="body-overlay"></div>
-  <!-- sidebar area end -->
+
   <main>
-    <!-- page title area start -->
+
     <section class="page__title-area pt-120 pb-90">
       <div class="page__title-shape">
         <img class="page-title-shape-5 d-none d-sm-block" src="{{ URL::asset('assets/img/page-title/page-title-shape-1.png')}}" alt="">
@@ -351,7 +348,7 @@
                     <img src="{{ URL::asset('assets/images/courses/circle-shape.png')}}" alt="Play">
                     <a class="play " href="" data-bs-toggle="modal" data-bs-target="#course_vdo_Modal">
                       <i class="flaticon-play"></i>
-                    </a> <!-- video-popup class removed -->
+                    </a> 
                   </div>
                   <div class="position-absolute" style="top: 1rem;left: 1rem;z-index: 2">
                     <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart fa-lg"></i></a>
@@ -746,16 +743,7 @@
                           <div class="course__form-inner">
                             <form action="#">
                               <div class="row">
-                                <!-- <div class="col-xxl-6">
-                                  <div class="course__form-input">
-                                    <input type="text" placeholder="Your Name">
-                                  </div>
-                                </div>
-                                <div class="col-xxl-6">
-                                  <div class="course__form-input">
-                                    <input type="email" placeholder="Your Email">
-                                  </div>
-                                </div> -->
+                                
                                 <div class="col-xxl-12">
                                   <div class="course__form-input">
                                     <input type="text" placeholder="Review Title">
@@ -1096,19 +1084,6 @@
             <div class="col-lg-5">
               <div class="sidebar course-content-siderbar">
                 <div class="sidebar-widget widget-information">
-                  <!-- <div class="info-price">
-                    <span class="price">$420.38</span>
-                  </div> -->
-                  <!-- <div class="info-list">
-                    <ul>
-                      <li><i class="icofont-man-in-glasses"></i> <strong>Instructor</strong> <span>Pamela Foster</span></li>
-                      <li><i class="icofont-clock-time"></i> <strong>Duration</strong> <span>08 hr 15 mins</span></li>
-                      <li><i class="icofont-ui-video-play"></i> <strong>Lectures</strong> <span>29</span></li>
-                      <li><i class="icofont-bars"></i> <strong>Level</strong> <span>Professional</span></li>
-                      <li><i class="icofont-book-alt"></i> <strong>Language</strong> <span>English</span></li>
-                      <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
-                    </ul>
-                  </div> -->
                   <h4>Course Content</h4>
 
                   <div class="accordion mt-4 course-accordion" id="accordionExample">
@@ -1195,7 +1170,7 @@
           </div>
         </div>
       </section>
-      <!-- page title area end -->
+
     </main>
     <footer>
       <div class="footer__area footer-bg">

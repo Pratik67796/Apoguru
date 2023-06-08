@@ -74,10 +74,6 @@
       padding: 1.5rem;
     }
 
-    /*.profile-body .page-content-wrapper{
-      padding-left: 110px;
-      }*/
-
       .profile-body .admin-tab-menu{
         background-color: #fafafa;
         margin-right: 1.5rem;
@@ -231,7 +227,6 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- <h5 class="mb-3">Instructor Profile Preview</h5> -->
           <div class="">
               <div class="d-flex flex-column align-items-center justify-content-center mb-5">
                 <img class="img-fluid mb-3" src="{{ URL::asset('assets/images/author/author-07.jpg')}}" style="border-radius: 9%;">
@@ -303,18 +298,10 @@
               <img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Author" style="width:120px;">
             </a>
             <h5 class="title"> Instructor Dashboard</h5>
-            <!-- <a href="profile-home.html" class=""><i class="icofont-home"></i> Home</a> -->
             <a href="{{ route('instructor-profile') }}" class="active"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
             <a href="{{ route('create-course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
             <a href="{{ route('course-i-have-created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
             <a href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i>Wallet</a>
-
-            <!-- <a href="my-course"><i class="icofont-computer"></i> My Courses</a>
-            <a href="my-wishlist"><i class="icofont-heart"></i> My Wishlist</a>
-            <a href="subscription-history"><i class="icofont-history"></i> Subscription History</a>
-            <a href="cart"><i class="icofont-shopping-cart"></i> View Cart</a>
-            <a href="payouts"><i class="icofont-credit-card"></i> Payouts</a>
-            <button data-bs-toggle="modal" data-bs-target="#logout_Modal"><i class="icofont-logout"></i> Logout</button> -->
           </div>
           <div class="main-content-wrapper in-pr-main-content-wrapper">
             <div class="pro-header mb-1">
@@ -397,11 +384,6 @@
                     <img src="{{ URL::asset('assets/images/author/author-07.jpg')}}" alt="Author">
                   </a>
                   <div class="dropdown">
-                    <!-- <button class="action more" data-bs-toggle="dropdown">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </button> -->
                     <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                     <ul class="dropdown-menu">
                       <li><a class="" href="#"><i class="icofont-user"></i> Profile</a></li>
@@ -444,20 +426,9 @@
             <div class="container-fluid main__div">
               <div class="admin-top-bar students-top">
                 <div class="courses-select pt-0">
-                <!-- <select>
-                  <option data-display="All Courses">All Courses</option>
-                  <option value="1">option</option>
-                  <option value="2">option</option>
-                  <option value="3">option</option>
-                  <option value="4">Potato</option>
-                </select> -->
                 <h4 class="title mt-0 mb-3">Personal Information</h4>
                 </div>
 
-                <!-- <div class="student-box">
-                  <h5 class="title">Total Revenue</h5>
-                  <div class="count">2,698</div>
-                </div> -->
               </div>
 
               <div>
@@ -561,7 +532,6 @@
 
                   <div class="col-12 col-sm-6 col-md-5 col-lg-3">
                     <div class="form-group">
-                      <!-- <label>Add</label><br> -->
                       <a class="btn default-btn w-100">Add New</a>
                     </div>
                   </div>
@@ -582,21 +552,18 @@
                 <div class="row pt-3">
                   <div class="col-6 col-sm-3 col-md-3 col-lg-4">
                     <div class="form-group">
-                      <!-- <label>View</label><br> -->
                       <a class="btn default-btn d-block text-center" data-bs-toggle="modal" data-bs-target="#ins_Modal">Preview</a>
                     </div>
                   </div>
 
                   <div class="col-6 col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
-                      <!-- <label>Save</label><br> -->
                       <a class="btn default-btn d-block text-center">Save</a>
                     </div>
                   </div>
 
                   <div class="col-12 col-sm-5 col-md-5 col-lg-4">
                     <div class="form-group">
-                      <!-- <label>Get Me Verified</label><br> -->
                       <a class="btn default-btn d-block text-center">Get Me Verified</a>
                     </div>
                   </div>
