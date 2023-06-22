@@ -104,7 +104,7 @@
         <div class="container">
           <div class="header-main-wrapper">
             <div class="header-logo">
-              <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
+              <a href="index.html"><img src="{{ asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
             </div>
 
             <div class="header-menu d-none ">
@@ -931,7 +931,7 @@
             <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
               <div class="footer-widget">
                 <div class="widget-logo">
-                  <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                  <a href="index.html"><img src="{{ asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                 </div>
                 <div class="widget-address">
                   <h4 class="footer-widget-title">Caribbean Ct</h4>

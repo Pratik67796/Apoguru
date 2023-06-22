@@ -1,19 +1,22 @@
+@php
+
+@endphp
 @extends('user.comman.header')
 @section('title') Course @endsection 
 @section('content') 
-<link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/preloader.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/meanmenu.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/animate.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/swiper-bundle.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/backToTop.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/jquery.fancybox.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/elegantFont.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/default.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/style.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/custom.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/school-css/preloader.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/meanmenu.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/animate.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/swiper-bundle.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/backToTop.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/jquery.fancybox.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/fontAwesome5Pro.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/elegantFont.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/default.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/custom.css')}}">
 
   <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog course-vdo-modal" role="document">
@@ -25,9 +28,9 @@
           </button>
         </div>
         <div class="modal-body position-relative">
-          <video class="" poster="assets/images/school-dashboard-main.jpeg" width="100%" height="" controls>
-            <source src="assets/video/school-dashboard-main.mp4" type="">
-            <source src="assets/video/school-dashboard-main.ogg" type="">
+          <video class="" poster="{{ asset('assets/images/school-dashboard-main.jpeg')}}" width="100%" height="" controls>
+            <source src="{{asset('assets/video/school-dashboard-main.mp4')}}" type="">
+            <source src="{{asset('assets/video/school-dashboard-main.ogg')}}" type="">
           </video>
 
           <div class="question-section">
@@ -82,7 +85,7 @@
             <li>
               <div class="cartmini__thumb">
                 <a href="javascript:void(0)">
-                  <img src="assets/img/course/sm/cart-1.jpg" alt="">
+                  <img src="{{asset('assets/img/course/sm/cart-1.jpg')}}" alt="">
                 </a>
               </div>
               <div class="cartmini__content">
@@ -101,7 +104,7 @@
             <li>
               <div class="cartmini__thumb">
                 <a href="javascript:void(0)">
-                  <img src="assets/img/course/sm/cart-2.jpg" alt="">
+                  <img src="{{ asset('assets/img/course/sm/cart-2.jpg') }}" alt="">
                 </a>
               </div>
               <div class="cartmini__content">
@@ -120,7 +123,7 @@
             <li>
               <div class="cartmini__thumb">
                 <a href="javascript:void(0)">
-                  <img src="assets/img/course/sm/cart-3.jpg" alt="">
+                  <img src="{{asset('assets/img/course/sm/cart-3.jpg')}}" alt="">
                 </a>
               </div>
               <div class="cartmini__content">
@@ -164,7 +167,7 @@
       <div class="sidebar__content">
         <div class="logo mb-40">
           <a href="index.html">
-            <img src="assets/img/logo/logo.png" alt="logo">
+            <img src="{{asset('assets/img/logo/logo.png')}}" alt="logo">
           </a>
         </div>
         <div class="mobile-menu fix"></div>
@@ -196,9 +199,9 @@
 
     <section class="page__title-area pt-120 pb-90">
       <div class="page__title-shape">
-        <img class="page-title-shape-5 d-none d-sm-block" src="assets/img/page-title/page-title-shape-1.png" alt="">
-        <img class="page-title-shape-6" src="assets/img/page-title/page-title-shape-6.png" alt="">
-        <img class="page-title-shape-7" src="assets/img/page-title/page-title-shape-4.png" alt="">
+        <img class="page-title-shape-5 d-none d-sm-block" src="{{asset('assets/img/page-title/page-title-shape-1.png')}}" alt="">
+        <img class="page-title-shape-6" src="{{asset('assets/img/page-title/page-title-shape-6.png')}}" alt="">
+        <img class="page-title-shape-7" src="{{asset('assets/img/page-title/page-title-shape-4.png')}}" alt="">
       </div>
       <div class="container">
         <div class="row">
@@ -208,16 +211,16 @@
                 <div class="course__meta-2 d-sm-flex mb-30">
                   <div class="course__teacher-3 d-flex align-items-center mr-70 mb-30">
                     <div class="course__teacher-thumb-3 mr-15">
-                      <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
+                      <img src="{{ asset('assets/img/course/teacher/teacher-1.jpg') }}" alt="">
                     </div>
                     <div class="course__teacher-info-3">
                       <h5>Teacher</h5>
-                      <p><a href="javascript:void(0)">Elon Gated</a></p>
+                      <p><a href="javascript:void(0)">{{ isset($singlecourse->getAdmin) ? $singlecourse->getAdmin->name : $singlecourse->getPublisher->name }}</a></p>
                     </div>
                   </div>
                   <div class="course__update mr-80 mb-30">
                     <h5>Last Update:</h5>
-                    <p>July 24, 2022</p>
+                    <p>{{ $singlecourse->updated_at->format('M d, Y') }}</p>
                   </div>
                   <div class="course__rating-2 mb-30">
                     <h5>Review:</h5>
@@ -234,11 +237,12 @@
                   </div>
                 </div>
                 <div class="course__img w-img mb-30 position-relative">
-                  <img src="assets/img/course/details/course-details-1.jpg" alt="">
+                  <img src="{{asset('course_images/'.$singlecourse->image )}}" alt="">
                   <div class="position-absolute" style="top: 1rem;left: 1rem;z-index: 2">
                     <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart fa-lg"></i></a>
                   </div>
                 </div>
+                <h2 class="title">{{ $singlecourse->title }}</h2>
                 <div class="course__tab-2 mb-45">
                   <ul class="nav nav-tabs" id="courseTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -260,27 +264,19 @@
                     <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                       <div class="course__description">
                         <h3>Course Overview</h3>
-                        <p>{{strip_tags($singlecourse['description'])}}</p>
+                        <p>{!! $singlecourse->description !!}</p>
                         <div class="course__tag-2 mb-35 mt-35">
                           <i class="fal fa-tag"></i>
                           <a href="javascript:void(0)">Big data,</a>
                           <a href="javascript:void(0)">Data analysis,</a>
                           <a href="javascript:void(0)">Data modeling</a>
                         </div>
-                        <div class="course__description-list mb-45">
-                          <h4>What is the Target Audience?</h4>
-                          <ul>
-                            <li> <i class="icon_check"></i> Business's managers, leaders</li>
-                            <li> <i class="icon_check"></i> Downloadable lectures, code and design assets for all projects</li>
-                            <li> <i class="icon_check"></i> Anyone who is finding a chance to get the promotion</li>
-                          </ul>
-                        </div>
                         <div class="course__instructor mb-45">
                           <h3>Other Instructors</h3>
                           <div class="course__instructor-wrapper d-md-flex align-items-center">
                             <div class="course__instructor-item d-flex align-items-center mr-70">
                               <div class="course__instructor-thumb mr-20">
-                                <img src="assets/img/course/teacher/teacher-3.jpg" alt="">
+                                <img src="{{asset('assets/img/course/teacher/teacher-3.jpg')}}" alt="">
                               </div>
                               <div class="course__instructor-content">
                                 <h3>Eleanor Fant</h3>
@@ -289,7 +285,7 @@
                             </div>
                             <div class="course__instructor-item d-flex align-items-center mr-70">
                               <div class="course__instructor-thumb mr-20">
-                                <img src="assets/img/course/teacher/teacher-2.jpg" alt="">
+                                <img src="{{asset('assets/img/course/teacher/teacher-2.jpg')}}" alt="">
                               </div>
                               <div class="course__instructor-content">
                                 <h3>Lauren Stamps</h3>
@@ -298,7 +294,7 @@
                             </div>
                             <div class="course__instructor-item d-flex align-items-center mr-70">
                               <div class="course__instructor-thumb mr-20">
-                                <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
+                                <img src="{{ asset('assets/img/course/teacher/teacher-1.jpg') }}" alt="">
                               </div>
                               <div class="course__instructor-content">
                                 <h3>Jonquil Von</h3>
@@ -570,7 +566,7 @@
                             <li>
                               <div class="course__comment-box ">
                                 <div class="course__comment-thumb float-start">
-                                  <img src="assets/img/course/comment/course-comment-1.jpg" alt="">
+                                  <img src="{{asset('assets/img/course/comment/course-comment-1.jpg')}}" alt="">
                                 </div>
                                 <div class="course__comment-content">
                                   <div class="course__comment-wrapper ml-70 fix">
@@ -597,7 +593,7 @@
                             <li>
                               <div class="course__comment-box ">
                                 <div class="course__comment-thumb float-start">
-                                  <img src="assets/img/course/comment/course-comment-2.jpg" alt="">
+                                  <img src="{{asset('assets/img/course/comment/course-comment-2.jpg')}}" alt="">
                                 </div>
                                 <div class="course__comment-content">
                                   <div class="course__comment-wrapper ml-70 fix">
@@ -669,7 +665,7 @@
                           <div class="row align-items-center">
                             <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6">
                               <div class="course__member-thumb d-flex align-items-center">
-                                <img src="assets/img/course/instructor/course-instructor-1.jpg" alt="">
+                                <img src="{{asset('assets/img/course/instructor/course-instructor-1.jpg')}}" alt="">
                                 <div class="course__member-name ml-20">
                                   <h5>Shahnewaz Sakil</h5>
                                   <span>Engineer</span>
@@ -700,7 +696,7 @@
                           <div class="row align-items-center">
                             <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6">
                               <div class="course__member-thumb d-flex align-items-center">
-                                <img src="assets/img/course/instructor/course-instructor-2.jpg" alt="">
+                                <img src="{{asset('assets/img/course/instructor/course-instructor-2.jpg')}}" alt="">
                                 <div class="course__member-name ml-20">
                                   <h5>Lauren Stamps</h5>
                                   <span>Teacher</span>
@@ -731,7 +727,7 @@
                           <div class="row align-items-center">
                             <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-6 ">
                               <div class="course__member-thumb d-flex align-items-center">
-                                <img src="assets/img/course/instructor/course-instructor-3.jpg" alt="">
+                                <img src="{{asset('assets/img/course/instructor/course-instructor-3.jpg')}}" alt="">
                                 <div class="course__member-name ml-20">
                                   <h5>Jonquil Von</h5>
                                   <span>Associate</span>
@@ -763,23 +759,28 @@
                     
                   </div>
                 </div>
+               
                 <div class="course__related">
                   <div class="row">
                     <div class="col-xxl-12">
                       <div class="section__title-wrapper mb-40">
-                        <h2 class="section__title">Related <span class="yellow-bg yellow-bg-big">Course<img src="assets/img/shape/yellow-bg.png" alt=""></span></h2>
-                        <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                        @if(count($singlecourse->getRecommendedCourses) > 0)
+                          <h2 class="section__title">Related <span class="yellow-bg yellow-bg-big">Course<img src="{{asset('assets/img/shape/yellow-bg.png')}}" alt=""></span></h2>
+                          <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                          @endif
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-xxl-12">
+                     @if(count($singlecourse->getRecommendedCourses) > 0)
                       <div class="course__slider swiper-container pb-60">
                         <div class="swiper-wrapper">
+                          @foreach ($singlecourse->getRecommendedCourses as $courses)
                           <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
                             <div class="course__thumb w-img p-relative fix">
-                              <a href="{{ route('course-details') }}">
-                                <img src="assets/img/course/course-1.jpg" alt="">
+                              <a href="{{ route('course-details',['slug'=>$courses->getCourse->slug,'uid'=>$courses->getCourse->uid]) }}">
+                                <img src="{{asset('course_images/'.$courses->getCourse->image )}}" alt="">
                               </a>
                               <div class="course__tag">
                                 <a href="javascript:void(0)">BESTSELLER</a>
@@ -794,13 +795,13 @@
                                   <span><i class="icon_star"></i>4.5 (44)</span>
                                 </div>
                               </div>
-                              <h3 class="course__title"><a href="{{ route('course-details') }}">Become a product Manager learn the skills & job.</a></h3>
+                              <h3 class="course__title"><a href="{{ route('course-details',['slug'=>$courses->getCourse->slug,'uid'=>$courses->getCourse->uid]) }}">{{$courses->getCourse->title}}</a></h3>
                               <div class="d-flex align-items-center justify-content-between">
                                 <div class="course__teacher d-flex align-items-center">
                                   <div class="course__teacher-thumb mr-15">
-                                    <img src="assets/img/course/teacher/teacher-1.jpg" alt="">
+                                    <img src="{{ asset('assets/img/course/teacher/teacher-1.jpg') }}" alt="">
                                   </div>
-                                  <h6><a href="instructor-details.html">Jim Séchen</a></h6>
+                                  <h6><a href="instructor-details.html">{{ isset($singlecourse->getAdmin) ? $singlecourse->getAdmin->name : $singlecourse->getPublisher->name }}</a></h6>
                                 </div>
                                 <div class="extra-buttons">
                                   <a href="javascript:void(0)"><i class="far fa-paper-plane me-2"></i></a>
@@ -810,10 +811,12 @@
                             </div>
                             <div class="course__more d-flex justify-content-between align-items-center">
                               <div class="course__status">
-                                <span>Free</span>
+                                {{-- <span>Free</span> --}}
+                                <span class="green actual_price_{{$courses->getCourse->id}}" data-id="{{$courses->getCourse->id}}">${{$courses->getCourse->actual_price}}</span>
+                                <span class="old-price sellprice_{{$courses->getCourse->id}}" data-id="{{$courses->getCourse->id}}">${{$courses->getCourse->sell_price}}</span>
                               </div>
                               <div class="course__btn">
-                                <a href="{{ route('course-details') }}" class="link-btn">
+                                <a href="{{ route('course-details',['slug'=>$courses->getCourse->slug,'uid'=>$courses->getCourse->uid]) }}" class="link-btn">
                                   Know Details
                                   <i class="far fa-arrow-right"></i>
                                   <i class="far fa-arrow-right"></i>
@@ -821,157 +824,22 @@
                               </div>
                             </div>
                           </div>
-                          <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                            <div class="course__thumb w-img p-relative fix">
-                              <a href="{{ route('course-details') }}">
-                                <img src="assets/img/course/course-2.jpg" alt="">
-                              </a>
-                              <div class="course__tag">
-                                <a href="javascript:void(0)" class="sky-blue">BESTSELLER</a>
-                              </div>
-                            </div>
-                            <div class="course__content">
-                              <div class="course__meta d-flex align-items-center justify-content-between">
-                                <div class="course__lesson">
-                                  <span><i class="far fa-book-alt"></i>72 Lesson</span>
-                                </div>
-                                <div class="course__rating">
-                                  <span><i class="icon_star"></i>4.5 (44)</span>
-                                </div>
-                              </div>
-                              <h3 class="course__title"><a href="{{ route('course-details') }}">Fundamentals of music theory Learn new</a></h3>
-                              <div class="d-flex align-items-center justify-content-between">
-                                <div class="course__teacher d-flex align-items-center">
-                                  <div class="course__teacher-thumb mr-15">
-                                    <img src="assets/img/course/teacher/teacher-2.jpg" alt="">
-                                  </div>
-                                  <h6><a href="instructor-details.html">Barry Tone</a></h6>
-                                </div>
-                                <div class="extra-buttons">
-                                  <a href="javascript:void(0)"><i class="far fa-paper-plane me-2"></i></a>
-                                  <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="course__more d-flex justify-content-between align-items-center">
-                              <div class="course__status d-flex align-items-center">
-                                <span class="sky-blue">$32.00</span>
-                                <span class="old-price">$68.00</span>
-                              </div>
-                              <div class="course__btn">
-                                <a href="{{ route('course-details') }}" class="link-btn">
-                                  Know Details
-                                  <i class="far fa-arrow-right"></i>
-                                  <i class="far fa-arrow-right"></i>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                            <div class="course__thumb w-img p-relative fix">
-                              <a href="{{ route('course-details') }}">
-                                <img src="assets/img/course/course-3.jpg" alt="">
-                              </a>
-                              <div class="course__tag">
-                                <a href="javascript:void(0)" class="green">BESTSELLER</a>
-                              </div>
-                            </div>
-                            <div class="course__content">
-                              <div class="course__meta d-flex align-items-center justify-content-between">
-                                <div class="course__lesson">
-                                  <span><i class="far fa-book-alt"></i>14 Lesson</span>
-                                </div>
-                                <div class="course__rating">
-                                  <span><i class="icon_star"></i>3.5 (55)</span>
-                                </div>
-                              </div>
-                              <h3 class="course__title"><a href="{{ route('course-details') }}">Strategy law and organization Foundation</a></h3>
-                              <div class="d-flex align-items-center justify-content-between">
-                                <div class="course__teacher d-flex align-items-center">
-                                  <div class="course__teacher-thumb mr-15">
-                                    <img src="assets/img/course/teacher/teacher-3.jpg" alt="">
-                                  </div>
-                                  <h6><a href="instructor-details.html">Elon Gated</a></h6>
-                                </div>
-                                <div class="extra-buttons">
-                                  <a href="javascript:void(0)"><i class="far fa-paper-plane me-2"></i></a>
-                                  <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="course__more d-flex justify-content-between align-items-center">
-                              <div class="course__status d-flex align-items-center">
-                                <span class="green">$46.00</span>
-                                <span class="old-price">$68.00</span>
-                              </div>
-                              <div class="course__btn">
-                                <a href="{{ route('course-details') }}" class="link-btn">
-                                  Know Details
-                                  <i class="far fa-arrow-right"></i>
-                                  <i class="far fa-arrow-right"></i>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
-                            <div class="course__thumb w-img p-relative fix">
-                              <a href="{{ route('course-details') }}">
-                                <img src="assets/img/course/course-4.jpg" alt="">
-                              </a>
-                              <div class="course__tag">
-                                <a href="javascript:void(0)" class="blue">BESTSELLER</a>
-                              </div>
-                            </div>
-                            <div class="course__content">
-                              <div class="course__meta d-flex align-items-center justify-content-between">
-                                <div class="course__lesson">
-                                  <span><i class="far fa-book-alt"></i>22 Lesson</span>
-                                </div>
-                                <div class="course__rating">
-                                  <span><i class="icon_star"></i>4.5 (42)</span>
-                                </div>
-                              </div>
-                              <h3 class="course__title"><a href="{{ route('course-buy') }}">The business Intelligence analyst Course 2022</a></h3>
-                              <div class="d-flex align-items-center justify-content-between">
-                                <div class="course__teacher d-flex align-items-center">
-                                  <div class="course__teacher-thumb mr-15">
-                                    <img src="assets/img/course/teacher/teacher-4.jpg" alt="">
-                                  </div>
-                                  <h6><a href="{{ route('course-buy') }}">Eleanor Fant</a></h6>
-                                </div>
-                                <div class="extra-buttons">
-                                  <a href="javascript:void(0)"><i class="far fa-paper-plane me-2"></i></a>
-                                  <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart"></i></a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="course__more d-flex justify-content-between align-items-center">
-                              <div class="course__status d-flex align-items-center">
-                                <span class="blue">$62.00</span>
-                                <span class="old-price">$97.00</span>
-                              </div>
-                              <div class="course__btn">
-                                <a href="{{ route('course-details') }}" class="link-btn">
-                                  Know Details
-                                  <i class="far fa-arrow-right"></i>
-                                  <i class="far fa-arrow-right"></i>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
+                          @endforeach
                         </div>
                         <!-- Add Pagination -->
                         <div class="swiper-pagination"></div>
                       </div>
+                      @endif
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+           
             <div class="col-xxl-4 col-xl-4 col-lg-4">
               <div class="course__sidebar pl-70 p-relative">
                 <div class="course__shape">
-                  <img class="course-dot" src="assets/img/course/course-dot.png" alt="">
+                  <img class="course-dot" src="{{asset('assets/img/course/course-dot.png')}}" alt="">
                 </div>
                 <div class="course__sidebar-widget-2 white-bg mb-20">
                   <div class="course__video">
@@ -1096,22 +964,22 @@
 
 @endsection
 @section('script')
-    <script src="{{ URL::asset('/school-js/vendor/jquery-3.5.1.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/vendor/waypoints.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/bootstrap.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/jquery.meanmenu.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/swiper-bundle.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/owl.carousel.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/jquery.fancybox.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/parallax.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/backToTop.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/jquery.counterup.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/ajax-form.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/wow.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{ URL::asset('/school-js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/vendor/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/vendor/waypoints.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/jquery.meanmenu.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/swiper-bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/jquery.fancybox.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/parallax.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/backToTop.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/jquery.counterup.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/ajax-form.js')}}"></script>
+    {{-- <script src="{{ asset('assets/js/school-js/wow.min.js')}}"></script> --}}
+    <script src="{{ asset('assets/js/school-js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/js/school-js/main.js')}}"></script>
 
     <script type="">
       $(document).ready(function(){
@@ -1130,7 +998,7 @@
       });
     </script>
    
-    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script language="JavaScript" src="https://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script>
       var resultFrom;
       var resultTo;
@@ -1177,19 +1045,3 @@
       }
     </script>
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

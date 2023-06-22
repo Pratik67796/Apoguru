@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Session;
-use Storage;
+use \Illuminate\Support\Facades\Storage;
 
 
 class Logincontroller extends Controller

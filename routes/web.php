@@ -11,6 +11,9 @@
 |
 */
 
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
+
 Route::post('image-upload', 'Admin\CategoryController@storeImage')->name('image.upload');
 
 Route::get('/', function () {
@@ -96,6 +99,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
   // Courses
   Route::get('/course/list', 'Admin\CourseController@getCourses')->name('course.list');
   Route::get('/course/create', 'Admin\CourseController@createCourse')->name('course.create');
+  Route::post('/get-recommended-course', 'Admin\CourseController@getRecommendedCourse')->name('get-recommended-course');
   Route::post('/course/store', 'Admin\CourseController@storeCourse')->name('course.store');
   Route::get('/course/edit/{course_id}', 'Admin\CourseController@editCourse')->name('course.edit');
   Route::post('/course/update/{course_id}', 'Admin\CourseController@updateCourse')->name('course.update');
@@ -215,10 +219,10 @@ Route::get('/professional-dashboard', 'Front\Userhome@professional_dashboard')->
 
 // Route::get('/subcategory', 'Front\Userhome@subcategory')->name('subcategory');
 Route::get('/subcategory/{id?}', 'Front\Userhome@subcategory')->name('subcategory');
-Route::get('/course-buy/{courseid?}', 'Front\Userhome@course_buy')->name('course-buy');
+Route::get('/course-details/{slug}/{uid}', 'Front\Userhome@course_buy')->name('course-details');
 Route::get('/course/{id}', 'Front\Userhome@course')->name('course');
 Route::get('/pro-subcategory/{id?}', 'Front\Userhome@pro_subcategory')->name('pro-subcategory');
-Route::get('/pro-course-buy', 'Front\Userhome@pro_course_buy')->name('pro-course-buy');
+Route::get('/pro-course-buy/{slug}/{uid}', 'Front\Userhome@pro_course_buy')->name('pro-course-buy');
 
 //user register
 Route::get('/signup', 'Front\Logincontroller@registration')->name('signup');
@@ -247,5 +251,5 @@ Route::get('/instructor_profile', 'Front\profilecontroller@instructor_profile')-
 Route::get('/wallet', 'Front\profilecontroller@wallet')->name('wallet');
 
 Route::get('/buyed_course', 'Front\Userhome@buyed_course')->name('buyed_course');
-Route::get('/course-details', 'Front\Userhome@course_details')->name('course_details');
+Route::get('/course_details', 'Front\Userhome@course_details')->name('course_details');
 Route::get('/s-buyed-course', 'Front\Userhome@s_buyed_course')->name('s_buyed_course');

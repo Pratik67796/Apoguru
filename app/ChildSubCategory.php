@@ -25,6 +25,6 @@ class ChildSubCategory extends Model
     return $this->hasMany('App\Course','child_sub_category_id','id');
   }
   public function getcourse_new(){
-    return $this->hasMany('App\Course','child_sub_category_id','id')->take(4);
+    return $this->hasMany('App\Course','child_sub_category_id','id')->inRandomOrder()->limit(3);
   }
 }

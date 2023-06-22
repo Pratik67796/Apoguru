@@ -1,9 +1,9 @@
 @extends('user.comman.pro-header')
 @section('content') 
-<link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/vendor/plugins.min.css')}}">
-<link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/style.min.css')}}">
-<link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/custom.css')}}">
-<link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/professional-css/vendor/plugins.min.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/professional-css/style.min.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/professional-css/custom.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/school-css/fontAwesome5Pro.css')}}">
 
   <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog course-vdo-modal" role="document">
@@ -15,9 +15,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <video class="" poster="assets/images/school-dashboard-main.jpeg" width="100%" height="" controls>
-            <source src="assets/video/school-dashboard-main.mp4" type="">
-            <source src="assets/video/school-dashboard-main.ogg" type="">
+          <video class="" poster="{{ asset('assets/images/school-dashboard-main.jpeg') }}" width="100%" height="" controls>
+            <source src="{{ asset('assets/video/school-dashboard-main.mp4') }}" type="">
+            <source src="{{ asset('assets/video/school-dashboard-main.ogg') }}" type="">
           </video>
         </div>
         <div class="modal-footer justify-content-center">
@@ -55,24 +55,24 @@
           <div class="col-lg-8">
             <div class="courses-details">
               <div class="courses-details-images">
-                <img src="assets/images/courses/courses-details.jpg" alt="Courses Details">
+                <img src="{{asset('course_images/'.$singlecourse->image )}}" alt="Courses Details">
                 <div class="position-absolute" style="top: 1rem;left: 1rem;z-index: 2">
                   <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart fa-lg"></i></a>
                 </div>
                 <span class="tags">BESTSELLER</span>
                 <div class="courses-play">
-                  <img src="assets/images/courses/circle-shape.png" alt="Play">
+                  <img src="{{ asset('assets/images/courses/circle-shape.png') }}" alt="Play">
                   <a class="play video-popup" href="https://www.youtube.com/watch?v=Wif4ZkwC0AM"><i class="flaticon-play"></i></a>
                 </div>
               </div>
-              <h2 class="title">Finance & Investment Series: Learn to Budget and Calculate Your Net Worth.</h2>
+              <h2 class="title">{{ $singlecourse->title }}</h2>
               <div class="courses-details-admin">
                 <div class="admin-author">
                   <div class="author-thumb">
-                    <img src="assets/images/author/author-01.jpg" alt="Author">
+                    <img src="{{ asset('assets/images/author/author-01.jpg') }}" alt="Author">
                   </div>
                   <div class="author-content">
-                    <a class="name" href="#">Pamela Foster</a>
+                    <a class="name" href="#">{{ isset($singlecourse->getAdmin) ? $singlecourse->getAdmin->name : $singlecourse->getPublisher->name }}</a>
                     <span class="Enroll">286 Enrolled Students</span>
                   </div>
                 </div>
@@ -100,16 +100,7 @@
                       <div class="tab-description">
                         <div class="description-wrapper">
                           <h3 class="tab-title">Description:</h3>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularsed in the 1960 with release containing Lorem Ipsum passages desktop publishing software.</p>
-                        </div>
-                        <div class="description-wrapper">
-                          <h3 class="tab-title">Curriculum:</h3>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularsed in the 1960 with release containing Lorem Ipsum passages desktop publishing software.</p>
-                        </div>
-                        <div class="description-wrapper">
-                          <h3 class="tab-title">Certification:</h3>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularsed in the 1960 with release containing Lorem Ipsum passages desktop publishing software.</p>
+                          <p>{!! $singlecourse->description !!}</p>
                         </div>
                       </div>
               
@@ -121,7 +112,7 @@
                           <div class="col-md-3 col-6">
                             <div class="single-team">
                               <div class="team-thumb">
-                                <img src="assets/images/author/author-01.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-01.jpg') }}" alt="Author">
                               </div>
                               <div class="team-content">
                                 <div class="rating">
@@ -137,7 +128,7 @@
                           <div class="col-md-3 col-6">
                             <div class="single-team">
                               <div class="team-thumb">
-                                <img src="assets/images/author/author-02.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-02.jpg') }}" alt="Author">
                               </div>
                               <div class="team-content">
                                 <div class="rating">
@@ -153,7 +144,7 @@
                           <div class="col-md-3 col-6">
                             <div class="single-team">
                               <div class="team-thumb">
-                                <img src="assets/images/author/author-03.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-03.jpg') }}" alt="Author">
                               </div>
                               <div class="team-content">
                                 <div class="rating">
@@ -169,7 +160,7 @@
                           <div class="col-md-3 col-6">
                             <div class="single-team">
                               <div class="team-thumb">
-                                <img src="assets/images/author/author-04.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-04.jpg') }}" alt="Author">
                               </div>
                               <div class="team-content">
                                 <div class="rating">
@@ -195,7 +186,7 @@
                               <div class="single-review swiper-slide">
                                 <div class="review-author">
                                   <div class="author-thumb">
-                                    <img src="assets/images/author/author-06.jpg" alt="Author">
+                                    <img src="{{ asset('assets/images/author/author-06.jpg') }}" alt="Author">
                                     <i class="icofont-quote-left"></i>
                                   </div>
                                   <div class="author-content">
@@ -211,7 +202,7 @@
                               <div class="single-review swiper-slide">
                                 <div class="review-author">
                                   <div class="author-thumb">
-                                    <img src="assets/images/author/author-07.jpg" alt="Author">
+                                    <img src="{{ asset('assets/images/author/author-07.jpg') }}" alt="Author">
                                     <i class="icofont-quote-left"></i>
                                   </div>
                                   <div class="author-content">
@@ -227,7 +218,7 @@
                               <div class="single-review swiper-slide">
                                 <div class="review-author">
                                   <div class="author-thumb">
-                                    <img src="assets/images/author/author-03.jpg" alt="Author">
+                                    <img src="{{ asset('assets/images/author/author-03.jpg') }}" alt="Author">
                                     <i class="icofont-quote-left"></i>
                                   </div>
                                   <div class="author-content">
@@ -248,7 +239,7 @@
                           <div class="single-review">
                             <div class="review-author">
                               <div class="author-thumb">
-                                <img src="assets/images/author/author-06.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-06.jpg') }}" alt="Author">
                                 <i class="icofont-quote-left"></i>
                               </div>
                               <div class="author-content">
@@ -264,7 +255,7 @@
                           <div class="single-review">
                             <div class="review-author">
                               <div class="author-thumb">
-                                <img src="assets/images/author/author-07.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-07.jpg') }}" alt="Author">
                                 <i class="icofont-quote-left"></i>
                               </div>
                               <div class="author-content">
@@ -280,7 +271,7 @@
                           <div class="single-review">
                             <div class="review-author">
                               <div class="author-thumb">
-                                <img src="assets/images/author/author-03.jpg" alt="Author">
+                                <img src="{{ asset('assets/images/author/author-03.jpg') }}" alt="Author">
                                 <i class="icofont-quote-left"></i>
                               </div>
                               <div class="author-content">
@@ -631,7 +622,7 @@
             <div class="sidebar">
               <div class="sidebar-widget widget-information">
                 <div class="info-price">
-                  <span class="price">$420.38</span>
+                  <span class="price">${{ $singlecourse->sell_price }}</span>
                 </div>
                 <div class="info-list">
                   <ul>
@@ -677,21 +668,21 @@
 
 @endsection
 @section('script')
-    <script src="assets/js/professional-js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="assets/js/professional-js/vendor/jquery-3.5.1.min.js"></script>
-  <script src="assets/js/professional-js/plugins.min.js"></script>
-  <script src="assets/js/school-js/owl.carousel.min.js"></script>
-  <script src="assets/js/professional-js/main.js"></script>
-  <script src="assets/js/professional-js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="assets/js/professional-js/vendor/jquery-3.5.1.min.js"></script>
-  <script src="assets/js/professional-js/plugins.min.js"></script>
-  <script src="assets/js/professional-js/main.js"></script>
+    <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/plugins.min.js') }}"></script>
+  <script src="{{ asset('assets/js/school-js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/main.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/plugins.min.js') }}"></script>
+  <script src="{{ asset('assets/js/professional-js/main.js') }}"></script>
 
 
-  <script src="{{ URL::asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/professional-js/plugins.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/professional-js/main.js')}}"></script>
+  <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
+  <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
+  <script src="{{ asset('assets/js/professional-js/plugins.min.js')}}"></script>
+  <script src="{{ asset('assets/js/professional-js/main.js')}}"></script>
 
 
       <script type="">

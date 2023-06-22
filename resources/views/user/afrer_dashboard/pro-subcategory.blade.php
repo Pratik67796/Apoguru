@@ -16,11 +16,11 @@
             <a href="<?php echo '/course/'.$data['id']?>" class="link-btn">View all<i class="icofont-arrow-right"></i><i class="icofont-arrow-right"></i></a>
           </div>
         </div>
-        @foreach($data['getcourse_new'] as $k =>$data2)
+        @foreach($data->getcourse_new as $k =>$data2)
           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
             <div class="single-courses">
               <div class="courses-images">
-                <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                <a href="{{ route('pro-course-buy',['slug' => $data2->slug,'uid'=>$data2->uid]) }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
               </div>
               <div class="courses-content">
                 <div class="courses-author">
@@ -29,7 +29,7 @@
                       <a href="javascript:void(0)"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                     </div>
                     <div class="author-name">
-                      <a class="name" href="{{ route('pro-course-buy') }}">{{isset($data2['User']['name'])?$data2['User']['name']:'Admin'}}</a>
+                      <a class="name" href="{{ route('pro-course-buy',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{isset($data2['User']['name'])?$data2['User']['name']:'Admin'}}</a>
                     </div>
                   </div>
                   <div class="tag">
@@ -37,7 +37,7 @@
                   </div>
                 </div>
                 <h4 class="title">
-                  <a href="{{ route('pro-course-buy') }}">{{strip_tags($data2['title'])}}</a>
+                  <a href="{{ route('pro-course-buy',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{strip_tags($data2['title'])}}</a>
                 </h4>
                 <div class="courses-meta">
                   <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>

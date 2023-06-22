@@ -131,6 +131,15 @@ apoGuru - Create Course
                                       </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                          <select id="recommeded_course" class="form-control show-tick" name="recommeded_course[]" multiple>
+                                            <option value="">--Select Recommeded Course--</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <input type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect" value="Add Course"/>
                                 </div>
@@ -224,6 +233,28 @@ $('#parent_sub_category').on('change', function (e) {
 
     $('#child_sub_category').selectpicker('refresh');
 
+  });
+
+  $('#child_sub_category').on('change',function(){
+    $.ajax({
+      url:"{{ route('admin.get-recommended-course') }}",
+      type: "POST",
+      data:{
+        "_token": "{{ csrf_token() }}",
+        course_id:this.value
+      },success(res){
+        console.log(res);
+
+        $.each(res, function(key, value) {
+        $('#recommeded_course')
+          .append($("<option></option>")
+          .attr("value", value.id)
+          .text(value.title));
+        });
+
+        $('#recommeded_course').selectpicker('refresh');
+      }
+    })
   });
 });
 

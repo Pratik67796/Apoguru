@@ -17,14 +17,14 @@ Subcategory @endsection @section('content')
         <div class="col-12 col-md-12 mt-3 d-flex align-items-center justify-content-between flex-wrap">
           <h3 class="mb-20"><img class="mr-5" src="{{ URL::asset('assets/ficon/voting.gif')}}" width="50">{{$data['name']}}</h3>
           <div class="category__more mb-2 fix">
-            <a href="<?php echo '/course/'.$data['id']?>" class="link-btn">View all <i class="far fa-arrow-right"></i> <i class="far fa-arrow-right"></i></a>
+            <a href="{{ route('course',['id' => $data->id]) }}" class="link-btn">View all <i class="far fa-arrow-right"></i> <i class="far fa-arrow-right"></i></a>
           </div>
         </div>
-        @foreach($data['getcourse_new'] as $k =>$data2)
+        @foreach($data->getcourse_new as $k =>$data2)
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat3 cat5 cat6">
           <div class="course__item white-bg mb-30 fix">
             <div class="course__thumb w-img p-relative fix">
-              <a href="{{ route('course-buy') }}">
+              <a href="{{ route('course-details',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">
               <img src="{{asset('course_images/').'/'.$data2['image']}}" alt="">
               </a>
               <div class="course__tag">
@@ -40,12 +40,12 @@ Subcategory @endsection @section('content')
                   <span><i class="icon_star"></i>3.5 (55)</span>
                 </div>
               </div>
-              <h3 class="course__title"><a href="{{ route('course-buy') }}">{{strip_tags($data2['title'])}}</a></h3>
+              <h3 class="course__title"><a href="{{ route('course-details',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{strip_tags($data2['title'])}}</a></h3>
               <div class="course__teacher d-flex align-items-center">
                 <div class="course__teacher-thumb mr-15">
                   <img src="{{ URL::asset('assets/img/course/teacher/teacher-3.jpg')}}" alt="">
                 </div>
-                <h6><a href="{{ route('course-buy') }}">{{isset($data2['User']['name'])?$data2['User']['name']:'Admin'}}</a></h6>
+                <h6><a href="{{ route('course-details',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{isset($data2['User']['name'])?$data2['User']['name']:'Admin'}}</a></h6>
               </div>
             </div>
             <div class="course__more d-flex justify-content-between align-items-center">
@@ -54,7 +54,7 @@ Subcategory @endsection @section('content')
                 <span class="old-price sellprice_{{$data2->id}}" data-id="{{$data2->id}}">${{$data2['sell_price']}}</span>
               </div>
               <div class="course__btn">
-                <a href="{{ route('course-buy') }}" class="link-btn">
+                <a href="{{ route('course-details',['slug' => $data2->slug,'uid'=>$data2->uid]) }}" class="link-btn">
                 Know Details
                 <i class="far fa-arrow-right"></i>
                 <i class="far fa-arrow-right"></i>

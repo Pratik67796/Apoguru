@@ -19,7 +19,7 @@
       <div class="logo-section">
         <div class="row">
           <div class="col-12 col-md-10 col-lg-9 text-center text-md-end">
-            <img class="logo" src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" style="max-width: 150px">
+            <img class="logo" src="{{ asset('assets/images/apoGuru-logo.png')}}" style="max-width: 150px">
           </div>
         </div>
       </div>

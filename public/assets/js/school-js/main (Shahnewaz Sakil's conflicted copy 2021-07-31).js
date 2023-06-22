@@ -244,7 +244,7 @@
 
 	////////////////////////////////////////////////////
     // 20. WoW Js
-	new WOW().init();
+	// new WOW().init();
 
 	$("[data-width]").each(function () {
 		$(this).css("width", $(this).attr("data-width"));

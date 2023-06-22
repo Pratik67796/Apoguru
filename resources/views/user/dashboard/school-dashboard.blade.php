@@ -141,7 +141,7 @@ School Dashboard
     <div class="sidebar__content">
        <div class="logo mb-40">
           <a href="{{ route('index') }}">
-          <img src="{{ URL::asset('assets/img/logo/logo.png')}}" alt="logo">
+          <img src="{{ asset('assets/img/logo/logo.png')}}" alt="logo">
           </a>
        </div>
        <div class="mobile-menu fix"></div>
@@ -274,7 +274,7 @@ School Dashboard
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat3 cat5 cat2 cat4 cat6">
            <div class="course__item white-bg mb-30 fix">
               <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-buy').'/'.$course['id'] }}">
+                 <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]).'/'.$course['id'] }}">
                     <img src="{{asset('course_images/').'/'.$course['image']}}" alt="">
                  </a>
                  <div class="course__tag">
@@ -290,7 +290,7 @@ School Dashboard
                        <span><i class="icon_star"></i>4.5 (44)</span>
                     </div>
                  </div>
-                 <h3 class="course__title"><a href="{{ route('course-buy').'/'.$course['id'] }}">{{strip_tags($course['title'])}}</a></h3>
+                 <h3 class="course__title"><a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">{{strip_tags($course['title'])}}</a></h3>
                  <div class="course__teacher d-flex align-items-center">
                     <div class="course__teacher-thumb mr-15">
                        <img data-bs-toggle="modal" data-bs-target="#ins_Modal" src="{{ URL::asset('assets/img/course/teacher/teacher-1.jpg')}}" alt="">
@@ -303,7 +303,7 @@ School Dashboard
                     <span>Free</span>
                  </div>
                  <div class="course__btn">
-                    <a href="{{ route('course-buy').'/'.$course['id'] }}" class="link-btn">
+                    <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}" class="link-btn">
                        Know Details
                        <i class="far fa-arrow-right"></i>
                        <i class="far fa-arrow-right"></i>

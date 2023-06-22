@@ -7,30 +7,30 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/img/favicon.png')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png')}}">
 
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/preloader.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/meanmenu.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/animate.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/swiper-bundle.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/backToTop.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/jquery.fancybox.min.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/elegantFont.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/default.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/style.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/custom.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/preloader.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/meanmenu.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/animate.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/swiper-bundle.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/backToTop.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/jquery.fancybox.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/fontAwesome5Pro.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/elegantFont.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/default.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/school-css/custom.css')}}">
 </head>
 <body>
   <div id="loading">
     <div id="loading-center">
       <div id="loading-center-absolute">
         <div class="loading-content">
-          <img class="loading-logo-text" src="assets/images/apoGuru-logo.png" alt="" width="220">
+          <img class="loading-logo-text" src="{{asset('assets/images/apoGuru-logo.png')}}" alt="" width="220">
           <div class="loading-stroke">
-            <img class="loading-logo-icon" src="assets/img/logo/logo-icon.png" alt="">
+            <img class="loading-logo-icon" src="{{asset('assets/img/logo/logo-icon.png')}}" alt="">
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
             <div class="header__left d-flex">
               <div class="logo">
                 <a href="javascript:void(0);">
-                  <img src="assets/images/apoGuru-logo.png" alt="logo" width="120">
+                  <img src="{{asset('assets/images/apoGuru-logo.png')}}" alt="logo" width="120">
                 </a>
               </div>
             </div>
@@ -113,7 +113,7 @@
                     <div class="footer__widget-head mb-22">
                        <div class="footer__logo">
                           <a href="{{ route('index') }}">
-                             <img src="assets/images/apoGuru-logo.png" alt="" width="120">
+                             <img src="{{asset('assets/images/apoGuru-logo.png')}}" alt="" width="120">
                           </a>
                        </div>
                     </div>
@@ -207,21 +207,21 @@
   </div>
 </footer>
 
-  <script src="{{ URL::asset('assets/js/school-js/vendor/jquery-3.5.1.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/vendor/waypoints.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/jquery.meanmenu.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/swiper-bundle.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/owl.carousel.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/jquery.fancybox.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/isotope.pkgd.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/parallax.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/backToTop.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/jquery.counterup.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/ajax-form.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/wow.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/imagesloaded.pkgd.min.js')}}"></script>
-  <script src="{{ URL::asset('assets/js/school-js/main.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/vendor/jquery-3.5.1.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/vendor/waypoints.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/jquery.meanmenu.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/swiper-bundle.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/owl.carousel.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/jquery.fancybox.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/parallax.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/backToTop.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/jquery.counterup.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/ajax-form.js')}}"></script>
+  {{-- <script src="{{ asset('assets/js/school-js/wow.min.js')}}"></script> --}}
+  <script src="{{ asset('assets/js/school-js/imagesloaded.pkgd.min.js')}}"></script>
+  <script src="{{ asset('assets/js/school-js/main.js')}}"></script>
   @yield('script')
 </body>
 </html>

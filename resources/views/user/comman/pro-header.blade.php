@@ -7,8 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/vendor/plugins.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/style.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/professional-css/vendor/plugins.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/professional-css/style.min.css')}}">
   </head>
   <body>
     <div class="main-wrapper">
@@ -17,7 +17,7 @@
           <div class="container">
             <div class="header-main-wrapper">
               <div class="header-logo">
-                <a href="javascript:void(0)"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
+                <a href="javascript:void(0)"><img src="{{ asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
               </div>
 
               <div class="header-menu d-none ">
@@ -27,7 +27,7 @@
                     <a href="#">All Course</a>
                     <ul class="sub-menu">
                       <li><a href="courses.html">Courses</a></li>
-                      <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
+                      <li><a href="#">Courses Details</a></li>
                     </ul>
                   </li>
                   <li>
@@ -117,7 +117,7 @@
               <a href="#">All Course</a>
               <ul class="sub-menu">
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
+                <li><a href="#">Courses Details</a></li>
               </ul>
             </li>
             <li>
@@ -173,13 +173,13 @@
       @yield('content')
       <div class="section footer-section">
         <div class="footer-widget-section">
-          <img class="shape-1 animation-down" src="assets/images/shape/shape-21.png" alt="Shape">
+          <img class="shape-1 animation-down" src="{{ asset('assets/images/shape/shape-21.png') }}" alt="Shape">
           <div class="container">
             <div class="row">
               <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
                 <div class="footer-widget">
                   <div class="widget-logo">
-                    <a href="#"><img src="assets/images/apoGuru-logo.png" alt="Logo" width="120"></a>
+                    <a href="#"><img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="Logo" width="120"></a>
                   </div>
                   <div class="widget-address">
                     <h4 class="footer-widget-title">Caribbean Ct</h4>
@@ -242,7 +242,7 @@
               </div>
             </div>
           </div>
-          <img class="shape-2 animation-left" src="assets/images/shape/shape-22.png" alt="Shape">
+          <img class="shape-2 animation-left" src="{{ asset('assets/images/shape/shape-22.png') }}" alt="Shape">
         </div>
         <div class="footer-copyright">
           <div class="container">
@@ -265,10 +265,10 @@
       </a>
     </div>
     
-    <script src="{{ URL::asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/plugins.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/js/professional-js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
+    <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{ asset('assets/js/professional-js/plugins.min.js')}}"></script>
+    <script src="{{ asset('assets/js/professional-js/main.js')}}"></script>
     @yield('script')
   </body>
 </html>

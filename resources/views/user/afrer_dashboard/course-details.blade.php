@@ -7,7 +7,7 @@
   <title>apoGuru - Profile</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/images/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/vendor/plugins.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/style.min.css')}}">
@@ -322,13 +322,13 @@
     </div>
     <div class="section footer-section">
       <div class="footer-widget-section">
-        <img class="shape-1 animation-down" src="{{ URL::asset('assets/images/shape/shape-21.png')}}" alt="Shape">
+        <img class="shape-1 animation-down" src="{{ asset('assets/images/shape/shape-21.png')}}" alt="Shape">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
               <div class="footer-widget">
                 <div class="widget-logo">
-                  <a href="index.html"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
+                  <a href="index.html"><img src="{{ asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="140"></a>
                 </div>
                 <div class="widget-address">
                   <h4 class="footer-widget-title">Caribbean Ct</h4>

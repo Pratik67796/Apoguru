@@ -19,8 +19,8 @@
               <div class="grid-item cat1 cat3 cat5">
                 <div class="course__item white-bg mb-30 fix">
                   <div class="course__thumb w-img p-relative fix">
-                    <a href="{{ route('course-buy') }}">
-                      <img src="{{ URL::asset('assets/img/2.jpg')}}" alt="">
+                    <a href="{{ route('course-details',['slug' => $val->slug,'uid' => $val->uid]) }}">
+                      <img src="{{asset('course_images/'.$val->image )}}" alt="">
                     </a>
                     <div class="course__tag">
                       <a href="#" class="pink">BESTSELLER</a>
@@ -35,12 +35,12 @@
                         <span><i class="icon_star"></i>4.5 (44)</span>
                       </div>
                     </div>
-                    <h3 class="course__title"><a href="{{ route('course-buy') }}">{{strip_tags($val['title'])}}</a></h3>
+                    <h3 class="course__title"><a href="{{ route('course-details',['slug' => $val->slug,'uid' => $val->uid]) }}">{{strip_tags($val['title'])}}</a></h3>
                     <div class="course__teacher d-flex align-items-center">
                       <div class="course__teacher-thumb mr-15">
                         <img src="{{ URL::asset('assets/img/course/teacher/teacher-2.jpg')}}" alt="">
                       </div>
-                      <h6><a href="{{ route('course-buy') }}">{{isset($val['User']['name'])?$val['User']['name']:'Admin'}}</a></h6>
+                      <h6><a href="{{ route('course-details',['slug' => $val->slug,'uid' => $val->uid]) }}">{{isset($val['User']['name'])?$val['User']['name']:'Admin'}}</a></h6>
                     </div>
                   </div>
                   <div class="course__more d-flex justify-content-between align-items-center">
@@ -49,7 +49,7 @@
                       <span class="old-price sellprice_{{$val->id}}" data-id="{{$val->id}}">${{$val['sell_price']}}</span>
                     </div>
                     <div class="course__btn">
-                      <a href="{{ route('course-buy') }}" class="link-btn">
+                      <a href="{{ route('course-details',['slug' => $val->slug,'uid' => $val->uid]) }}" class="link-btn">
                         Know Details
                         <i class="far fa-arrow-right"></i>
                         <i class="far fa-arrow-right"></i>

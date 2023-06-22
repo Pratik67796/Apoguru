@@ -106,7 +106,7 @@
           <div class="container">
             <div class="header-main-wrapper">
               <div class="header-logo">
-                <a href="{{ route('/') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
+                <a href=""><img src="{{ URL::asset('assets/images/apoGuru-logo.png')}}" alt="Logo" width="120"></a>
               </div>
               @if(Auth::guard('user_new')->check())
               <div class="header-sign-in-up d-none d-lg-block">
@@ -155,7 +155,7 @@
               <a href="#">All Course</a>
               <ul class="sub-menu">
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="{{ route('courses-details') }}">Courses Details</a></li>
+                <li><a href="{{ route('course_details') }}">Courses Details</a></li>
               </ul>
             </li>
             <li>
@@ -1023,7 +1023,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('courses-details') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="{{ route('course_details') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
