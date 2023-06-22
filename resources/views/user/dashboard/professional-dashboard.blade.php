@@ -313,7 +313,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -329,7 +329,7 @@
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -352,7 +352,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -361,14 +361,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -390,7 +390,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -399,14 +399,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -429,7 +429,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -438,14 +438,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -467,7 +467,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}">
+                        <a href="#">
                           <img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses">
                         </a>
                       </div>
@@ -478,14 +478,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -507,7 +507,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -516,14 +516,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -551,7 +551,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -560,14 +560,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -590,7 +590,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -599,14 +599,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -628,7 +628,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -637,14 +637,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -667,7 +667,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -676,14 +676,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -705,7 +705,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -714,14 +714,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -743,7 +743,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -752,14 +752,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -787,7 +787,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -796,14 +796,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -826,7 +826,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -835,14 +835,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -864,7 +864,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -873,14 +873,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -903,7 +903,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -912,14 +912,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -941,7 +941,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -950,14 +950,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -979,7 +979,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -988,14 +988,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1032,14 +1032,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1062,7 +1062,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1071,14 +1071,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1100,7 +1100,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1109,14 +1109,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1139,7 +1139,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1148,14 +1148,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1177,7 +1177,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1186,14 +1186,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1215,7 +1215,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1224,14 +1224,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1259,7 +1259,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1268,14 +1268,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1298,7 +1298,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1307,14 +1307,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1336,7 +1336,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1345,14 +1345,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1375,7 +1375,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1384,14 +1384,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1413,7 +1413,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1422,14 +1422,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1451,7 +1451,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1460,14 +1460,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1495,7 +1495,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1504,14 +1504,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1534,7 +1534,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1543,14 +1543,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1572,7 +1572,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1581,14 +1581,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1611,7 +1611,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1620,14 +1620,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1649,7 +1649,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1658,14 +1658,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1687,7 +1687,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1696,14 +1696,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1731,7 +1731,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1740,14 +1740,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Data Science and Machine Learning with Python - Hands On!</a></h4>
+                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1770,7 +1770,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1779,14 +1779,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Pamela Foster</a>
+                              <a class="name" href="#">Pamela Foster</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1808,7 +1808,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1817,14 +1817,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Rose Simmons</a>
+                              <a class="name" href="#">Rose Simmons</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1847,7 +1847,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1856,14 +1856,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Finance</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
+                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1885,7 +1885,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1894,14 +1894,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Marketing</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -1923,7 +1923,7 @@
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="{{ route('pro-course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
@@ -1932,14 +1932,14 @@
                               <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="{{ route('pro-course-buy') }}">Jason Williams</a>
+                              <a class="name" href="#">Jason Williams</a>
                             </div>
                           </div>
                           <div class="tag">
                             <a href="#">Design</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="{{ route('pro-course-buy') }}">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
+                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
