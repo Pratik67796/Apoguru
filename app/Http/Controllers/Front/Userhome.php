@@ -57,25 +57,35 @@ class Userhome extends Controller
         $singlecourse = Course::where([
             ['slug','=',$slug],
             ['uid','=',$uid]
-            ])->with(['getAdmin','getPublisher'])->first();
-            // dd($singlecourse);
-    	return view('user.afrer_dashboard.pro-course-buy',compact('singlecourse'));
+            ])->with(['getAdmin','getPublisher','getRating'])->first();
+        $ratings = $singlecourse->getRating()->pluck('rating');
+        $totalRatings = count($ratings);
+        $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
+        // echo "<pre>";
+        // foreach ($singlecourse->getRating as $rating){
+        //     print_r($rating->getRatingUser->name);
+        // }
+        // exit;
+    	return view('user.afrer_dashboard.pro-course-buy',compact('singlecourse','averageRating','totalRatings'));
     }   
     
     public function course_buy($slug,$uid){
         $singlecourse = Course::where([
             ['slug','=',$slug],
             ['uid','=',$uid]
-            ])->with(['getAdmin','getPublisher'])->first();
+            ])->with(['getAdmin','getPublisher','getRating'])->first();
+        $ratings = $singlecourse->getRating()->pluck('rating');
+        $totalRatings = count($ratings);
+        $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
         // dd($singlecourse);
-        return view('user.afrer_dashboard.course-buy',compact('singlecourse'));
+        return view('user.afrer_dashboard.course-buy',compact('singlecourse','averageRating','totalRatings'));
     }
     
     public function pro_subcategory(Request $request){
         $reqdata_id = $request->id;
         $parentcat_name = ParentSubCategory::where('id',$reqdata_id)->first();
         $childsubcat = ChildSubCategory::where('parent_sub_category_id',$reqdata_id)
-                                        ->with('getcourse_new','getcourse_new.User')
+                                        ->with(['getcourse_new','getcourse_new.User'])
                                         ->get();     
                 // dd($childsubcat);                                   
         return view('user.afrer_dashboard.pro-subcategory',['childsubcat' => $childsubcat,'parentcat_name' => $parentcat_name]);

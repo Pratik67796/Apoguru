@@ -17,6 +17,12 @@
           </div>
         </div>
         @foreach($data->getcourse_new as $k =>$data2)
+          @php
+            $ratings = $data2->getRating->pluck('rating');
+            $totalRatings = count($ratings);
+            $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
+            $totalAverageRatings = $averageRating * 2 * 10;
+          @endphp
           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
             <div class="single-courses">
               <div class="courses-images">
@@ -48,9 +54,9 @@
                     <span class="sale-parice">${{$data2['sell_price']}}</span>
                   </div>
                   <div class="courses-review">
-                    <span class="rating-count">4.9</span>
+                    <span class="rating-count">{{ $averageRating }}</span>
                     <span class="rating-star">
-                    <span class="rating-bar" style="width: 80%;"></span>
+                    <span class="rating-bar" style="width: {{ $totalAverageRatings }}% !important;"></span>
                     </span>
                   </div>
                 </div>

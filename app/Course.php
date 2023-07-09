@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Rating;
 use App\Models\RemcomenderCourse;
 use Illuminate\Database\Eloquent\Model;
 
@@ -56,4 +57,9 @@ class Course extends Model
     return $this->hasMany(RemcomenderCourse::class, 'parent_courses','id');
 
   }
+
+  public function getRating(){
+    return $this->hasMany(Rating::class,'course_id','id');
+  }
+  
 }

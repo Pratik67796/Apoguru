@@ -223,6 +223,7 @@ Route::get('/course-details/{slug}/{uid}', 'Front\Userhome@course_buy')->name('c
 Route::get('/course/{id}', 'Front\Userhome@course')->name('course');
 Route::get('/pro-subcategory/{id?}', 'Front\Userhome@pro_subcategory')->name('pro-subcategory');
 Route::get('/pro-course-buy/{slug}/{uid}', 'Front\Userhome@pro_course_buy')->name('pro-course-buy');
+Route::post('/give-rating','RatingController@store')->name('give-rating');
 
 //user register
 Route::get('/signup', 'Front\Logincontroller@registration')->name('signup');

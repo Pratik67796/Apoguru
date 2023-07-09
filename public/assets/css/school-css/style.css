@@ -2760,7 +2760,7 @@ p {
 }
 .course__rating-2 ul li a {
   font-size: 14px;
-  color: #ff9415;
+  /* color: #ff9415; */
 }
 .course__rating-inner p {
   font-size: 16px;

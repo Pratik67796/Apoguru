@@ -21,6 +21,12 @@ Subcategory @endsection @section('content')
           </div>
         </div>
         @foreach($data->getcourse_new as $k =>$data2)
+         @php
+            $ratings = $data2->getRating->pluck('rating');
+            $totalRatings = count($ratings);
+            $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
+            $totalAverageRatings = $averageRating * 2 * 10;
+          @endphp
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat3 cat5 cat6">
           <div class="course__item white-bg mb-30 fix">
             <div class="course__thumb w-img p-relative fix">
@@ -37,7 +43,7 @@ Subcategory @endsection @section('content')
                   <span><i class="far fa-book-alt"></i>14 Lesson</span>
                 </div>
                 <div class="course__rating">
-                  <span><i class="icon_star"></i>3.5 (55)</span>
+                  <span><i class="icon_star"></i>{{ $averageRating }} ({{ $totalRatings }})</span>
                 </div>
               </div>
               <h3 class="course__title"><a href="{{ route('course-details',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{strip_tags($data2['title'])}}</a></h3>

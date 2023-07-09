@@ -1,3 +1,9 @@
+<?php
+$number = $averageRating;
+$formattedNumber = number_format($number, 2);
+
+echo $formattedNumber; // Output: 2.33
+?>
 @extends('user.comman.pro-header')
 @section('content') 
 <link rel="stylesheet" href="{{ asset('assets/css/professional-css/vendor/plugins.min.css')}}">
@@ -77,11 +83,11 @@
                   </div>
                 </div>
                 <div class="admin-rating">
-                  <span class="rating-count">4.9</span>
+                  <span class="rating-count">{{ $formattedNumber }}</span>
                   <span class="rating-star">
-                    <span class="rating-bar" style="width: 80%;"></span>
+                    <span class="rating-bar" id="rating-stars" style="width: 80%;"></span>
                   </span>
-                  <span class="rating-text">(5,764 Rating)</span>
+                  <span class="rating-text">({{$totalRatings}} Rating)</span>
                 </div>
               </div>
               
@@ -183,109 +189,33 @@
                         <div class="reviews-wrapper reviews-active">
                           <div class="swiper-container">
                             <div class="swiper-wrapper">
+                              
+                              @foreach ($singlecourse->getRating as $rating)
                               <div class="single-review swiper-slide">
                                 <div class="review-author">
-                                  <div class="author-thumb">
+                                  {{-- <div class="author-thumb">
                                     <img src="{{ asset('assets/images/author/author-06.jpg') }}" alt="Author">
                                     <i class="icofont-quote-left"></i>
-                                  </div>
-                                  <div class="author-content">
-                                    <h4 class="name">Sara Alexander</h4>
-                                    <span class="designation">Product Designer, USA</span>
+                                  </div> --}}
+                                  <div class="author-content" style="padding-left: 0px !important;">
+                                    <h4 class="name">{{ $rating->getRatingUser->name }} {{ $rating->id }}</h4>
+                                    {{-- <span class="designation">Product Designer, USA</span> --}}
                                     <span class="rating-star">
-                                      <span class="rating-bar" style="width: 100%;"></span>
+                                    @php
+                                      $ratingBarSlider = number_format($rating->rating, 2) * 2 * 10;//$averageRating * 18;
+                                    @endphp
+                                      <span class="rating-bar {{ $ratingBarSlider }}-asd" style="width: {{ $ratingBarSlider }}% !important;"></span>
                                     </span>
                                   </div>
                                 </div>
-                                <p>Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.</p>
+                                <p>{{ $rating->comment }}</p>
                               </div>
-                              <div class="single-review swiper-slide">
-                                <div class="review-author">
-                                  <div class="author-thumb">
-                                    <img src="{{ asset('assets/images/author/author-07.jpg') }}" alt="Author">
-                                    <i class="icofont-quote-left"></i>
-                                  </div>
-                                  <div class="author-content">
-                                    <h4 class="name">Karol Bachman</h4>
-                                    <span class="designation">Product Designer, USA</span>
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 100%;"></span>
-                                    </span>
-                                  </div>
-                                </div>
-                                <p>Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.</p>
-                              </div>
-                              <div class="single-review swiper-slide">
-                                <div class="review-author">
-                                  <div class="author-thumb">
-                                    <img src="{{ asset('assets/images/author/author-03.jpg') }}" alt="Author">
-                                    <i class="icofont-quote-left"></i>
-                                  </div>
-                                  <div class="author-content">
-                                    <h4 class="name">Gertude Culbertson</h4>
-                                    <span class="designation">Product Designer, USA</span>
-                                    <span class="rating-star">
-                                      <span class="rating-bar" style="width: 100%;"></span>
-                                    </span>
-                                  </div>
-                                </div>
-                                <p>Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.</p>
-                              </div>
+                                @endforeach
                             </div>
                             <div class="swiper-pagination"></div>
                           </div>
                         </div>
-                        <div id="vertical_reviews" class="vertical_reviews" style="display: none;">
-                          <div class="single-review">
-                            <div class="review-author">
-                              <div class="author-thumb">
-                                <img src="{{ asset('assets/images/author/author-06.jpg') }}" alt="Author">
-                                <i class="icofont-quote-left"></i>
-                              </div>
-                              <div class="author-content">
-                                <h4 class="name">Sara Alexander</h4>
-                                <span class="designation">Product Designer, USA</span>
-                                <span class="rating-star">
-                                  <span class="rating-bar" style="width: 100%;"></span>
-                                </span>
-                              </div>
-                            </div>
-                            <p>Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.</p>
-                          </div>
-                          <div class="single-review">
-                            <div class="review-author">
-                              <div class="author-thumb">
-                                <img src="{{ asset('assets/images/author/author-07.jpg') }}" alt="Author">
-                                <i class="icofont-quote-left"></i>
-                              </div>
-                              <div class="author-content">
-                                <h4 class="name">Karol Bachman</h4>
-                                <span class="designation">Product Designer, USA</span>
-                                <span class="rating-star">
-                                  <span class="rating-bar" style="width: 100%;"></span>
-                                </span>
-                              </div>
-                            </div>
-                            <p>Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.</p>
-                          </div>
-                          <div class="single-review">
-                            <div class="review-author">
-                              <div class="author-thumb">
-                                <img src="{{ asset('assets/images/author/author-03.jpg') }}" alt="Author">
-                                <i class="icofont-quote-left"></i>
-                              </div>
-                              <div class="author-content">
-                                <h4 class="name">Gertude Culbertson</h4>
-                                <span class="designation">Product Designer, USA</span>
-                                <span class="rating-star">
-                                  <span class="rating-bar" style="width: 100%;"></span>
-                                </span>
-                              </div>
-                            </div>
-                            <p>Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.</p>
-                          </div>
-                          <button type="button" class="btn btn-primary mt-5 btn-hover-dark mx-auto text-center d-block">View More</button>
-                        </div>
+
                         <div class="reviews-btn d-flex justify-content-between">
                           <button type="button" class="btn btn-primary btn-hover-dark" data-bs-toggle="modal" data-bs-target="#reviewsModal">Write A Review</button>
 
@@ -300,33 +230,45 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body reviews-form">
-                                <form action="#">
+                                {{-- <form action="#"> --}}
                                   <div class="row">
 
                                     <div class="col-md-12">
                                       <div class="reviews-rating">
                                         <label>Rating</label>
                                         <ul id="rating" class="rating">
-                                          <li class="star" title='Poor' data-value='1'><i class="icofont-star"></i></li>
-                                          <li class="star" title='Poor' data-value='2'><i class="icofont-star"></i></li>
-                                          <li class="star" title='Poor' data-value='3'><i class="icofont-star"></i></li>
-                                          <li class="star" title='Poor' data-value='4'><i class="icofont-star"></i></li>
-                                          <li class="star" title='Poor' data-value='5'><i class="icofont-star"></i></li>
+                                          <li class="star" title='Poor' data-value='1' onClick="ratingFun(1)"><i class="icofont-star"></i></li>
+                                          <li class="star" title='Not bad' data-value='2' onClick="ratingFun(2)"><i class="icofont-star"></i></li>
+                                          <li class="star" title='Average' data-value='3' onClick="ratingFun(3)"><i class="icofont-star"></i></li>
+                                          <li class="star" title='Good' data-value='4' onClick="ratingFun(4)"><i class="icofont-star"></i></li>
+                                          <li class="star" title='Excellent' data-value='5' onClick="ratingFun(5)"><i class="icofont-star"></i></li>
                                         </ul>
                                       </div>
                                     </div>
+                                    <input type="hidden" name="rating" class="rating-input">
+                                    @php
+                                      $id = 0;
+                                      if(isset(Auth::guard('user_new')->user()->id)){
+                                        $id = Auth::guard('user_new')->user()->id;
+                                      }
+                                    @endphp
+                                    <input type="hidden" name="user_id" class="user_id" value="{{ $id }}">
+                                    <input type="hidden" name="course_id" class="course_id" value={{ $singlecourse->id }}>
                                     <div class="col-md-12">
                                       <div class="single-form">
-                                        <textarea placeholder="Write your comments here"></textarea>
+                                        <textarea placeholder="Write your comments here" name="comment" id="comment"></textarea>
                                       </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                       <div class="single-form">
-                                        <button class="btn btn-primary btn-hover-dark">Submit Review</button>
+                                        <button class="btn btn-primary btn-hover-dark" onClick="submitReview()">Submit Review</button>
                                       </div>
                                     </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-success-message"></div>
                                   </div>
-                                </form>
+                                  </div>
+                                {{-- </form> --}}
                               </div>
                             </div>
                           </div>
@@ -691,6 +633,10 @@
         $(this).toggleClass("far");
         $(this).toggleClass("fas");
       })
+      var ratingPercentage = 80; // Replace with the actual rating percentage value
+    
+    var ratingBarWidth = {{ $formattedNumber }} * 20 + '%';
+    $('#rating-stars').css('width', ratingBarWidth);
     });
   </script>
 
@@ -701,6 +647,38 @@
         $(this).toggleClass("fas");
       })
     });
+    function ratingFun(rating){
+      $('.rating-input').val(rating)
+    }
+    function submitReview(){
+      let ratingInput = $('.rating-input').val();
+      let comment = $('#comment').val();
+      let user_id = $('.user_id').val();
+      let course_id = $('.course_id').val()
+      $.ajax({
+        url:"{{ route('give-rating') }}",
+        method: "POST",
+        data:{
+          rating: ratingInput,
+          comment: comment,
+          course_id:course_id,
+          user_id:user_id,
+          "_token": "{{ csrf_token() }}",
+        },success:function(res){
+          if(res.status === 200){
+            $('.rating-success-message').html(`<span class="alert alert-success">${res.message}</span>`);
+          } 
+          if(res.status === 401){
+            $('.rating-success-message').html(`<span class="alert alert-danger">${res.message}</span>`);
+          }
+          setTimeout(() => {
+            $('.btn-close').click();
+            $('.rating-success-message').html("");
+            location.reload(true);
+          },1000)
+        }
+      })
+    }
   </script>
 
   <script type="">

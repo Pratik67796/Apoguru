@@ -1,5 +1,5 @@
 @php
-
+$rating = (int)$averageRating; // Replace with the actual rating value
 @endphp
 @extends('user.comman.header')
 @section('title') Course @endsection 
@@ -17,6 +17,20 @@
   <link rel="stylesheet" href="{{ asset('assets/css/school-css/default.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/school-css/style.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/school-css/custom.css')}}">
+
+  <style>
+    .course__form-rating ul li a {
+      font-size: 14px;
+      color: #8987858a;
+    }
+
+    .icon_star:before {
+      content: "\e033";
+    }
+    .course__form-rating ul li a.selected {
+      color: #ff9415;
+    }
+  </style>
 
   <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog course-vdo-modal" role="document">
@@ -226,13 +240,13 @@
                     <h5>Review:</h5>
                     <div class="course__rating-inner d-flex align-items-center">
                       <ul>
-                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
+                        <li><a href="javascript:void(0)" id="{{$rating}}" style="@if($rating >= 1) color:#ff9415 @else color:#898785 @endif" > <i class="icon_star"></i> </a></li>
+                        <li><a href="javascript:void(0)" id="{{$rating}}" style="@if($rating >= 2) color:#ff9415 @else color:#898785 @endif"> <i class="icon_star"></i> </a></li>
+                        <li><a href="javascript:void(0)" id="{{$rating}}" style="@if($rating >= 3) color:#ff9415 @else color:#898785 @endif"> <i class="icon_star"></i> </a></li>
+                        <li><a href="javascript:void(0)" id="{{$rating}}" style="@if($rating >= 4) color:#ff9415 @else color:#898785 @endif"> <i class="icon_star"></i> </a></li>
+                        <li><a href="javascript:void(0)" id="{{$rating}}" style="@if($rating >= 5) color:#ff9415 @else color:#898785 @endif"> <i class="icon_star"></i> </a></li>
                       </ul>
-                      <p>4.5</p>
+                      <p>({{ $rating }})</p>
                     </div>
                   </div>
                 </div>
@@ -563,16 +577,17 @@
                         <h3>Reviews</h3>
                         <div class="course__comment mb-75">
                           <ul>
+                          @foreach ($singlecourse->getRating as $rating)
                             <li>
                               <div class="course__comment-box ">
-                                <div class="course__comment-thumb float-start">
+                                {{-- <div class="course__comment-thumb float-start">
                                   <img src="{{asset('assets/img/course/comment/course-comment-1.jpg')}}" alt="">
-                                </div>
+                                </div> --}}
                                 <div class="course__comment-content">
-                                  <div class="course__comment-wrapper ml-70 fix">
+                                  <div class="course__comment-wrapper ml-7 fix">
                                     <div class="course__comment-info float-start">
                                       <h4>Eleanor Fant</h4>
-                                      <span>July 14, 2022</span>
+                                      <span>{{ $rating->created_at->format('F d, Y') }}</span>
                                     </div>
                                     <div class="course__comment-rating float-start float-sm-end">
                                       <ul>
@@ -584,77 +599,64 @@
                                       </ul>
                                     </div>
                                   </div>
-                                  <div class="course__comment-text ml-70">
-                                    <p>So I said lurgy dropped a clanger Jeffrey bugger cuppa gosh David blatant have it, standard A bit of how's your father my lady absolutely.</p>
+                                  <div class="course__comment-text ml-7">
+                                    <p>{{ $rating->comment }}</p>
                                   </div>
                                 </div>
                               </div>
                             </li>
-                            <li>
-                              <div class="course__comment-box ">
-                                <div class="course__comment-thumb float-start">
-                                  <img src="{{asset('assets/img/course/comment/course-comment-2.jpg')}}" alt="">
-                                </div>
-                                <div class="course__comment-content">
-                                  <div class="course__comment-wrapper ml-70 fix">
-                                    <div class="course__comment-info float-start">
-                                      <h4>Shahnewaz Sakil</h4>
-                                      <span>July 17, 2022</span>
-                                    </div>
-                                    <div class="course__comment-rating float-start float-sm-end">
-                                      <ul>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)" class="no-rating"> <i class="icon_star"></i> </a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <div class="course__comment-text ml-70">
-                                    <p>David blatant have it, standard A bit of how's your father my lady absolutely.</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
+                              @endforeach
+
                           </ul>
                         </div>
                         <div class="course__form">
                           <h3>Write a Review</h3>
                           <div class="course__form-inner">
-                            <form action="{{route('course_rating_add')}}" method="post" enctype="multipart/form-data">
-                              @csrf
+                            {{-- <form action="{{route('course_rating_add')}}" method="post" enctype="multipart/form-data"> --}}
+                              {{-- @csrf --}}
                               <input type="hidden" name="course_id" value="{{$singlecourse['id']}}">
                               <div class="row">
-                                <div class="col-xxl-12">
+                                {{-- <div class="col-xxl-12">
                                   <div class="course__form-input">
                                     <input type="text" placeholder="Review Title" name="review_title">
                                   </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-xxl-12">
                                   <div class="course__form-input">
                                     <div class="course__form-rating">
                                       <span>Rating : </span>
                                       <ul>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)"> <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)" class="no-rating" > <i class="icon_star"></i> </a></li>
-                                        <li><a href="javascript:void(0)" class="no-rating" > <i class="icon_star"></i> </a></li>
+                                        <li><a href="javascript:void(0)" onClick="ratingFun(1)"> <i class="icon_star"></i> </a></li>
+                                        <li><a href="javascript:void(0)" onClick="ratingFun(2)"> <i class="icon_star"></i> </a></li>
+                                        <li><a href="javascript:void(0)" onClick="ratingFun(3)"> <i class="icon_star"></i> </a></li>
+                                        <li><a href="javascript:void(0)" onClick="ratingFun(4)"> <i class="icon_star"></i> </a></li>
+                                        <li><a href="javascript:void(0)" onClick="ratingFun(5)"> <i class="icon_star"></i> </a></li>
                                       </ul>
                                     </div>
-                                    <textarea placeholder="Review Summary" name="description"></textarea>
+                                    <input type="hidden" name="rating" class="rating-input">
+                                     @php
+                                      $id = 0;
+                                      if(isset(Auth::guard('user_new')->user()->id)){
+                                        $id = Auth::guard('user_new')->user()->id;
+                                      }
+                                    @endphp
+                                    <input type="hidden" name="user_id" class="user_id" value="{{ $id }}">
+                                    <input type="hidden" name="course_id" class="course_id" value={{ $singlecourse->id }}>
+                                    <textarea placeholder="Review Summary"  name="comment" id="comment"></textarea>
                                   </div>
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-xxl-12">
+                                <div class="col-xxl-6">
                                   <div class="course__form-btn mt-10 mb-55">
-                                    <button type="submit" class="e-btn">Submit Review</button>
+                                    <button type="button" class="e-btn"  onClick="submitReview()">Submit Review</button>
                                   </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="rating-success-message"></div>
+                                  </div>
                               </div>
-                            </form>
+                            {{-- </form> --}}
                           </div>
                         </div>
                       </div>
@@ -1043,5 +1045,54 @@
           }
         ).replace(/\d/g, '').trim()
       }
+      $(document).ready(function() {
+        // Handle hover event
+        $(".course__form-rating ul li a").hover(function() {
+          var index = $(this).parent().index();
+          $(this).closest("ul").find("li:lt(" + (index + 1) + ") a").addClass("yellow");
+        }, function() {
+          var index = $(this).parent().index();
+          $(this).closest("ul").find("li:lt(" + (index + 1) + ") a").removeClass("yellow");
+        }); 
+        // Handle click event
+        $(".course__form-rating ul li a").click(function() {
+          var index = $(this).parent().index();
+          $(this).closest("ul").find("li:lt(" + (index + 1) + ") a").addClass("selected");
+          $(this).closest("ul").find("li:gt(" + index + ") a").removeClass("selected");
+        });
+      });
+      function ratingFun(rating){
+        $('.rating-input').val(rating)
+      }
+
+      function submitReview(){
+      let ratingInput = $('.rating-input').val();
+      let comment = $('#comment').val();
+      let user_id = $('.user_id').val();
+      let course_id = $('.course_id').val()
+      $.ajax({
+        url:"{{ route('give-rating') }}",
+        method: "POST",
+        data:{
+          rating: ratingInput,
+          comment: comment,
+          course_id:course_id,
+          user_id:user_id,
+          "_token": "{{ csrf_token() }}",
+        },success:function(res){
+          if(res.status === 200){
+            $('.rating-success-message').html(`<span class="alert alert-success">${res.message}</span>`);
+          } 
+          if(res.status === 401){
+            $('.rating-success-message').html(`<span class="alert alert-danger">${res.message}</span>`);
+          }
+          setTimeout(() => {
+            $('.btn-close').click();
+            $('.rating-success-message').html("");
+            location.reload(true);
+          },1000)
+        }
+      })
+    }
     </script>
 @endsection
