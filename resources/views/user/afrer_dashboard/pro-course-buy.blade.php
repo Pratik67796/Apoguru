@@ -2,7 +2,7 @@
 $number = $averageRating;
 $formattedNumber = number_format($number, 2);
 
-echo $formattedNumber; // Output: 2.33
+$formattedNumber; // Output: 2.33
 ?>
 @extends('user.comman.pro-header')
 @section('content') 
