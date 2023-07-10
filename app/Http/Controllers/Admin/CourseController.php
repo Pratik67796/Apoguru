@@ -48,7 +48,7 @@ class CourseController extends Controller
 
   public function storeCourse(Request $request)
   {
-
+    // dd($request->all());
     $path = base_path() . '/course_images';
     $file = $request->file('image');
     $mainImageName = time() . $file->getClientOriginalName();
@@ -66,13 +66,14 @@ class CourseController extends Controller
       'image' => $mainImageName,
       'admin_id' => $userDetails->id,
       'uid' => $this->genrateUID(),
-      'slug' => str_replace(' ','-',strtolower($request->title))
+      'slug' => str_replace(' ','-',strtolower($request->title)),
+      'currency'=>$request->currency
     ]);
-
+    // dd($course->id);
     if(isset($request->recommeded_course)){
-      foreach($request->recommeded_course as $course){
+      foreach($request->recommeded_course as $recommeded){
         $recommededCoursesStore = new RemcomenderCourse;
-        $recommededCoursesStore->courses_id = $course;
+        $recommededCoursesStore->courses_id = $recommeded;
         $recommededCoursesStore->parent_courses = $course->id;
         $recommededCoursesStore->save();
       }

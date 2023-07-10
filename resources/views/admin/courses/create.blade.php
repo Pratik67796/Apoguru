@@ -51,6 +51,7 @@ apoGuru - Create Course
 
                         <form method="post" action="{{ route('admin.course.store') }}" enctype="multipart/form-data">
                           @csrf
+                          <input type="hidden" name="currency" value="" id="currency">
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
                                     <div class="form-group form-float">
@@ -95,7 +96,7 @@ apoGuru - Create Course
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
                                     <div class="form-group form-float">
                                       <div class="form-line">
-                                          <input type="text" name="actual_price" class="form-control" required>
+                                          <input type="text" id="actual_price" name="actual_price" class="form-control" required>
                                           <label class="form-label">Enter Actual Price</label>
                                       </div>
                                     </div>
@@ -257,6 +258,13 @@ $('#parent_sub_category').on('change', function (e) {
     })
   });
 });
+var resultFrom;
 
+$("#actual_price").keyup(function() {
+  const api = "https://api.exchangerate-api.com/v4/latest/USD";
+  resultFrom = geoplugin_currencyCode();
+  $('#currency').val(resultFrom);
+});
 </script>
+<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 @endsection
