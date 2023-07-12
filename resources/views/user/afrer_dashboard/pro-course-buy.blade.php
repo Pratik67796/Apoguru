@@ -198,7 +198,7 @@ $formattedNumber; // Output: 2.33
                                     <i class="icofont-quote-left"></i>
                                   </div> --}}
                                   <div class="author-content" style="padding-left: 0px !important;">
-                                    <h4 class="name">{{ $rating->getRatingUser->name }} {{ $rating->id }}</h4>
+                                    <h4 class="name">{{ $rating->getRatingUser->name }}</h4>
                                     {{-- <span class="designation">Product Designer, USA</span> --}}
                                     <span class="rating-star">
                                     @php

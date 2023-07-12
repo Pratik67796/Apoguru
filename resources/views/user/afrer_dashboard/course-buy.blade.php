@@ -586,7 +586,7 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                                 <div class="course__comment-content">
                                   <div class="course__comment-wrapper ml-7 fix">
                                     <div class="course__comment-info float-start">
-                                      <h4>Eleanor Fant</h4>
+                                      <h4>{{ $rating->getRatingUser->name }}</h4>
                                       <span>{{ $rating->created_at->format('F d, Y') }}</span>
                                     </div>
                                     <div class="course__comment-rating float-start float-sm-end">
