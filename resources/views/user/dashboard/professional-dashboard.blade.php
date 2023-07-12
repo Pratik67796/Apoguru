@@ -310,238 +310,66 @@
             <div class="tab-pane fade show active" id="tabs1">
               <div class="courses-wrapper">
                 <div class="row">
+                @foreach($new as $key=> $course)
                   <div class="col-lg-4 col-md-6">
                     <div class="single-courses">
                       <div class="courses-images">
-                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-01.jpg')}}" alt="Courses"></a>
-                      </div>
-                      <div class="courses-content">
-                        <div class="courses-author">
-                          <div class="author">
-                            <div class="author-thumb">
-                              <a  data-bs-toggle="modal" data-bs-target="#ins_Modal"><img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author"></a>
-                            </div>
-                            <div class="author-name">
-                              <a class="name" data-bs-toggle="modal" data-bs-target="#ins_Modal">Jason Williams</a>
-                            </div>
-                          </div>
-                          <div class="tag">
-                            <a href="#">Science</a>
-                          </div>
-                        </div>
-                        <h4 class="title"><a href="#">Data Science and Machine Learning with Python - Hands On!</a></h4>
-                        <div class="courses-meta">
-                          <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                          <span> <i class="icofont-read-book"></i> 29 Lectures </span>
-                        </div>
-                        <div class="courses-price-review">
-                          <div class="courses-price">
-                            <span class="sale-parice">$385.00</span>
-                            <span class="old-parice">$440.00</span>
-                          </div>
-                          <div class="courses-review">
-                            <span class="rating-count">4.9</span>
-                            <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="single-courses">
-                      <div class="courses-images">
-                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
-                      </div>
-                      <div class="courses-content">
-                        <div class="courses-author">
-                          <div class="author">
-                            <div class="author-thumb">
-                              <a href="#"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
-                            </div>
-                            <div class="author-name">
-                              <a class="name" href="#">Pamela Foster</a>
-                            </div>
-                          </div>
-                          <div class="tag">
-                            <a href="#">Science</a>
-                          </div>
-                        </div>
-                        <h4 class="title"><a href="#">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
-                        <div class="courses-meta">
-                          <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                          <span> <i class="icofont-read-book"></i> 29 Lectures </span>
-                        </div>
-                        <div class="courses-price-review">
-                          <div class="courses-price">
-                            <span class="sale-parice">$420.00</span>
-                          </div>
-                          <div class="courses-review">
-                            <span class="rating-count">4.9</span>
-                            <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="single-courses">
-                      <div class="courses-images">
-                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
-                      </div>
-                      <div class="courses-content">
-                        <div class="courses-author">
-                          <div class="author">
-                            <div class="author-thumb">
-                              <a href="#"><img src="{{ URL::asset('assets/images/author/author-03.jpg')}}" alt="Author"></a>
-                            </div>
-                            <div class="author-name">
-                              <a class="name" href="#">Rose Simmons</a>
-                            </div>
-                          </div>
-                          <div class="tag">
-                            <a href="#">Science</a>
-                          </div>
-                        </div>
-                        <h4 class="title"><a href="#">Culture & Leadership: Strategies for a Successful Business</a></h4>
-                        <div class="courses-meta">
-                          <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                          <span> <i class="icofont-read-book"></i> 29 Lectures </span>
-                        </div>
-                        <div class="courses-price-review">
-                          <div class="courses-price">
-                            <span class="sale-parice">$295.00</span>
-                            <span class="old-parice">$340.00</span>
-                          </div>
-                          <div class="courses-review">
-                            <span class="rating-count">4.9</span>
-                            <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="single-courses">
-                      <div class="courses-images">
-                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-04.jpg')}}" alt="Courses"></a>
-                      </div>
-                      <div class="courses-content">
-                        <div class="courses-author">
-                          <div class="author">
-                            <div class="author-thumb">
-                              <a href="#"><img src="{{ URL::asset('assets/images/author/author-04.jpg')}}" alt="Author"></a>
-                            </div>
-                            <div class="author-name">
-                              <a class="name" href="#">Jason Williams</a>
-                            </div>
-                          </div>
-                          <div class="tag">
-                            <a href="#">Finance</a>
-                          </div>
-                        </div>
-                        <h4 class="title"><a href="#">Finance Series: Learn to Budget and Calculate your Net Worth.</a></h4>
-                        <div class="courses-meta">
-                          <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                          <span> <i class="icofont-read-book"></i> 29 Lectures </span>
-                        </div>
-                        <div class="courses-price-review">
-                          <div class="courses-price">
-                            <span class="sale-parice">Free</span>
-                          </div>
-                          <div class="courses-review">
-                            <span class="rating-count">4.9</span>
-                            <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="single-courses">
-                      <div class="courses-images">
-                        <a href="#">
-                          <img src="{{ URL::asset('assets/images/courses/courses-05.jpg')}}" alt="Courses">
+                        <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
+                          <img src="{{asset('course_images/').'/'.$course['image']}}" alt="Courses">
                         </a>
                       </div>
                       <div class="courses-content">
                         <div class="courses-author">
                           <div class="author">
                             <div class="author-thumb">
-                              <a href="#"><img src="{{ URL::asset('assets/images/author/author-05.jpg')}}" alt="Author"></a>
+                              <a  data-bs-toggle="modal" data-bs-target="#ins_Modal">
+                              <img src="{{ URL::asset('assets/images/author/author-01.jpg')}}" alt="Author">
+                              </a>
                             </div>
                             <div class="author-name">
-                              <a class="name" href="#">Jason Williams</a>
+                              <a class="name" data-bs-toggle="modal" data-bs-target="#ins_Modal">
+                                {{isset($course['User']['name'])?$course['User']['name']:'Admin'}}
+                              </a>
                             </div>
                           </div>
                           <div class="tag">
-                            <a href="#">Marketing</a>
+                            <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">Science</a>
                           </div>
                         </div>
-                        <h4 class="title"><a href="#">Build Brand Into Marketing: Tackling the New Marketing Landscape</a></h4>
+                        <h4 class="title">
+                          <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
+                            {{strip_tags($course['title'])}}
+                          </a>
+                        </h4>
                         <div class="courses-meta">
                           <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                           <span> <i class="icofont-read-book"></i> 29 Lectures </span>
                         </div>
                         <div class="courses-price-review">
                           <div class="courses-price">
-                            <span class="sale-parice">$136.00</span>
+                            <span class="sale-parice">${{$course->actual_price}}</span>
+                            <span class="old-parice">${{$course->sell_price}}</span>
                           </div>
                           <div class="courses-review">
-                            <span class="rating-count">4.9</span>
+                          @php
+                            $ratings = $course->getRating()->pluck('rating');
+                            $totalRatings = count($ratings);
+                            $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
+                            $formattedNumber = number_format($averageRating, 2);
+                          @endphp
+                            <span class="rating-count">{{ $formattedNumber }}</span>
                             <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
+                            <span class="rating-bar" id="rating-stars" style="width: 80%;"></span>
                             </span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="single-courses">
-                      <div class="courses-images">
-                        <a href="#"><img src="{{ URL::asset('assets/images/courses/courses-06.jpg')}}" alt="Courses"></a>
-                      </div>
-                      <div class="courses-content">
-                        <div class="courses-author">
-                          <div class="author">
-                            <div class="author-thumb">
-                              <a href="#"><img src="{{ URL::asset('assets/images/author/author-06.jpg')}}" alt="Author"></a>
-                            </div>
-                            <div class="author-name">
-                              <a class="name" href="#">Jason Williams</a>
-                            </div>
-                          </div>
-                          <div class="tag">
-                            <a href="#">Design</a>
-                          </div>
-                        </div>
-                        <h4 class="title"><a href="#">Graphic Design: Illustrating Badges and Icons with Geometric Shapes</a></h4>
-                        <div class="courses-meta">
-                          <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                          <span> <i class="icofont-read-book"></i> 29 Lectures </span>
-                        </div>
-                        <div class="courses-price-review">
-                          <div class="courses-price">
-                            <span class="sale-parice">$237.00</span>
-                          </div>
-                          <div class="courses-review">
-                            <span class="rating-count">4.9</span>
-                            <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  @endforeach
+                  
+                 
+
                 </div>
               </div>
             </div>
@@ -2365,6 +2193,12 @@
 
 
 <script type="">
+$(document).ready(function(){
+  var ratingPercentage = 80; // Replace with the actual rating percentage value
+    
+    var ratingBarWidth = {{ $formattedNumber }} * 20 + '%';
+    $('#rating-stars').css('width', ratingBarWidth);
+})
   // var roles = [ 'WASSCE', 'BECE', 'CSEC', 'NABTEX' ];
   var data = <?php echo json_encode($professional_cat);?>;
   let test = [];

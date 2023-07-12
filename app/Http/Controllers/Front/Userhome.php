@@ -26,7 +26,7 @@ class Userhome extends Controller
         $schoolparentcat = ParentSubCategory::where('main_category_id',1)->get();
         $school_course = Course::where('main_category_id',1)->get();
         // dd($school_course);
-        $new = Course::where('main_category_id',1)->orderBy("id", "DESC")->take(10)->get();
+        $new = Course::where('main_category_id',1)->with('getRating')->orderBy("id", "DESC")->take(10)->get();
     	return view('user.dashboard.school-dashboard',compact('schoolparentcat','new'));
     }
 
@@ -34,7 +34,8 @@ class Userhome extends Controller
         $professional_cat = ParentSubCategory::where('main_category_id',2)->get();
         // dd($professional_cat);
         // $profectio_course = Course::where('main_category_id',2)->get();
-    	return view('user.dashboard.professional-dashboard',compact('professional_cat'));
+        $new = Course::where('main_category_id',2)->with('getRating')->orderBy("id", "DESC")->take(10)->get();
+    	return view('user.dashboard.professional-dashboard',compact('professional_cat','new'));
     }
 
     public function subcategory(Request $request){

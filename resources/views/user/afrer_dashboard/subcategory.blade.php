@@ -43,7 +43,7 @@ Subcategory @endsection @section('content')
                   <span><i class="far fa-book-alt"></i>14 Lesson</span>
                 </div>
                 <div class="course__rating">
-                  <span><i class="icon_star"></i>{{ $averageRating }} ({{ $totalRatings }})</span>
+                  <span><i class="icon_star" style="@if($totalRatings == 0) color:#7f7568 !important;@endif"></i>{{ $averageRating }} ({{ $totalRatings }})</span>
                 </div>
               </div>
               <h3 class="course__title"><a href="{{ route('course-details',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{strip_tags($data2['title'])}}</a></h3>

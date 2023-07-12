@@ -274,7 +274,7 @@ School Dashboard
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 grid-item cat1 cat3 cat5 cat2 cat4 cat6">
            <div class="course__item white-bg mb-30 fix">
               <div class="course__thumb w-img p-relative fix">
-                 <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]).'/'.$course['id'] }}">
+                 <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
                     <img src="{{asset('course_images/').'/'.$course['image']}}" alt="">
                  </a>
                  <div class="course__tag">
@@ -287,7 +287,17 @@ School Dashboard
                        <span><i class="far fa-book-alt"></i>43 Lesson</span>
                     </div>
                     <div class="course__rating">
-                       <span><i class="icon_star"></i>4.5 (44)</span>
+                        @php
+                          $ratings = $course->getRating()->pluck('rating');
+                          $totalRatings = count($ratings);
+                          $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
+                          $formattedNumber = number_format($averageRating, 2);
+                        @endphp
+                       <span>
+                       
+                        <i class="icon_star" id="rating-stars" style="@if($totalRatings == 0) color:#7f7568 !important;@endif"></i>
+                          {{ $formattedNumber}} ({{$totalRatings}})
+                        </span>
                     </div>
                  </div>
                  <h3 class="course__title"><a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">{{strip_tags($course['title'])}}</a></h3>
