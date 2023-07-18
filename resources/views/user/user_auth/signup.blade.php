@@ -76,7 +76,7 @@
                         <div class="sign__input">
                            <select class="form-select input--style-4" name="country_code" aria-label="Default select example" style="border: 2px solid transparent;background: #f6f6f7;">
                               @foreach($code as $code)
-                                   <option value="{{$code['dial_code']}}" >{{$code['dial_code']}}</option>
+                                   <option value="{{$code['dial_code']}}" >{{ $code['flag'] }} {{" "}} {{$code['dial_code']}}</option>
                               @endforeach
                            </select>
                         </div>
