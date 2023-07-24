@@ -504,7 +504,7 @@
                                     <img class="img-fluid me-3" src="{{ asset('storage/users/' . $auth->avatar) }}"
                                         style="border-radius: 20%; width:150px; height:150px;">
                                     <div>
-                                        <h4 class="mb-3">Martin nel</h4>
+                                        <h4 class="mb-3">{{ $auth->name }}{{ " " }}{{ $auth->last_name }}</h4>
                                         <input type="file" name="avtar" id="avtar" style="display:none;">
                                         <input type="hidden" name="old_avtar" value="{{ $auth->avatar }}"
                                             style="display:none;">
