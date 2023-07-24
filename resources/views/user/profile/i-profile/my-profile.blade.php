@@ -7,17 +7,16 @@
     <title>apoGuru - Profile</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/school-css/fontAwesome5Pro.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/professional-css/vendor/plugins.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/professional-css/style.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/common.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/professional-css/custom.css') }}">
-
+    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/vendor/plugins.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/common.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/custom.css') }}">
     <style>
         body.profile-body {
             background-color: #b7dfabbd;
-            background-image: url('{{ asset('assets/images/bg-2.png') }}');
+            background-image: url('{{ URL::asset('assets/images/bg-2.png') }}');
         }
 
         .profile-body .btn-outline-success {
@@ -174,6 +173,7 @@
             color: #fff;
             line-height: 1.5rem;
             transition: .5s;
+            width: 100%;
         }
 
         .default-btn:hover {
@@ -196,11 +196,6 @@
             .modal .modal-md {
                 max-width: 700px;
             }
-        }
-
-        svg {
-            width: 15px;
-            height: 15px;
         }
     </style>
 </head>
@@ -239,10 +234,10 @@
             <div class="modal-body">
                 <div class="">
                     <div class="d-flex flex-column align-items-center justify-content-center mb-5">
-                        <img class="img-fluid mb-3" src="{{ asset('assets/images/author/author-07.jpg') }}"
-                            style="border-radius: 9%;">
+                        <img class="img-fluid mb-3" src="{{ asset('storage/users/' . $auth->avatar) }}"
+                            style="border-radius: 20%; width:150px; height:150px;">
                         <div>
-                            <h4 class="mb-3">Martin nel</h4>
+                            <h4 class="mb-3">{{ $auth->name }} {{ ' ' }} {{ $auth->last_name }}</h4>
                         </div>
                     </div>
 
@@ -250,32 +245,72 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <h6 class="mb-1">Qualification: </h6>
-                                    <h5>Diploma Engenearing</h5>
+                                    <h6 class="mb-1">Email: </h6>
+                                    <h5>{{ $auth->email }}</h5>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <h6 class="mb-1">Profection / Workplace:</h6>
-                                    <h5>London, England</h5>
+                                    <h6 class="mb-1">Phone: </h6>
+                                    <h5>{{ $auth->country_code }}{{ " " }}{{ $auth->phone }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Country: </h6>
+                                    <h5>{{ $auth->country }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Qualification: </h6>
+                                    <h5>{{ $auth->qualification }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Profession / Workplace:</h6>
+                                    <h5>{{ $auth->workplace }}</h5>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <h6 class="mb-1">Teaching / Mentorship Experience:</h6>
-                                    <h5>10+ Years Experience in teaching</h5>
+                                    <h5>{{ $auth->teaching_experience }}</h5>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <h6 class="mb-1">Students:</h6>
-                                    <h5>120 (One hundred and twenty)</h5>
+                                    <h6 class="mb-1">About me:</h6>
+                                    <h5>{{ $auth->summary }}</h5>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <h6 class="mb-1">Courses:</h6>
-                                    <h5>25 (Twenty five)</h5>
+                                    <h6 class="mb-1">Document submit list:</h6>
+                                    @foreach ($auth->getdocument as $key => $document)
+                                        <h5>{{ $document->document_name }}</h5>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Social media list:</h6>
+                                    @if (isset($auth->Facebook) && $auth->Facebook != null)
+                                        <h5><a href="{{ $auth->Facebook }}" target="_blank">Facebook</a></h5>
+                                    @endif
+                                    @if (isset($auth->Instagram) && $auth->Instagram != null)
+                                        <h5><a href="{{ $auth->Instagram }}" target="_blank">Instagram</a></h5>
+                                    @endif
+                                    @if (isset($auth->LinkedIn) && $auth->LinkedIn != null)
+                                        <h5><a href="{{ $auth->LinkedIn }}" target="_blank">LinkedIn</a></h5>
+                                    @endif
+                                    @if (isset($auth->Twitter) && $auth->Twitter != null)
+                                        <h5><a href="{{ $auth->Twitter }}" target="_blank">Twitter</a></h5>
+                                    @endif
+                                    @if (isset($auth->YouTube) && $auth->YouTube != null)
+                                        <h5><a href="{{ $auth->YouTube }}" target="_blank">YouTube</a></h5>
+                                    @endif
                                 </div>
                             </div>
 
@@ -304,8 +339,8 @@
                             alt="Icon"></a>
                     <a href="engagement.html"><img src="{{ asset('assets/images/menu-icon/icon-4.png') }}"
                             alt="Icon"></a>
-                    <a href="traffic-conversion.html"><img
-                            src="{{ asset('assets/images/menu-icon/icon-5.png') }}" alt="Icon"></a>
+                    <a href="traffic-conversion.html"><img src="{{ asset('assets/images/menu-icon/icon-5.png') }}"
+                            alt="Icon"></a>
                 </div>
             </div>
             <div class="page-content-wrapper py-0">
@@ -452,6 +487,11 @@
                             {{ session('success') }}
                         </div>
                     @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
 
                     <div class="profile-img-section">
                         <form action="{{ route('profile-image-update') }}" method="POST"
@@ -561,10 +601,9 @@
                             </form>
                         </div>
                     </div>
-
                     <div class="ins-info">
                         <h4>Instructor Profile</h4>
-                        <form class="form profile-form" action="{{ route('profile-update') }}" method="post"
+                        <form class="profile-form" action="{{ route('profile-update') }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{ $auth->id }}" />
@@ -588,228 +627,286 @@
 
                             <div class="form-group pb-4">
                                 <label for="i-qua">Qualifications</label>
-                                <textarea id="i-qua" class="form-control" name="qualifications" placeholder="Write here...">{{ $auth->qualifications }}</textarea>
+                                <textarea id="i-qua" class="form-control" name="qualifications" placeholder="Write here...">{{ $auth->qualification }}</textarea>
                             </div>
 
                             <i class="">Whould you like to provide documentary evidence to make your verification
                                 process easy and straightforward?</i>
-
-                            <div class="container">
-                                <div class="fields-container">
-                                    @foreach ($auth->getdocument as $key => $document)
-                                        <div class="row align-items-end field">
-                                            <div class="col-12 col-md-12 col-lg-5">
-                                                <div class="form-group">
-                                                    <label for="i-doc[]">Document Name</label>
-                                                    <input type="text" name="document_name[]" class="form-control"
-                                                        placeholder="Write here..."
-                                                        value="{{ $document->document_name }}">
-                                                    <input type="hidden" name="document_id[]"
-                                                        value="{{ $document->id }}">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-sm-6 col-md-7 col-lg-4">
-                                                <div class="form-group">
-                                                    <label for="i-sup[]">Supporting Document</label><br>
-                                                    <input type="file" name="supporting_document[]"
-                                                        class="">
-                                                    <input type="hidden" name="old_document[]"
-                                                        value="{{ $document->user_document }}">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-sm-6 col-md-2 col-lg-3">
-                                                <!-- Add a condition to prevent deletion of the default fields -->
-                                                <button type="button" class="btn btn-danger delete-btn"
-                                                    @if ($key == 0) style="display: none;" @endif
-                                                    @if ($key != 0) onClick="deleteDocument({{ $document->id }})" @endif>Delete</button>
+                            <div class="fields-container">
+                                @foreach ($auth->getdocument as $key => $document)
+                                    <div class="row align-items-end field">
+                                        <div class="col-12 col-md-12 col-lg-5">
+                                            <div class="form-group">
+                                                <label for="i-doc[]">Document Name</label>
+                                                <input type="text" name="document_name[]" class="form-control"
+                                                    placeholder="Write here..."
+                                                    value="{{ $document->document_name }}">
+                                                <input type="hidden" name="document_id[]"
+                                                    value="{{ $document->id }}">
                                             </div>
                                         </div>
-                                    @endforeach
 
+                                        <div class="col-12 col-sm-6 col-md-7 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="i-sup[]">Supporting Document</label><br>
+                                                <input type="file" name="supporting_document[]" class="">
+                                                <input type="hidden" name="old_document[]"
+                                                    value="{{ $document->user_document }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-6 col-md-2 col-lg-3">
+                                            <!-- Add a condition to prevent deletion of the default fields -->
+                                            <button type="button" class="btn btn-danger delete-btn"
+                                                @if ($key == 0) style="display: none;" @endif
+                                                @if ($key != 0) onClick="deleteDocument({{ $document->id }})" @endif>Delete</button>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                            <button type="button" id="addNewBtn" class="btn btn-primary">Add New</button>
+
+                            <div class="form-group">
+                                <label>Social Media Profiles</label>
+                                <select class="form-control" id="socialMediaSelect">
+                                    <option>Select Platform</option>
+                                    <option>Facebook</option>
+                                    <option>Instagram</option>
+                                    <option>Youtube</option>
+                                    <option>LinkedIn</option>
+                                    <option>Twitter</option>
+                                </select>
+                            </div>
+
+                            <div id="additionalInputContainer" class="mt-6">
+                                <!-- New input boxes will be added here -->
+                                @if ($auth->Facebook || count($errors->all()) > 0)
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="facebook"
+                                            placeholder="Enter your Facebook profile link"
+                                            value="{{ $auth->Facebook }}">
+                                        @error('facebook')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
+                                @if ($auth->Instagram || count($errors->all()) > 0)
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="instagram"
+                                            placeholder="Enter your Instagram profile link"
+                                            value="{{ $auth->Instagram }}">
+                                        @error('instagram')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
+                                @if ($auth->YouTube || count($errors->all()) > 0)
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="youtube"
+                                            placeholder="Enter your Youtube profile link"
+                                            value="{{ $auth->YouTube }}">
+                                        @error('youtube')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
+                                @if ($auth->LinkedIn || count($errors->all()) > 0)
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="linkedin"
+                                            placeholder="Enter your LinkedIn profile link"
+                                            value="{{ $auth->LinkedIn }}">
+                                        @error('linkedin')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
+                                @if ($auth->Twitter || count($errors->all()) > 0)
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="twitter"
+                                            placeholder="Enter your Twitter profile link"
+                                            value="{{ $auth->Twitter }}">
+                                        @error('twitter')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="row pt-3">
+                                <div class="col-6 col-sm-3 col-md-3 col-lg-4">
+                                    <div class="form-group">
+                                        <a class="btn default-btn d-block text-center" data-bs-toggle="modal"
+                                            data-bs-target="#ins_Modal">Preview</a>
+                                    </div>
                                 </div>
-                                <button type="button" id="addNewBtn" class="btn btn-primary">Add New</button>
+
+                                <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                        <button type="submit"
+                                            class="btn default-btn d-block text-center">Save</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-5 col-md-5 col-lg-4">
+                                    <div class="form-group">
+                                        <a class="btn default-btn d-block text-center">Get Me Verified</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="change-password-section">
+                        <h4 class="title mb-3">Change Password</h4>
+                        <form class="form profile-form" action="{{ route('profile-change-password') }}"
+                            method="post">
+                            @csrf
+                            <div class="row">
                                 
-                            </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label>Social Media Profiles</label>
-                        <select class="form-control" id="socialMediaSelect">
-                            <option>Select Platform</option>
-                            <option>Facebook</option>
-                            <option>Instagram</option>
-                            <option>Youtube</option>
-                            <option>LinkedIn</option>
-                            <option>Twitter</option>
-                        </select>
-                    </div>
-
-                    <div id="additionalInputContainer">
-                        <!-- New input boxes will be added here -->
-                    </div>
-
-
-                    <div class="row pt-3">
-                        <div class="col-6 col-sm-3 col-md-3 col-lg-4">
-                            <div class="form-group">
-                                <a class="btn default-btn d-block text-center" data-bs-toggle="modal"
-                                    data-bs-target="#ins_Modal">Preview</a>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
-                            <div class="form-group">
-                                <button class="btn default-btn d-block text-center">Save</button>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-5 col-md-5 col-lg-4">
-                            <div class="form-group">
-                                <a class="btn default-btn d-block text-center">Get Me Verified</a>
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-
-                <div class="change-password-section">
-                    <h4 class="title mb-3">Change Password</h4>
-                    <form class="form profile-form">
-                        <div class="row">
-                            <div class="col-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="old-pass">Old Password</label>
-                                    <input type="text" class="form-control" name="old-pass"
-                                        placeholder="Write here..." id="old-pass">
+                                <div class="col-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="old-pass">Old Password</label>
+                                        <input type="text" class="form-control" name="old_password"
+                                            placeholder="Write here..." id="old-pass">
+                                        @error('old_password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="new-pass">New Password</label>
+                                        <input type="password" class="form-control" name="new_password"
+                                            placeholder="Write here..." id="new-pass">
+                                        @error('new_password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="conf-pass">Confirm Password</label>
+                                        <input type="password" class="form-control" placeholder="Write here..."
+                                            name="new_password_confirmation" id="conf-pass">
+                                    </div>
+                                    @error('old_pass', 'user_new')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="form-group">
+                                        <input type="submit" class="w-100 btn btn-success submit-btn"
+                                            value="Update Password">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="new-pass">New Password</label>
-                                    <input type="password" class="form-control" name="new-pass"
-                                        placeholder="Write here..." id="new-pass">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="conf-pass">Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Write here..."
-                                        name="conf-pass" id="conf-pass">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12">
-                                <div class="form-group">
-                                    <input type="submit" class="w-100 btn btn-success submit-btn"
-                                        value="Update Password">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="section footer-section">
-        <div class="footer-widget-section">
-            <img class="shape-1 animation-down" src="{{ asset('assets/images/shape/shape-21.png') }}"
-                alt="Shape">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
-                        <div class="footer-widget">
-                            <div class="widget-logo">
-                                <a href="{{ route('index') }}"><img
-                                        src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="Logo"
-                                        width="140"></a>
-                            </div>
-                            <div class="widget-address">
-                                <h4 class="footer-widget-title">Caribbean Ct</h4>
-                                <p>Haymarket, Virginia (VA).</p>
-                            </div>
-                            <ul class="widget-info">
-                                <li>
-                                    <p> <i class="flaticon-email"></i> <a
-                                            href="mailto:address@gmail.com">address@gmail.com</a> </p>
-                                </li>
-                                <li>
-                                    <p> <i class="flaticon-phone-call"></i> <a href="tel:9702621413">(970)
-                                            262-1413</a> </p>
-                                </li>
-                            </ul>
-                            <ul class="widget-social">
-                                <li><a href="#"><i class="flaticon-facebook"></i></a></li>
-                                <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                                <li><a href="#"><i class="flaticon-skype"></i></a></li>
-                                <li><a href="#"><i class="flaticon-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-md-3 order-lg-2">
-                        <div class="footer-widget-link">
+
+        <div class="section footer-section">
+            <div class="footer-widget-section">
+                <img class="shape-1 animation-down" src="{{ asset('assets/images/shape/shape-21.png') }}"
+                    alt="Shape">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
                             <div class="footer-widget">
-                                <h4 class="footer-widget-title">Category</h4>
-                                <ul class="widget-link">
-                                    <li><a href="#">Creative Writing</a></li>
-                                    <li><a href="#">Film & Video</a></li>
-                                    <li><a href="#">Graphic Design</a></li>
-                                    <li><a href="#">UI/UX Design</a></li>
-                                    <li><a href="#">Business Analytics</a></li>
-                                    <li><a href="#">Marketing</a></li>
+                                <div class="widget-logo">
+                                    <a href="{{ route('index') }}"><img
+                                            src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="Logo"
+                                            width="140"></a>
+                                </div>
+                                <div class="widget-address">
+                                    <h4 class="footer-widget-title">Caribbean Ct</h4>
+                                    <p>Haymarket, Virginia (VA).</p>
+                                </div>
+                                <ul class="widget-info">
+                                    <li>
+                                        <p> <i class="flaticon-email"></i> <a
+                                                href="mailto:address@gmail.com">address@gmail.com</a> </p>
+                                    </li>
+                                    <li>
+                                        <p> <i class="flaticon-phone-call"></i> <a href="tel:9702621413">(970)
+                                                262-1413</a> </p>
+                                    </li>
                                 </ul>
-                            </div>
-                            <div class="footer-widget">
-                                <h4 class="footer-widget-title">Quick Links</h4>
-                                <ul class="widget-link">
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Discussion</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Customer Support</a></li>
-                                    <li><a href="#">Course FAQ’s</a></li>
+                                <ul class="widget-social">
+                                    <li><a href="#"><i class="flaticon-facebook"></i></a></li>
+                                    <li><a href="#"><i class="flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="flaticon-skype"></i></a></li>
+                                    <li><a href="#"><i class="flaticon-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 order-md-2 order-lg-3">
-                        <div class="footer-widget">
-                            <h4 class="footer-widget-title">Join Now</h4>
-                            <div class="widget-subscribe">
-                                <p>Lorem Ipsum has been them an industry printer took a galley make book.</p>
-                                <div class="widget-form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Email here">
-                                        <button class="btn btn-primary btn-hover-dark">Join Now</button>
-                                    </form>
+                        <div class="col-lg-6 order-md-3 order-lg-2">
+                            <div class="footer-widget-link">
+                                <div class="footer-widget">
+                                    <h4 class="footer-widget-title">Category</h4>
+                                    <ul class="widget-link">
+                                        <li><a href="#">Creative Writing</a></li>
+                                        <li><a href="#">Film & Video</a></li>
+                                        <li><a href="#">Graphic Design</a></li>
+                                        <li><a href="#">UI/UX Design</a></li>
+                                        <li><a href="#">Business Analytics</a></li>
+                                        <li><a href="#">Marketing</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer-widget">
+                                    <h4 class="footer-widget-title">Quick Links</h4>
+                                    <ul class="widget-link">
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Discussion</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Customer Support</a></li>
+                                        <li><a href="#">Course FAQ’s</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 order-md-2 order-lg-3">
+                            <div class="footer-widget">
+                                <h4 class="footer-widget-title">Join Now</h4>
+                                <div class="widget-subscribe">
+                                    <p>Lorem Ipsum has been them an industry printer took a galley make book.</p>
+                                    <div class="widget-form">
+                                        <form action="#">
+                                            <input type="text" placeholder="Email here">
+                                            <button class="btn btn-primary btn-hover-dark">Join Now</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <img class="shape-2 animation-left" src="{{ asset('assets/images/shape/shape-22.png') }}"
+                    alt="Shape">
             </div>
-            <img class="shape-2 animation-left" src="{{ asset('assets/images/shape/shape-22.png') }}"
-                alt="Shape">
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                <div class="copyright-wrapper">
-                    <div class="copyright-link">
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Sitemap</a>
-                        <a href="#">Security</a>
-                    </div>
-                    <div class="copyright-text">
-                        <p>&copy; 2023 <span> apoGuru </span></p>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="copyright-wrapper">
+                        <div class="copyright-link">
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Sitemap</a>
+                            <a href="#">Security</a>
+                        </div>
+                        <div class="copyright-text">
+                            <p>&copy; 2023 <span> apoGuru </span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <a href="#" class="back-to-top">
-        <i class="icofont-simple-up"></i>
-    </a>
+        <a href="#" class="back-to-top">
+            <i class="icofont-simple-up"></i>
+        </a>
     </div>
 
     <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
@@ -868,31 +965,39 @@
         $('#socialMediaSelect').on('change', function () {
             var selectedPlatforms = $(this).val();
             if (selectedPlatforms) {
+                    var newInput = '';
+
+                    // Check if the input box for the platform already exists
                     if (selectedPlatforms === 'Facebook') {
-                        var newInput = '<div class="form-group mt-2">' +
-                            '<input type="text" class="form-control" name="facebook" placeholder="Enter your Facebook profile link">' +
-                            '</div>';
-                        $('#additionalInputContainer').append(newInput);
+                        if ($('#additionalInputContainer input[name="facebook"]').length === 0) {
+                            $('#additionalInputContainer').append('<div class="form-group">' +
+                                '<input type="text" class="form-control" name="facebook" placeholder="Enter your Facebook profile link">' +
+                                '</div>');
+                        }
                     } else if (selectedPlatforms === 'Instagram') {
-                        var newInput = '<div class="form-group mt-2">' +
-                            '<input type="text" class="form-control" name="instagram" placeholder="Enter your Instagram profile link">' +
-                            '</div>';
-                        $('#additionalInputContainer').append(newInput);
+                        if ($('#additionalInputContainer input[name="instagram"]').length === 0) {
+                            $('#additionalInputContainer').append('<div class="form-group">' +
+                                '<input type="text" class="form-control" name="instagram" placeholder="Enter your Instagram profile link">' +
+                                '</div>');
+                        }
                     } else if (selectedPlatforms === 'Youtube') {
-                        var newInput = '<div class="form-group mt-2">' +
-                            '<input type="text" class="form-control" name="youtube" placeholder="Enter your Youtube profile link">' +
-                            '</div>';
-                        $('#additionalInputContainer').append(newInput);
+                        if ($('#additionalInputContainer input[name="youtube"]').length === 0) {
+                            $('#additionalInputContainer').append('<div class="form-group">' +
+                                '<input type="text" class="form-control" name="youtube" placeholder="Enter your Youtube profile link">' +
+                                '</div>');
+                        }
                     } else if (selectedPlatforms === 'LinkedIn') {
-                        var newInput = '<div class="form-group mt-2">' +
-                            '<input type="text" class="form-control" name="linkedin" placeholder="Enter your LinkedIn profile link">' +
-                            '</div>';
-                        $('#additionalInputContainer').append(newInput);
-                    }else if (selectedPlatforms === 'Twitter') {
-                        var newInput = '<div class="form-group mt-2">' +
-                            '<input type="text" class="form-control" name="twitter" placeholder="Enter your Twitter profile link">' +
-                            '</div>';
-                        $('#additionalInputContainer').append(newInput);
+                        if ($('#additionalInputContainer input[name="linkedin"]').length === 0) {
+                            $('#additionalInputContainer').append('<div class="form-group">' +
+                                '<input type="text" class="form-control" name="linkedin" placeholder="Enter your LinkedIn profile link">' +
+                                '</div>');
+                        }
+                    } else if (selectedPlatforms === 'Twitter') {
+                        if ($('#additionalInputContainer input[name="twitter"]').length === 0) {
+                            $('#additionalInputContainer').append('<div class="form-group">' +
+                                '<input type="text" class="form-control" name="twitter" placeholder="Enter your Twitter profile link">' +
+                                '</div>');
+                        }
                     }
             }
         });

@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Rules\ValidUrl;
 use App\User_documents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class ProfileManagementController extends Controller
@@ -16,6 +19,7 @@ class ProfileManagementController extends Controller
         $data = [];
         $msg = '';
         if($request->personal_informations =="personal_informations" && $request->profile_type == "instructor_profile"){
+            
             array_push($data,[
                 'name'=>$request->fname,
                 'last_name'=>$request->lname,
@@ -29,12 +33,32 @@ class ProfileManagementController extends Controller
 
         if($request->personal_informations =="instructor_profile" && $request->profile_type == "instructor_profile"){
             $documentTypes = $request->document_name;
-
+            if($request->facebook != null || $request->instagram || $request->youtube || $request->linkedin || $request->twitter){
+                
+                 $rules = [
+                    'facebook' => ['required', new ValidUrl],
+                    'instagram' => ['required', new ValidUrl],
+                    'youtube' => ['required', new ValidUrl],
+                    'linkedin' => ['required', new ValidUrl],
+                    'twitter' => ['required', new ValidUrl],
+                ];
+            
+                $customMessages = [
+                    'required' => 'The :attribute field is required.'
+                ];
+            
+                $this->validate($request, $rules, $customMessages);
+            }
             array_push($data,[
                 'qualification'=>$request->qualifications,
                 'workplace'=>$request->profession_work,
                 'teaching_experience'=> $request->teaching_mentorship,
-                'summary' => $request->about_me
+                'summary' => $request->about_me,
+                'Facebook' => $request->facebook,
+                'Instagram' => $request->instagram,
+                'YouTube' => $request->youtube,
+                'LinkedIn' => $request->linkedin,
+                'Twitter' => $request->twitter,
             ]);
             if(count($documentTypes) > 0){
                 foreach($documentTypes as $key => $documentType){
@@ -109,5 +133,26 @@ class ProfileManagementController extends Controller
         Storage::delete('public/documents/' . $deleteDocument->user_document);
         $deleteDocument->delete();
         return response()->json(["message"=>"Document deleted successfully...!","status"=>200],200);
+    }
+
+    public function changePassword(Request $request){
+        // dd(Hash::make('12345678'));
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+        $user = Auth::guard('user_new')->user();
+        // Check if the current password matches the one in the database
+        if (Hash::check($request->old_password, $user->password)) {
+            // Update the user's password with the new one
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+
+            // Redirect back with success message
+            return redirect()->back()->with('success', 'Password changed successfully.');
+        } else {
+            // Current password doesn't match
+            return back()->with("error", "Old Password Doesn't match!");
+        }
     }
 }

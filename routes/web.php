@@ -253,6 +253,7 @@ Route::get('/instructor_profile', 'Front\profilecontroller@instructor_profile')-
 Route::post('/profile-update','Front\ProfileManagementController@updateProfile')->name('profile-update');
 Route::post('/profile-image-update','Front\ProfileManagementController@updateProfileImage')->name('profile-image-update');
 Route::post('/profile-delete-document','Front\ProfileManagementController@deleteDocument')->name('profile-delete-document');
+Route::post('/profile-change-password','Front\ProfileManagementController@changePassword')->name('profile-change-password');
 
 Route::get('/wallet', 'Front\profilecontroller@wallet')->name('wallet');
 
