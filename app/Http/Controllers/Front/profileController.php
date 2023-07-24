@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class profileController extends Controller
@@ -44,7 +45,14 @@ class profileController extends Controller
   }
 
   public function instructor_profile(){
-    return view('user.profile.i-profile.my-profile');
+    $auth = Auth::guard('user_new')->user();
+    $json = Storage::disk('local')->get('country.json');
+    $codes = json_decode($json, true);
+    if(!isset($auth->id)){
+      return redirect()->route('login')->withErrors(["Please Login!"]);;
+    }
+    // dd($countries);
+    return view('user.profile.i-profile.my-profile',compact('auth','codes'));
   }
 
   public function wallet(){

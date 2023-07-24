@@ -248,7 +248,12 @@ Route::get('/learner_profile', 'Front\profilecontroller@learner_profile')->name(
 //Instructor Profile
 Route::get('/create-course', 'Front\profilecontroller@create_course')->name('create_course');
 Route::get('/course_i_have_created', 'Front\profilecontroller@course_i_have_created')->name('course_i_have_created');
+
 Route::get('/instructor_profile', 'Front\profilecontroller@instructor_profile')->name('instructor_profile');
+Route::post('/profile-update','Front\ProfileManagementController@updateProfile')->name('profile-update');
+Route::post('/profile-image-update','Front\ProfileManagementController@updateProfileImage')->name('profile-image-update');
+Route::post('/profile-delete-document','Front\ProfileManagementController@deleteDocument')->name('profile-delete-document');
+
 Route::get('/wallet', 'Front\profilecontroller@wallet')->name('wallet');
 
 Route::get('/buyed_course', 'Front\Userhome@buyed_course')->name('buyed_course');

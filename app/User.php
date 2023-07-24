@@ -54,6 +54,6 @@ class User extends Authenticatable
       return $this->belongsTo(ChildSubCategory::class);
     }
     public function getdocument() {
-      return $this->hasMany(User_documents::class);
+      return $this->hasMany(User_documents::class,'user_id','id');
     }
 }
