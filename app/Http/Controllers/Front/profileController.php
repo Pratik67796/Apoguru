@@ -33,7 +33,13 @@ class profileController extends Controller
   }
 
   public function learner_profile(){
-    return view('user.profile.s-profile.s-my-profile');
+    $auth = Auth::guard('user_new')->user();
+    $json = Storage::disk('local')->get('country.json');
+    $codes = json_decode($json, true);
+    if(!isset($auth->id)){
+      return redirect()->route('login')->withErrors(["Please Login!"]);;
+    }
+    return view('user.profile.s-profile.s-my-profile',compact('auth','codes'));
   }
 
   public function create_course(){

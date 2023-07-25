@@ -498,7 +498,7 @@
                             enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{ $auth->id }}" />
-                            <input type="hidden" name="profile_type" value="instructor_profile" />
+                            {{-- <input type="hidden" name="profile_type" value="instructor_profile" /> --}}
                             <div class="d-flex flex-wrap align-items-center justify-content-between">
                                 <div class="d-flex align-items-center flex-wrap">
                                     <img class="img-fluid me-3" src="{{ asset('storage/users/' . $auth->avatar) }}"
@@ -539,6 +539,9 @@
                                             <input class="form-control" type="text" name="fname"
                                                 value="{{ $auth->name }}" id="fname"
                                                 placeholder="Write here...">
+                                                @if ($errors->has('fname'))
+                                                <span class="text-danger">{{ $errors->first('fname') }}</span>
+                                                @endif
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -547,6 +550,7 @@
                                             <input class="form-control" type="text" name="lname"
                                                 value="{{ $auth->last_name }}" id="lname"
                                                 placeholder="Write here...">
+                                                
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -554,6 +558,9 @@
                                             <label for="email">Email</label>
                                             <input class="form-control" type="text" value="{{ $auth->email }}"
                                                 name="email" id="email" placeholder="Write here...">
+                                                @if ($errors->has('email'))
+                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                @endif
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -562,7 +569,7 @@
                                             <div class="input-field d-flex align-items-center">
                                                 <select class="form-control" style="max-width: 120px;"
                                                     name="phone_code">
-                                                    <option>Select Code</option>
+                                                    <option value="">Select Code</option>
                                                     @foreach ($codes as $key => $country)
                                                         <option value="{{ $country['dial_code'] }}"
                                                             @if ($country['dial_code'] == $auth->country_code) selected @endif>
@@ -574,7 +581,14 @@
                                                 <input class="form-control" type="text" name="phone"
                                                     value="{{ $auth->phone }}" id="phone"
                                                     placeholder="Write here...">
+                                                    
                                             </div>
+                                            @if ($errors->has('phone'))
+                                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                                    @endif
+                                                    @if ($errors->has('phone_code'))
+                                                    <span class="text-danger">{{ $errors->first('phone_code') }}</span>
+                                                    @endif
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12">
@@ -651,11 +665,13 @@
                                                 <label for="i-sup[]">Supporting Document</label><br>
                                                 <input type="file" name="supporting_document[]" class="">
                                                 <input type="hidden" name="old_document[]"
-                                                    value="{{ $document->user_document }}">
+                                                    value="{{ $document->user_document }}">          
                                             </div>
                                         </div>
-
-                                        <div class="col-12 col-sm-6 col-md-2 col-lg-3">
+                                        <div class="col-6 col-sm-6 col-md-2 col-lg-3">
+                                            <a href="{{ asset('storage/documents/' . $document->user_document) }}" target="_blank">View Document</a>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-md-2 col-lg-3">
                                             <!-- Add a condition to prevent deletion of the default fields -->
                                             <button type="button" class="btn btn-danger delete-btn"
                                                 @if ($key == 0) style="display: none;" @endif
@@ -681,54 +697,54 @@
 
                             <div id="additionalInputContainer" class="mt-6">
                                 <!-- New input boxes will be added here -->
-                                @if ($auth->Facebook || count($errors->all()) > 0)
+                                @if ($auth->Facebook || $errors->has('facebook'))
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="facebook"
                                             placeholder="Enter your Facebook profile link"
                                             value="{{ $auth->Facebook }}">
-                                        @error('facebook')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        @if($errors->has('facebook'))
+                                            <div class="text-danger">{{ $errors->first('facebook') }}</div>
+                                        @endif
                                     </div>
                                 @endif
-                                @if ($auth->Instagram || count($errors->all()) > 0)
+                                @if ($auth->Instagram || $errors->has('instagram'))
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="instagram"
                                             placeholder="Enter your Instagram profile link"
                                             value="{{ $auth->Instagram }}">
-                                        @error('instagram')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        @if($errors->has('instagram'))
+                                            <div class="text-danger">{{ $errors->first('instagram') }}</div>
+                                        @endif
                                     </div>
                                 @endif
-                                @if ($auth->YouTube || count($errors->all()) > 0)
+                                @if ($auth->YouTube || $errors->has('youtube'))
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="youtube"
                                             placeholder="Enter your Youtube profile link"
                                             value="{{ $auth->YouTube }}">
-                                        @error('youtube')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        @if($errors->has('youtube'))
+                                            <div class="text-danger">{{ $errors->first('youtube') }}</div>
+                                        @endif
                                     </div>
                                 @endif
-                                @if ($auth->LinkedIn || count($errors->all()) > 0)
+                                @if ($auth->LinkedIn || $errors->has('linkedin'))
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="linkedin"
                                             placeholder="Enter your LinkedIn profile link"
                                             value="{{ $auth->LinkedIn }}">
-                                        @error('linkedin')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        @if($errors->has('linkedin'))
+                                            <div class="text-danger">{{ $errors->first('linkedin') }}</div>
+                                        @endif
                                     </div>
                                 @endif
-                                @if ($auth->Twitter || count($errors->all()) > 0)
+                                @if ($auth->Twitter || $errors->has('twitter'))
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="twitter"
                                             placeholder="Enter your Twitter profile link"
                                             value="{{ $auth->Twitter }}">
-                                        @error('twitter')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        @if($errors->has('twitter'))
+                                            <div class="text-danger">{{ $errors->first('twitter') }}</div>
+                                        @endif
                                     </div>
                                 @endif
                             </div>
@@ -789,12 +805,12 @@
                                         <label for="conf-pass">Confirm Password</label>
                                         <input type="password" class="form-control" placeholder="Write here..."
                                             name="new_password_confirmation" id="conf-pass">
+                                            @error('old_pass', 'user_new')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                     </div>
-                                    @error('old_pass', 'user_new')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-12">
                                     <div class="form-group">
