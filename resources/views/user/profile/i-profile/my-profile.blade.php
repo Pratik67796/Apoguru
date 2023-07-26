@@ -679,7 +679,28 @@
                                         </div>
                                     </div>
                                 @endforeach
-
+                                @if(count($auth->getdocument) == 0)
+                                <div class="row align-items-end field">
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <div class="form-group">
+                                            <label for="i-doc[]">Document Name</label>
+                                            <input type="text" name="document_name[]" class="form-control"
+                                                placeholder="Write here..."
+                                                value="">
+                                            <input type="hidden" name="document_id[]"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-7 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="i-sup[]">Supporting Document</label><br>
+                                            <input type="file" name="supporting_document[]" class="">
+                                            <input type="hidden" name="old_document[]"
+                                                value="">          
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                             <button type="button" id="addNewBtn" class="btn btn-primary">Add New</button>
 
