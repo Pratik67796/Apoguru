@@ -239,7 +239,7 @@ Route::post('/course_rating_add', 'Front\Coursecontroller@course_rating_add')->n
 
 //User Profile
 Route::get('/cart', 'Front\Profilecontroller@cart')->name('cart');
-Route::get('/my_course', 'Front\Profilecontroller@my_course')->name('my_course');
+Route::get('/my-course', 'Front\Profilecontroller@myCourse')->name('my-course');
 Route::get('/my_wishlist', 'Front\Profilecontroller@my_wishlist')->name('my_wishlist');
 Route::get('/subscription_history', 'Front\Profilecontroller@subscription_history')->name('subscription-history');
 Route::get('/learner_profile', 'Front\Profilecontroller@learner_profile')->name('learner_profile');

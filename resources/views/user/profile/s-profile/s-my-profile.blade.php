@@ -68,7 +68,7 @@
                     <h5 class="title"> Learner Dashboard</h5>
                     <a href="{{ route('learner_profile') }}" class="active"><i class="icofont-user-alt-7"></i> My
                         Profile & Account</a>
-                    <a href="{{ route('my_course') }}"><i class="icofont-computer"></i> My Courses</a>
+                    <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
                     <a href="{{ route('my_wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
                     <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription
                         History</a>
@@ -201,6 +201,16 @@
                             <button class="btn-green mb-3"><i class="fas fa-border-all"></i></button>
                         </div>
                     </div>
+                    @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     <div class="profile-img-section">
                         <form action="{{ route('profile-image-update') }}" method="POST"
                             enctype="multipart/form-data">
@@ -246,16 +256,7 @@
                   <div class="count">2,698</div>
                 </div> -->
                         </div>
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if (session('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('error') }}
-                            </div>
-                        @endif
+                        
                         <div>
                             <form class="form profile-form" action="{{ route('profile-update') }}" method="post">
                                 @csrf

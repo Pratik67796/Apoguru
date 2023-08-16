@@ -255,7 +255,7 @@
             </a>
           <h5 class="title" > Learner Dashboard</h5>
           <a href="{{ route('learner_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
-          <a href="{{ route('my_course') }}" class="active"><i class="icofont-computer"></i> My Courses</a>
+          <a href="{{ route('my-course') }}" class="active"><i class="icofont-computer"></i> My Courses</a>
           <a href="{{ route('my_wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
           <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription History</a>
           <a href="{{ route('cart') }}"><i class="icofont-shopping-cart"></i> View Cart</a>
@@ -436,7 +436,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="course__item white-bg mb-30 fix">
                           <div class="course__thumb w-img p-relative fix">
-                             <a href="{{ route('course-buy') }}">
+                             <a href="#">
                                 <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
                              </a>
                              <!-- <div class="course__tag">
@@ -460,7 +460,7 @@
                                  </div>
                              </div>
 
-                             <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills &amp; job.</a></h3>
+                             <h3 class="course__title"><a href="#">Become a product Manager learn the skills &amp; job.</a></h3>
                              
                               <div class="course__meta d-flex align-items-center justify-content-between">
                                 <div class="course__lesson">
@@ -477,7 +477,7 @@
                                 <!-- <span>$ 250</span> -->
                              </div>
                              <div class="course__btn">
-                                <a href="{{ route('course-buy') }}" class="link-btn">
+                                <a href="#" class="link-btn">
                                    Know Details
                                    <i class="far fa-arrow-right"></i>
                                    <i class="far fa-arrow-right"></i>
@@ -544,7 +544,7 @@
                       <div class="col-lg-6 col-md-12">
                         <div class="course__item white-bg mb-30 fix">
                           <div class="course__thumb w-img p-relative fix">
-                             <a href="{{ route('course-buy') }}">
+                             <a href="#">
                                 <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
                              </a>
                              <!-- <div class="course__tag">
@@ -568,7 +568,7 @@
                                  </div>
                              </div>
 
-                             <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills &amp; job.</a></h3>
+                             <h3 class="course__title"><a href="#">Become a product Manager learn the skills &amp; job.</a></h3>
                              
                               <div class="course__meta d-flex align-items-center justify-content-between">
                                 <div class="course__lesson">
@@ -585,7 +585,7 @@
                                 <!-- <span>$ 250</span> -->
                              </div>
                              <div class="course__btn">
-                                <a href="{{ route('course-buy') }}" class="link-btn">
+                                <a href="#" class="link-btn">
                                    Know Details
                                    <i class="far fa-arrow-right"></i>
                                    <i class="far fa-arrow-right"></i>

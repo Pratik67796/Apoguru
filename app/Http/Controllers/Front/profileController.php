@@ -20,7 +20,7 @@ class profileController extends Controller
     return view('user.profile.s-profile.s-cart');
   }
 
-  public function my_course(){
+  public function myCourse(){
     return view('user.profile.s-profile.s-my-course');
   }
 
