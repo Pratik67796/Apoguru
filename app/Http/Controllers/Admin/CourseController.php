@@ -157,7 +157,7 @@ class CourseController extends Controller
     $principal_topics = \App\PrincipalTopic::all();
     if ($course) {
       return view('admin.courses.principal_topics.index', compact('course', 'principal_topics', 'price'));
-      return redirect()->back()->with('msg', 'Course successfully deleted');
+      // return redirect()->back()->with('msg', 'Course successfully deleted');
     } else {
       return redirect()->back()->with('error', 'Course not found, please try again');
     }

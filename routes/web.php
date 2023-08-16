@@ -238,24 +238,24 @@ Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
 Route::post('/course_rating_add', 'Front\Coursecontroller@course_rating_add')->name('course_rating_add');
 
 //User Profile
-Route::get('/cart', 'Front\profilecontroller@cart')->name('cart');
-Route::get('/my_course', 'Front\profilecontroller@my_course')->name('my_course');
-Route::get('/my_wishlist', 'Front\profilecontroller@my_wishlist')->name('my_wishlist');
-Route::get('/subscription_history', 'Front\profilecontroller@subscription_history')->name('subscription-history');
-Route::get('/learner_profile', 'Front\profilecontroller@learner_profile')->name('learner_profile');
+Route::get('/cart', 'Front\Profilecontroller@cart')->name('cart');
+Route::get('/my_course', 'Front\Profilecontroller@my_course')->name('my_course');
+Route::get('/my_wishlist', 'Front\Profilecontroller@my_wishlist')->name('my_wishlist');
+Route::get('/subscription_history', 'Front\Profilecontroller@subscription_history')->name('subscription-history');
+Route::get('/learner_profile', 'Front\Profilecontroller@learner_profile')->name('learner_profile');
 
 
 //Instructor Profile
-Route::get('/create-course', 'Front\profilecontroller@create_course')->name('create_course');
-Route::get('/course_i_have_created', 'Front\profilecontroller@course_i_have_created')->name('course_i_have_created');
+Route::get('/create-course', 'Front\Profilecontroller@create_course')->name('create_course');
+Route::get('/course_i_have_created', 'Front\Profilecontroller@course_i_have_created')->name('course_i_have_created');
 
-Route::get('/instructor_profile', 'Front\profilecontroller@instructor_profile')->name('instructor_profile');
+Route::get('/instructor_profile', 'Front\Profilecontroller@instructor_profile')->name('instructor_profile');
 Route::post('/profile-update','Front\ProfileManagementController@updateProfile')->name('profile-update');
 Route::post('/profile-image-update','Front\ProfileManagementController@updateProfileImage')->name('profile-image-update');
 Route::post('/profile-delete-document','Front\ProfileManagementController@deleteDocument')->name('profile-delete-document');
 Route::post('/profile-change-password','Front\ProfileManagementController@changePassword')->name('profile-change-password');
 
-Route::get('/wallet', 'Front\profilecontroller@wallet')->name('wallet');
+Route::get('/wallet', 'Front\Profilecontroller@wallet')->name('wallet');
 
 Route::get('/buyed_course', 'Front\Userhome@buyed_course')->name('buyed_course');
 Route::get('/course_details', 'Front\Userhome@course_details')->name('course_details');
