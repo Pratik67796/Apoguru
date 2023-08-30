@@ -61,5 +61,5 @@ class Course extends Model
   public function getRating(){
     return $this->hasMany(Rating::class,'course_id','id');
   }
-  
+
 }

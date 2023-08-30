@@ -247,6 +247,18 @@ Route::get('/learner_profile', 'Front\Profilecontroller@learner_profile')->name(
 
 //Instructor Profile
 Route::get('/create-course', 'Front\Profilecontroller@create_course')->name('create_course');
+
+Route::post('/get-parent-subcategroy','Front\Profilecontroller@getParentSubCategroy')->name('get-parent-subcategroy');
+Route::post('/get-sub-child_categroy','Front\Profilecontroller@getSubChildCategory')->name('get-school-parent');
+Route::post('save-learnere-course','Front\Profilecontroller@saveCourseInformation')->name('save-learnere-course');
+Route::post('save-prinicple-topic','Front\Profilecontroller@savePrincipleTopic')->name('save-prinicple-topic');
+Route::post('/principle-position-update', 'Front\Profilecontroller@updatePrinciplePositions')->name('principle-position-update');
+Route::post('get-principle-topic','Front\Profilecontroller@getPrinciple')->name('get-principle-topic');
+Route::post('videos-upload','Front\Profilecontroller@videoUpload')->name('videos-upload');
+Route::post('get-lecture-video','Front\Profilecontroller@getLectureVideo')->name('get-lecture-video');
+Route::post('/video-position-update', 'Front\Profilecontroller@updateVideoPositions')->name('video-position-update');
+Route::post('/video-delete', 'Front\Profilecontroller@videoDelete')->name('video-delete');
+
 Route::get('/course_i_have_created', 'Front\Profilecontroller@course_i_have_created')->name('course_i_have_created');
 
 Route::get('/instructor_profile', 'Front\Profilecontroller@instructor_profile')->name('instructor_profile');

@@ -3,65 +3,269 @@
 namespace App\Http\Controllers\Front;
 
 use App\Admin;
+use App\Course;
+use App\LectureVideo;
 use App\MainCategory;
 use App\ParentSubCategory;
 use App\ChildSubCategory;
 
 use App\Http\Controllers\Controller;
+use App\PrincipalTopic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class profileController extends Controller
 {
-  public function cart(){
+  public function cart()
+  {
     return view('user.profile.s-profile.s-cart');
   }
 
-  public function myCourse(){
+  public function myCourse()
+  {
     return view('user.profile.s-profile.s-my-course');
   }
 
-  public function my_wishlist(){
+  public function my_wishlist()
+  {
     return view('user.profile.s-profile.s-my-wishlist');
   }
 
-  public function subscription_history(){
+  public function subscription_history()
+  {
     return view('user.profile.s-profile.s-subscription-history');
   }
 
-  public function learner_profile(){
+  public function learner_profile()
+  {
     $auth = Auth::guard('user_new')->user();
     $json = Storage::disk('local')->get('country.json');
     $codes = json_decode($json, true);
-    if(!isset($auth->id)){
-      return redirect()->route('login')->withErrors(["Please Login!"]);;
+    if (!isset($auth->id)) {
+      return redirect()->route('login')->withErrors(["Please Login!"]);
+      ;
     }
-    return view('user.profile.s-profile.s-my-profile',compact('auth','codes'));
+    return view('user.profile.s-profile.s-my-profile', compact('auth', 'codes'));
   }
 
-  public function create_course(){
-    return view('user.profile.i-profile.creat-course');
+  public function create_course()
+  {
+    $auth = Auth::guard('user_new')->user();
+
+    if (!isset($auth->id)) {
+      return redirect()->route('login')->withErrors(["Please Login!"]);
+    }
+    $main_categories = MainCategory::orderby('name')->get();
+    $getCourses = Course::where('user_id', '=', $auth->id)->get();
+    $getPrincipleTopics = PrincipalTopic::orderBy('ordering_position')->where('user_id', '=', $auth->id)->get();
+    $lecture = LectureVideo::where('user_id', '=', $auth->id)->get();
+    // dd($getCourses);
+    return view(
+      'user.profile.i-profile.creat-course',
+      compact(
+        'main_categories',
+        'auth',
+        'getCourses',
+        'getPrincipleTopics'
+      )
+    );
   }
 
-  public function course_i_have_created(){
+  public function getParentSubCategroy(Request $request)
+  {
+    $getParentSubCategory = ParentSubCategory::where('main_category_id', '=', $request->id)->get();
+    return response()->json([
+      'status' => 200,
+      'data' => $getParentSubCategory
+    ]);
+  }
+
+  public function genrateUID()
+  {
+    $length = 16;
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $shortUrl = '';
+    $index = strlen($characters) - 1;
+    for ($i = 0; $i < $length; $i++) {
+      $shortUrl .= $characters[mt_rand(0, $index)];
+    }
+    return $shortUrl;
+  }
+
+  public function saveCourseInformation(Request $request)
+  {
+    $saveCourse = new Course();
+    $saveCourse->main_category_id = $request->courseType;
+    $saveCourse->parent_sub_category_id = $request->parentSubCategory;
+    $saveCourse->child_sub_category_id = $request->childSubCategroy;
+    $saveCourse->title = $request->courseName;
+    $saveCourse->actual_price = $request->actualSellPriceType;
+    $saveCourse->actual_price_in_usd = $request->actualSellCurrent;
+    $saveCourse->sell_price = $request->sellPriceTypeOption;
+    $saveCourse->sell_price_in_usd = $request->sellPriceOption;
+    $saveCourse->uid = $this->genrateUID();
+    $saveCourse->slug = str_replace(' ', '-', strtolower($request->courseName));
+    $saveCourse->user_id = $request->user_id;
+    $saveCourse->save();
+    return response()->json(['message' => 'Course Information saved successfully']);
+  }
+
+  public function savePrincipleTopic(Request $request)
+  {
+    $savePrinciple = new PrincipalTopic();
+    $savePrinciple->course_id = $request->principleCourseType;
+    $savePrinciple->name = $request->principleTopic;
+    $savePrinciple->user_id = $request->user_id;
+    $savePrinciple->save();
+    return response()->json(['message' => 'Principle Topic saved successfully']);
+  }
+  public function updatePrinciplePositions(Request $request)
+  {
+    $newOrder = $request->input('order');
+    // Loop through the new order and update positions in the database
+    foreach ($newOrder as $position => $itemId) {
+      $item = PrincipalTopic::find($itemId);
+      $item->ordering_position = $position + 1; // Update the position
+      $item->save();
+    }
+
+    return response()->json(['message' => 'Positions updated successfully']);
+  }
+
+  public function getPrinciple(Request $request)
+  {
+    $item = PrincipalTopic::orderBy('ordering_position')->where('course_id', '=', $request->course_id)->get();
+    return response()->json(['data' => $item, 'status' => 200]);
+  }
+
+  public function videoUpload(Request $request)
+  {
+    $request->validate([
+      'video.*' => 'required|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:50000', // Adjust the mimetypes and max file size as needed
+    ]);
+
+    if ($request->hasFile('video')) {
+      $files = $request->file('video');
+
+      foreach ($files as $key => $file) {
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $file->storeAs('public/videos', $fileName);
+
+        $imageName = null;
+        if ($request->hasFile('course_thumbnail')) {
+          $image = $request->file('course_thumbnail');
+          $imageName = time() . '_' . $image->getClientOriginalName();
+          $image->storeAs('public/videos', $imageName);
+        }
+
+        $lecture = new LectureVideo();
+        $lecture->principal_topic_id = $request->topic_type_video;
+        $lecture->name = $request->video_name[$key];
+        $lecture->thumbnail = $imageName;
+        $lecture->video = $fileName;
+        $lecture->user_id = $request->video_user_id;
+        $lecture->save();
+      }
+
+      return response()->json(['success' => true, 'message' => 'Lecture video upload successfully']);
+    }
+
+    return response()->json(['success' => false, 'message' => 'No files uploaded']);
+  }
+  public function getLectureVideo(Request $request)
+  {
+    $items = LectureVideo::orderBy('ordering_position')
+    ->where('principal_topic_id', '=', $request->principal_topic_id)
+    ->get();
+
+    $html = '';
+    foreach($items as $item){
+      $html .= '<li class="list-group-item-video draggable-item" draggable="true" data-id="'.$item->id.'" style="margin-top: 10px; margin-bottom: 40px;">';
+      $html .= '<div class="row justify-content-between mb-3">';
+      $html .= '<div class="col-12 col-md-12 mb-5 mb-lg-0 col-xl-5 col-lg-5">';
+      $html .= '<video class="" id="video-frame" poster="'.asset('storage/videos/' . $item->thumbnail).'" width="100%" height="" controls>';
+      $html .= '<source src="'.asset('storage/videos/' . $item->video).'" type="">';
+      $html .= '</video>';
+      $html .= '</div>';
+
+      $html .= '<div class="col-12 col-md-12 col-lg-6 col-xl-7 my-auto">';
+
+      $html .= '<div class="">';
+      $html .= '<h6><strong>Video Title :</strong> '.$item->name.'</h6>';
+      $html .= '<h6><strong>Video Duration :</strong> <span id="duration"></span></h6>';
+      $html .= '<h6><strong>Interactive Quastions :</strong> 4 </h6>';
+
+      $html .= '<div class="position-relative">';
+      $html .= '<input type="file" class="position-absolute" name="" style="opacity: 0">';
+      $html .= '<a class="">Add Supplementary file</a> <br>';
+      $html .= '</div>';
+
+      $html .= '<a class="" data-bs-toggle="modal" data-bs-target="#int_que_Modal">Add Interactive Questions</a> <br>';
+      $html .= '<button type="button" onClick="deleteVideo('.$item->id.')" class="btn default-btn mt-3">Delete Video</button>';
+      $html .= '</div>';
+      $html .= '</div>';
+      $html .= '</div>';
+      $html .= '</li>';
+    }
+    return response()->json(['html' => $html, 'status' => 200]);
+  }
+
+  public function videoDelete(Request $request){
+    $lecture = LectureVideo::where('id','=',$request->id)->first();
+    Storage::delete('public/videos/' . $lecture->video);
+    Storage::delete('public/videos/' . $lecture->thumbnail);
+    $lecture->delete();
+    return response()->json(['message' => 'Video has been deleted successfully', 'status' => 200]);
+  }
+
+  public function updateVideoPositions(Request $request){
+    $newOrder = $request->input('order');
+    // Loop through the new order and update positions in the database
+    foreach ($newOrder as $position => $itemId) {
+      $item = LectureVideo::find($itemId);
+      $item->ordering_position = $position + 1; // Update the position
+      $item->save();
+    }
+
+    return response()->json(['message' => 'Positions updated successfully']);
+  }
+
+
+  public function getSubChildCategory(Request $request)
+  {
+    $getSchoolParent = ChildSubCategory::where([
+      ['main_category_id', '=', $request->main_category_id],
+      ['parent_sub_category_id', '=', $request->parent_sub_category_id]
+    ])->get();
+    return response()->json([
+      'status' => 200,
+      'data' => $getSchoolParent
+    ]);
+  }
+
+  public function course_i_have_created()
+  {
     return view('user.profile.i-profile.created-course');
   }
 
-  public function instructor_profile(){
+  public function instructor_profile()
+  {
     $auth = Auth::guard('user_new')->user();
     $json = Storage::disk('local')->get('country.json');
     $codes = json_decode($json, true);
-    if(!isset($auth->id)){
-      return redirect()->route('login')->withErrors(["Please Login!"]);;
+    if (!isset($auth->id)) {
+      return redirect()->route('login')->withErrors(["Please Login!"]);
+      ;
     }
     // dd($countries);
-    return view('user.profile.i-profile.my-profile',compact('auth','codes'));
+    return view('user.profile.i-profile.my-profile', compact('auth', 'codes'));
   }
 
-  public function wallet(){
+  public function wallet()
+  {
     return view('user.profile.i-profile.wallet');
   }
 }

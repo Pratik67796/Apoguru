@@ -2196,7 +2196,7 @@
 $(document).ready(function(){
   var ratingPercentage = 80; // Replace with the actual rating percentage value
     
-    var ratingBarWidth = {{ $formattedNumber }} * 20 + '%';
+    var ratingBarWidth = {{ isset($formattedNumber) ? $formattedNumber : 0 }} * 20 + '%';
     $('#rating-stars').css('width', ratingBarWidth);
 })
   // var roles = [ 'WASSCE', 'BECE', 'CSEC', 'NABTEX' ];
