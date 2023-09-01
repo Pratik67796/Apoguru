@@ -1173,7 +1173,9 @@
     <script src="{{ asset('custom-notification/toastr.js') }}"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script type="">
+    
     $(".switch.on").click(function(){
       $(this).removeClass("on");
       $(this).addClass("off");
@@ -1360,6 +1362,7 @@
                 let sellPriceOption = $('#sell-price-option').val();
                 let editor = CKEDITOR.instances.desc;
                 let user_id = $('#user_id').val()
+                $('#creat_course').prop("disabled", true);
                 $.ajax({
                     url: "{{ route('save-learnere-course') }}",
                     type: "POST",
@@ -1377,11 +1380,32 @@
                         user_id: user_id
                     },
                     success: function(res) {
-                        toastr.success(res.message);
-                        CKEDITOR.instances.desc.setData('');
-                        $('#course-information-form')[0].reset();
-                        $('select').niceSelect('destroy');
-                        $('select').niceSelect();
+                        if(res.status === 200){
+                            toastr.success(res.message);
+                            CKEDITOR.instances.desc.setData('');
+                            $('#course-information-form')[0].reset();
+                            $('select').niceSelect('destroy');
+                            $('select').niceSelect();
+                        }
+                    },error:function(err){
+                        $('#creat_course').prop("disabled", false);
+                        let error = err.responseJSON.errors;
+                        if(error.courseType){
+                            $('#course-type-error').text(error.courseType[0])
+                        }
+                        if(error.parentSubCategory){
+                            $('#parent-sub-category-information-error').text(error.parentSubCategory[0])
+                        }
+                        if(error.childSubCategroy){
+                            $('#child-subcategory-information-error').text(error.childSubCategroy[0])
+                        }
+                        if(error.courseName){
+                            $('#course-name-information-error').text(error.courseName[0])
+                        }
+                        if(error.actualSellPriceType){
+                            $('#actual-sell-price-error').text(error.actualSellPriceType[0])
+                        }                       
+                        //console.log('err',err.responseJSON.errors.main_category_id[0]);
                     }
                 })
             });
@@ -1397,7 +1421,7 @@
                         "_token": "{{ csrf_token() }}",
                         principleCourseType: principleCourseType,
                         principleTopic: principleTopic,
-                        user_id:user_id
+                        user_id: user_id
                     },
                     success: function(res) {
                         toastr.success(res.message);
@@ -1609,33 +1633,69 @@
             });
 
         });
-        function deleteVideo(id){
-        $.ajax({
-            url:"{{ route('video-delete') }}",
-            type:"POST",
-            data:{
-                _token: "{{ csrf_token() }}",
-                id:id
-            },
-            success:function(res){
-                if(res.status === 200){
-                    toastr.success(res.message);
-                    $.ajax({
-                    url: "{{ route('get-lecture-video') }}",
-                    type: "POST",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        principal_topic_id: $('#video-id').val()
-                    },
-                    success: function(res) {
-                        if (res.status === 200) {
-                            $('#sortable-list-video').html(res.html)
-                        }
+
+        function deleteVideo(id) {
+            $.ajax({
+                url: "{{ route('video-delete') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: id
+                },
+                success: function(res) {
+                    if (res.status === 200) {
+                        toastr.success(res.message);
+                        $.ajax({
+                            url: "{{ route('get-lecture-video') }}",
+                            type: "POST",
+                            data: {
+                                "_token": "{{ csrf_token() }}",
+                                principal_topic_id: $('#video-id').val()
+                            },
+                            success: function(res) {
+                                if (res.status === 200) {
+                                    $('#sortable-list-video').html(res.html)
+                                }
+                            }
+                        })
                     }
-                })
                 }
-            }
-        })
+            })
+        }
+
+        var resultFrom;
+        var resultTo;
+        var searchValue;
+
+        $("#actual-sell-price").keyup(function() {
+            const api = "https://api.exchangerate-api.com/v4/latest/USD";
+            resultFrom = geoplugin_currencyCode();
+            window.id = resultFrom;
+            console.log(window.id);
+            resultTo = "USD";
+            searchValue = $('#actual_price').val();
+            fetch(`${api}`).then(currency => {
+                return currency.json();
+            }).then(displayResults);
+        });
+
+        $("#sell-price-type-option").keyup(function() {
+            const api = "https://api.exchangerate-api.com/v4/latest/USD";
+            resultFrom = geoplugin_currencyCode();
+            window.id = resultFrom;
+            console.log(window.id);
+            resultTo = "USD";
+            searchValue = $('#actual_price').val();
+            fetch(`${api}`).then(currency => {
+                return currency.json();
+            }).then(displayResults);
+        });
+
+        function displayResults(currency) {
+            let fromRate = currency.rates[resultFrom];
+            let toRate = currency.rates[resultTo];
+            // console.log(((toRate / fromRate) * searchValue).toFixed(2));
+            $('#actual_price_in_usd').val(((toRate / fromRate) * searchValue).toFixed(2));
         }
     </script>
 </body>

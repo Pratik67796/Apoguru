@@ -97,6 +97,20 @@ class profileController extends Controller
 
   public function saveCourseInformation(Request $request)
   {
+    $request->validate([
+      'courseType' => 'required',
+      'parentSubCategory' => 'required',
+      'childSubCategroy' => 'required',
+      'courseName' => 'required',
+      'actualSellPriceType' => 'required',
+    ], [
+      'courseType.required' => 'The course type field is required.',
+      'parentSubCategory.required' => 'The parent subcategory field is required.',
+      'childSubCategroy.required' => 'The child subcategory field is required.',
+      'courseName.required' => 'The course name field is required.',
+      'actualSellPriceType.required' => 'The actual selling price field is required.',
+    ]);
+
     $saveCourse = new Course();
     $saveCourse->main_category_id = $request->courseType;
     $saveCourse->parent_sub_category_id = $request->parentSubCategory;
@@ -110,7 +124,7 @@ class profileController extends Controller
     $saveCourse->slug = str_replace(' ', '-', strtolower($request->courseName));
     $saveCourse->user_id = $request->user_id;
     $saveCourse->save();
-    return response()->json(['message' => 'Course Information saved successfully']);
+    return response()->json(['message' => 'Course Information saved successfully','status' => 200]);
   }
 
   public function savePrincipleTopic(Request $request)
@@ -178,23 +192,23 @@ class profileController extends Controller
   public function getLectureVideo(Request $request)
   {
     $items = LectureVideo::orderBy('ordering_position')
-    ->where('principal_topic_id', '=', $request->principal_topic_id)
-    ->get();
+      ->where('principal_topic_id', '=', $request->principal_topic_id)
+      ->get();
 
     $html = '';
-    foreach($items as $item){
-      $html .= '<li class="list-group-item-video draggable-item" draggable="true" data-id="'.$item->id.'" style="margin-top: 10px; margin-bottom: 40px;">';
+    foreach ($items as $item) {
+      $html .= '<li class="list-group-item-video draggable-item" draggable="true" data-id="' . $item->id . '" style="margin-top: 10px; margin-bottom: 40px;">';
       $html .= '<div class="row justify-content-between mb-3">';
       $html .= '<div class="col-12 col-md-12 mb-5 mb-lg-0 col-xl-5 col-lg-5">';
-      $html .= '<video class="" id="video-frame" poster="'.asset('storage/videos/' . $item->thumbnail).'" width="100%" height="" controls>';
-      $html .= '<source src="'.asset('storage/videos/' . $item->video).'" type="">';
+      $html .= '<video class="" id="video-frame" poster="' . asset('storage/videos/' . $item->thumbnail) . '" width="100%" height="" controls>';
+      $html .= '<source src="' . asset('storage/videos/' . $item->video) . '" type="">';
       $html .= '</video>';
       $html .= '</div>';
 
       $html .= '<div class="col-12 col-md-12 col-lg-6 col-xl-7 my-auto">';
 
       $html .= '<div class="">';
-      $html .= '<h6><strong>Video Title :</strong> '.$item->name.'</h6>';
+      $html .= '<h6><strong>Video Title :</strong> ' . $item->name . '</h6>';
       $html .= '<h6><strong>Video Duration :</strong> <span id="duration"></span></h6>';
       $html .= '<h6><strong>Interactive Quastions :</strong> 4 </h6>';
 
@@ -204,7 +218,7 @@ class profileController extends Controller
       $html .= '</div>';
 
       $html .= '<a class="" data-bs-toggle="modal" data-bs-target="#int_que_Modal">Add Interactive Questions</a> <br>';
-      $html .= '<button type="button" onClick="deleteVideo('.$item->id.')" class="btn default-btn mt-3">Delete Video</button>';
+      $html .= '<button type="button" onClick="deleteVideo(' . $item->id . ')" class="btn default-btn mt-3">Delete Video</button>';
       $html .= '</div>';
       $html .= '</div>';
       $html .= '</div>';
@@ -213,15 +227,17 @@ class profileController extends Controller
     return response()->json(['html' => $html, 'status' => 200]);
   }
 
-  public function videoDelete(Request $request){
-    $lecture = LectureVideo::where('id','=',$request->id)->first();
+  public function videoDelete(Request $request)
+  {
+    $lecture = LectureVideo::where('id', '=', $request->id)->first();
     Storage::delete('public/videos/' . $lecture->video);
     Storage::delete('public/videos/' . $lecture->thumbnail);
     $lecture->delete();
     return response()->json(['message' => 'Video has been deleted successfully', 'status' => 200]);
   }
 
-  public function updateVideoPositions(Request $request){
+  public function updateVideoPositions(Request $request)
+  {
     $newOrder = $request->input('order');
     // Loop through the new order and update positions in the database
     foreach ($newOrder as $position => $itemId) {

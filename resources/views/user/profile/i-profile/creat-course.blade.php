@@ -1,6 +1,11 @@
 @extends('user.layouts.learnerProfile')
 @section('title', 'Create a course')
 @section('content')
+<style>
+    .error-message{
+        color:red;
+    }
+</style>
     <div class="container-fluid main__div">
         <h4 class="my-3">Course Information</h4>
         <form class="row cust-drop" id="course-information-form">
@@ -14,23 +19,27 @@
                     @endforeach
                 </select>
             </div>
+            <span class="error-message" id="course-type-error"></span>
             <div class="form-group pb-3">
                 <label for="parent-sub-category">Parent Subcategory</label>
                 <select id="parent-sub-category-information" class="w-100 parent-sub-category-information">
                     <option value="">Select Parent Subcategory</option>
                 </select>
             </div>
+            <span class="error-message" id="parent-sub-category-information-error"></span>
             <div class="form-group pb-3">
                 <label for="child-subcategory">Child Subcategory</label>
                 <select class="w-100" id="child-subcategory-information">
                     <option value=''>Select Child Subcategory</option>
                 </select>
             </div>
+            <span class="error-message" id="child-subcategory-information-error"></span>
             <div class="form-group pb-3">
                 <label for="course-name">Course Name</label>
                 <input class="w-100 nice-select float-none" type="text" placeholder="Write here..."
                     name="course-name-information" id="course-name-information">
             </div>
+            <span class="error-message" id="course-name-information-error"></span>
 
             <div class="row g-0">
                 <div class="col-12 col-sm-12 col-md-6 px-3">
@@ -42,7 +51,9 @@
                                 name="course-name" id="actual-sell-price">
                         </div>
                     </div>
+                    <span class="error-message" id="actual-sell-price-error"></span>
                 </div>
+                
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
                         <label for="usd-price">Price In USD</label>
