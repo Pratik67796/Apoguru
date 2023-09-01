@@ -1381,6 +1381,7 @@
                     },
                     success: function(res) {
                         if(res.status === 200){
+                            $('#creat_course').prop("disabled", false);
                             toastr.success(res.message);
                             CKEDITOR.instances.desc.setData('');
                             $('#course-information-form')[0].reset();
