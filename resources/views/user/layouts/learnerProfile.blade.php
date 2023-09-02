@@ -1662,42 +1662,7 @@
                                         }
                                     }
                                 })
-                            }
-                    
-                            var resultFrom;
-                            var resultTo;
-                            var searchValue;
-                    
-                            $("#actual-sell-price").keyup(function() {
-                                const api = "https://api.exchangerate-api.com/v4/latest/USD";
-                                resultFrom = geoplugin_currencyCode();
-                                window.id = resultFrom;
-                                console.log(window.id);
-                                resultTo = "USD";
-                                searchValue = $('#actual_price').val();
-                                fetch(`${api}`).then(currency => {
-                                    return currency.json();
-                                }).then(displayResults);
-                            });
-                    
-                            $("#sell-price-type-option").keyup(function() {
-                                const api = "https://api.exchangerate-api.com/v4/latest/USD";
-                                resultFrom = geoplugin_currencyCode();
-                                window.id = resultFrom;
-                                console.log(window.id);
-                                resultTo = "USD";
-                                searchValue = $('#actual_price').val();
-                                fetch(`${api}`).then(currency => {
-                                    return currency.json();
-                                }).then(displayResults);
-                            });
-                    
-                            function displayResults(currency) {
-                                let fromRate = currency.rates[resultFrom];
-                                let toRate = currency.rates[resultTo];
-                                // console.log(((toRate / fromRate) * searchValue).toFixed(2));
-                                $('#actual_price_in_usd').val(((toRate / fromRate) * searchValue).toFixed(2));
-                            }
+                            }       
                         </script>
                     </body>
                     

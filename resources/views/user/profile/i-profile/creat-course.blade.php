@@ -264,4 +264,56 @@
         <a class="btn white-btn mb-4 me-2">Create Course Certificate</a>
         <a class="btn white-btn mb-4">Download my Flyer</a>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+
+    <script>
+    var resultFrom;
+    var resultTo;
+    var searchValue;
+
+    $("#actual-sell-price").keyup(function() {
+        const api = "https://api.exchangerate-api.com/v4/latest/USD";
+        resultFrom = geoplugin_currencyCode();
+        window.id= resultFrom;
+        console.log(window.id);
+        resultTo = "USD";
+        searchValue = $('#actual-sell-price').val();
+        fetch(`${api}`).then(currency =>{
+                return currency.json();
+            }).then(displayResults);
+    });
+
+    function displayResults(currency) {
+        let fromRate = currency.rates[resultFrom];
+        let toRate = currency.rates[resultTo];
+        // console.log(((toRate / fromRate) * searchValue).toFixed(2));
+        $('#usd-price-information').val(((toRate / fromRate) * searchValue).toFixed(2));
+    }
+    </script>
+
+
+    <script>
+        var resultFrom_1;
+        var resultTo_1;
+        var searchValue_1;
+    
+        $("#sell-price-type-option").keyup(function() {
+        const api = "https://api.exchangerate-api.com/v4/latest/USD";
+        resultFrom_1 = geoplugin_currencyCode();
+        resultTo_1 = "USD";
+        searchValue_1 = $('#sell-price-type-option').val();
+        fetch(`${api}`).then(currency =>{
+                return currency.json();
+            }).then(displayResults_sellprice);
+        });
+    
+        function displayResults_sellprice(currency) {
+        let fromRate_1 = currency.rates[resultFrom_1];
+        let toRate_1 = currency.rates[resultTo_1];
+        // console.log(((toRate_1 / fromRate_1) * searchValue).toFixed(2));
+        $('#sell-price-option').val(((toRate_1 / fromRate_1) * searchValue_1).toFixed(2));
+        }
+    </script>
 @endsection
