@@ -68,7 +68,7 @@
                     <h5 class="title"> Learner Dashboard</h5>
                     <a href="{{ route('learner_profile') }}" class="active"><i class="icofont-user-alt-7"></i> My
                         Profile & Account</a>
-                    <a href="{{ route('my-course') }}"><i class="icofont-computer"></i> My Courses</a>
+                    <a href="{{ route('my_course') }}"><i class="icofont-computer"></i> My Courses</a>
                     <a href="{{ route('my_wishlist') }}"><i class="icofont-heart"></i> My Wishlist</a>
                     <a href="{{ route('subscription-history') }}"><i class="icofont-history"></i> Subscription
                         History</a>
