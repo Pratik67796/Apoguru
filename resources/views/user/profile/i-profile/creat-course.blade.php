@@ -47,7 +47,7 @@
                         <label for="course-name">Actual Selling Price</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                            <input class="w-100 nice-select float-none" type="text" placeholder="Write here..."
+                            <input class="w-100 nice-select float-none" type="number" placeholder="Write here..."
                                 name="course-name" id="actual-sell-price">
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                         <label for="usd-price">Price In USD</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                            <input class="w-100 nice-select float-none" type="text" placeholder="Price In USD"
-                                name="usd-price" id="usd-price-information">
+                            <input class="w-100 nice-select float-none" type="number" placeholder="Price In USD"
+                                name="usd-price" id="usd-price-information" disabled>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <label for="sell-price">Sell Price (Optional)</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                            <input type="text" class="w-100 nice-select float-none" placeholder="Write here..."
+                            <input type="number" class="w-100 nice-select float-none" placeholder="Write here..."
                                 name="sell-price" id="sell-price-type-option">
                         </div>
                     </div>
@@ -79,8 +79,8 @@
                         <label for="sell-price">Sell Price In USD</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
-                            <input type="text" class="w-100 nice-select float-none" placeholder="Sell Price In USD"
-                                name="sell-price" id="sell-price-option">
+                            <input type="number" class="w-100 nice-select float-none" placeholder="Sell Price In USD"
+                                name="sell-price" id="sell-price-option" disabled>
                         </div>
                     </div>
                 </div>
