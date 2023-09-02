@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class profileController extends Controller
+class ProfileController extends Controller
 {
   public function cart()
   {
