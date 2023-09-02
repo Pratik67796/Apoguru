@@ -21,6 +21,7 @@ class profileController extends Controller
 {
   public function cart()
   {
+    
     return view('user.profile.s-profile.s-cart');
   }
 
