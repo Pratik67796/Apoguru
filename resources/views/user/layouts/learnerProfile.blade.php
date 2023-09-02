@@ -1,17 +1,17 @@
 {{-- <!DOCTYPE html>
-<htm  lang="en">
+<html lang="en">
 
 <head>
-      eta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>apoGuru - @yield('title')</title>
-      eta name="description" content="">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
-      ink rel="stylesheet" href="{{ URL::asset('assets/css/sc}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/school-css/fontAwesome5Pro.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/vendor/plugins.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/style.min.css') }}">
-      ink rel="stylesheet" href="{{ URL::}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/common.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/css/professional-css/custom.css') }}">
     <style>
         
@@ -20,67 +20,67 @@
         .profile-body .pro-header {
             margin-bottom: 1.5rem;
         }
-      
+
         .profile-body .in-pr-main-content-wrapper {
             padding-right: 20px;
             padding-top: 20px;
         }
 
-        .profile-
+        .profile-body .main__div {
             background-color: #fafafa;
             border-radius: 25px;
-         .5rem;
+            padding: .4rem 1.5rem .4rem 1.5rem;
         }
 
-        .profile-body 
+        .profile-body .page-content-wrapper {
             padding-left: 110px;
         }
-      
+
         .profile-body .admin-tab-menu {
             background-color: #fafafa;
-            margin-right:
+            margin-right: 1.5rem;
             margin-left: 1.3rem;
             border-radius: 25px;
-         
+            top: 20px;
             padding-top: 25px;
         }
-      
+
         .profile-body .admin-tab-menu a,
         .profile-body .admin-tab-menu button {
-            border-r
+            border-radius: 0;
             font-weight: 500;
             background-color: transparent;
             border: none;
         }
 
-        .profile-body 
+        .profile-body .admin-tab-menu a.active,
         .profile-body .admin-tab-menu a:hover {
             border: none;
-            background-color: #e
+            background-color: #e0fbeb;
             border-radius: 0;
             color: #309255;
-            border-l
+            border-left: 4px solid #c1e0cd;
         }
 
-        .profile-body .admin-t
+        .profile-body .admin-tab-menu button.active,
         .profile-body .admin-tab-menu button:hover {
             border: none;
-            backgroun
+            background-color: #e0fbeb;
             border-radius: 0;
             color: #309255;
-            border-lef
+            border-left: 4px solid #c1e0cd;
         }
 
-        .profile-body
+        .profile-body .in-pro-admin-tab-menu a i {
             font-size: 19px;
             margin-right: 8px;
         }
 
         .profile-body .in-pro-admin-tab-menu button i {
-            font-siz
+            font-size: 19px;
             margin-right: 8px;
         }
-      
+
         .cust-drop .nice-select.open .list {
             width: 100%;
         }
@@ -89,64 +89,64 @@
             font-size: 13px;
             margin-bottom: 5px;
         }
-      
+
         /***************************************************************/
         form .btn-success {
             height: 45px;
             line-height: 45px;
         }
-      
+
         form .flex-input-field {
             display: flex;
             align-items: center;
         }
 
-        form .flex-input-field .i
+        form .flex-input-field .icon-input {
             width: 47px;
             padding-right: 18px;
-            background-color
+            background-color: #cccbcb;
             margin-right: -2px;
         }
-      
+
         /***************** cust label *********************/
         .cust-label {
-            position:
+            position: relative;
             padding: .5rem 1rem .5rem 3rem;
             border: 1px solid #309255;
-            border-radius: 5px
+            border-radius: 5px;
             margin-bottom: 1rem;
         }
-      
+
         .cust-label.active {
             box-shadow: 1px 1px 14px -6px #309255;
             background-color: #40e68061;
         }
 
-        .cust-label inpu
+        .cust-label input {
             position: absolute;
             top: 50%;
-            left: 1rem
+            left: 1rem;
             transform: translateY(-50%);
             accent-color: #309255;
         }
 
         .cust-label label {
-            font-siz
+            font-size: 15px;
             height: 100%;
             width: 100%;
             margin-bottom: 0;
         }
     </style>
-</he  >
+</head>
 <!-- Modal -->
 <div class="modal fade" id="logout_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      ia-hidden="true">
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="logout_ModalLabel">Logout</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</s
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -155,802 +155,130 @@
                 </div>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary
+                <button type="button" class="btn btn-primary">Yes</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
             </div>
         </div>
     </div>
 </div>
-      
+
 <div class="modal fade" id="c_course_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-      iv class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </
-            </div>
-            <div class="modal-body">
-                <div class="row alignnter my-4">
-                    <div class="col-12 col-md-5">
-                        <video class="" poster="{{ URL::asset('assets/images/school-dashboard-main.jpeg') }}"
-                   controls>
-                            <source src="{{ URL::asset('assets/video/school-dashboard-main.mp4') }}" type="">
-                            <source src="{{ URL::asset('assets/video/school-dashboard-main.ogg') }}" type="">
-                        </video>
-                    </div>
-                    <div class="col-12">
-                  " placeholder="Write here...">
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal-footer justify-content-center">
-                <btn-primary">Yes</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-            </div>
-        </div>
-    </div>
-</div>
-      
-<div class="modal fade" id="int_que_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-      iv class="modal-dialog" role="docu
-        <div class="modal-content">
-            <div class="modal-header">
-                <hse_ModalLabel">Add Interactive Questions</h5>
+                <h5 class="modal-title" id="c_course_ModalLabel">Video</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <d my-4">
-                    <div class="col-12 col-md-12 mb-5 text-center">
+                <div class="row align-items-center justify-content-center my-4">
+                    <div class="col-12 col-md-5">
                         <video class="" poster="{{ URL::asset('assets/images/school-dashboard-main.jpeg') }}"
-                            width="max-width: 300px;">
+                            width="100%" height="" controls>
                             <source src="{{ URL::asset('assets/video/school-dashboard-main.mp4') }}" type="">
                             <source src="{{ URL::asset('assets/video/school-dashboard-main.ogg') }}" type="">
-                  
+                        </video>
                     </div>
-                    <div class="col-12 mb-4">
-                        <div class
-                            <a id="add_question" class="btn default-btn"> Add New Question </a>
-                        </div>
-      
-                        <div class="add-course-section  border-bottom py-3" style="display: none">
-                            <div class="form-group">
-                                
-                                <input class="form-control" type="text" placeholder="Write here..."
-                                    name="">
-                  
-
-                            <div class="row">
-                                <div
-                                    <div class="form-group">
-                                        <label>Select Display Time</label>
-                  ss="form-control" type="time" placeholder="Write here..."
-                                            name="">
-                                    </div>
-                           
-
-                                <div class="col-6 col-sm-6">
-                  rm-group">
-                                        <label>Add Option</label> <br>
-                                        <a id="add-option" href="#" class="btn default-btn">Add Option </a>
-                                
-                                </div>
-
-                  st" class="row option-list">
-                                </div>
-                            </div>
-             
-
-
-
-
-
-
-
- 
-    
-
-
- 
-     
-    
-
-
-
-  
-    
-
-     
-    
- 
-    
-
-
-
-   
-    
-
-    
-
-      
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-   
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
- 
-    
-
-                
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
-   <div class="form-gro
-    u
-p text-center">
-                
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
-                    <a 
-    h
-ref="" class="btn default-btn">Add Question </a>
-                
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
+                    <div class="col-12">
+                        <input class="form-control" placeholder="Write here...">
+                    </div>
 
                 </div>
-    
-
-                
-    
- 
-    
-
-    
-
-      
-
-    
-
-    
- 
-     
-    
-
-
-
             </div>
-    
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary">Yes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-   
-    
- 
-    
+<div class="modal fade" id="int_que_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="c_course_ModalLabel">Add Interactive Questions</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center my-4">
+                    <div class="col-12 col-md-12 mb-5 text-center">
+                        <video class="" poster="{{ URL::asset('assets/images/school-dashboard-main.jpeg') }}"
+                            width="100%" height="" controls style="max-width: 300px;">
+                            <source src="{{ URL::asset('assets/video/school-dashboard-main.mp4') }}" type="">
+                            <source src="{{ URL::asset('assets/video/school-dashboard-main.ogg') }}" type="">
+                        </video>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <div class="text-center">
+                            <a id="add_question" class="btn default-btn"> Add New Question </a>
+                        </div>
 
-    
+                        <div class="add-course-section  border-bottom py-3" style="display: none">
+                            <div class="form-group">
+                                <label>Enter Question </label>
+                                <input class="form-control" type="text" placeholder="Write here..."
+                                    name="">
+                            </div>
 
-      
+                            <div class="row">
+                                <div class="col-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Select Display Time</label>
+                                        <input class="form-control" type="time" placeholder="Write here..."
+                                            name="">
+                                    </div>
+                                </div>
 
-    
+                                <div class="col-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Add Option</label> <br>
+                                        <a id="add-option" href="#" class="btn default-btn">Add Option </a>
+                                    </div>
+                                </div>
 
-    
- 
-     
-    
+                                <div id="option_list" class="row option-list">
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="" class="btn default-btn">Add Question </a>
+                            </div>
+                        </div>
 
-
-
-                     </
-    d
-iv>
-                   
-    
- 
-    
-
-    
-
-       
-
-    
-
-    
- 
-     
-    
-
-
-   <div class="col-12">
-                       
-     
- <div class="accordion accordion-flush" id="accordionFlushExample">
-                              <div class="accordion-it
-    e
- 
-    
-
-    m
-">
-               
-                   <h2 class="accor
-    
-
-    i
-on -header" id="flush-headingOne">
-     
-    
-
-
+                    </div>
+                    <div class="col-12">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed" type="button"
-                       
-     
-                 data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                          aria-expande
-    d
- 
-    
-
-    =
-"false" aria-controls="flush-collapseOne">
-               
-                          Q-1. What i
-    s
- first question ?
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Q-1. What is first question ?
                                     </button>
-                                 </h2>
-     
-    
-
-
+                                </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
-                       
-     
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                     <div class="accor
-    d
-io n-body">
-    
-
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
 
                                         <div class="row">
-               
-                              <div cl
-    a
-ss="col-6">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="s_time">Display Time</label>
-                                                    
-     
-<input id="e_time" class="form-control" type="text"
+                                                    <input id="e_time" class="form-control" type="text"
                                                         value="12:01" name="ookk" disabled="">
                                                 </div>
-                       
-     
-                     </div>
+                                            </div>
                                         </div>
 
-                     
-     
-                   <div class="form-group cust-label">
+                                        <div class="form-group cust-label">
                                             <input id="first" type="radio" name="ookk">
                                             <label for="first">Here is my first option</label>
-               
-                         </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1260,7 +588,7 @@ ss="col-6">
 
         .profile-body .pro-header {
             /*background: #fafafa;
-      border-radius: 25px;*/
+                          border-radius: 25px;*/
             margin-bottom: 1.5rem;
         }
 
@@ -1832,42 +1160,41 @@ ss="col-6">
 
     </div>
     <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
-    <!-- <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/professional-js/plugins.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/professional-js/main.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/professional-js/plugins/jquery.vmap.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/js/professional-js/plugins/jquery.vmap.world.js') }}"></script> --}}
     <script src="{{ asset('assets/js/professional-js/plugins/jquery.vmap.sampledata.js') }}"></script>
-    
+    {{-- <script src="{{ asset('assets/js/professional-js/student-map.js') }}"></script> --}}
     <script src="{{ URL::asset('admin_theme/plugins/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ URL::asset('admin_theme/plugins/ckfinder/ckfinder.js') }}"></script>
     <script src="{{ asset('custom-notification/toastr.js') }}"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- <script src="https://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script src="https://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script type="">
-    
-    $(".switch.on").click(function(){
-      $(this).removeClass("on");
-      $(this).addClass("off");
-      $(".switch img").attr("src" , "{{ URL::asset('assets/images/icon-learner-switch.png')}}");
-    });
-
-    $(".cust-label").click(function(){
-      $(".cust-label").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("#add_question").click(function(){
-      $(".add-course-section").slideToggle("slow");
-    });
-
-    $("#add-option").click(function () {
-       $("#option_list").append('<div class="col-12 col-md-6 option"><div class="form-group"><label>Option A</label><input class="form-control" type="text" placeholder="Write here..." name=""></div></div>');
-    });
-  </script>
+                        
+                        $(".switch.on").click(function(){
+                          $(this).removeClass("on");
+                          $(this).addClass("off");
+                          $(".switch img").attr("src" , "{{ URL::asset('assets/images/icon-learner-switch.png')}}");
+                        });
+                    
+                        $(".cust-label").click(function(){
+                          $(".cust-label").removeClass("active");
+                          $(this).addClass("active");
+                        });
+                    
+                        $("#add_question").click(function(){
+                          $(".add-course-section").slideToggle("slow");
+                        });
+                    
+                        $("#add-option").click(function () {
+                           $("#option_list").append('<div class="col-12 col-md-6 option"><div class="form-group"><label>Option A</label><input class="form-control" type="text" placeholder="Write here..." name=""></div></div>');
+                        });
+                      </script>
     <script>
         $(document).ready(function() {
             $('.choose_image').on('click', function() {
@@ -2020,14 +1347,9 @@ ss="col-6">
                     }
                 })
             });
-            ClassicEditor
-		.create( document.querySelector( '#desc' ) )
-		.catch( error => {
-			console.error( error );
-		} );
-            // var description = CKEDITOR.replace('desc');
-            // CKFinder.setupCKEditor(description);
-            // CKEDITOR.add
+            var description = CKEDITOR.replace('desc');
+            CKFinder.setupCKEditor(description);
+            CKEDITOR.add
 
             $('#creat_course').on('click', function() {
                 let courseType = $('#course-type-information').val();
@@ -2058,7 +1380,7 @@ ss="col-6">
                         user_id: user_id
                     },
                     success: function(res) {
-                        if(res.status === 200){
+                        if (res.status === 200) {
                             $('#creat_course').prop("disabled", false);
                             toastr.success(res.message);
                             CKEDITOR.instances.desc.setData('');
@@ -2066,24 +1388,27 @@ ss="col-6">
                             $('select').niceSelect('destroy');
                             $('select').niceSelect();
                         }
-                    },error:function(err){
+                    },
+                    error: function(err) {
                         $('#creat_course').prop("disabled", false);
                         let error = err.responseJSON.errors;
-                        if(error.courseType){
+                        if (error.courseType) {
                             $('#course-type-error').text(error.courseType[0])
                         }
-                        if(error.parentSubCategory){
-                            $('#parent-sub-category-information-error').text(error.parentSubCategory[0])
+                        if (error.parentSubCategory) {
+                            $('#parent-sub-category-information-error').text(error
+                                .parentSubCategory[0])
                         }
-                        if(error.childSubCategroy){
-                            $('#child-subcategory-information-error').text(error.childSubCategroy[0])
+                        if (error.childSubCategroy) {
+                            $('#child-subcategory-information-error').text(error
+                                .childSubCategroy[0])
                         }
-                        if(error.courseName){
+                        if (error.courseName) {
                             $('#course-name-information-error').text(error.courseName[0])
                         }
-                        if(error.actualSellPriceType){
+                        if (error.actualSellPriceType) {
                             $('#actual-sell-price-error').text(error.actualSellPriceType[0])
-                        }                       
+                        }
                         //console.log('err',err.responseJSON.errors.main_category_id[0]);
                     }
                 })
@@ -2341,6 +1666,7 @@ ss="col-6">
                 }
             })
         }
+
         var resultFrom;
         var resultTo;
         var searchValue;
@@ -2348,39 +1674,32 @@ ss="col-6">
         $("#actual-sell-price").keyup(function() {
             const api = "https://api.exchangerate-api.com/v4/latest/USD";
             resultFrom = geoplugin_currencyCode();
-            window.id= resultFrom;
+            window.id = resultFrom;
             console.log(window.id);
             resultTo = "USD";
-            searchValue = $('#actual-sell-price').val();
-            fetch(`${api}`).then(currency =>{
-                    return currency.json();
-                }).then(displayResultsOne);
+            searchValue = $('#actual_price').val();
+            fetch(`${api}`).then(currency => {
+                return currency.json();
+            }).then(displayResults);
         });
-
-        function displayResultsOne(currency) {
-            let fromRate = currency.rates[resultFrom];
-            let toRate = currency.rates[resultTo];
-            // console.log(((toRate / fromRate) * searchValue).toFixed(2));
-            $('#usd-price-information').val(((toRate / fromRate) * searchValue).toFixed(2));
-        }
 
         $("#sell-price-type-option").keyup(function() {
             const api = "https://api.exchangerate-api.com/v4/latest/USD";
             resultFrom = geoplugin_currencyCode();
-            window.id= resultFrom;
+            window.id = resultFrom;
             console.log(window.id);
             resultTo = "USD";
-            searchValue = $('#sell-price-type-option').val();
-            fetch(`${api}`).then(currency =>{
-                    return currency.json();
-                }).then(displayResultsTwo);
+            searchValue = $('#actual_price').val();
+            fetch(`${api}`).then(currency => {
+                return currency.json();
+            }).then(displayResults);
         });
 
-        function displayResultsTwo(currency) {
+        function displayResults(currency) {
             let fromRate = currency.rates[resultFrom];
             let toRate = currency.rates[resultTo];
             // console.log(((toRate / fromRate) * searchValue).toFixed(2));
-            $('#sell-price-option').val(((toRate / fromRate) * searchValue).toFixed(2));
+            $('#actual_price_in_usd').val(((toRate / fromRate) * searchValue).toFixed(2));
         }
     </script>
 </body>

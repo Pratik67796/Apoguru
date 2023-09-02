@@ -238,37 +238,38 @@ Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
 Route::post('/course_rating_add', 'Front\Coursecontroller@course_rating_add')->name('course_rating_add');
 
 //User Profile
-Route::get('/cart', 'Front\Profilecontroller@cart')->name('cart');
-Route::get('/my-course', 'Front\Profilecontroller@myCourse')->name('my-course');
-Route::get('/my_wishlist', 'Front\Profilecontroller@my_wishlist')->name('my_wishlist');
-Route::get('/subscription_history', 'Front\Profilecontroller@subscription_history')->name('subscription-history');
-Route::get('/learner_profile', 'Front\Profilecontroller@learner_profile')->name('learner_profile');
+Route::get('/cart', 'Front\ProfileController@cart')->name('cart');
+Route::get('/my_course', 'Front\ProfileController@myCourse')->name('my_course');
+Route::get('/my_wishlist', 'Front\ProfileController@my_wishlist')->name('my_wishlist');
+Route::get('/subscription_history', 'Front\ProfileController@subscription_history')->name('subscription-history');
+Route::get('/learner_profile', 'Front\ProfileController@learner_profile')->name('learner_profile');
 
 
 //Instructor Profile
-Route::get('/create-course', 'Front\Profilecontroller@create_course')->name('create_course');
+Route::get('/create-course', 'Front\ProfileController@create_course')->name('create_course');
 
-Route::post('/get-parent-subcategroy','Front\Profilecontroller@getParentSubCategroy')->name('get-parent-subcategroy');
-Route::post('/get-sub-child_categroy','Front\Profilecontroller@getSubChildCategory')->name('get-school-parent');
-Route::post('save-learnere-course','Front\Profilecontroller@saveCourseInformation')->name('save-learnere-course');
-Route::post('save-prinicple-topic','Front\Profilecontroller@savePrincipleTopic')->name('save-prinicple-topic');
-Route::post('/principle-position-update', 'Front\Profilecontroller@updatePrinciplePositions')->name('principle-position-update');
-Route::post('get-principle-topic','Front\Profilecontroller@getPrinciple')->name('get-principle-topic');
-Route::post('videos-upload','Front\Profilecontroller@videoUpload')->name('videos-upload');
-Route::post('get-lecture-video','Front\Profilecontroller@getLectureVideo')->name('get-lecture-video');
-Route::post('/video-position-update', 'Front\Profilecontroller@updateVideoPositions')->name('video-position-update');
-Route::post('/video-delete', 'Front\Profilecontroller@videoDelete')->name('video-delete');
+Route::post('/get-parent-subcategroy','Front\ProfileController@getParentSubCategroy')->name('get-parent-subcategroy');
+Route::post('/get-sub-child_categroy','Front\ProfileController@getSubChildCategory')->name('get-school-parent');
+Route::post('save-learnere-course','Front\ProfileController@saveCourseInformation')->name('save-learnere-course');
+Route::post('save-prinicple-topic','Front\ProfileController@savePrincipleTopic')->name('save-prinicple-topic');
+Route::post('/principle-position-update', 'Front\ProfileController@updatePrinciplePositions')->name('principle-position-update');
+Route::post('get-principle-topic','Front\ProfileController@getPrinciple')->name('get-principle-topic');
+Route::post('videos-upload','Front\ProfileController@videoUpload')->name('videos-upload');
+Route::post('get-lecture-video','Front\ProfileController@getLectureVideo')->name('get-lecture-video');
+Route::post('/video-position-update', 'Front\ProfileController@updateVideoPositions')->name('video-position-update');
+Route::post('/video-delete', 'Front\ProfileController@videoDelete')->name('video-delete');
 
-Route::get('/course_i_have_created', 'Front\Profilecontroller@course_i_have_created')->name('course_i_have_created');
+Route::get('/course_i_have_created', 'Front\ProfileController@course_i_have_created')->name('course_i_have_created');
 
-Route::get('/instructor_profile', 'Front\Profilecontroller@instructor_profile')->name('instructor_profile');
+Route::get('/instructor_profile', 'Front\ProfileController@instructor_profile')->name('instructor_profile');
 Route::post('/profile-update','Front\ProfileManagementController@updateProfile')->name('profile-update');
 Route::post('/profile-image-update','Front\ProfileManagementController@updateProfileImage')->name('profile-image-update');
 Route::post('/profile-delete-document','Front\ProfileManagementController@deleteDocument')->name('profile-delete-document');
 Route::post('/profile-change-password','Front\ProfileManagementController@changePassword')->name('profile-change-password');
 
-Route::get('/wallet', 'Front\Profilecontroller@wallet')->name('wallet');
+Route::get('/wallet', 'Front\ProfileController@wallet')->name('wallet');
 
 Route::get('/buyed_course', 'Front\Userhome@buyed_course')->name('buyed_course');
 Route::get('/course_details', 'Front\Userhome@course_details')->name('course_details');
 Route::get('/s-buyed-course', 'Front\Userhome@s_buyed_course')->name('s_buyed_course');
+
