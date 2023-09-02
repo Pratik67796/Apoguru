@@ -272,3 +272,4 @@ Route::get('/wallet', 'Front\Profilecontroller@wallet')->name('wallet');
 Route::get('/buyed_course', 'Front\Userhome@buyed_course')->name('buyed_course');
 Route::get('/course_details', 'Front\Userhome@course_details')->name('course_details');
 Route::get('/s-buyed-course', 'Front\Userhome@s_buyed_course')->name('s_buyed_course');
+
