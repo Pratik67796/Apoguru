@@ -363,49 +363,9 @@
 
               <div class="owl-carousel owl-theme pro-course-carousel">
                 <div class="item">
-                  <!-- <div class="single-courses">
-                    <div class="courses-images">
-                      <a href="../pro-{{ route('course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
-                    </div>
-                    <div class="courses-content">
-                      <div class="courses-author">
-                        <div class="author">
-                          <div class="author-thumb">
-                            <a  data-bs-toggle="modal" data-bs-target="#ins_Modal"><img src="{{ URL::asset('assets/images/author/author-02.jpg')}}" alt="Author"></a>
-                          </div>
-                          <div class="author-name">
-                            <a class="name"  data-bs-toggle="modal" data-bs-target="#ins_Modal">Pamela Foster</a>
-                          </div>
-                        </div>
-                        <div class="extra-buttons">
-                          <a href="javascript:void(0)"><i class="far fa-paper-plane me-2"></i></a>
-                          <a href="javascript:void(0)"><i class="fas fa-heart wishlist-heart"></i></a>
-                         </div>
-                      </div>
-                      <h4 class="title">
-                        <a href="../pro-{{ route('course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a>
-                      </h4>
-                      <div class="courses-meta">
-                        <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                        <span> <i class="icofont-read-book"></i> 29 Lectures </span>
-                      </div>
-                      <div class="courses-price-review">
-                        <div class="courses-price">
-                          <span class="sale-parice">$420.00</span>
-                        </div>
-                        <div class="courses-review">
-                          <span class="rating-count">4.9</span>
-                          <span class="rating-star">
-                            <span class="rating-bar" style="width: 80%;"></span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-
                   <div class="course__item white-bg mb-30 fix">
                     <div class="course__thumb w-img p-relative fix">
-                       <a href="{{ route('course-buy') }}">
+                       <a href="">
                           <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
                        </a>
                        <!-- <div class="course__tag">
@@ -429,7 +389,7 @@
                            </div>
                        </div>
 
-                       <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills &amp; job.</a></h3>
+                       <h3 class="course__title"><a href="">Become a product Manager learn the skills &amp; job.</a></h3>
                        
                         <div class="course__meta d-flex align-items-center justify-content-between">
                           <div class="course__lesson">
@@ -446,7 +406,7 @@
                           <span>$ 250</span>
                        </div>
                        <div class="course__btn">
-                          <a href="{{ route('course-buy') }}" class="link-btn">
+                          <a href="" class="link-btn">
                              Know Details
                              <i class="far fa-arrow-right"></i>
                              <i class="far fa-arrow-right"></i>
@@ -459,7 +419,7 @@
                 <div class="item">
                   <div class="single-courses">
                     <div class="courses-images">
-                      <a href="../pro-{{ route('course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                      <a href="../pro-"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
                     </div>
                     <div class="courses-content">
                       <div class="courses-author">
@@ -476,7 +436,7 @@
                           <a href="javascript:void(0)"><i class="fas fa-heart wishlist-heart"></i></a>
                          </div>
                       </div>
-                      <h4 class="title"><a href="../pro-{{ route('course-buy') }}">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
+                      <h4 class="title"><a href="../pro-">Create Amazing Color Schemes for Your UX Design Projects</a></h4>
                       <div class="courses-meta">
                         <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                         <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -499,7 +459,7 @@
                 <div class="item">
                   <div class="single-courses">
                     <div class="courses-images">
-                      <a href="../pro-{{ route('course-buy') }}"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
+                      <a href="../pro-"><img src="{{ URL::asset('assets/images/courses/courses-03.jpg')}}" alt="Courses"></a>
                     </div>
                     <div class="courses-content">
                       <div class="courses-author">
@@ -516,7 +476,7 @@
                           <a href="javascript:void(0)"><i class="fas fa-heart wishlist-heart"></i></a>
                          </div>
                       </div>
-                      <h4 class="title"><a href="../pro-{{ route('course-buy') }}">Culture & Leadership: Strategies for a Successful Business</a></h4>
+                      <h4 class="title"><a href="../pro-">Culture & Leadership: Strategies for a Successful Business</a></h4>
                       <div class="courses-meta">
                         <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
                         <span> <i class="icofont-read-book"></i> 29 Lectures </span>
@@ -540,7 +500,7 @@
                 <div class="item">
                   <div class="course__item white-bg mb-30 fix">
                     <div class="course__thumb w-img p-relative fix">
-                       <a href="{{ route('course-buy') }}">
+                       <a href="">
                           <img src="{{ URL::asset('assets/img/1.jpg')}}" alt="">
                        </a>
                        <!-- <div class="course__tag">
@@ -564,7 +524,7 @@
                            </div>
                        </div>
 
-                       <h3 class="course__title"><a href="{{ route('course-buy') }}">Become a product Manager learn the skills &amp; job.</a></h3>
+                       <h3 class="course__title"><a href="">Become a product Manager learn the skills &amp; job.</a></h3>
                        
                         <div class="course__meta d-flex align-items-center justify-content-between">
                           <div class="course__lesson">
@@ -581,7 +541,7 @@
                           <span>$ 142</span>
                        </div>
                        <div class="course__btn">
-                          <a href="{{ route('course-buy') }}" class="link-btn">
+                          <a href="" class="link-btn">
                              Know Details
                              <i class="far fa-arrow-right"></i>
                              <i class="far fa-arrow-right"></i>
