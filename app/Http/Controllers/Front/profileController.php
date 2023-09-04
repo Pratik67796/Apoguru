@@ -13,8 +13,6 @@ use App\Http\Controllers\Controller;
 use App\PrincipalTopic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -123,6 +121,7 @@ class ProfileController extends Controller
     $saveCourse->uid = $this->genrateUID();
     $saveCourse->slug = str_replace(' ', '-', strtolower($request->courseName));
     $saveCourse->user_id = $request->user_id;
+    $saveCourse->description = $request->desc;
     $saveCourse->save();
     return response()->json(['message' => 'Course Information saved successfully','status' => 200]);
   }
@@ -154,6 +153,17 @@ class ProfileController extends Controller
     $item = PrincipalTopic::orderBy('ordering_position')->where('course_id', '=', $request->course_id)->get();
     return response()->json(['data' => $item, 'status' => 200]);
   }
+
+  public function upload(Request $request)
+    {
+      // dd("hello",$request->all());
+      if ($request->hasFile('upload')) {
+          $fileName = time() . '_' . $request->file('upload')->getClientOriginalName();
+          $request->file('upload')->storeAs('public/learner-course-desc', $fileName);
+          $url = Storage::url('public/learner-course-desc/' . $fileName);
+          return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => URL('/').$url]);
+      }
+    }
 
   public function videoUpload(Request $request)
   {

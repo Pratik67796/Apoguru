@@ -36,7 +36,7 @@
             <span class="error-message" id="child-subcategory-information-error"></span>
             <div class="form-group pb-3">
                 <label for="course-name">Course Name</label>
-                <input class="w-100 nice-select float-none" type="text" placeholder="Write here..."
+                <input class="w-100 form-control" type="text" placeholder="Write here..."
                     name="course-name-information" id="course-name-information">
             </div>
             <span class="error-message" id="course-name-information-error"></span>
@@ -44,7 +44,7 @@
             <div class="row g-0">
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
-                        <label for="course-name">Actual Selling Price</label>
+                        <label for="course-name">Actual Sale Price</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
                             <input class="w-100 nice-select float-none" type="number" placeholder="Write here..."
@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
-                        <label for="sell-price">Sell Price (Optional)</label>
+                        <label for="sell-price">Sale Price (Optional)</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
                             <input type="number" class="w-100 nice-select float-none" placeholder="Write here..."
@@ -88,7 +88,10 @@
 
             <div class="form-group mb-3">
                 <label>Description</label>
-                <textarea class="w-100 nice-select float-none" placeholder="Write here..." id="desc" name="desc"></textarea>
+                <!-- <textarea class="w-100 nice-select float-none" placeholder="Write here..." id="desc" name="desc"></textarea> -->
+                <div id="desc" style="border:20px;">
+                    <p>Please write description.</p>
+                </div>
             </div>
 
             <div class="form-group mb-3">

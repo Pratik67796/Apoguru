@@ -251,6 +251,9 @@ Route::get('/create-course', 'Front\ProfileController@create_course')->name('cre
 Route::post('/get-parent-subcategroy','Front\ProfileController@getParentSubCategroy')->name('get-parent-subcategroy');
 Route::post('/get-sub-child_categroy','Front\ProfileController@getSubChildCategory')->name('get-school-parent');
 Route::post('save-learnere-course','Front\ProfileController@saveCourseInformation')->name('save-learnere-course');
+Route::post('ckeditor/upload','Front\ProfileController@upload')->name('ckeditor.upload');
+
+
 Route::post('save-prinicple-topic','Front\ProfileController@savePrincipleTopic')->name('save-prinicple-topic');
 Route::post('/principle-position-update', 'Front\ProfileController@updatePrinciplePositions')->name('principle-position-update');
 Route::post('get-principle-topic','Front\ProfileController@getPrinciple')->name('get-principle-topic');

@@ -98,7 +98,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="menu-text d-sm-block d-none">Administrator</div>
+                                    <div class="menu-text d-sm-block d-none">{{ Auth::guard('user_new')->user()->name }}</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
 
