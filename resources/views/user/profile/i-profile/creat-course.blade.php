@@ -46,7 +46,7 @@
                     <div class="form-group pb-3">
                         <label for="course-name">Actual Sale Price</label>
                         <div class="flex-input-field">
-                            <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
+                            <span class="nice-select icon-input append_currency_simbol" disabled></span>
                             <input class="w-100 nice-select float-none" type="number" placeholder="Write here..."
                                 name="course-name" id="actual-sell-price">
                         </div>
@@ -68,7 +68,7 @@
                     <div class="form-group pb-3">
                         <label for="sell-price">Sale Price (Optional)</label>
                         <div class="flex-input-field">
-                            <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
+                            <span class="nice-select icon-input append_currency_simbol" disabled></span>
                             <input type="number" class="w-100 nice-select float-none" placeholder="Write here..."
                                 name="sell-price" id="sell-price-type-option">
                         </div>
@@ -318,5 +318,30 @@
         // console.log(((toRate_1 / fromRate_1) * searchValue).toFixed(2));
         $('#sell-price-option').val(((toRate_1 / fromRate_1) * searchValue_1).toFixed(2));
         }
+    </script>
+
+    <script>
+
+        $( document ).ready(function() {
+            function getCurrencySymbol(currencyCode) {
+                try {
+                    const formatter = new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: currencyCode,
+                    });
+                    const formattedSymbol = formatter.formatToParts(1).find(part => part.type === 'currency').value;
+                    return formattedSymbol;
+                } catch (error) {
+                    console.error('Error:', error);
+                    return currencyCode;
+                }
+            }
+            const api = "https://api.exchangerate-api.com/v4/latest/USD";
+            const currencyCode = geoplugin_currencyCode();
+            const symbol = getCurrencySymbol(currencyCode);
+            $('.append_currency_simbol').text(symbol);
+            console.log(symbol);
+        });
+
     </script>
 @endsection
