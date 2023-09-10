@@ -664,6 +664,7 @@
 
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/inline/ckeditor.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
     <script> 
             $(document).ready(function () {
@@ -1057,8 +1058,45 @@
                     button.addClass("loading");
                     let progressBar = document.getElementById("progress-bar");
 
+                    var fileInputs = document.querySelectorAll('#video-section-form input[name="video[]"]');
+                    // console.log(this);
+                    // if (fileInput.files.length === 0) {
+                    //     toastr.error("Video is required.");
+                    //     // Re-enable the button and remove the loading class
+                    //     button.prop('disabled', false);
+                    //     button.removeClass("loading");
+                    //     return; // Stop the form submission
+                    // }
+                    var fileStatus = false; 
+                    var totalFileSizeInBytes = 0;
+                    var laravelFileSizeMax =  parseInt("{{ getFileSizeIn(ini_get('upload_max_filesize')) }}")
+                    fileInputs.forEach(function (fileInput, index) {
+                        var selectedFiles = fileInput.files;
+                        // Now, you can work with the selected files for each file input
+                        if (selectedFiles.length > 0 ) {
+                            var fileSizeInBytes = selectedFiles[index].size; // Size in bytes
+                            var fileSizeInKilobytes = fileSizeInBytes / 1024; // Convert bytes to kilobytes (KB)
+                            var fileSizeInMegabytes = fileSizeInKilobytes / 1024; // Convert kilobytes to megabytes (MB)
+                            totalFileSizeInBytes += fileSizeInMegabytes;
+                            
+                        }else{
+                            toastr.error("Video is required.");
+                            button.prop('disabled', false);
+                            button.removeClass("loading");
+                            fileStatus = true;
+                        }
+                    });
+                    if(fileStatus){
+                        return;
+                    }
+                    if(totalFileSizeInBytes > laravelFileSizeMax){
+                        toastr.error("Videos size is too large.");
+                        button.prop('disabled', false);
+                        button.removeClass("loading");
+                        fileStatus = true;
+                        return;
+                    }
                     var formData = new FormData(this);
-
                     $.ajax({
                         url: $(this).attr('action'),
                         type: 'POST',
@@ -1081,20 +1119,36 @@
                         },
                         success: function (response) {
                             if (response.success) {
-                                responseMessage.innerHTML = response;
                                 progressBar.style.width = "0%";
                                 fileInput.value = ""; 
                                 toastr.success(response.message);
                                 $('#video-section-form')[0].reset();
                                 $('select').niceSelect('destroy');
                                 $('select').niceSelect();
+                                button.prop('disabled', false);
+                                button.removeClass("loading");
+                                $('#progress-bar-percentage').text('')
                                 // window.location.reload
                             } else {
                                 toastr.error('File upload failed: ' + response.message);
                             }
                         },
                         error: function (xhr, status, error) {
-                            toastr.error("Please upload {{ getFileSizeInReadable(ini_get('upload_max_filesize')) }}");
+                            if (xhr.status !== 422) {
+                                // Server error is not 422, so display the progress bar
+                                progressBar.style.width = "0%";
+                                $('#progress-bar-percentage').text('');
+                            }
+                            toastr.clear();
+                            $.each(xhr.responseJSON.errors, function (field, messages) {
+                                $.each(messages, function (index, message) {
+                                    toastr.error(message);
+                                });
+                            });
+                            progressBar.style.width = "0%";
+                            $('#progress-bar-percentage').text('')
+                            button.prop('disabled', false);
+                            button.removeClass("loading");
                             //alert('An error occurred while uploading files.');
                         },
                     });

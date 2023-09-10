@@ -165,10 +165,18 @@ class ProfileController extends Controller
     }
   public function videoUpload(Request $request)
   {
+    // dd($request->all());
     $max = getFileSizeInBytes(ini_get('upload_max_filesize')) / 1024;
     $request->validate([
       'video.*' => 'required|max:'.$max, // Adjust the mimetypes and max file size as needed
-    ]);
+      'topic_type_video' => 'required',
+      'video_name.*' => 'required'
+    ], [
+      'video.*.required' => 'The video is required.',
+      'video.*.max' => 'The video must not exceed the maximum size of ' . $max . ' kilobytes.',
+      'topic_type_video.required' => 'The topic is required.',
+      'video_name.*.required' => 'The video name is required.'
+  ]);
 
 
     if ($request->hasFile('video')) {
