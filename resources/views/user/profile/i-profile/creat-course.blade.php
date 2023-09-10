@@ -79,7 +79,7 @@
                         <label for="course-name">Actual Sale Price</label>
                         <div class="flex-input-field">
                             <span class="nice-select icon-input append_currency_simbol" disabled></span>
-                            <input class="w-100 nice-select float-none" type="number" placeholder="Write here..."
+                            <input class="w-100 nice-select float-none" type="text" placeholder="Write here..."
                                 name="course-name" id="actual-sell-price">
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         <label for="sell-price">Sale Price (Optional)</label>
                         <div class="flex-input-field">
                             <span class="nice-select icon-input append_currency_simbol" disabled></span>
-                            <input type="number" class="w-100 nice-select float-none" placeholder="Write here..."
+                            <input type="text" class="w-100 nice-select float-none" placeholder="Write here..."
                                 name="sell-price" id="sell-price-type-option">
                         </div>
                     </div>
@@ -314,6 +314,17 @@
     var searchValue;
 
     $("#actual-sell-price").keyup(function() {
+        var inputValue = $(this).val();
+        var numericValue = inputValue.replace(/[^0-9.]/g, '');
+        $(this).val(numericValue);
+        
+        // Check if the input value is not numeric
+        if (inputValue !== numericValue) {
+            $('#actual-sell-price-error').text('Please enter only numeric values.');
+            return;
+        } else {
+            $('#actual-sell-price-error').text('');
+        }
         const api = "https://api.exchangerate-api.com/v4/latest/USD";
         resultFrom = geoplugin_currencyCode();
         window.id= resultFrom;
@@ -337,20 +348,31 @@
         var searchValue_1;
     
         $("#sell-price-type-option").keyup(function() {
-        const api = "https://api.exchangerate-api.com/v4/latest/USD";
-        resultFrom_1 = geoplugin_currencyCode();
-        resultTo_1 = "USD";
-        searchValue_1 = $('#sell-price-type-option').val();
-        fetch(`${api}`).then(currency =>{
-                return currency.json();
+            var inputValue = $(this).val();
+            var numericValue = inputValue.replace(/[^0-9.]/g, '');
+            $(this).val(numericValue);
+            
+            // Check if the input value is not numeric
+            if (inputValue !== numericValue) {
+                $('#sell-price-type-option').text('Please enter only numeric values.');
+                return;
+            } else {
+                $('#sell-price-type-option').text('');
+            }
+            const api = "https://api.exchangerate-api.com/v4/latest/USD";
+            resultFrom_1 = geoplugin_currencyCode();
+            resultTo_1 = "USD";
+            searchValue_1 = $('#sell-price-type-option').val();
+            fetch(`${api}`).then(currency =>{
+                    return currency.json();
             }).then(displayResults_sellprice);
         });
     
         function displayResults_sellprice(currency) {
-        let fromRate_1 = currency.rates[resultFrom_1];
-        let toRate_1 = currency.rates[resultTo_1];
-        // console.log(((toRate_1 / fromRate_1) * searchValue).toFixed(2));
-        $('#sell-price-option').val(((toRate_1 / fromRate_1) * searchValue_1).toFixed(2));
+            let fromRate_1 = currency.rates[resultFrom_1];
+            let toRate_1 = currency.rates[resultTo_1];
+            // console.log(((toRate_1 / fromRate_1) * searchValue).toFixed(2));
+            $('#sell-price-option').val(((toRate_1 / fromRate_1) * searchValue_1).toFixed(2));
         }
 
 
