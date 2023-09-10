@@ -1055,7 +1055,7 @@
 
                     // Add a class to apply the loading CSS
                     button.addClass("loading");
-                    const progressBar = document.getElementById("progress-bar");
+                    let progressBar = document.getElementById("progress-bar");
 
                     var formData = new FormData(this);
 
@@ -1073,6 +1073,7 @@
                                 if (e.lengthComputable) {
                                     const percentComplete = (e.loaded / e.total) * 100;
                                     progressBar.style.width = percentComplete + "%";
+                                    $('#progress-bar-percentage').text(`${percentComplete}%`)
                                 }
                             });
 
