@@ -21,6 +21,18 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.progress-container {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
 </style>
     <div class="container-fluid main__div">
         <h4 class="my-3">Course Information</h4>
@@ -227,6 +239,9 @@
                 {{-- <a id="creat_course" href="" class="btn btn-success">Submit</a> --}}
             </div>
         </form>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
     </div>
 
     <div class="container-fluid main__div mt-4">

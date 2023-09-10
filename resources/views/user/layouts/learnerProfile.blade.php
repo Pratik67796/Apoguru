@@ -1055,6 +1055,7 @@
 
                     // Add a class to apply the loading CSS
                     button.addClass("loading");
+                    const progressBar = document.getElementById("progress-bar");
 
                     var formData = new FormData(this);
 
@@ -1064,8 +1065,24 @@
                         data: formData,
                         processData: false,
                         contentType: false,
+                        xhr: function () {
+                            const xhr = new window.XMLHttpRequest();
+
+                            // Upload progress event
+                            xhr.upload.addEventListener("progress", function (e) {
+                                if (e.lengthComputable) {
+                                    const percentComplete = (e.loaded / e.total) * 100;
+                                    progressBar.style.width = percentComplete + "%";
+                                }
+                            });
+
+                            return xhr;
+                        },
                         success: function (response) {
                             if (response.success) {
+                                responseMessage.innerHTML = response;
+                                progressBar.style.width = "0%";
+                                fileInput.value = ""; 
                                 toastr.success(response.message);
                                 $('#video-section-form')[0].reset();
                                 $('select').niceSelect('destroy');
@@ -1076,7 +1093,7 @@
                             }
                         },
                         error: function (xhr, status, error) {
-                            toastr.error("Please upload valid Video format.");
+                            toastr.error("Please upload {{ getFileSizeInReadable(ini_get('upload_max_filesize')) }}");
                             //alert('An error occurred while uploading files.');
                         },
                     });
