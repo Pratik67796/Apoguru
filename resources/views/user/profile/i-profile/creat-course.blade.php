@@ -77,9 +77,9 @@
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
                         <label for="course-name">Actual Sale Price</label>
-                        <div class="flex-input-field">
-                            <span class="nice-select icon-input append_currency_simbol" disabled></span>
-                            <input class="w-100 nice-select float-none" type="text" placeholder="Write here..."
+                        <div class="flex-input-fields" style="display:flex;">
+                            <span class="nice-select icon-input append_currency_simbol" disabled  style="width: 47px;padding-right: 18px;background-color: #cccbcb;margin-right: -2px;"></span>
+                            <input class="w-100 form-control float-none" type="text" placeholder="Write here..."
                                 name="course-name" id="actual-sell-price">
                         </div>
                     </div>
@@ -99,9 +99,9 @@
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
                         <label for="sell-price">Sale Price (Optional)</label>
-                        <div class="flex-input-field">
-                            <span class="nice-select icon-input append_currency_simbol" disabled></span>
-                            <input type="text" class="w-100 nice-select float-none" placeholder="Write here..."
+                        <div class="flex-input-fields"  style="display:flex;">
+                            <span class="nice-select icon-input append_currency_simbol" disabled  style="width: 47px;padding-right: 18px;background-color: #cccbcb;margin-right: -2px;"></span>
+                            <input type="text" class="w-100 form-control" placeholder="Write here..."
                                 name="sell-price" id="sell-price-type-option">
                         </div>
                     </div>
