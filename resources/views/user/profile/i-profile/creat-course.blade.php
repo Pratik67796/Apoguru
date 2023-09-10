@@ -105,6 +105,7 @@
                                 name="sell-price" id="sell-price-type-option">
                         </div>
                     </div>
+                    <span class="error-message" id="sell-price-type-option-error"></span>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
@@ -354,10 +355,10 @@
             
             // Check if the input value is not numeric
             if (inputValue !== numericValue) {
-                $('#sell-price-type-option').text('Please enter only numeric values.');
+                $('#sell-price-type-option-error').text('Please enter only numeric values.');
                 return;
             } else {
-                $('#sell-price-type-option').text('');
+                $('#sell-price-type-option-error').text('');
             }
             const api = "https://api.exchangerate-api.com/v4/latest/USD";
             resultFrom_1 = geoplugin_currencyCode();
