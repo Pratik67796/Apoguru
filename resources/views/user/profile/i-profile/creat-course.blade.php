@@ -242,6 +242,7 @@
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
+        <div id="progress-bar-percentage"></div>
     </div>
 
     <div class="container-fluid main__div mt-4">
