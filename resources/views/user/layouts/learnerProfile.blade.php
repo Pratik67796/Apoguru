@@ -1047,6 +1047,15 @@
 
                 $('#video-section-form').submit(function (e) {
                     e.preventDefault();
+                    // Select the submit button
+                    var button = $('#upload-videos');
+
+                    // Disable the button to prevent multiple clicks
+                    button.prop('disabled', true);
+
+                    // Add a class to apply the loading CSS
+                    button.addClass("loading");
+
                     var formData = new FormData(this);
 
                     $.ajax({
@@ -1061,6 +1070,7 @@
                                 $('#video-section-form')[0].reset();
                                 $('select').niceSelect('destroy');
                                 $('select').niceSelect();
+                                // window.location.reload
                             } else {
                                 toastr.error('File upload failed: ' + response.message);
                             }

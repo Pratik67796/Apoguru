@@ -5,6 +5,22 @@
     .error-message{
         color:red;
     }
+    #upload-videos.loading::after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #fff;
+        border-top: 2px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-left: 5px;
+    }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
     <div class="container-fluid main__div">
         <h4 class="my-3">Course Information</h4>
@@ -189,6 +205,7 @@
                             <label for="video">Upload Video</label> <br>
                             <input id="video" type="file" name="video[]" class="form-control mb-3"
                                 placeholder="Write here...">
+                                <small class="form-text text-muted">Max File size: {{ getFileSizeInReadable(ini_get('upload_max_filesize')) }}</small>
                         </div>
                         <div class="form-group col-sm-4">
                             <!-- Initially, keep at least one section -->
@@ -206,7 +223,7 @@
 
 
             <div class="form-group mb-3">
-                <button type="submit" class="btn btn-success">Upload</button>
+                <button type="submit" class="btn btn-success" id='upload-videos'>Upload</button>
                 {{-- <a id="creat_course" href="" class="btn btn-success">Submit</a> --}}
             </div>
         </form>
