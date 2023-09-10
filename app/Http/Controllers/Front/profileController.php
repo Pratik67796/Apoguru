@@ -236,7 +236,7 @@ class ProfileController extends Controller
       $html .= '</div>';
 
       $html .= '<a class="" data-bs-toggle="modal" data-bs-target="#int_que_Modal">Add Interactive Questions</a> <br>';
-      $html .= '<button type="button" onClick="deleteVideo(' . $item->id . ')" class="btn default-btn mt-3">Delete Video</button>';
+      $html .= '<button type="button" data-id="'. $item->id .'" class="btn default-btn mt-3 delete-video">Delete Video</button>';
       $html .= '</div>';
       $html .= '</div>';
       $html .= '</div>';
