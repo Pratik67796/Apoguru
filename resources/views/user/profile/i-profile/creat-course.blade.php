@@ -144,7 +144,7 @@
             </div>
             <div class="form-group pb-3">
                 <label for="course-name">Add Principle Topic</label>
-                <input class="w-100 nice-select float-none" type="text" placeholder="Write here..."
+                <input class="w-100 form-control float-none" type="text" placeholder="Write here..."
                     name="principle_topic" id="principle_topic">
             </div>
             <div class="form-group mb-3">
