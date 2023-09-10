@@ -1118,6 +1118,7 @@
                             return xhr;
                         },
                         success: function (response) {
+                            console.log(response);
                             if (response.success) {
                                 progressBar.style.width = "0%";
                                 fileInput.value = ""; 
@@ -1129,8 +1130,6 @@
                                 button.removeClass("loading");
                                 $('#progress-bar-percentage').text('')
                                 // window.location.reload
-                            } else {
-                                toastr.error('File upload failed: ' + response.message);
                             }
                         },
                         error: function (xhr, status, error) {
