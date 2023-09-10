@@ -167,9 +167,9 @@ class ProfileController extends Controller
 
   public function videoUpload(Request $request)
   {
-    $request->validate([
-      'video.*' => 'required|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:50000', // Adjust the mimetypes and max file size as needed
-    ]);
+    // $request->validate([
+    //   'video.*' => 'required|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:50000', // Adjust the mimetypes and max file size as needed
+    // ]);
 
     if ($request->hasFile('video')) {
       $files = $request->file('video');
