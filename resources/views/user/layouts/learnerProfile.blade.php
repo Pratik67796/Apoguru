@@ -1059,14 +1059,7 @@
                     let progressBar = document.getElementById("progress-bar");
 
                     var fileInputs = document.querySelectorAll('#video-section-form input[name="video[]"]');
-                    // console.log(this);
-                    // if (fileInput.files.length === 0) {
-                    //     toastr.error("Video is required.");
-                    //     // Re-enable the button and remove the loading class
-                    //     button.prop('disabled', false);
-                    //     button.removeClass("loading");
-                    //     return; // Stop the form submission
-                    // }
+
                     var fileStatus = false; 
                     var totalFileSizeInBytes = 0;
                     var laravelFileSizeMax =  parseInt("{{ getFileSizeIn(ini_get('upload_max_filesize')) }}")
@@ -1118,11 +1111,8 @@
                             return xhr;
                         },
                         success: function (response) {
-                            console.log(response);
                             if (response.success) {
                                 progressBar.style.width = "0%";
-                                fileInput.value = ""; 
-                                toastr.success(response.message);
                                 $('#video-section-form')[0].reset();
                                 $('select').niceSelect('destroy');
                                 $('select').niceSelect();
@@ -1130,6 +1120,7 @@
                                 button.removeClass("loading");
                                 $('#progress-bar-percentage').text('')
                                 // window.location.reload
+                                toastr.success(response.message);
                             }
                         },
                         error: function (xhr, status, error) {
