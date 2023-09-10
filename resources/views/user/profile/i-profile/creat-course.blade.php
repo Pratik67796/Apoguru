@@ -33,6 +33,10 @@
     border-radius: 5px;
     transition: width 0.3s;
 }
+.text-muted{
+    color:red !important;
+    margin-bottom:10px;
+}
 </style>
     <div class="container-fluid main__div">
         <h4 class="my-3">Course Information</h4>
@@ -217,7 +221,6 @@
                             <label for="video">Upload Video</label> <br>
                             <input id="video" type="file" name="video[]" class="form-control mb-3"
                                 placeholder="Write here...">
-                                <small class="form-text text-muted">Max File size: {{ getFileSizeInReadable(ini_get('upload_max_filesize')) }}</small>
                         </div>
                         <div class="form-group col-sm-4">
                             <!-- Initially, keep at least one section -->
@@ -232,6 +235,7 @@
                     </div>
                 </div>
             </div>
+            <small class="form-text text-muted">* Max File size: {{ getFileSizeInReadable(ini_get('upload_max_filesize')) }}</small>
 
 
             <div class="form-group mb-3">
