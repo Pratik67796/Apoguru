@@ -1212,36 +1212,42 @@
                         });
                     }
                 });
+                $("body").on("click", ".delete-video", function(e){
+                    e.preventDefault();
+                    let text = "Are you sure you want to delete this plan?";
+                    if (confirm(text) == true) {
+                        // var id = $('.delete-video').getAttribute("data-id");
+                        var id = $('.delete-video').attr("data-id");
 
-                function deleteVideo(id) {
-                    $.ajax({
-                        url: "{{ route('video-delete') }}",
-                        type: "POST",
-                        data: {
-                            _token: "{{ csrf_token() }}",
-                            id: id
-                        },
-                        success: function (res) {
-                            if (res.status === 200) {
-                                toastr.success(res.message);
-                                $.ajax({
-                                    url: "{{ route('get-lecture-video') }}",
-                                    type: "POST",
-                                    data: {
-                                        "_token": "{{ csrf_token() }}",
-                                        principal_topic_id: $('#video-id').val()
-                                    },
-                                    success: function (res) {
-                                        if (res.status === 200) {
-                                            $('#sortable-list-video').html(res.html)
+                        $.ajax({
+                            url: "{{ route('video-delete') }}",
+                            type: "POST",
+                            data: {
+                                _token: "{{ csrf_token() }}",
+                                id: id
+                            },
+                            success: function (res) {
+                                if (res.status === 200) {
+                                    toastr.success(res.message);
+                                    $.ajax({
+                                        url: "{{ route('get-lecture-video') }}",
+                                        type: "POST",
+                                        data: {
+                                            "_token": "{{ csrf_token() }}",
+                                            principal_topic_id: $('#video-id').val()
+                                        },
+                                        success: function (res) {
+                                            if (res.status === 200) {
+                                                $('#sortable-list-video').html(res.html)
+                                            }
                                         }
-                                    }
-                                })
+                                    })
+                                }
                             }
-                        }
-                    })
-                }
-
+                        })
+                    }
+                });
+                
             });
     </script>
 </body>
