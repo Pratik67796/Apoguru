@@ -1073,7 +1073,7 @@
                                 if (e.lengthComputable) {
                                     const percentComplete = (e.loaded / e.total) * 100;
                                     progressBar.style.width = percentComplete + "%";
-                                    $('#progress-bar-percentage').text(`${percentComplete}%`)
+                                    $('#progress-bar-percentage').text(`${percentComplete.toFixed(2)}%`)
                                 }
                             });
 
