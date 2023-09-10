@@ -41,4 +41,14 @@ if (!function_exists('getFileSizeInReadable')) {
         return $val;
     }
 }
+
+if (!function_exists('getFileSizeIn')) {
+    function getFileSizeIn($val)
+    {
+        $val = trim($val);
+        // $last = strtolower($val[strlen($val) - 1]);
+        $val = substr($val, 0, -1);
+        return $val;
+    }
+}
 ?>

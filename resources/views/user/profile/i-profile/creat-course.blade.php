@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 px-3">
                     <div class="form-group pb-3">
-                        <label for="sell-price">Sell Price In USD</label>
+                        <label for="sell-price">Sale Price In USD</label>
                         <div class="flex-input-field">
                             <input type="text" class="nice-select icon-input" disabled value="&#36;" name="">
                             <input type="number" class="w-100 nice-select float-none" placeholder="Sell Price In USD"
@@ -130,7 +130,7 @@
     </div>
 
     <div class="container-fluid main__div mt-4">
-        <h4 class="my-3">Topics</h4>
+        <h4 class="my-3">Add Principal Topics</h4>
         <form class="row cust-drop" id="principle-form">
             <input type="hidden" id="principl-user_id" value="{{ $auth->id }}" />
             <div class="form-group pb-3">
@@ -155,7 +155,7 @@
     </div>
 
     <div class="container-fluid main__div mt-4">
-        <h4 class="my-3">Principle Topics</h4>
+        <h4 class="my-3">List Principle Topics</h4>
         <div class="form-group pb-3">
             <label for="course-type">Choose Course</label>
             <select id="principle-course" class="w-100">
@@ -327,10 +327,7 @@
         // console.log(((toRate / fromRate) * searchValue).toFixed(2));
         $('#usd-price-information').val(((toRate / fromRate) * searchValue).toFixed(2));
     }
-    </script>
-
-
-    <script>
+  
         var resultFrom_1;
         var resultTo_1;
         var searchValue_1;
@@ -351,9 +348,7 @@
         // console.log(((toRate_1 / fromRate_1) * searchValue).toFixed(2));
         $('#sell-price-option').val(((toRate_1 / fromRate_1) * searchValue_1).toFixed(2));
         }
-    </script>
 
-    <script>
 
         $( document ).ready(function() {
             function getCurrencySymbol(currencyCode) {
