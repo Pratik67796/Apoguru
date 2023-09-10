@@ -52,7 +52,6 @@ class ProfileController extends Controller
   public function create_course()
   {
     $auth = Auth::guard('user_new')->user();
-
     if (!isset($auth->id)) {
       return redirect()->route('login')->withErrors(["Please Login!"]);
     }
@@ -164,12 +163,13 @@ class ProfileController extends Controller
           return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => URL('/').$url]);
       }
     }
-
   public function videoUpload(Request $request)
   {
-    // $request->validate([
-    //   'video.*' => 'required|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:50000', // Adjust the mimetypes and max file size as needed
-    // ]);
+    $max = getFileSizeInBytes(ini_get('upload_max_filesize')) / 1024;
+    $request->validate([
+      'video.*' => 'required|max:'.$max, // Adjust the mimetypes and max file size as needed
+    ]);
+
 
     if ($request->hasFile('video')) {
       $files = $request->file('video');
