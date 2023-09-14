@@ -122,7 +122,7 @@ class ProfileController extends Controller
     $saveCourse->user_id = $request->user_id;
     $saveCourse->description = $request->desc;
     $saveCourse->save();
-    return response()->json(['message' => 'Course Information saved successfully','status' => 200]);
+    return response()->json(['message' => 'Course Information saved successfully', 'status' => 200]);
   }
 
   public function savePrincipleTopic(Request $request)
@@ -154,21 +154,22 @@ class ProfileController extends Controller
   }
 
   public function upload(Request $request)
-    {
-      // dd("hello",$request->all());
-      if ($request->hasFile('upload')) {
-          $fileName = time() . '_' . $request->file('upload')->getClientOriginalName();
-          $request->file('upload')->storeAs('public/learner-course-desc', $fileName);
-          $url = Storage::url('public/learner-course-desc/' . $fileName);
-          return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => URL('/').$url]);
-      }
+  {
+    // dd("hello",$request->all());
+    if ($request->hasFile('upload')) {
+      $fileName = time() . '_' . $request->file('upload')->getClientOriginalName();
+      $request->file('upload')->storeAs('public/learner-course-desc', $fileName);
+      $url = Storage::url('public/learner-course-desc/' . $fileName);
+      return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => URL('/') . $url]);
     }
+  }
   public function videoUpload(Request $request)
   {
     // dd($request->all());
     $max = getFileSizeInBytes(ini_get('upload_max_filesize')) / 1024;
     $request->validate([
-      'video.*' => 'required|max:'.$max, // Adjust the mimetypes and max file size as needed
+      'video.*' => 'required|max:' . $max,
+      // Adjust the mimetypes and max file size as needed
       'topic_type_video' => 'required',
       'video_name.*' => 'required'
     ], [
@@ -176,7 +177,7 @@ class ProfileController extends Controller
       'video.*.max' => 'The video must not exceed the maximum size of ' . $max . ' kilobytes.',
       'topic_type_video.required' => 'The topic is required.',
       'video_name.*.required' => 'The video name is required.'
-  ]);
+    ]);
 
 
     if ($request->hasFile('video')) {
@@ -236,7 +237,7 @@ class ProfileController extends Controller
       $html .= '</div>';
 
       $html .= '<a class="" data-bs-toggle="modal" data-bs-target="#int_que_Modal">Add Interactive Questions</a> <br>';
-      $html .= '<button type="button" data-id="'. $item->id .'" class="btn default-btn mt-3 delete-video">Delete Video</button>';
+      $html .= '<button type="button" data-id="' . $item->id . '" class="btn default-btn mt-3 delete-video">Delete Video</button>';
       $html .= '</div>';
       $html .= '</div>';
       $html .= '</div>';
@@ -267,9 +268,18 @@ class ProfileController extends Controller
     return response()->json(['message' => 'Positions updated successfully']);
   }
 
-
-  public function getSubChildCategory(Request $request)
+  public function requestToPublishCourse(Request $request)
   {
+    $findStatus = Course::find($request->courser);
+    if ($findStatus->status == 'Unpublished' || $findStatus->status == 'Published') {
+      return response()->json(['status' => 201, 'message' => 'Sorry, The request for this course to publish is already sent. Please wait for verification.']);
+    }
+    Course::where('id', '=', $request->courser)->update(['status' => 'Unpublished']);
+    return response()->json(['status' => 200, 'message' => 'The request to publish this course has been send successfully.']);
+  }
+
+
+  public function getSubChildCategory(Request $request) {
     $getSchoolParent = ChildSubCategory::where([
       ['main_category_id', '=', $request->main_category_id],
       ['parent_sub_category_id', '=', $request->parent_sub_category_id]

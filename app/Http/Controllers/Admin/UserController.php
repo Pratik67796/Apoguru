@@ -266,6 +266,7 @@ class UserController extends Controller
 
     // TODAYS record for reminders
     public function todayreminder(){
+      // dd("hello");
       $users = User::all();
       $reminder=  Reminder::where("date",date('Y-m-d'))->get();
       return view('admin.users.reminders.Daily_reminder',compact('reminder','users')); 

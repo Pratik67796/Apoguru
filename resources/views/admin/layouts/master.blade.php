@@ -1,3 +1,6 @@
+@php
+    $cur_route = Route::current()->getName();
+@endphp
 <!DOCTYPE html>
 <html>
 
@@ -1153,12 +1156,6 @@
     <!-- ChartJs -->
     <script src="{{ URL::asset('admin_theme/plugins/chartjs/Chart.bundle.js')}}"></script>
 
-    <!-- Flot Charts Plugin Js -->
-    <!-- <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.resize.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.pie.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.categories.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.time.js')}}"></script> -->
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="{{ URL::asset('admin_theme/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
@@ -1166,7 +1163,7 @@
     <!-- Custom Js -->
     <script src="{{ URL::asset('admin_theme/js/admin.js')}}"></script>
     <script src="{{ URL::asset('admin_theme/js/pages/index.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/js/pages/tables/jquery-datatable.js')}}"></script>
+    {{-- <script src="{{ URL::asset('admin_theme/js/pages/tables/jquery-datatable.js')}}"></script> --}}
     <script>
         $(document).on('ready',function(){
              var auth = "{{Auth::user()->role_as}}";
@@ -1182,7 +1179,20 @@
     <script src="{{ URL::asset('admin_theme/js/demo.js')}}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-        
+    <script>
+        $(document).ready(function(){
+            let getUrl = "{{ $cur_route }}";
+            if(getUrl === 'admin.reminders'){
+                $.ajax({
+                    url:"{{ route('admin.get-all-new-courses') }}",
+                    type:"GET",
+                    success:function(res){
+                        console.log(res);
+                    }
+                })
+            }
+        })
+    </script>
     @yield('scripts')
 </body>
 

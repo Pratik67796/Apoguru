@@ -841,9 +841,11 @@
                 // CKFinder.setupCKEditor(description);
                 // CKEDITOR.add
                 var editor;
+                var uploadUrl = '{{ route('ckeditor.upload') }}' + '?_token={{ csrf_token() }}';
+
                 InlineEditor.create( document.querySelector('#desc'),{
                     ckfinder: {
-                        uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
+                        uploadUrl: uploadUrl//'{{route('ckeditor.upload').'?_token='.csrf_token()}}',
                     }
                 }).then(createdEditor => {
                     editor = createdEditor; // Store the editor instance
@@ -1247,7 +1249,35 @@
                         })
                     }
                 });
-                
+                $('#publish').on('click',function(){
+                    let getPublishCourse = $('#publish-course').val();
+                    var selectElement = $('#publish-course');
+                    if(getPublishCourse === ''){
+                        toastr.error("Please your course.");
+                        return;
+                    }
+                    $.ajax({
+                        url:"{{ route('request-to-publish') }}",
+                        type:"POST",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            courser:getPublishCourse
+                        },
+                        success:function(res){
+                            if(res.status === 200){
+                                toastr.success(res.message);
+                                selectElement.niceSelect('destroy')
+                                selectElement.prop('selectedIndex', 0)
+                                selectElement.niceSelect()
+                                $('#course-modal').modal('hide');
+                            }
+                            if(res.status === 201){
+                                toastr.error(res.message);
+                                $('#course-modal').modal('hide');
+                            }
+                        }
+                    });
+                });
             });
     </script>
 </body>

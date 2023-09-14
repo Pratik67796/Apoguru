@@ -1,8 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title')
-apoGuru - Admin
-@endsection
+@section('title',"apoGuru - Admin")
 
 @section('content')
 

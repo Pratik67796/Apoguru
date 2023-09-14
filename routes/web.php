@@ -145,6 +145,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
 
   // today reminders
   Route::get('/today/reminder', 'Admin\UserController@todayreminder')->name('reminders');
+  Route::get('/get-all-new-courses', 'Admin\UserController@getAllNewCourses')->name('get-all-new-courses');
 
   // Sub admins
   Route::get('/user/add/sabadmin', 'Admin\Superadmin@addsubadmin')->name('sub.admin.create');
@@ -261,6 +262,7 @@ Route::post('videos-upload','Front\ProfileController@videoUpload')->name('videos
 Route::post('get-lecture-video','Front\ProfileController@getLectureVideo')->name('get-lecture-video');
 Route::post('/video-position-update', 'Front\ProfileController@updateVideoPositions')->name('video-position-update');
 Route::post('/video-delete', 'Front\ProfileController@videoDelete')->name('video-delete');
+Route::post('/request-to-publish', 'Front\ProfileController@requestToPublishCourse')->name('request-to-publish');
 
 Route::get('/course_i_have_created', 'Front\ProfileController@course_i_have_created')->name('course_i_have_created');
 
