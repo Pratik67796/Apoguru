@@ -44,11 +44,25 @@
         color: red !important;
         margin-bottom: 10px;
     }
+    .add-supplementary-file-label{
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 13px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .nice-select-scrollable .list {
+    max-height: 200px; /* Adjust the value as needed */
+    overflow-y: auto;
+}
 
 </style>
+
 <div class="container-fluid main__div">
     <h4 class="my-3">Course Information</h4>
-    <form class="row cust-drop" id="course-information-form">
+    <form class="row cust-drop" id="course-information-form" enctype="multipart/form-data">
+        @csrf
         <input type="hidden" id="user_id" value="{{ $auth->id }}" />
         <div class="form-group pb-3">
             <label for="course-type">Choose Course Type</label>
@@ -129,9 +143,16 @@
                 <p>Please write description.</p>
             </div>
         </div>
-
+        <div class="col-12 col-sm-12 col-md-12 px-3">
+            <div class="form-group pb-3">
+                <label for="sell-price">Course Image</label>
+                <div class="flex-input-field">
+                    <input id="couse_image" type="file" name="couse_image" class="form-control mb-3">
+                </div>
+            </div>
+        </div>
         <div class="form-group mb-3">
-            <button type="button" id="creat_course" class="btn btn-success">Create</button>
+            <button type="submit" id="creat_course" class="btn btn-success">Create</button>
             {{-- <a  href="" class="btn btn-success">Create</a> --}}
         </div>
     </form>
@@ -251,7 +272,7 @@
     <h4 class="my-3">Topic Video</h4>
     <div class="form-group pb-3">
         <label for="course-type">Select Course</label>
-        <select id="topic-video" class="w-100" name="course_type_video">
+        <select id="topic-video" class="w-100 nice-select-scrollable" name="course_type_video" >
             <option value="">Select Course Type</option>
             @foreach ($getCourses as $key => $getCourse)
             <option value="{{ $getCourse->id }}">{{ $getCourse->title }}</option>
@@ -267,31 +288,6 @@
     </div>
 
     <ul id="sortable-list-video" class="list-group-videp">
-
-        {{-- <div class="row justify-content-between mb-3">
-            <div class="col-12 col-md-12 mb-5 mb-lg-0 col-xl-5 col-lg-5">
-                <video class="" poster="{{ URL::asset('assets/images/school-dashboard-main.jpeg') }}"
-        width="100%" height="" controls>
-        <source src="{{ URL::asset('assets/video/school-dashboard-main.mp4') }}" type="">
-        <source src="{{ URL::asset('assets/video/school-dashboard-main.ogg') }}" type="">
-        </video>
-</div>
-<div class="col-12 col-md-12 col-lg-6 col-xl-7 my-auto">
-    <div class="">
-        <h6><strong>Video Title :</strong> Video Name</h6>
-        <h6><strong>Video Duration :</strong> 1min 5sec</h6>
-        <h6><strong>Interactive Quastions :</strong> 4 </h6>
-        <div class="position-relative">
-            <input type="file" class="position-absolute" name="" style="opacity: 0">
-            <a class="">Add Supplementary file</a> <br>
-        </div>
-        <a class="" data-bs-toggle="modal" data-bs-target="#int_que_Modal">Add Interactive
-            Questions</a> <br>
-        <a class="btn default-btn mt-3">Delete Video</a>
-    </div>
-</div>
-</div> --}}
-
 </ul>
 
 </div>
@@ -313,7 +309,7 @@
                             <option value="">--Select Course--</option>
                             @foreach ($getCourses as $key => $getCourse)
                             @if($getCourse->status == 'Pending')
-                                <option value="{{ $getCourse->id }}">{{ $getCourse->title }}</option>
+                            <option value="{{ $getCourse->id }}">{{ $getCourse->title }}</option>
                             @endif
                             @endforeach
                         </select>
@@ -322,12 +318,40 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-publish" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="publish">Publish</button>
+                <button type="button" class="btn btn-primary publish" id="publish">Publish</button>
             </div>
         </div>
     </div>
 </div>
 {{-- Course Publish Modal END Here --}}
+
+{{-- Lecture Video Modal for add supplementary file Start here --}}
+<div class="modal fade" id="lecture_video_supplementary_modal" tabindex="-1" aria-labelledby="lecture_video_supplementary_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Supplementary</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="supplementary-form" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-body">
+                <!-- Modal content goes here -->
+                <input type="hidden" name="video_id" id="video_id">
+                <label>Add Supplementary file</label>
+                <input type="file" class="form-control" name="supplementary_file" id="supplementary_file">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- Lecture Video Modal for add supplementary file End here --}}
+
+
 
 <div class="mt-4 px-4 pt-4 d-flex align-items-center justify-content-between flex-wrap" style="background-color: #19875445;border-radius: 20px;">
     <button type="button" class="btn btn-outline-primary mb-4 me-2" data-bs-toggle="modal" data-bs-target="#course-modal">
@@ -336,6 +360,65 @@
     <a class="btn btn-outline-primary mb-4 me-2">Create Course Certificate</a>
     <a class="btn btn-outline-primary mb-4">Download my Flyer</a>
 </div>
+
+{{-- Lecture Video Modal for add Question and answer file Start here --}}
+<div class="modal fade" id="question-answer-modal" tabindex="-1" aria-labelledby="question-answer-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Question and Answer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="question-answer-form" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="video_id" id="video_id">
+            <input type="hidden" id="user_id" value="{{ $auth->id }}" />
+            <div class="modal-body">
+                <label>Question</label>
+                <div id="question" class='question'  contenteditable="true" style="border:10px;">
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <label>First Answer Option</label>
+                <div id="answer-1" class='answer-1'  contenteditable="true" style="border:10px;">
+                </div>
+                <label><strong>Correct Answer ?</strong></label>
+                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="1">
+            </div>
+
+            <div class="modal-body">
+                <label>Second Answer Option</label>
+                <div id="answer-2" class='answer-2'  contenteditable="true" style="border:10px;">
+                </div>
+                <label><strong>Correct Answer ?</strong></label>
+                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="2">
+            </div>
+
+            <div class="modal-body">
+                <label>Third Answer Option</label>
+                <div id="answer-3" class='answer-3'  contenteditable="true" style="border:10px;">
+                </div>
+                <label><strong>Correct Answer ?</strong></label>
+                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="3">
+            </div>
+
+            <div class="modal-body">
+                <label>Fourth Answer Option</label>
+                <div id="answer-4" class='answer-4'  contenteditable="true" style="border:10px;">
+                </div>
+                <label><strong>Correct Answer ?</strong></label>
+                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="4">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- Lecture Video Modal for add Question and answer file End here --}}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>

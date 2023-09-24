@@ -104,6 +104,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
   Route::get('/course/edit/{course_id}', 'Admin\CourseController@editCourse')->name('course.edit');
   Route::post('/course/update/{course_id}', 'Admin\CourseController@updateCourse')->name('course.update');
   Route::get('/course/delete/{course_id}', 'Admin\CourseController@deleteCourse')->name('course.delete');
+  Route::get('/course/status-management/{uid}', 'Admin\CourseController@courseStatusMangement')->name('course.status-management');
+  Route::post('/course/status-management-update', 'Admin\CourseController@courseStatusUpdate')->name('course.status-management-update');
 
   // Principal Topics - Courses
   Route::get('/course/principal/topics/{course_id}', 'Admin\CourseController@getPrincipalTopicsForCourse')->name('course.principal.topic.list');
@@ -234,6 +236,9 @@ Route::post('/reg','Front\Logincontroller@reg_post')->name('reg');
 Route::get('/login', 'Front\Logincontroller@login')->name('login');
 Route::post('post-login', 'Front\Logincontroller@postLogin')->name('post-login');
 Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
+Route::get('/forgot-password', 'Front\Logincontroller@forgotPassword')->name('forgot-password');
+
+
 
 
 Route::post('/course_rating_add', 'Front\Coursecontroller@course_rating_add')->name('course_rating_add');
@@ -263,8 +268,10 @@ Route::post('get-lecture-video','Front\ProfileController@getLectureVideo')->name
 Route::post('/video-position-update', 'Front\ProfileController@updateVideoPositions')->name('video-position-update');
 Route::post('/video-delete', 'Front\ProfileController@videoDelete')->name('video-delete');
 Route::post('/request-to-publish', 'Front\ProfileController@requestToPublishCourse')->name('request-to-publish');
+Route::post('/add-supplementary-file','Front\ProfileController@addSupplementaryFile')->name('add-supplementary-file');
+Route::post('/add-question-answer','Front\ProfileController@addQuestionAnswer')->name('add-question-answer');
 
-Route::get('/course_i_have_created', 'Front\ProfileController@course_i_have_created')->name('course_i_have_created');
+Route::get('/my-course', 'Front\ProfileController@course_i_have_created')->name('my-course');
 
 Route::get('/instructor_profile', 'Front\ProfileController@instructor_profile')->name('instructor_profile');
 Route::post('/profile-update','Front\ProfileManagementController@updateProfile')->name('profile-update');

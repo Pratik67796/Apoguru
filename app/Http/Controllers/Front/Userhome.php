@@ -58,7 +58,7 @@ class Userhome extends Controller
         $singlecourse = Course::where([
             ['slug','=',$slug],
             ['uid','=',$uid]
-            ])->with(['getAdmin','getPublisher','getRating'])->first();
+            ])->with(['getAdmin','getPublisher','getRating','getPrincipleTopic.videos.getSupplementary'])->first();
         $ratings = $singlecourse->getRating()->pluck('rating');
         $totalRatings = count($ratings);
         $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
@@ -74,10 +74,18 @@ class Userhome extends Controller
         $singlecourse = Course::where([
             ['slug','=',$slug],
             ['uid','=',$uid]
-            ])->with(['getAdmin','getPublisher','getRating'])->first();
+            ])->with(['getAdmin','getPublisher','getRating','getPrincipleTopic.videos.getSupplementary'])->first();
         $ratings = $singlecourse->getRating()->pluck('rating');
         $totalRatings = count($ratings);
         $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
+        // echo "<pre>";
+        // foreach($singlecourse->getPrincipleTopic as $key => $value){
+        //     // print_r($value->videos);
+        //     foreach($value->videos as $videoKey => $video){
+        //         print_r($video);
+        //     }
+        // }
+        // exit;
         // dd($singlecourse);
         return view('user.afrer_dashboard.course-buy',compact('singlecourse','averageRating','totalRatings'));
     }

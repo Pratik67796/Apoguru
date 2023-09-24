@@ -22,4 +22,8 @@ class PrincipalTopic extends Model
   public function getall_videos(){
     return $this->hasMany('App\LectureVideo','principal_topic_id','id')->orderBy('ordering_position','ASC');
   }
+  public function videos()
+    {
+        return $this->hasMany(LectureVideo::class);
+    }
 }

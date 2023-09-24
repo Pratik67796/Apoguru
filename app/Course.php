@@ -44,6 +44,10 @@ class Course extends Model
     return $this->belongsTo(ChildSubCategory::class);
   }
 
+  public function getPrincipleTopic(){
+    return $this->hasMany(PrincipalTopic::class);
+  }
+
   public function getAdmin(){
     return $this->hasOne(Admin::class,'id','admin_id');
   }

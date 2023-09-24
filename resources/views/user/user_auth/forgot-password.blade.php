@@ -20,7 +20,7 @@
       <div class="row">
          <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
             <div class="section__title-wrapper text-center mb-55">
-               <h2 class="section__title">Sign in</h2>
+               <h2 class="section__title">Forgot Password</h2>
                <!-- <p>it you don't have an account you can <a href="#">Register here!</a></p> -->
             </div>
          </div>
@@ -41,7 +41,7 @@
 
 
                <div class="sign__form">
-                  <form method="POST" action="{{ route('post-login') }}">
+                  <form method="POST" action="#">
                       @csrf
                      <div class="sign__input-wrapper mb-25">
                         <h5>Phone</h5>
@@ -50,26 +50,9 @@
                            <i class="fal fa-phone"></i>
                         </div>
                      </div>
-                     <div class="sign__input-wrapper mb-10">
-                        <h5>Password</h5>
-                        <div class="sign__input">
-                           <input type="text"  name="password" placeholder="Password" required>
-                           <i class="fal fa-lock"></i>
-                        </div>
-                     </div>
-                     <div class="sign__action d-sm-flex justify-content-between mb-30">
-                        <div class="sign__agree d-flex align-items-center">
-                           <input class="m-check-input" type="checkbox" id="m-agree">
-                           <label class="m-check-label" for="m-agree">Keep me signed in
-                              </label>
-                        </div>
-                        <div class="sign__forgot">
-                           <a href="{{ route('forgot-password') }}">Forgot your password?</a>
-                        </div>
-                     </div>
-                     <button class="e-btn  w-100"> <span></span> Sign In</button>
+                     <button class="e-btn  w-100"> <span></span> Submit</button>
                      <div class="sign__new text-center mt-20">
-                        <p>New to apoGuru? <a href="{{ route('signup') }}">Sign Up</a></p>
+                        <p>New to apoGuru? <a href="{{ route('login') }}">Sign In</a></p>
                      </div>
                   </form>
                </div>

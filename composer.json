@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "pragmarx/countries": "^0.8.2",
+        "twilio/sdk": "*",
         "umutphp/laravel-model-recommendation": "^0.2.3"
     },
     "require-dev": {

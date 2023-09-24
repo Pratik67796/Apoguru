@@ -30,16 +30,16 @@ apoGuru - Courses
         <!-- #END# Inline Layout -->
         <!-- Inline Layout | With Floating Label -->
         <div class="row clearfix">
-          @if (Session::has('msg'))
-              <div class="alert alert-success">
-                  {{Session::get('msg')}}
-              </div>
-          @endif
-          @if (Session::has('error'))
-              <div class="alert alert-success">
-                  {{Session::get('error')}}
-              </div>
-          @endif
+            @if (Session::has('msg'))
+            <div class="alert alert-success">
+                {{Session::get('msg')}}
+            </div>
+            @endif
+            @if (Session::has('error'))
+            <div class="alert alert-success">
+                {{Session::get('error')}}
+            </div>
+            @endif
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
@@ -72,13 +72,13 @@ apoGuru - Courses
                                         @endif
                                         @if(Auth::user()->role_as == 1)
                                         <th>Edit</th>
-                                        
+
                                         @endif
                                         @if(Auth::user()->role_as == 2)
-                                        
+
                                         @endif
 
-                                       
+
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -103,10 +103,10 @@ apoGuru - Courses
                                         @endif
                                         @if(Auth::user()->role_as == 1)
                                         <th>Edit</th>
-                                        
+
                                         @endif
                                         @if(Auth::user()->role_as == 2)
-                                        
+
                                         @endif
                                     </tr>
                                 </tfoot>
@@ -114,41 +114,55 @@ apoGuru - Courses
                                     @php($count=0)
                                     @foreach ($courses as $course)
                                     @php($count++)
-                                       <tr>
-                                           <td>{{$count}}</td>
-                                           <td>{!!$course->title!!}</td>
-                                           <td>@if($course->User)
-                                                 {{$course->User->name}}
+                                    <tr>
+                                        <td>{{$count}}</td>
+                                        <td>{!!$course->title!!}</td>
+                                        <td>@if($course->User)
+                                            {{$course->User->name}}
                                             @else
                                             Admin
                                             @endif
-                                           </td>
-                                           {{-- <td>{{$course->User->name}}</td> --}}
-                                           <td>{{$course->mainCategory->name}}</td>
-                                           <td>{{$course->parentSubCategory->name}}</td>
-                                           <td>{{$course->childSubCategory->name}}</td>
-                                           <td>{{$count}}</td>
-                                           <td>{{$count}}</td>
-                                           <td>{{$count}}</td>
-                                           <td>{{$count}}</td>
-                                           <td>GHS {{$course->actual_price}}</td>
-                                           <td>{{$count}}</td>
-                                           <td>
+                                        </td>
+                                        {{-- <td>{{$course->User->name}}</td> --}}
+                                        <td>{{$course->mainCategory->name}}</td>
+                                        <td>{{$course->parentSubCategory->name}}</td>
+                                        <td>{{$course->childSubCategory->name}}</td>
+                                        <td>{{$count}}</td>
+                                        <td>{{$count}}</td>
+                                        <td>{{$count}}</td>
+                                        <td>{{$count}}</td>
+                                        <td>GHS {{$course->actual_price}}</td>
+                                        <td>{{$count}}</td>
+                                        <td>
                                             <a href="{{route('admin.course.principal.topic.list', $course->id)}}"><i class="material-icons">question_answer</i></a>
-                                           </td>
-                                           <td><a href="#">Pending</a></td>
-                                           @if(Auth::user()->role_as == 0)
-                                           <td> <a href="{{route('admin.course.edit', $course->id)}}"><i class="material-icons">edit</i></a> </td>
-                                           <td> <a href="{{route('admin.course.delete', $course->id)}}"><i class="material-icons" onclick="return confirm(&quot;Confirm delete?&quot;)">delete</i></a> </td>
-                                           @endif
-                                           @if(Auth::user()->role_as == 1)
-                                           <td> <a href="{{route('admin.course.edit', $course->id)}}"><i class="material-icons">edit</i></a> </td>
-                                          
-                                           @endif
-                                           @if(Auth::user()->role_as == 2)
-                                           
-                                           @endif
-                                       </tr>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.course.status-management',['uid' => $course->uid]) }}">
+                                                @if($course->status == COURSE_STATUS_UNPUBLISHED)
+                                                <span class="label bg-orange" title='{{ $course->status }}'>{{ $course->status }}</span>
+                                                @elseif($course->status == COURSE_STATUS_PUBLISHED)
+                                                <span class="label bg-green" title='{{ $course->status }}'>{{ $course->status }}</span>
+                                                @elseif($course->status == COURSE_STATUS_UNDER_REVIEW)
+                                                <span class="label bg-blue" title='{{ $course->status }}'>{{ $course->status }}</span>
+                                                @elseif($course->status == COURSE_STATUS_PENDING)
+                                                <span class="label bg-light-blue" title='{{ $course->status }}'>{{ $course->status }}</span>
+                                                @elseif($course->status == COURSE_STATUS_REJECT)
+                                                <span class="label bg-red" title='{{ $course->status }}'>{{ $course->status }}</span>
+                                                @endif
+                                            </a>
+                                        </td>
+                                        @if(Auth::user()->role_as == 0)
+                                        <td> <a href="{{route('admin.course.edit', $course->id)}}"><i class="material-icons">edit</i></a> </td>
+                                        <td> <a href="{{route('admin.course.delete', $course->id)}}"><i class="material-icons" onclick="return confirm(&quot;Confirm delete?&quot;)">delete</i></a> </td>
+                                        @endif
+                                        @if(Auth::user()->role_as == 1)
+                                        <td> <a href="{{route('admin.course.edit', $course->id)}}"><i class="material-icons">edit</i></a> </td>
+
+                                        @endif
+                                        @if(Auth::user()->role_as == 2)
+
+                                        @endif
+                                    </tr>
 
                                     @endforeach
                                 </tbody>

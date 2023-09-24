@@ -143,8 +143,9 @@
                                                 <input type="file" name="image" class="form-control" required>
                                                 <label class="form-label">Choose Course Image</label>
                                             </div><br>
-                                            <img src="{{ url('course_images') }}/{{ $course->image }}" height="100"
-                                                width="100" />
+                                            {{-- <img src="{{ url('course_images') }}/{{ $course->image }}" height="100"
+                                                width="100" /> --}}
+                                                <img src="{{ asset('storage/course-images/'.$course->image) }}" width='100' height="100">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">

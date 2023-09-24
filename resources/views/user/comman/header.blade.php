@@ -30,11 +30,9 @@
         <div id="loading-center">
             <div id="loading-center-absolute">
                 <div class="loading-content">
-                    <img class="loading-logo-text" src="{{ asset('assets/images/apoGuru-logo.png') }}" alt=""
-                        width="220">
+                    <img class="loading-logo-text" src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="" width="220">
                     <div class="loading-stroke">
-                        <img class="loading-logo-icon" src="{{ asset('assets/img/logo/logo-icon.png') }}"
-                            alt="">
+                        <img class="loading-logo-icon" src="{{ asset('assets/img/logo/logo-icon.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -55,8 +53,7 @@
                         <div class="header__left d-flex">
                             <div class="logo">
                                 <a href="javascript:void(0);">
-                                    <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="logo"
-                                        width="120">
+                                    <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="logo" width="120">
                                 </a>
                             </div>
                         </div>
@@ -76,8 +73,7 @@
                                                 </circle>
                                                 <circle class="st0" cx="20" cy="21" r="1">
                                                 </circle>
-                                                <path class="st0"
-                                                    d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6">
+                                                <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6">
                                                 </path>
                                             </svg>
                                         </div>
@@ -86,7 +82,7 @@
                                 </div>
                             </div>
 
-                           @if (Auth::guard('user_new')->check())
+                            @if (Auth::guard('user_new')->check())
                             <div class="menu-item dropdown dropdown-mobile-full" style="margin-left: 40px;">
                                 <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link" aria-expanded="false" style="display: flex; flex-direction: column; align-items: center;">
                                     <div class="menu-img online">
@@ -107,30 +103,28 @@
                                     <a class="dropdown-item d-flex align-items-center" href="{{ route('learner_profile') }}">
                                         My Profile & Account <i class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i>
                                     </a>
-
+                                    <div class="dropdown-divider"></div>
+                                    <div>
+                                        <a href="{{ route('professional-dashboard') }}" class="dropdown-item d-flex align-items-center">
+                                            Go To Professional
+                                        </a>
+                                    </div>
                                     <div class="dropdown-divider"></div>
                                     <div class="header__btn ml-20 d-none d-sm-block">
-                                    <a href="{{ route('logout') }}"><i class="fad fa-user"></i>
-                                        Logout</a>
-                                </div>
+                                        <a href="{{ route('logout') }}"><i class="fad fa-user"></i>
+                                            Logout</a>
+                                    </div>
                                 </div>
                             </div>
-                           @else
-
-                            {{-- @if (Auth::guard('user_new')->check())
-                                <div class="header__btn ml-20 d-none d-sm-block">
-                                    <a href="{{ route('logout') }}" class="e-btn"><i class="fad fa-user"></i>
-                                        Logout</a>
-                                </div>
-                            @else --}}
-                                <div class="header__btn ml-20 d-none d-sm-block">
-                                    <a href="{{ route('signup') }}" class="e-btn"><i class="fad fa-user"></i> Sign
-                                        Up</a>
-                                </div>
-                                <div class="header__btn ml-20 d-none d-sm-block">
-                                    <a href="{{ route('login') }}" class="e-btn"><i class="fad fa-user"></i>
-                                        Login</a>
-                                </div>
+                            @else
+                            <div class="header__btn ml-20 d-none d-sm-block">
+                                <a href="{{ route('signup') }}" class="e-btn"><i class="fad fa-user"></i> Sign
+                                    Up</a>
+                            </div>
+                            <div class="header__btn ml-20 d-none d-sm-block">
+                                <a href="{{ route('login') }}" class="e-btn"><i class="fad fa-user"></i>
+                                    Login</a>
+                            </div>
                             @endif
                             <div class="sidebar__menu d-md-none">
                                 <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -157,8 +151,7 @@
                                 <div class="footer__widget-head mb-22">
                                     <div class="footer__logo">
                                         <a href="{{ route('index') }}">
-                                            <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt=""
-                                                width="120">
+                                            <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="" width="120">
                                         </a>
                                     </div>
                                 </div>
@@ -178,8 +171,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
                             <div class="footer__widget mb-50">
                                 <div class="footer__widget-head mb-22">
                                     <h3 class="footer__widget-title">Company</h3>
