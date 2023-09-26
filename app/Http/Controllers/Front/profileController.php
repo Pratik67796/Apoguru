@@ -191,7 +191,7 @@ class ProfileController extends Controller
       $files = $request->file('video');
 
       foreach ($files as $key => $file) {
-        $fileName = time() . '_' . $file->getClientOriginalName();
+        $fileName = time(). '-'.$key .'-'. '_' . $file->getClientOriginalName();
         $file->storeAs('public/videos', $fileName);
 
         $imageName = null;

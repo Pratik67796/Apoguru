@@ -1062,6 +1062,7 @@
                     e.preventDefault();
                     // Select the submit button
                     var button = $('#upload-videos');
+                    $('#upload-videos').attr("disabled", true);
 
                     // Disable the button to prevent multiple clicks
                     button.prop('disabled', true);
@@ -1069,6 +1070,8 @@
                     // Add a class to apply the loading CSS
                     button.addClass("loading");
                     let progressBar = document.getElementById("progress-bar");
+                    $('.progress').removeClass('d-none')
+                    //return false;
 
                     var fileInputs = document.querySelectorAll('#video-section-form input[name="video[]"]');
 
@@ -1115,6 +1118,7 @@
                             // Upload progress event
                             xhr.upload.addEventListener("progress", function (e) {
                                 if (e.lengthComputable) {
+                                    
                                     const percentComplete = (e.loaded / e.total) * 100;
                                     progressBar.style.width = percentComplete + "%";
                                     $('#progress-bar-percentage').text(`${percentComplete.toFixed(2)}%`)
@@ -1125,6 +1129,7 @@
                         },
                         success: function (response) {
                             if (response.success) {
+                                $('#upload-videos').attr("disabled", false);
                                 progressBar.style.width = "0%";
                                 $('#video-section-form')[0].reset();
                                 $('select').niceSelect('destroy');
@@ -1133,6 +1138,7 @@
                                 button.removeClass("loading");
                                 $('#progress-bar-percentage').text('')
                                 // window.location.reload
+                                $('.progress').addClass('d-none')
                                 toastr.success(response.message);
                             }
                         },

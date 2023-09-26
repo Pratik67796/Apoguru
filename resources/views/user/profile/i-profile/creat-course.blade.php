@@ -262,10 +262,14 @@
             {{-- <a id="creat_course" href="" class="btn btn-success">Submit</a> --}}
         </div>
     </form>
-    <div class="progress-container">
+    {{-- <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
+    </div> --}}
+    <div class="progress d-none">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar">
+            <div id="progress-bar-percentage"></div>
+        </div>
     </div>
-    <div id="progress-bar-percentage"></div>
 </div>
 
 <div class="container-fluid main__div mt-4">
