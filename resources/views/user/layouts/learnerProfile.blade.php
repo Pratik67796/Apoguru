@@ -392,12 +392,16 @@
                     </a>
                     <h5 class="title"> Instructor Dashboard</h5>
                     <!-- <a href="profile-home.html" class=""><i class="icofont-home"></i> Home</a> -->
-                    <a href="{{ route('instructor_profile') }}" class="active"><i class="icofont-user-alt-7"></i> My
+                    <a href="{{ route('instructor_profile') }}" class="@if(\Request::route()->getName() == 'instructor_profile' ) active @endif"><i class="icofont-user-alt-7"></i> My
                         Profile & Account</a>
-                    <a href="{{ route('create_course') }}"><i class="icofont-ruler-compass-alt"></i> Create a
-                        Course</a>
-                    <a href="{{ route('course_i_have_created') }}"><i class="icofont-ruler-compass-alt"></i>Course I
-                        have Created</a>
+                    <a href="{{ route('create_course') }}" class="@if(\Request::route()->getName() == 'create_course' ) active @endif">
+                        <i class="icofont-ruler-compass-alt"></i>
+                        Create a Course
+                    </a>
+                    <a href="{{ route('my-course') }}" class="@if(\Request::route()->getName() == 'my-course' ) active @endif">
+                        <i class="icofont-ruler-compass-alt"></i>
+                        Course I have Created
+                    </a>
                     <a href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i>Wallet</a>
                 </div>
                 <div class="main-content-wrapper in-pr-main-content-wrapper">
@@ -662,9 +666,11 @@
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/inline/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/inline/ckeditor.js"></script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<!-- Include CKEditor library -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 
     <script> 
             $(document).ready(function () {
@@ -841,28 +847,44 @@
                 // CKFinder.setupCKEditor(description);
                 // CKEDITOR.add
                 var editor;
-                InlineEditor.create( document.querySelector('#desc'),{
+                var uploadUrl = '{{ route('ckeditor.upload') }}' + '?_token={{ csrf_token() }}';
+
+                ClassicEditor.create( document.querySelector('#desc'),{
                     ckfinder: {
-                        uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
+                        uploadUrl: uploadUrl//'{{route('ckeditor.upload').'?_token='.csrf_token()}}',
                     }
                 }).then(createdEditor => {
                     editor = createdEditor; // Store the editor instance
                 }).catch( error => {
-                        console.error( error );
+                        
                 });
 
-                $('#creat_course').on('click',function(){
-                    let courseType = $('#course-type-information').val();
-                    let parentSubCategory = $('#parent-sub-category-information').val();
-                    let childSubCategroy = $('#child-subcategory-information').val();
-                    let courseName = $('#course-name-information').val()
-                    let actualSellPriceType = $('#actual-sell-price').val();
-                    let actualSellCurrent = $('#usd-price-information').val();
-                    let sellPriceTypeOption = $('#sell-price-type-option').val();
-                    let sellPriceOption = $('#sell-price-option').val();
-                    let desc = ''
+                $('#course-information-form').on('submit',function(e){
+                    e.preventDefault();
+                    // let courseType = $('#course-type-information').val();
+                    // let parentSubCategory = $('#parent-sub-category-information').val();
+                    // let childSubCategroy = $('#child-subcategory-information').val();
+                    // let courseName = $('#course-name-information').val()
+                    // let actualSellPriceType = $('#actual-sell-price').val();
+                    // let actualSellCurrent = $('#usd-price-information').val();
+                    // let sellPriceTypeOption = $('#sell-price-type-option').val();
+                    // let sellPriceOption = $('#sell-price-option').val();
+                    // let desc = ''
+                    let formData = new FormData(this);
+
+                    formData.append('image', $('#couse_image')[0].files[0]);
+                    formData.append('courseType', $('#course-type-information').val());
+                    formData.append('parentSubCategory', $('#parent-sub-category-information').val());
+                    formData.append('childSubCategroy', $('#child-subcategory-information').val());
+                    formData.append('courseName', $('#course-name-information').val());
+                    formData.append('actualSellPriceType', $('#actual-sell-price').val());
+                    formData.append('actualSellCurrent', $('#usd-price-information').val());
+                    formData.append('sellPriceTypeOption', $('#sell-price-type-option').val());
+                    formData.append('sellPriceOption', $('#sell-price-option').val());
+                    
+                    formData.append('user_id', $('#user_id').val());
                     if (editor) {
-                        desc = editor.getData();
+                        formData.append('desc', editor.getData());
                     }
                     
                     // console.log('editor',formData);
@@ -872,19 +894,9 @@
                     $.ajax({
                         url: "{{ route('save-learnere-course') }}",
                         type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            courseType: courseType,
-                            parentSubCategory: parentSubCategory,
-                            childSubCategroy: childSubCategroy,
-                            courseName: courseName,
-                            actualSellPriceType: actualSellPriceType,
-                            actualSellCurrent: actualSellCurrent,
-                            sellPriceTypeOption: sellPriceTypeOption,
-                            sellPriceOption: sellPriceOption,
-                            desc: desc,
-                            user_id: user_id
-                        },
+                        data: formData,
+                        contentType: false, // Set content type to false
+                        processData: false, // Prevent jQuery from processing the data
                         success: function (res) {
                             if (res.status === 200) {
                                 $('#creat_course').prop("disabled", false);
@@ -1050,6 +1062,7 @@
                     e.preventDefault();
                     // Select the submit button
                     var button = $('#upload-videos');
+                    $('#upload-videos').attr("disabled", true);
 
                     // Disable the button to prevent multiple clicks
                     button.prop('disabled', true);
@@ -1057,6 +1070,8 @@
                     // Add a class to apply the loading CSS
                     button.addClass("loading");
                     let progressBar = document.getElementById("progress-bar");
+                    $('.progress').removeClass('d-none')
+                    //return false;
 
                     var fileInputs = document.querySelectorAll('#video-section-form input[name="video[]"]');
 
@@ -1067,7 +1082,8 @@
                         var selectedFiles = fileInput.files;
                         // Now, you can work with the selected files for each file input
                         if (selectedFiles.length > 0 ) {
-                            var fileSizeInBytes = selectedFiles[index].size; // Size in bytes
+                            //console.log(selectedFiles[index].file);
+                            var fileSizeInBytes = selectedFiles[index]; // Size in bytes
                             var fileSizeInKilobytes = fileSizeInBytes / 1024; // Convert bytes to kilobytes (KB)
                             var fileSizeInMegabytes = fileSizeInKilobytes / 1024; // Convert kilobytes to megabytes (MB)
                             totalFileSizeInBytes += fileSizeInMegabytes;
@@ -1102,6 +1118,7 @@
                             // Upload progress event
                             xhr.upload.addEventListener("progress", function (e) {
                                 if (e.lengthComputable) {
+                                    
                                     const percentComplete = (e.loaded / e.total) * 100;
                                     progressBar.style.width = percentComplete + "%";
                                     $('#progress-bar-percentage').text(`${percentComplete.toFixed(2)}%`)
@@ -1112,6 +1129,7 @@
                         },
                         success: function (response) {
                             if (response.success) {
+                                $('#upload-videos').attr("disabled", false);
                                 progressBar.style.width = "0%";
                                 $('#video-section-form')[0].reset();
                                 $('select').niceSelect('destroy');
@@ -1120,6 +1138,7 @@
                                 button.removeClass("loading");
                                 $('#progress-bar-percentage').text('')
                                 // window.location.reload
+                                $('.progress').addClass('d-none')
                                 toastr.success(response.message);
                             }
                         },
@@ -1247,8 +1266,195 @@
                         })
                     }
                 });
-                
+                $('.publish').on('click',function(){
+                    let getPublishCourse = $('#publish-course').val();
+                    var selectElement = $('#publish-course');
+                    if(getPublishCourse === ''){
+                        toastr.error("Please your course.");
+                        return;
+                    }
+                    $.ajax({
+                        url:"{{ route('request-to-publish') }}",
+                        type:"POST",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            courser:getPublishCourse
+                        },
+                        success:function(res){
+                            if(res.status === 200){
+                                toastr.success(res.message);
+                                setTimeout(() => {
+                                    window.location.reload();
+                                },2000)
+                            }
+                            if(res.status === 201){
+                                toastr.error(res.message);
+                                $('#course-modal').modal('hide');
+                            }
+                        }
+                    });
+                });
+                $("body").on("change", ".add-supplementary-file", function (e) {
+                    e.preventDefault();
+                    let form = $(this).closest('form'); // Get the parent form of the changed file input
+                    console.log(form);
+                    
+                        console.log("hello");
+                        let formData = new FormData(form[0]); // Use form[0] to access the actual DOM element
+                        // Append the lecture_id from the same form
+                        formData.append('lecture_id', form.find('#lecture_id').val());
+
+                        $.ajax({
+                            url: "{{ route('add-supplementary-file') }}",
+                            type: "POST",
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function (res) {
+                                console.log(res);
+                            }
+                        });
+                    
+                });
+                $('#supplementary-form').on('submit',function(e){
+                    e.preventDefault();
+                    let formData = new FormData(this);
+
+                    formData.append('supplementary_file', $('#supplementary_file')[0].files[0]);
+                    formData.append('video_id', $('#video_id').val());
+                    $.ajax({
+                        url:"{{ route('add-supplementary-file') }}",
+                        type:"POST",
+                        data: formData,
+                        contentType: false, // Set content type to false
+                        processData: false,
+                        success:function(res){
+                            if(res.status === 200){
+                                toastr.success(res.message);
+                                $('#supplementary-form')[0].reset();
+                                $('#lecture_video_supplementary_modal').modal('hide');
+
+                            }
+                        }
+                    })
+                });
+                var question;
+                var answer_one;
+                var answer_two;
+                var answer_three;
+                var answer_four;
+                //var uploadUrl = '{{ route('ckeditor.upload') }}' + '?_token={{ csrf_token() }}';
+
+                ClassicEditor.create( document.querySelector('.question'),{
+                    ckfinder: {
+                        uploadUrl: uploadUrl
+                    }
+                }).then(createdEditor => {
+                    question = createdEditor; // Store the editor instance
+                }).catch( error => {
+                        
+                });
+
+                ClassicEditor.create( document.querySelector('.answer-1'),{
+                    ckfinder: {
+                        uploadUrl: uploadUrl
+                    }
+                }).then(createdEditor => {
+                    answer_one = createdEditor; // Store the editor instance
+                }).catch( error => {
+                        
+                });
+                ClassicEditor.create( document.querySelector('.answer-2'),{
+                    ckfinder: {
+                        uploadUrl: uploadUrl
+                    }
+                }).then(createdEditor => {
+                    answer_two = createdEditor; // Store the editor instance
+                }).catch( error => {
+                        
+                });
+                ClassicEditor.create( document.querySelector('.answer-3'),{
+                    ckfinder: {
+                        uploadUrl: uploadUrl
+                    }
+                }).then(createdEditor => {
+                    answer_three = createdEditor; // Store the editor instance
+                }).catch( error => {
+                        
+                });
+                ClassicEditor.create( document.querySelector('.answer-4'),{
+                    ckfinder: {
+                        uploadUrl: uploadUrl
+                    }
+                }).then(createdEditor => {
+                    answer_four = createdEditor; // Store the editor instance
+                }).catch( error => {
+                        
+                });
+
+                $('#question-answer-form').on('submit',function(e){
+                    e.preventDefault();
+                    const questionContent = question.getData();
+                    const answer1Content = answer_one.getData();
+                    const answer2Content = answer_two.getData();
+                    const answer3Content = answer_three.getData();
+                    const answer4Content = answer_four.getData();
+                    const correctAnswer = $('input[name="correct_answer"]:checked').val();;
+                    const user_id = $('#user_id').val()
+                    $.ajax({
+                        url:"{{ route('add-question-answer') }}",
+                        type:"POST",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            video_id: $('#video_id').val(),
+                            question: questionContent,
+                            answer1: answer1Content,
+                            answer2: answer2Content,
+                            answer3: answer3Content,
+                            answer4: answer4Content,
+                            user_id:user_id,
+                            correct_answer:correctAnswer
+                        },success:function(res){
+                            if(res.status === 200){
+                                toastr.success(res.message);
+                                $('#question-answer-form')[0].reset();
+                                $('#question-answer-modal').modal('hide');
+                                question.setData('')
+                                answer_one.setData('')
+                                answer_two.setData('')
+                                answer_three.setData('')
+                                answer_four.setData('')
+                            }
+                        },
+                        error:function(error){
+                            var errors = error.responseJSON.errors;
+                            if(errors.answer1){
+                                toastr.error(errors.answer1[0]);
+                            }
+                            if(errors.answer2){
+                                toastr.error(errors.answer2[0]);
+                            }
+                            if(errors.correct_answer){
+                                toastr.error(errors.correct_answer[0]);
+                            }
+                            if(errors.question){
+                                toastr.error(errors.question[0]);
+                            }
+                        }
+                    })
+                })
             });
+            function openSupplementModal(id){
+                $("#lecture_video_supplementary_modal").modal("show");
+                $('#video_id').val(id)
+            }
+            function openQuestionModal(id){
+                $("#question-answer-modal").modal("show");
+                $('#video_id').val(id)
+
+                
+            }
+            
     </script>
 </body>
 

@@ -19,6 +19,7 @@ class CourseController extends Controller
   public function getCourses()
   {
     $courses = \App\Course::all();
+    // dd($courses);
     return view('admin.courses.index', compact('courses'));
   }
 
@@ -49,10 +50,15 @@ class CourseController extends Controller
   public function storeCourse(Request $request)
   {
     // dd($request->all());
-    $path = base_path() . '/course_images';
-    $file = $request->file('image');
-    $mainImageName = time() . $file->getClientOriginalName();
-    $file->move(public_path('course_images'), $mainImageName);
+    // $path = base_path() . '/course_images';
+    // $file = $request->file('image');
+    // $mainImageName = time() . $file->getClientOriginalName();
+    // $file->move(public_path('course_images'), $mainImageName);
+
+    if ($request->hasFile('image')) {
+      $mainImageName = time() . '_' . $request->file('image')->getClientOriginalName();
+      $request->file('image')->storeAs('public/course-images', $mainImageName);
+    }
     $userDetails = Auth::user();
     // dd($userDetails);
     $course = \App\Course::create([
@@ -101,10 +107,15 @@ class CourseController extends Controller
     $course = \App\Course::find($course_id);
     if ($course) {
 
-      $path = base_path() . '/course_images';
-      $file = $request->file('image');
-      $mainImageName = time() . $file->getClientOriginalName();
-      $file->move(public_path('course_images'), $mainImageName);
+      // $path = base_path() . '/course_images';
+      // $file = $request->file('image');
+      // $mainImageName = time() . $file->getClientOriginalName();
+      // $file->move(public_path('course_images'), $mainImageName);
+
+      if ($request->hasFile('image')) {
+        $mainImageName = time() . '_' . $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/course-images', $mainImageName);
+      }
       $userDetails = Auth::user();
       $course->main_category_id = $request->main_category_id;
       $course->parent_sub_category_id = $request->parent_sub_category_id;
@@ -312,5 +323,25 @@ class CourseController extends Controller
     } else {
       return redirect()->back()->with('error', 'Video not found, please try again');
     }
+  }
+
+  public function courseStatusMangement($uid){
+    \App\Course::where('uid','=',$uid)->update(['status' => COURSE_STATUS_UNDER_REVIEW]);
+    $course = \App\Course::with([
+        'mainCategory',
+        'parentSubCategory',
+        'childSubCategory',
+        'getPrincipleTopic.videos'
+      ])
+      ->where('uid','=',$uid)->first();
+      // $courses = \App\Course::with('getPrincipleTopic.videos')->get();
+      // dd($courses);
+      // dd($course);
+    return view('admin.courses.course-details', compact('course'));
+  }
+
+  public function courseStatusUpdate(Request $request){
+    \App\Course::where('id','=',$request->id)->update(['status' => $request->status]);
+    return response()->json(['message' => 'Status has been updated successfully']);
   }
 }

@@ -315,12 +315,16 @@
                         <a href="{{route('admin.reminders')}}">
                             <i class="material-icons">update</i>
                             <span>Today's Reminder</span>
+                            <div style='display: flex; align-items: center;'>
+                                <i class="material-icons" style="color:red;">notifications</i>
+                                <span class="unpublished-notification" style="margin:0px; color:red;"></span>
+                            </div>
                         </a>
                     </li>
                     @if(Auth::user()->role_as == 0)
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                             <i class="material-icons">pie_chart</i>
+                            <i class="material-icons">pie_chart</i>
                             <span>column Graph</span>
                         </a>
                         <ul class="ml-menu">
@@ -354,289 +358,289 @@
                         <ul class="ml-menu">
                             {{-- <li>
                                 <a href="{{route('admin.graph.linechart')}}">
-                                    <span>Line Chart all</span>
-                                </a>
-                            </li> --}}
-                            <li>
-                                <a href="{{route('admin.par.course')}}">
-                                    <span>subscriptions per course</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.par.main')}}">
-                                    <span> subscriptions per main categories</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.par.parent')}}">
-                                    <span>subscriptions per parent sub categories</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.par.child')}}">
-                                    <span>subscriptions per child sub categories</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                            <span>Line Chart all</span>
+                            </a>
+                    </li> --}}
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Pie Graph</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.graph.all_user')}}">
-                                    <span>User Per Country</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.graph.paichart')}}">
-                                    <span>verify vs Unverified user</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.graph.paichart.graph')}}">
-                                    <span>Course Per main Category</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.graph.parent')}}">
-                                    <span>Course Per Parent Category</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href ="{{route('admin.graph.child')}}">
-                                    <span>Course per child Category</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @endif
-                    <li>
-                        <a href="{{route('admin.category.main.create')}}">
-                            <i class="material-icons">home</i>
-                            <span>Main Categories</span>
+                        <a href="{{route('admin.par.course')}}">
+                            <span>subscriptions per course</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.category.parent.sub.create')}}">
-                            <i class="material-icons">home</i>
-                            <span>Parent Sub Categories</span>
+                        <a href="{{route('admin.par.main')}}">
+                            <span> subscriptions per main categories</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.category.child.sub.create')}}">
-                            <i class="material-icons">home</i>
-                            <span>Child Sub Categories</span>
+                        <a href="{{route('admin.par.parent')}}">
+                            <span>subscriptions per parent sub categories</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.question.type.create')}}">
-                            <i class="material-icons">assignment</i>
-                            <span>Question Types</span>
+                        <a href="{{route('admin.par.child')}}">
+                            <span>subscriptions per child sub categories</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{route('admin.topic.create')}}">
-                            <i class="material-icons">home</i>
-                            <span>Topics</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>Past Question</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.past.question.create')}}">
-                                    <span>Add New Past Question</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.past.question.list')}}">
-                                    <span>Past Question List</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.past.question.flag')}}">
-                                    <span>Flagged Questions</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">pie_chart</i>
+                        <span>Pie Graph</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.graph.all_user')}}">
+                                <span>User Per Country</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.graph.paichart')}}">
+                                <span>verify vs Unverified user</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.graph.paichart.graph')}}">
+                                <span>Course Per main Category</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.graph.parent')}}">
+                                <span>Course Per Parent Category</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.graph.child')}}">
+                                <span>Course per child Category</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
+                <li>
+                    <a href="{{route('admin.category.main.create')}}">
+                        <i class="material-icons">home</i>
+                        <span>Main Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin.category.parent.sub.create')}}">
+                        <i class="material-icons">home</i>
+                        <span>Parent Sub Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin.category.child.sub.create')}}">
+                        <i class="material-icons">home</i>
+                        <span>Child Sub Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin.question.type.create')}}">
+                        <i class="material-icons">assignment</i>
+                        <span>Question Types</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin.topic.create')}}">
+                        <i class="material-icons">home</i>
+                        <span>Topics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Past Question</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.past.question.create')}}">
+                                <span>Add New Past Question</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.past.question.list')}}">
+                                <span>Past Question List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.past.question.flag')}}">
+                                <span>Flagged Questions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>Courses</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.course.create')}}">
-                                    <span>Add New Course</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.course.list')}}">
-                                    <span>Course List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Courses</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.course.create')}}">
+                                <span>Add New Course</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.course.list')}}">
+                                <span>Course List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>Users</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.user.create')}}">
-                                    <span>Add New User</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.user.list')}}">
-                                    <span>All Users</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.instructors.list')}}">
-                                    <span>Instructors</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.active.subscription')}}">
-                                    <span>Active subscribers</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>User Notes</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.user.createnotes')}}">
-                                    <span>Add Notes</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.user.notes.list')}}">
-                                    <span> Notes List</span>
-                                </a>
-                            </li>
-                           
-                        </ul>
-                       
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>User Reminders</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.user.createreminder')}}">
-                                    <span>Add Reminder</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.user.reminderlist')}}">
-                                    <span> Reminder List</span>
-                                </a>
-                            </li>
-                           
-                        </ul>
-                       
-                    </li>
-                    @if(Auth::user()->role_as == 0)
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>Admins</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.sub.admin.create')}}">
-                                    <span>Add New Admin</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.sab.admin.list')}}">
-                                    <span>Admin List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @endif
-                    @if(Auth::user()->role_as == 0)
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>Payout & Subscriptions</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.subscription.list')}}">
-                                    <span> Subscriptions </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.payout.list')}}">
-                                    <span> Payouts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.cancle_subscription')}}">
-                                    <span>Cancelled Subscription</span>
-                                </a>
-                            </li>
-                            {{-- <li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.user.create')}}">
+                                <span>Add New User</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.user.list')}}">
+                                <span>All Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.instructors.list')}}">
+                                <span>Instructors</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.active.subscription')}}">
+                                <span>Active subscribers</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>User Notes</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.user.createnotes')}}">
+                                <span>Add Notes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.user.notes.list')}}">
+                                <span> Notes List</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>User Reminders</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.user.createreminder')}}">
+                                <span>Add Reminder</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.user.reminderlist')}}">
+                                <span> Reminder List</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+                @if(Auth::user()->role_as == 0)
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Admins</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.sub.admin.create')}}">
+                                <span>Add New Admin</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.sab.admin.list')}}">
+                                <span>Admin List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
+                @if(Auth::user()->role_as == 0)
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Payout & Subscriptions</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.subscription.list')}}">
+                                <span> Subscriptions </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.payout.list')}}">
+                                <span> Payouts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.cancle_subscription')}}">
+                                <span>Cancelled Subscription</span>
+                            </a>
+                        </li>
+                        {{-- <li>
                                 <a href="{{route('admin.search')}}">
-                                    <span>Search Payouts</span>
-                                </a>
-                            </li> --}}
-                        </ul>
-                       
-                    </li>
-                    @endif
-
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">home</i>
-                            <span>Social Environment</span>
+                        <span>Search Payouts</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="{{route('admin.chat')}}">
-                                    <span>Chat</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.hint')}}">
-                                    <span>Hint</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.answer')}}">
-                                    <span>Answer</span>
-                                </a>
-                            </li>
-                        </ul>                
-                    </li>
-                    <!--  <li>
+                </li> --}}
+                </ul>
+
+                </li>
+                @endif
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Social Environment</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{route('admin.chat')}}">
+                                <span>Chat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.hint')}}">
+                                <span>Hint</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.answer')}}">
+                                <span>Answer</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--  <li>
                         <a href="{{route('admin.cancle_subscription')}}">
                             <i class="material-icons">home</i>
                             <span>Cancle Subscription</span>
                         </a>
                     </li> -->
 
-                   <!--  <li>
+                <!--  <li>
                         <a href="pages/typography.html">
                             <i class="material-icons">text_fields</i>
                             <span>Typography</span>
@@ -1125,9 +1129,9 @@
         <!-- #END# Right Sidebar -->
     </section>
 
+
+
     @yield('content')
-
-
     <!-- Jquery Core Js -->
     <script src="{{ URL::asset('admin_theme/plugins/jquery/jquery.min.js')}}"></script>
 
@@ -1153,12 +1157,6 @@
     <!-- ChartJs -->
     <script src="{{ URL::asset('admin_theme/plugins/chartjs/Chart.bundle.js')}}"></script>
 
-    <!-- Flot Charts Plugin Js -->
-    <!-- <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.resize.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.pie.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.categories.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/plugins/flot-charts/jquery.flot.time.js')}}"></script> -->
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="{{ URL::asset('admin_theme/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
@@ -1166,24 +1164,37 @@
     <!-- Custom Js -->
     <script src="{{ URL::asset('admin_theme/js/admin.js')}}"></script>
     <script src="{{ URL::asset('admin_theme/js/pages/index.js')}}"></script>
-    <script src="{{ URL::asset('admin_theme/js/pages/tables/jquery-datatable.js')}}"></script>
+    {{-- <script src="{{ URL::asset('admin_theme/js/pages/tables/jquery-datatable.js')}}"></script> --}}
     <script>
-        $(document).on('ready',function(){
-             var auth = "{{Auth::user()->role_as}}";
-             if(auth == 0){
+        $(document).on('ready', function() {
+            var auth = "{{Auth::user()->role_as}}";
+            if (auth == 0) {
                 $('.dt-buttons').show();
-             }else{
+            } else {
                 $('.dt-buttons').hide();
-             }
+            }
+            getAllCourses()
         })
+
     </script>
 
     <!-- Demo Js -->
     <script src="{{ URL::asset('admin_theme/js/demo.js')}}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-        
+    <script>
+        function getAllCourses() {
+            $.ajax({
+                url: "{{ route('admin.get-all-new-courses') }}"
+                , type: "GET"
+                , success: function(res) {
+                    $('.unpublished-notification').text(`(${res.data.length})`)
+                }
+            })
+        }
+    </script>
     @yield('scripts')
+
 </body>
 
 </html>

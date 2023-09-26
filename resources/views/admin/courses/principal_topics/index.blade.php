@@ -55,7 +55,7 @@ apoGuru - Principal Topics - {{$course->title}}
                   </div>
                   <div class="body">
                       <ul class="list-group">
-                          <li class="list-group-item"><img src="{{url('course_images')}}/{{$course->image}}" width="100" height="100"/></li>
+                          <li class="list-group-item"><img src="{{url('course-images')}}/{{$course->image}}" width="100" height="100"/></li>
                           <li class="list-group-item">Name of Course: : {!! $course->title !!}</li>
                           <li class="list-group-item">Course ID : {!! $course->id !!}</li>
                           <li class="list-group-item">Date Created : {!! $course->created_at !!}</li>

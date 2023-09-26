@@ -16,4 +16,13 @@ class LectureVideo extends Model
     return $this->belongsTo(\App\PrincipalTopic::class);
   }
 
+  public function principle()
+  {
+      return $this->belongsTo(Principle::class);
+  }
+  
+  public function getSupplementary(){
+    return $this->hasMany(Supplementary_document::class,'lecture_videos_id','id');
+  }
+
 }

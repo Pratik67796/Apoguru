@@ -26,7 +26,9 @@
           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
             <div class="single-courses">
               <div class="courses-images">
-                <a href="{{ route('pro-course-buy',['slug' => $data2->slug,'uid'=>$data2->uid]) }}"><img src="{{ URL::asset('assets/images/courses/courses-02.jpg')}}" alt="Courses"></a>
+                <a href="{{ route('pro-course-buy',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">
+                  <img src="{{ asset('storage/course-images/'.$data2->image) }}" alt="Courses">
+                </a>
               </div>
               <div class="courses-content">
                 <div class="courses-author">

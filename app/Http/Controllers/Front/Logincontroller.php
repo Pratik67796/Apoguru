@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use \Illuminate\Support\Facades\Storage;
+use Twilio\Rest\Client;
 
 
 class Logincontroller extends Controller
@@ -58,6 +59,37 @@ class Logincontroller extends Controller
         $json = Storage::disk('local')->get('country.json');
         $code = json_decode($json, true);
         return view('user.user_auth.signup',compact('code'));
+    }
+    public function forgotPassword(){
+        $receiverNumber = "9586151257";
+        $message = "This is testing from ItSolutionStuff.com";
+
+
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_TOKEN");
+            $twilio_number = getenv("TWILIO_FROM");
+  
+            $twilio = new Client($account_sid, $auth_token);
+
+        try {
+            $message = $twilio->messages->create(
+                $receiverNumber,
+                [
+                    'from' => '+12513371',
+                    'body' => $message,
+                ]
+            );
+
+            return response()->json(['message' => 'Message sent successfully', 'message_id' => $message->sid]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+  
+            dd('SMS Sent Successfully.');
+  
+        
+        dd($account_sid,$auth_token);
+        return view('user.user_auth.forgot-password');
     }
     public function reg_post(Request $request){
         $this->validate($request, [

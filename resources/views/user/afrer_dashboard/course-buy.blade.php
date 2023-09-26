@@ -30,6 +30,19 @@ $rating = (int)$averageRating; // Replace with the actual rating value
     .course__form-rating ul li a.selected {
       color: #ff9415;
     }
+    figure img {
+        width: 100%;
+        max-width:500px;
+        max-height:500px;
+    }
+
+    p img {
+        width: 100%;
+        max-width:500px;
+        height:100%;
+        max-height:500px;
+    }
+
   </style>
 
   <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -323,13 +336,17 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                       <div class="course__curriculum">
                         
                           <div class="accordion" id="course__accordion">
+                            @foreach($singlecourse->getPrincipleTopic as $key => $principleTopic)
                             <div class="accordion-item mb-40">
+                                
+                              
                               <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Principal Topic
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $key }}" aria-expanded="true" aria-controls="collapseOne">
+                                  {{ $principleTopic->name }}
                                 </button>
                               </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#course__accordion">
+                              <div id="collapse-{{ $key }}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#course__accordion">
+                              @foreach($principleTopic->videos as $videoKey => $video)
                                 <div class="accordion-body">
                                   <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
                                     <div class="course__curriculum-info">
@@ -337,9 +354,10 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                                         <polygon class="st0" points="23,7 16,12 23,17 "/>
                                         <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z"/>
                                       </svg>
-                                      <h3> <span>Lecture Title: </span> Greetings and introduction</h3>
+                                      <h3> <span>Lecture Title: </span> {{ $video->name }}</h3>
                                     </div>
                                   </div>
+                                  @foreach($video->getSupplementary as $supplementaryKey => $supplementary)
                                   <div class="border-bottom">
                                     <div class="row justify-content-end">
                                       <div class="col-12 col-lg-10">
@@ -363,16 +381,20 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                                                 <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
                                                 <polyline class="st0" points="10,9 9,9 8,9 "/>
                                               </svg>
-                                              <span class="time"> Simplified Reading</span>
+                                              <span class="time">
+                                                <a href='{{ asset('storage/supplementary-files/'.$supplementary->document) }}' download>
+                                                  Simplified Reading
+                                                </a>
+                                                </span>
                                             </div>
-                                            <div class="course__curriculum-info">
+                                            {{-- <div class="course__curriculum-info">
                                               <svg viewBox="0 0 16 16">
                                                 <path class="st0" d="M2,12V8c0-3.3,2.9-6,6.4-6s6.4,2.7,6.4,6v4"/>
                                                 <path class="st0" d="M14.8,12.7c0,0.7-0.6,1.3-1.4,1.3h-0.7c-0.8,0-1.4-0.6-1.4-1.3v-2c0-0.7,0.6-1.3,1.4-1.3h2.1V12.7z M2,12.7  C2,13.4,2.6,14,3.3,14H4c0.7,0,1.3-0.6,1.3-1.3v-2c0-0.7-0.6-1.3-1.3-1.3H2V12.7z"/>
                                               </svg>
                                               <span class="time"> Audio for list</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
+                                            </div> --}}
+                                            {{-- <div class="course__curriculum-info">
                                               <svg class="document" viewBox="0 0 24 24">
                                                 <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
                                                 <polyline class="st0" points="14,2 14,8 20,8 "/>
@@ -381,194 +403,21 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                                                 <polyline class="st0" points="10,9 9,9 8,9 "/>
                                               </svg>
                                               <span class="time"> Imaged to help</span>
-                                            </div>
+                                            </div> --}}
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                    <div class="course__curriculum-info">
-                                      <svg viewBox="0 0 24 24">
-                                        <polygon class="st0" points="23,7 16,12 23,17 "/>
-                                        <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z"/>
-                                      </svg>
-                                      <h3> <span>Lecture Title: </span> Greetings and introduction</h3>
-                                    </div>
-                                  </div>
-                                  <div class="border-bottom">
-                                    <div class="row justify-content-end">
-                                      <div class="col-12 col-lg-10">
-                                        <div class="course__curriculum-content d-sm-flex justify-content-between border-0">
-                                          <div class="course__curriculum-info">
-                                            <svg class="document" viewBox="0 0 24 24">
-                                              <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                              <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                              <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                              <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                              <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                            </svg>
-                                            <h3> <span>Supplementry Materials:</span> </h3>
-                                          </div>
-                                          <div class="course__curriculum-meta">
-                                            <div class="course__curriculum-info">
-                                              <svg class="document" viewBox="0 0 24 24">
-                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                              </svg>
-                                              <span class="time"> Simplified Reading</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
-                                              <svg viewBox="0 0 16 16">
-                                                <path class="st0" d="M2,12V8c0-3.3,2.9-6,6.4-6s6.4,2.7,6.4,6v4"/>
-                                                <path class="st0" d="M14.8,12.7c0,0.7-0.6,1.3-1.4,1.3h-0.7c-0.8,0-1.4-0.6-1.4-1.3v-2c0-0.7,0.6-1.3,1.4-1.3h2.1V12.7z M2,12.7  C2,13.4,2.6,14,3.3,14H4c0.7,0,1.3-0.6,1.3-1.3v-2c0-0.7-0.6-1.3-1.3-1.3H2V12.7z"/>
-                                              </svg>
-                                              <span class="time"> Audio for list</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
-                                              <svg class="document" viewBox="0 0 24 24">
-                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                              </svg>
-                                              <span class="time"> Imaged to help</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                  @endforeach
+                                  
                                 </div>
+                                @endforeach
                               </div>
                             </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Principal Topic
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#course__accordion">
-                                <div class="accordion-body">
-                                  <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                    <div class="course__curriculum-info">
-                                      <svg viewBox="0 0 24 24">
-                                        <polygon class="st0" points="23,7 16,12 23,17 "/>
-                                        <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z"/>
-                                      </svg>
-                                      <h3> <span>Lecture Title: </span> Greetings and introduction</h3>
-                                    </div>
-                                  </div>
-                                  <div class="border-bottom">
-                                    <div class="row justify-content-end">
-                                      <div class="col-12 col-lg-10">
-                                        <div class="course__curriculum-content d-sm-flex justify-content-between border-0">
-                                          <div class="course__curriculum-info">
-                                            <svg class="document" viewBox="0 0 24 24">
-                                              <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                              <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                              <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                              <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                              <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                            </svg>
-                                            <h3> <span>Supplementry Materials:</span> </h3>
-                                          </div>
-                                          <div class="course__curriculum-meta">
-                                            <div class="course__curriculum-info">
-                                              <svg class="document" viewBox="0 0 24 24">
-                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                              </svg>
-                                              <span class="time"> Simplified Reading</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
-                                              <svg viewBox="0 0 16 16">
-                                                <path class="st0" d="M2,12V8c0-3.3,2.9-6,6.4-6s6.4,2.7,6.4,6v4"/>
-                                                <path class="st0" d="M14.8,12.7c0,0.7-0.6,1.3-1.4,1.3h-0.7c-0.8,0-1.4-0.6-1.4-1.3v-2c0-0.7,0.6-1.3,1.4-1.3h2.1V12.7z M2,12.7  C2,13.4,2.6,14,3.3,14H4c0.7,0,1.3-0.6,1.3-1.3v-2c0-0.7-0.6-1.3-1.3-1.3H2V12.7z"/>
-                                              </svg>
-                                              <span class="time"> Audio for list</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
-                                              <svg class="document" viewBox="0 0 24 24">
-                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                              </svg>
-                                              <span class="time"> Imaged to help</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                    <div class="course__curriculum-info">
-                                      <svg viewBox="0 0 24 24">
-                                        <polygon class="st0" points="23,7 16,12 23,17 "/>
-                                        <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z"/>
-                                      </svg>
-                                      <h3> <span>Lecture Title: </span> Greetings and introduction</h3>
-                                    </div>
-                                  </div>
-                                  <div class="border-bottom">
-                                    <div class="row justify-content-end">
-                                      <div class="col-12 col-lg-10">
-                                        <div class="course__curriculum-content d-sm-flex justify-content-between border-0">
-                                          <div class="course__curriculum-info">
-                                            <svg class="document" viewBox="0 0 24 24">
-                                              <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                              <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                              <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                              <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                              <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                            </svg>
-                                            <h3> <span>Supplementry Materials:</span> </h3>
-                                          </div>
-                                          <div class="course__curriculum-meta">
-                                            <div class="course__curriculum-info">
-                                              <svg class="document" viewBox="0 0 24 24">
-                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                              </svg>
-                                              <span class="time"> Simplified Reading</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
-                                              <svg viewBox="0 0 16 16">
-                                                <path class="st0" d="M2,12V8c0-3.3,2.9-6,6.4-6s6.4,2.7,6.4,6v4"/>
-                                                <path class="st0" d="M14.8,12.7c0,0.7-0.6,1.3-1.4,1.3h-0.7c-0.8,0-1.4-0.6-1.4-1.3v-2c0-0.7,0.6-1.3,1.4-1.3h2.1V12.7z M2,12.7  C2,13.4,2.6,14,3.3,14H4c0.7,0,1.3-0.6,1.3-1.3v-2c0-0.7-0.6-1.3-1.3-1.3H2V12.7z"/>
-                                              </svg>
-                                              <span class="time"> Audio for list</span>
-                                            </div>
-                                            <div class="course__curriculum-info">
-                                              <svg class="document" viewBox="0 0 24 24">
-                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z"/>
-                                                <polyline class="st0" points="14,2 14,8 20,8 "/>
-                                                <line class="st0" x1="16" y1="13" x2="8" y2="13"/>
-                                                <line class="st0" x1="16" y1="17" x2="8" y2="17"/>
-                                                <polyline class="st0" points="10,9 9,9 8,9 "/>
-                                              </svg>
-                                              <span class="time"> Imaged to help</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            @endforeach
+
+                            
                           </div>
                       </div>
                     </div>
@@ -587,7 +436,9 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                                   <div class="course__comment-wrapper ml-7 fix">
                                     <div class="course__comment-info float-start">
                                       <h4>{{ $rating->getRatingUser->name }}</h4>
+                                      @if(isset($rating->created_at))
                                       <span>{{ $rating->created_at->format('F d, Y') }}</span>
+                                      @endif
                                     </div>
                                     <div class="course__comment-rating float-start float-sm-end">
                                       <ul>

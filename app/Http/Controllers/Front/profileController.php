@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Admin;
 use App\Course;
+use App\interacticeqestions;
+use App\interactiveanswers;
 use App\LectureVideo;
 use App\MainCategory;
 use App\ParentSubCategory;
@@ -11,6 +13,7 @@ use App\ChildSubCategory;
 
 use App\Http\Controllers\Controller;
 use App\PrincipalTopic;
+use App\Supplementary_document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -60,9 +63,7 @@ class ProfileController extends Controller
     $getPrincipleTopics = PrincipalTopic::orderBy('ordering_position')->where('user_id', '=', $auth->id)->get();
     $lecture = LectureVideo::where('user_id', '=', $auth->id)->get();
     // dd($getCourses);
-    return view(
-      'user.profile.i-profile.creat-course',
-      compact(
+    return view('user.profile.i-profile.creat-course',compact(
         'main_categories',
         'auth',
         'getCourses',
@@ -94,6 +95,7 @@ class ProfileController extends Controller
 
   public function saveCourseInformation(Request $request)
   {
+    // dd($request->all());
     $request->validate([
       'courseType' => 'required',
       'parentSubCategory' => 'required',
@@ -121,8 +123,13 @@ class ProfileController extends Controller
     $saveCourse->slug = str_replace(' ', '-', strtolower($request->courseName));
     $saveCourse->user_id = $request->user_id;
     $saveCourse->description = $request->desc;
+    if ($request->hasFile('couse_image')) {
+      $fileName = time() . '_' . $request->file('couse_image')->getClientOriginalName();
+      $request->file('couse_image')->storeAs('public/course-images', $fileName);
+      $saveCourse->image = $fileName;
+    }
     $saveCourse->save();
-    return response()->json(['message' => 'Course Information saved successfully','status' => 200]);
+    return response()->json(['message' => 'Course Information saved successfully', 'status' => 200]);
   }
 
   public function savePrincipleTopic(Request $request)
@@ -154,21 +161,22 @@ class ProfileController extends Controller
   }
 
   public function upload(Request $request)
-    {
-      // dd("hello",$request->all());
-      if ($request->hasFile('upload')) {
-          $fileName = time() . '_' . $request->file('upload')->getClientOriginalName();
-          $request->file('upload')->storeAs('public/learner-course-desc', $fileName);
-          $url = Storage::url('public/learner-course-desc/' . $fileName);
-          return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => URL('/').$url]);
-      }
+  {
+    // dd("hello",$request->all());
+    if ($request->hasFile('upload')) {
+      $fileName = time() . '_' . $request->file('upload')->getClientOriginalName();
+      $request->file('upload')->storeAs('public/learner-course-desc', $fileName);
+      $url = Storage::url('public/learner-course-desc/' . $fileName);
+      return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => URL('/') . $url]);
     }
+  }
   public function videoUpload(Request $request)
   {
     // dd($request->all());
     $max = getFileSizeInBytes(ini_get('upload_max_filesize')) / 1024;
     $request->validate([
-      'video.*' => 'required|max:'.$max, // Adjust the mimetypes and max file size as needed
+      'video.*' => 'required|max:' . $max,
+      // Adjust the mimetypes and max file size as needed
       'topic_type_video' => 'required',
       'video_name.*' => 'required'
     ], [
@@ -176,14 +184,14 @@ class ProfileController extends Controller
       'video.*.max' => 'The video must not exceed the maximum size of ' . $max . ' kilobytes.',
       'topic_type_video.required' => 'The topic is required.',
       'video_name.*.required' => 'The video name is required.'
-  ]);
+    ]);
 
 
     if ($request->hasFile('video')) {
       $files = $request->file('video');
 
       foreach ($files as $key => $file) {
-        $fileName = time() . '_' . $file->getClientOriginalName();
+        $fileName = time(). '-'.$key .'-'. '_' . $file->getClientOriginalName();
         $file->storeAs('public/videos', $fileName);
 
         $imageName = null;
@@ -231,18 +239,76 @@ class ProfileController extends Controller
       $html .= '<h6><strong>Interactive Quastions :</strong> 4 </h6>';
 
       $html .= '<div class="position-relative">';
-      $html .= '<input type="file" class="position-absolute" name="" style="opacity: 0">';
-      $html .= '<a class="">Add Supplementary file</a> <br>';
+      $html .= '<label class="add-supplementary-file-label" onClick="openSupplementModal('.$item->id.')"> Add Supplementary file';
+      $html .= '</label>';
       $html .= '</div>';
 
-      $html .= '<a class="" data-bs-toggle="modal" data-bs-target="#int_que_Modal">Add Interactive Questions</a> <br>';
-      $html .= '<button type="button" data-id="'. $item->id .'" class="btn default-btn mt-3 delete-video">Delete Video</button>';
+      $html .= '<label class="add-supplementary-file-label" onClick="openQuestionModal('.$item->id.')">Add Interactive Questions</label> <br>';
+      $html .= '<button type="button" data-id="' . $item->id . '" class="btn default-btn mt-3 delete-video">Delete Video</button>';
       $html .= '</div>';
       $html .= '</div>';
       $html .= '</div>';
       $html .= '</li>';
     }
     return response()->json(['html' => $html, 'status' => 200]);
+  }
+
+  public function addSupplementaryFile(Request $request){
+    if ($request->hasFile('supplementary_file')) {
+      $saveSupplementary = new Supplementary_document();
+      $fileName = time() . '_' . $request->file('supplementary_file')->getClientOriginalName();
+      $request->file('supplementary_file')->storeAs('public/supplementary-files', $fileName);
+      $saveSupplementary->lecture_videos_id = $request->video_id;
+      $saveSupplementary->document = $fileName;
+      $saveSupplementary->save();
+      return response()->json(['message' => "File has been uploaded", 'status' => 200]);
+    }
+  } 
+
+  public function addQuestionAnswer(Request $request){
+    $request->validate([
+      'question' => 'required',
+      'correct_answer' => 'required',
+      'answer1' => 'required',
+      'answer2' => 'required',
+    ], [
+      'question.required' => 'The Question is required.',
+      'correct_answer.required' => 'The Correct Answer is required.',
+      'answer1.required' => 'The First Answer is required.',
+      'answer2.required' => 'The Second Answer is required.',
+    ]);
+    $question = $request->question;
+    $video = $request->video_id;
+    $correct_answer = $request->correct_answer;
+
+    $questionSave = new interacticeqestions();
+    $questionSave->lecture_videos_id = $video;
+    $questionSave->interactive_qestion = $question;
+    $questionSave->user_id = $request->user_id;
+    $questionSave->save();
+    unset($request['_token']);
+    unset($request['video_id']);
+    unset($request['question']);
+    unset($request['correct_answer']);
+    unset($request['user_id']);
+    $correctAnswerKey = 'answer' . $correct_answer;
+    // dd($request->all());
+    foreach ($request->all() as $key => $value) {   
+      $saveAnswer = new interactiveanswers();
+      $saveAnswer->user_id = $questionSave->user_id;
+      $saveAnswer->lecture_videos_id = $video;
+      $saveAnswer->interactive_qestion_id = $questionSave->id;
+
+      if ($key === $correctAnswerKey) {
+        $saveAnswer->correct_answer = $correct_answer; // Set as correct answer
+      } else {
+        $saveAnswer->correct_answer = 0; // Not the correct answer
+      }
+      $saveAnswer->interactive_answer = $value;
+      $saveAnswer->save();
+    }
+    
+    return response()->json(['message' => "Question and Answer has been saved successfully.", 'status' => 200]);
   }
 
   public function videoDelete(Request $request)
@@ -267,9 +333,18 @@ class ProfileController extends Controller
     return response()->json(['message' => 'Positions updated successfully']);
   }
 
-
-  public function getSubChildCategory(Request $request)
+  public function requestToPublishCourse(Request $request)
   {
+    $findStatus = Course::find($request->courser);
+    if ($findStatus->status == 'Unpublished' || $findStatus->status == 'Published') {
+      return response()->json(['status' => 201, 'message' => 'Sorry, The request for this course to publish is already sent. Please wait for verification.']);
+    }
+    Course::where('id', '=', $request->courser)->update(['status' => 'Unpublished']);
+    return response()->json(['status' => 200, 'message' => 'The request to publish this course has been send successfully.']);
+  }
+
+
+  public function getSubChildCategory(Request $request) {
     $getSchoolParent = ChildSubCategory::where([
       ['main_category_id', '=', $request->main_category_id],
       ['parent_sub_category_id', '=', $request->parent_sub_category_id]
@@ -282,7 +357,21 @@ class ProfileController extends Controller
 
   public function course_i_have_created()
   {
-    return view('user.profile.i-profile.created-course');
+    $auth = Auth::guard('user_new')->user();
+    if (!isset($auth->id)) {
+      return redirect()->route('login')->withErrors(["Please Login!"]);
+    }
+    $courses = \App\Course::with([
+      'mainCategory',
+      'parentSubCategory',
+      'childSubCategory',
+      'getPrincipleTopic.videos',
+      'User',
+      'getRating'
+    ])
+    ->where('user_id','=',$auth->id)->get();
+    // dd($courses);
+    return view('user.profile.i-profile.my-course',compact('courses'));
   }
 
   public function instructor_profile()

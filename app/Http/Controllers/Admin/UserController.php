@@ -266,8 +266,24 @@ class UserController extends Controller
 
     // TODAYS record for reminders
     public function todayreminder(){
+      // dd("hello");
       $users = User::all();
       $reminder=  Reminder::where("date",date('Y-m-d'))->get();
-      return view('admin.users.reminders.Daily_reminder',compact('reminder','users')); 
+      $getAllCourses = Course::with(['User','mainCategory','parentSubCategory'])
+        ->where([
+          ['status','=','Unpublished'],
+          ['first_seen','=',false]
+        ])
+        ->get();
+      // dd($getAllCourses);
+      return view('admin.users.reminders.Daily_reminder',compact('reminder','users','getAllCourses')); 
+    }
+
+    public function getAllNewCourses(){
+      $getAllCourse = Course::where([
+        ['status','=','Unpublished'],
+        ['first_seen','=',false]
+      ])->get();
+      return response()->json(['data'=>$getAllCourse,'message' => 'Course Information saved successfully', 'status' => 200]);
     }
 }
