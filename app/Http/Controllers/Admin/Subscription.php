@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TrancationHistory;
 use Illuminate\Http\Request;
 use App\User;
 use App\Usernotes;
@@ -16,7 +17,12 @@ class Subscription extends Controller
         return view('admin.subscription & payout.subscription');
     }
     public function payout(){
-        return view('admin.subscription & payout.payout');
+        $trancationHistories = TrancationHistory::with('getCourse')->get();
+        // foreach($trancationHistories as $key => $trancationHistory){
+        //     echo $trancationHistory->getCourse->User->name;
+        // }
+        // dd($trancationHistories);
+        return view('admin.subscription & payout.payout',compact('trancationHistories'));
     }
     public function Instructors(){
         return view('admin.subscription & payout.instructors');

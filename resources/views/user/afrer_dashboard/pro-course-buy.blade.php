@@ -37,11 +37,24 @@ $formattedNumber; // Output: 2.33
     <div class="container">
       <div class="float-buttons" style="">
         <div class="d-flex align-items-center justify-content-start flex-wrap">
-          <a href="" class="btn btn-primary btn-hover-dark text-center me-3 mb-2"><i class="fas fa-sack-dollar me-1"></i> Pay</a>
+          @if(isset(Auth::guard('user_new')->user()->id))
+          <a href="#" class="btn btn-primary btn-hover-dark text-center me-3 mb-2" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal"><i class="fas fa-sack-dollar me-1"></i> Pay</a>
+          <form method='post' action='{{ route('now-payment') }}'>
+            @csrf
+            <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+            <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+            <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+            <button type="submit" class="btn btn-primary btn-hover-dark text-center me-3 mb-2">
+              <svg class="me-1" role="img" fill="#fff" width="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Crypto</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>  Crypto Pay
+            </button>
+          </form>
+          @else
+          <a href="{{ route('login') }}" class="btn btn-primary btn-hover-dark text-center me-3 mb-2"><i class="fas fa-sack-dollar me-1"></i> Pay</a>
           
-          <a href="" class="btn btn-primary btn-hover-dark text-center me-3 mb-2">
-            <svg class="me-1" role="img" fill="#fff" width="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>  Binance Pay
+          <a href="{{ route('login') }}" class="btn btn-primary btn-hover-dark text-center me-3 mb-2">
+            <svg class="me-1" role="img" fill="#fff" width="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Crypto</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>  Crypto Pay
           </a>
+          @endif
           <a href="" class="btn btn-primary btn-hover-dark text-center me-3 mb-2"><i class="fas fa-sack-dollar me-1"></i> Pay For Me</a>
           <a href="" class="btn btn-primary btn-hover-dark text-center mb-2">
             <i class="fas fa-shopping-cart me-1"></i> Add to Cart</a>
@@ -57,6 +70,12 @@ $formattedNumber; // Output: 2.33
     </div>
     <div class="section section-padding mt-n10">
       <div class="container">
+      @if(session('message'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ session('message') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      @endif
         <div class="row gx-10">
           <div class="col-lg-8">
             <div class="courses-details">
@@ -362,15 +381,31 @@ $formattedNumber; // Output: 2.33
                     <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                   </ul>
                 </div>
+                 @if(isset(Auth::guard('user_new')->user()->id))
                 <div class="info-btn">
-                  <a href="#" class="btn btn-primary btn-hover-dark"><i class="fas fa-sack-dollar me-1"></i> Pay </a>
+                  <a href="#" class="btn btn-primary btn-hover-dark" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal"><i class="fas fa-sack-dollar me-1"></i> Pay </a>
                 </div>
                 <div class="info-btn">
-                  <a href="#" class="btn btn-primary btn-hover-dark">
-                    <svg class="me-1" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Binance Pay 
+                <form method='post' action='{{ route('now-payment') }}'>
+                  @csrf
+                  <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+                  <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+                  <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+                  <button type="submit" class="btn btn-primary btn-hover-dark">
+                    <svg class="me-1" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Crypto</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Crypto Pay 
+                  </button>
+                </form>
+                  </div>
+                @else
+                <div class="info-btn">
+                  <a href="{{ route('login') }}" class="btn btn-primary btn-hover-dark"><i class="fas fa-sack-dollar me-1"></i> Pay </a>
+                </div>
+                <div class="info-btn">
+                  <a href="{{ route('login') }}" class="btn btn-primary btn-hover-dark">
+                    <svg class="me-1" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Crypto</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Crypto Pay 
                   </a>
                   </div>
-
+                @endif
                   <div class="info-btn">
                     <a href="#" class="btn btn-primary btn-hover-dark"><i class="fas fa-sack-dollar me-1"></i> Pay for me</a>
                   </div>
@@ -393,7 +428,47 @@ $formattedNumber; // Output: 2.33
     </div>
     
   </div>
+{{-- Flutter Wave Modal Start Here --}}
+<!-- Button trigger modal -->
 
+
+<!-- Modal -->
+<div class="modal fade" id="flutter-wave-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PAY WITH FLUTTER WAVE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post" action="{{ route('pay-with-flutterwave') }}">
+      <div class="modal-body">
+          @csrf
+          <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+          <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+          <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+          <input type="email" name="email" class="form-control mt-2" placeholder="Email">
+          @error('email')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+          <input type="text" name="name" class="form-control mt-2" placeholder="Name">
+          @error('name')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+          <input type="number" name="phone" class="form-control mt-2" placeholder="Phone Number">
+          @error('phone')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" name="submit" class="btn btn-primary" value="submit">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{-- Flutter Wave Modal End Here --}}
 @endsection
 @section('script')
     <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>

@@ -247,7 +247,7 @@
           <!-- <a href="profile-home.html"><i class="icofont-home"></i> Home</a> -->
           <a href="{{ route('instructor_profile') }}"><i class="icofont-user-alt-7"></i> My Profile & Account</a>
           <a href="{{ route('create_course') }}"><i class="icofont-ruler-compass-alt"></i> Create a Course</a>
-          <a href="{{ route('course_i_have_created') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
+          <a href="{{ route('my-course') }}"><i class="icofont-ruler-compass-alt"></i>Course I have Created</a>
 
           <a class="active" href="{{ route('wallet') }}"><i class="fas fa-sack-dollar"></i> Wallet</a>
         </div>
@@ -396,36 +396,30 @@
                       <th>#</th>
                       <th>Transaction Id</th>
                       <th>Course Name</th>
-                      <th>Location</th>
+                      <th>Status</th>
                       <th>Amount</th>
-                      <th>Date</th>
+                      <th>Date (Y-m-d Hr:Min:Sec)</th>
                     </tr>
                   </thead>
                   <tbody>
+                  @foreach($trancationHistories as $key => $trancationHistory)
+                    
+                  
                     <tr>
-                      <td>1</td>
-                      <td>010101</td>
-                      <td>Data Science and Machine Learning</td>
-                      <td>Debited</td>
-                      <td>$ 120</td>
-                      <td>10/10/2023</td>
+                      <td>{{ $key + 1 }}</td>
+                      <td>
+                        @if($trancationHistory->payment_mode == 'flutterwave')
+                          {{ $trancationHistory->flutter_id }}
+                        @elseif($trancationHistory->payment_mode == 'crypto')
+                        {{ $trancationHistory->payment_id }}
+                        @endif
+                      </td>
+                      <td>{{ $trancationHistory->getCourse->title }}</td>
+                      <td>{{ $trancationHistory->status }}</td>
+                      <td>$ {{ $trancationHistory->amount }}</td>
+                      <td>{{ $trancationHistory->created_at->format('Y-m-d H:i:s') }}</td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>020101</td>
-                      <td>Digital Learning Online</td>
-                      <td>Credited</td>
-                      <td>$ 100</td>
-                      <td>12/10/2023</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>030101</td>
-                      <td>Learn what you Love</td>
-                      <td>Credited</td>
-                      <td>$ 500</td>
-                      <td>13/10/2023</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
                 
