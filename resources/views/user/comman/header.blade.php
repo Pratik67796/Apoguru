@@ -52,7 +52,7 @@
                     <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
                         <div class="header__left d-flex">
                             <div class="logo">
-                                <a href="javascript:void(0);">
+                                <a href="{{ url('/') }}">
                                     <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="logo" width="120">
                                 </a>
                             </div>
@@ -260,9 +260,16 @@
     <script src="{{ asset('assets/js/school-js/backToTop.js') }}"></script>
     <script src="{{ asset('assets/js/school-js/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('assets/js/school-js/ajax-form.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/school-js/wow.min.js')}}"></script> --}}
+    <script src="{{ asset('assets/js/school-js/wow.min.js')}}"></script>
     <script src="{{ asset('assets/js/school-js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/school-js/main.js') }}"></script>
+
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+
     @yield('script')
 </body>
 

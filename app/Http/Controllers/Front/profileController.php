@@ -8,6 +8,7 @@ use App\interacticeqestions;
 use App\interactiveanswers;
 use App\LectureVideo;
 use App\MainCategory;
+use App\Models\TrancationHistory;
 use App\ParentSubCategory;
 use App\ChildSubCategory;
 
@@ -381,14 +382,17 @@ class ProfileController extends Controller
     $codes = json_decode($json, true);
     if (!isset($auth->id)) {
       return redirect()->route('login')->withErrors(["Please Login!"]);
-      ;
     }
-    // dd($countries);
     return view('user.profile.i-profile.my-profile', compact('auth', 'codes'));
   }
 
   public function wallet()
   {
-    return view('user.profile.i-profile.wallet');
+    $auth = Auth::guard('user_new')->user();
+    if (!isset($auth->id)) {
+      return redirect()->route('login')->withErrors(["Please Login!"]);
+    }
+    $trancationHistories = TrancationHistory::with('getCourse')->where('user_id','=',$auth->id)->get();
+    return view('user.profile.i-profile.wallet',compact('trancationHistories'));
   }
 }

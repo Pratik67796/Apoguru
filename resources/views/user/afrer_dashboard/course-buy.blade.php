@@ -88,10 +88,25 @@ $rating = (int)$averageRating; // Replace with the actual rating value
     <div class="container">
       <div class="pay-float-buttons float-buttons">
         <div class="d-flex align-items-center justify-content-start flex-wrap">
+          @if(isset(Auth::guard('user_new')->user()->id))
+          <a href="#" class="e-btn e-btn-7 text-center me-3 mb-20 pay-btn" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal">
+            <i class="fas fa-sack-dollar me-2"></i> Pay
+          </a>
+          <form method='post' action='{{ route('now-payment') }}'>
+            @csrf
+            <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+            <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+            <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+            <button type='submit' class="e-btn e-btn-7 text-center me-3 mb-20" style="padding: 1.6rem; display: flex; justify-content: center; align-items: center;">
+              <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Crypto</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Crypto Pay
+            </button>
+          </form>
+          @else
           <a href="" class="e-btn e-btn-7 text-center me-3 mb-20 pay-btn"><i class="fas fa-sack-dollar me-2"></i> Pay</a>
           <a href="" class="e-btn e-btn-7 text-center me-3 mb-20">
-            <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Binance Pay
+            <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Crypto</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg> Crypto Pay
           </a>
+          @endif
           <a href="" class="e-btn e-btn-7 text-center me-3 mb-20"><i class="fas fa-sack-dollar me-2"></i> Pay For Me</a>
           <a href="" class="e-btn e-btn-7 text-center mb-20"><i class="fas fa-shopping-cart me-2"></i> Add to Cart</a>
         </div>
@@ -231,6 +246,13 @@ $rating = (int)$averageRating; // Replace with the actual rating value
         <img class="page-title-shape-7" src="{{asset('assets/img/page-title/page-title-shape-4.png')}}" alt="">
       </div>
       <div class="container">
+      @if(session('message'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ session('message') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      @endif
+
         <div class="row">
           <div class="col-xxl-8 col-xl-8 col-lg-8">
             <div class="course__wrapper">
@@ -264,7 +286,8 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                   </div>
                 </div>
                 <div class="course__img w-img mb-30 position-relative">
-                  <img src="{{asset('course_images/'.$singlecourse->image )}}" alt="">
+                
+                  <img src="{{ asset('storage/course-images/'.$singlecourse->image )}}" alt="">
                   <div class="position-absolute" style="top: 1rem;left: 1rem;z-index: 2">
                     <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart fa-lg"></i></a>
                   </div>
@@ -633,7 +656,7 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                           <div class="course__item course__item-3 swiper-slide white-bg mb-30 fix">
                             <div class="course__thumb w-img p-relative fix">
                               <a href="{{ route('course-details',['slug'=>$courses->getCourse->slug,'uid'=>$courses->getCourse->uid]) }}">
-                                <img src="{{asset('course_images/'.$courses->getCourse->image )}}" alt="">
+                                <img src="{{ asset('storage/course-images/'.$courses->getCourse->image )}}" alt="">
                               </a>
                               <div class="course__tag">
                                 <a href="javascript:void(0)">BESTSELLER</a>
@@ -697,7 +720,8 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                 <div class="course__sidebar-widget-2 white-bg mb-20">
                   <div class="course__video">
                     <div class="course__video-thumb w-img mb-25">
-                      <img src="{{asset('course_images/').'/'.$singlecourse['image']}}" alt="">
+                    
+                      <img src="{{ asset('storage/course-images/'.$singlecourse->image )}}" alt="">
                       <div class="course__video-play"> 
                         <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"  data-bs-toggle="modal" data-bs-target="#course_vdo_Modal"> <i class="fas fa-play"></i> </a>
                       </div>
@@ -771,15 +795,45 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                         </li>
                       </ul>
                     </div>
+                    @if(isset(Auth::guard('user_new')->user()->id))
                     <div class="course__enroll-btn">
-                      <a href="{{ route('signup') }}" class="e-btn e-btn-7 w-100"><i class="fas fa-sack-dollar me-2"></i> Pay</a>
+                      <button type='button' id="flutter-user-form" class="e-btn e-btn-7 w-100" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal">
+                        <i class="fas fa-sack-dollar me-2"></i>
+                        Pay
+                      </button>
                     </div>
                     <div class="course__enroll-btn mt-20">
-                      <a href="{{ route('signup') }}" class="e-btn e-btn-7 w-100">
-                      <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Binance</title><path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>Binance Pay
-                    </a>
+                    <form method='post' action='{{ route('now-payment') }}'>
+                    @csrf
+                    <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+                    <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+                    <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+                      <button type='submit' class="e-btn e-btn-7 w-100">
+                      <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>Crypto</title>
+                      <path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>
+                      Crypto Pay
+                    </button>
+                    </form>
 
                     </div>
+                    @else
+                    <div class="course__enroll-btn">
+                      <a href="{{ route('login') }}" id="flutter-user-form" class="e-btn e-btn-7 w-100">
+                        <i class="fas fa-sack-dollar me-2"></i>
+                        Pay
+                      </a>
+                    </div>
+                    <div class="course__enroll-btn mt-20">
+                      <a href="{{ route('login') }}" class="e-btn e-btn-7 w-100">
+                      <svg class="me-2" role="img" fill="#fff" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>Crypto</title>
+                      <path d="M16.624 13.9202l2.7175 2.7154-7.353 7.353-7.353-7.352 2.7175-2.7164 4.6355 4.6595 4.6356-4.6595zm4.6366-4.6366L24 12l-2.7154 2.7164L18.5682 12l2.6924-2.7164zm-9.272.001l2.7163 2.6914-2.7164 2.7174v-.001L9.2721 12l2.7164-2.7154zm-9.2722-.001L5.4088 12l-2.6914 2.6924L0 12l2.7164-2.7164zM11.9885.0115l7.353 7.329-2.7174 2.7154-4.6356-4.6356-4.6355 4.6595-2.7174-2.7154 7.353-7.353z"/></svg>
+                      Crypto Pay
+                    </a>
+                    </div>
+                    @endif
+
                     <div class="course__enroll-btn mt-20">
                       <a href="{{ route('signup') }}" class="e-btn e-btn-7 w-100"><i class="fas fa-sack-dollar me-2"></i> Pay for me</a>
                     </div>
@@ -814,7 +868,47 @@ $rating = (int)$averageRating; // Replace with the actual rating value
     </main>
 
 
+{{-- Flutter Wave Modal Start Here --}}
+<!-- Button trigger modal -->
 
+
+<!-- Modal -->
+<div class="modal fade" id="flutter-wave-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PAY WITH FLUTTER WAVE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post" action="{{ route('pay-with-flutterwave') }}">
+      <div class="modal-body">
+          @csrf
+          <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+          <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+          <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+          <input type="email" name="email" class="form-control mt-2" placeholder="Email">
+          @error('email')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+          <input type="text" name="name" class="form-control mt-2" placeholder="Name">
+          @error('name')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+          <input type="number" name="phone" class="form-control mt-2" placeholder="Phone Number">
+          @error('phone')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" name="submit" class="btn btn-primary" value="submit">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{-- Flutter Wave Modal End Here --}}
 @endsection
 @section('script')
     <script src="{{ asset('assets/js/school-js/vendor/jquery-3.5.1.min.js')}}"></script>
@@ -834,6 +928,13 @@ $rating = (int)$averageRating; // Replace with the actual rating value
     <script src="{{ asset('assets/js/school-js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('assets/js/school-js/main.js')}}"></script>
 
+      @if ($errors->any())
+      <script>
+          $(document).ready(function() {
+              $('#flutter-wave-modal').modal('show');
+          });
+      </script>
+    @endif
     <script type="">
       $(document).ready(function(){
         $(".extra-buttons .wishlist-heart").click(function(){

@@ -54,11 +54,11 @@ apoGuru - Payout
                                     <tr>
                                         <th>ID</th>
                                         <th>Instructor</th>
-                                        <th>Payout Date</th>
+                                        <th>Payout Date (Y-m-d Hr:Min:Sec)</th>
                                         <th>Transaction Ref No.</th>
                                         <th>Payout Amount</th>
                                         <th>Course</th>
-                                        <th>Commission</th>
+                                        <th>Status</th>
                                         
                                     </tr>
                                 </thead>
@@ -66,15 +66,37 @@ apoGuru - Payout
                                     <tr>
                                         <th>ID</th>
                                         <th>Instructor</th>
-                                        <th>Payout Date</th>
+                                        <th>Payout Date (Y-m-d Hr:Min:Sec)</th>
                                         <th>Transaction Ref No.</th>
                                         <th>Payout Amount</th>
                                         <th>Course</th>
-                                        <th>Commission</th>
+                                        <th>Status</th>
                                      
                                     </tr>
                                 </tfoot>
                                 <tbody>
+                                @foreach($trancationHistories as $key => $trancationHistory)
+                                <tr>
+                                <td>{{ $key + 1 }}</td>
+                                @if(isset($trancationHistory->getCourse->User->name))
+                                <td>{{ $trancationHistory->getCourse->User->name }}</td>
+                                @endif
+                                @if(isset($trancationHistory->getCourse->getAdmin->name))
+                                <td>{{ $trancationHistory->getCourse->getAdmin->name }}</td>
+                                @endif
+                                <td>{{ $trancationHistory->created_at->format('Y-m-d H:i:s') }}</td>
+                                <td>
+                                    @if($trancationHistory->payment_mode == 'flutterwave')
+                                    {{ $trancationHistory->flutter_id }}
+                                    @elseif($trancationHistory->payment_mode == 'crypto')
+                                    {{ $trancationHistory->payment_id }}
+                                    @endif
+                                </td>
+                                <td>$ {{ $trancationHistory->amount }}</td>
+                                <td>{{ $trancationHistory->getCourse->title }}</td>
+                                <td>{{ $trancationHistory->status }}</td>
+                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

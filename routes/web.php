@@ -237,7 +237,9 @@ Route::get('/login', 'Front\Logincontroller@login')->name('login');
 Route::post('post-login', 'Front\Logincontroller@postLogin')->name('post-login');
 Route::get('/logout', 'Front\Logincontroller@postLogout')->name('logout');
 Route::get('/forgot-password', 'Front\Logincontroller@forgotPassword')->name('forgot-password');
-
+Route::post('/now-payment','PaymentController@nowPayment')->name('now-payment');
+Route::post('pay-with-flutterwave','PaymentController@initialize')->name('pay-with-flutterwave');
+Route::get('callback','PaymentController@callback')->name('callback');
 
 
 

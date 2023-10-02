@@ -53,9 +53,12 @@
         margin-bottom: 20px;
     }
     .nice-select-scrollable .list {
-    max-height: 200px; /* Adjust the value as needed */
-    overflow-y: auto;
-}
+        max-height: 200px; /* Adjust the value as needed */
+        overflow-y: auto;
+    }
+    .payment{
+        cursor: pointer;
+    }
 
 </style>
 
@@ -318,6 +321,16 @@
                             @endforeach
                         </select>
                     </div>
+                    {{-- <div class="col-12 mt-4">
+                        <label for='now-payment' class="payment">Now Payment</label>
+                        <input type="radio" name="payment_mode" value="now-payment" id="now-payment" class="payment" onChange="paymentMode()">
+                        <label for="flutter-wave" class="payment">Flutter Wave</label>
+                        <input type="radio" name="payment_mode" value="flutter-wave" id="flutter-wave" class="payment" onChange="paymentMode()">
+                    </div>
+                    <div class="now-payment-block">
+                        <select>
+                        </select>
+                    </div> --}}
                 </div>
             </div>
             <div class="modal-footer">
