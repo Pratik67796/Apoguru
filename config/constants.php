@@ -1,3 +1,4 @@
+
 <?php
 defined('COURSE_STATUS_PUBLISHED') or define('COURSE_STATUS_PUBLISHED', 'Published');
 defined('COURSE_STATUS_UNPUBLISHED') or define('COURSE_STATUS_UNPUBLISHED', 'Unpublished');

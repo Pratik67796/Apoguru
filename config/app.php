@@ -177,6 +177,7 @@ return [
         // Yajra\DataTables\DataTablesServiceProvider::class,
         Umutphp\LaravelModelRecommendation\ModelRecommendationServiceProvider::class,
 
+       KingFlamez\Rave\RaveServiceProvider::class,
     ],
 
     /*
@@ -229,7 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-
+	'Rave' => KingFlamez\Rave\Facades\Rave::class,
     ],
 
 ];
