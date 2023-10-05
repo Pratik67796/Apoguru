@@ -51,7 +51,7 @@
                   <form action="{{route('reg')}}" method="POST">
                      {{ csrf_field() }}
                      <div class="sign__input-wrapper mb-25">
-                        <h5>Full Name</h5>
+                        <h5>First Name</h5>
                         <div class="sign__input">
                            <input type="text" placeholder="First name" name="name" required>
                            <i class="fal fa-user"></i>
@@ -104,7 +104,7 @@
                      </div> -->
                      <div class="sign__action d-flex justify-content-between mb-30">
                         <div class="sign__agree d-flex align-items-center">
-                           <input class="m-check-input" type="checkbox" id="m-agree">
+                           <input class="m-check-input" type="checkbox" id="m-agree" required>
                            <label class="m-check-label" for="m-agree">I agree to the <a href="#">Terms & Conditions</a>
                               </label>
                         </div>
