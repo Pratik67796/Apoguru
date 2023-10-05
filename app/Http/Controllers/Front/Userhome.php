@@ -49,7 +49,7 @@ class Userhome extends Controller
     }
 
     public function course(Request $request,$id){
-        $course = Course::where('child_sub_category_id',$id)->with('childSubCategory','parentSubCategory','User')->get();
+        $course = Course::where('child_sub_category_id',$id)->with('mainCategory','childSubCategory','parentSubCategory','User')->get();
         // dd($course);
     	return view('user.afrer_dashboard.course',compact('course'));
     }
