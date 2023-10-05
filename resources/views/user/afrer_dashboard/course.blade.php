@@ -19,7 +19,7 @@
               //$route = '';
               if($val->mainCategory->name == 'Professional'){
                 $route = 'pro-course-buy';
-              }elseif($val->mainCategory->name == 'school'){
+              }elseif($val->mainCategory->name == 'School'){
                 $route = 'course-details';
               }
             @endphp
