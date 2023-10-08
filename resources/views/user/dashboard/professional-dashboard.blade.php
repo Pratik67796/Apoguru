@@ -146,7 +146,7 @@
                                 <div class="dropdown-divider"></div>
                                   <div class="header__btn ml-20 d-none d-sm-block">
                                     <a href="{{ route('school-dashboard') }}" class="dropdown-item d-flex align-items-center">
-                                        Go To School
+                                        Go To Apoguru School
                                     </a>
                                 </div>
 
@@ -160,13 +160,17 @@
                             </div>
                         </div>
                         @else
+                        <div class="d-flex">
                         <div class="header__btn ml-20 d-none d-sm-block">
-                            <a href="{{ route('signup') }}" class="e-btn"><i class="fad fa-user"></i> Sign
-                                Up</a>
+                            <a href="{{ route('signup') }}" class="e-btn">
+                                <i class="fad fa-user"></i>
+                                Sign Up
+                            </a>
                         </div>
-                        <div class="header__btn ml-20 d-none d-sm-block">
+                        <div class="header__btn ml-20 d-none d-sm-block" style="margin-left:14px;">
                             <a href="{{ route('login') }}" class="e-btn"><i class="fad fa-user"></i>
                                 Login</a>
+                        </div>
                         </div>
                         @endif
 

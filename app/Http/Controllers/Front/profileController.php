@@ -18,6 +18,8 @@ use App\Supplementary_document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use FFMpeg\FFMpeg;
+use FFMpeg\Coordinate\TimeCode;
 
 class ProfileController extends Controller
 {
@@ -64,7 +66,9 @@ class ProfileController extends Controller
     $getPrincipleTopics = PrincipalTopic::orderBy('ordering_position')->where('user_id', '=', $auth->id)->get();
     $lecture = LectureVideo::where('user_id', '=', $auth->id)->get();
     // dd($getCourses);
-    return view('user.profile.i-profile.creat-course',compact(
+    return view(
+      'user.profile.i-profile.creat-course',
+      compact(
         'main_categories',
         'auth',
         'getCourses',
@@ -192,23 +196,31 @@ class ProfileController extends Controller
       $files = $request->file('video');
 
       foreach ($files as $key => $file) {
-        $fileName = time(). '-'.$key .'-'. '_' . $file->getClientOriginalName();
+        $fileName = time() . '-' . $key . '-' . '_' . $file->getClientOriginalName();
         $file->storeAs('public/videos', $fileName);
-
-        $imageName = null;
-        if ($request->hasFile('course_thumbnail')) {
-          $image = $request->file('course_thumbnail');
-          $imageName = time() . '_' . $image->getClientOriginalName();
-          $image->storeAs('public/videos', $imageName);
-        }
 
         $lecture = new LectureVideo();
         $lecture->principal_topic_id = $request->topic_type_video;
         $lecture->name = $request->video_name[$key];
-        $lecture->thumbnail = $imageName;
+        $lecture->thumbnail = null;
         $lecture->video = $fileName;
         $lecture->user_id = $request->video_user_id;
         $lecture->save();
+
+        $getID3 = new \getID3();
+
+        // Get the full path to the video file
+        $filePath = Storage::disk('public')->path("videos/" . $lecture->video);
+        $fileInfo = $getID3->analyze($filePath);
+
+        // Get the duration in seconds (if available)
+        if (isset($fileInfo['playtime_seconds'])) {
+          $durationInSeconds = $fileInfo['playtime_seconds'];
+        } else {
+          $durationInSeconds = null;
+        }
+        $duration = $this->formatVideoDuration($durationInSeconds);
+        LectureVideo::where('id', '=', $lecture->id)->update(['duration' => $duration]);
       }
 
       return response()->json(['success' => true, 'message' => 'Lecture video upload successfully']);
@@ -216,19 +228,38 @@ class ProfileController extends Controller
 
     return response()->json(['success' => false, 'message' => 'No files uploaded']);
   }
+
+  public function formatVideoDuration($durationInSeconds)
+  {
+    $hours = floor($durationInSeconds / 3600);
+    $minutes = floor(($durationInSeconds % 3600) / 60);
+    $seconds = $durationInSeconds % 60;
+
+    $formattedDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+
+    return $formattedDuration;
+  }
   public function getLectureVideo(Request $request)
   {
-    $items = LectureVideo::orderBy('ordering_position')
+    $items = LectureVideo::with('principalTopic.getCourse')->orderBy('ordering_position')
       ->where('principal_topic_id', '=', $request->principal_topic_id)
       ->get();
-
+    // dd($items);
     $html = '';
+    // echo "<pre>";
     foreach ($items as $item) {
+      // print_r();
+      $videoUrl = asset('storage/videos/' . $item->video);
+      // public/course-images
+      $thumNail = asset('storage/course-images/' . $item->principalTopic->course->image);
+
+
+
       $html .= '<li class="list-group-item-video draggable-item" draggable="true" data-id="' . $item->id . '" style="margin-top: 10px; margin-bottom: 40px;">';
       $html .= '<div class="row justify-content-between mb-3">';
       $html .= '<div class="col-12 col-md-12 mb-5 mb-lg-0 col-xl-5 col-lg-5">';
-      $html .= '<video class="" id="video-frame" poster="' . asset('storage/videos/' . $item->thumbnail) . '" width="100%" height="" controls>';
-      $html .= '<source src="' . asset('storage/videos/' . $item->video) . '" type="">';
+      $html .= '<video class="" id="video-frame" poster="' . $thumNail . '" width="100%" height="" controls>';
+      $html .= '<source src="' . $videoUrl . '" type="">';
       $html .= '</video>';
       $html .= '</div>';
 
@@ -236,15 +267,16 @@ class ProfileController extends Controller
 
       $html .= '<div class="">';
       $html .= '<h6><strong>Video Title :</strong> ' . $item->name . '</h6>';
-      $html .= '<h6><strong>Video Duration :</strong> <span id="duration"></span></h6>';
+      $html .= '<h6><strong>Video Duration :</strong> <span id="duration">' . $item->duration . '</span></h6>';
       $html .= '<h6><strong>Interactive Quastions :</strong> 4 </h6>';
 
       $html .= '<div class="position-relative">';
-      $html .= '<label class="add-supplementary-file-label" onClick="openSupplementModal('.$item->id.')"> Add Supplementary file';
+      $html .= '<label class="add-supplementary-file-label" onClick="openSupplementModal(' . $item->id . ')"> Add Supplementary file';
       $html .= '</label>';
       $html .= '</div>';
 
-      $html .= '<label class="add-supplementary-file-label" onClick="openQuestionModal('.$item->id.')">Add Interactive Questions</label> <br>';
+      // $html .= '<label class="add-supplementary-file-label" onClick="openQuestionModal('.$item->id.')" data-video-url="' . $videoUrl . '">Add Interactive Questions</label> <br>';
+      $html .= '<label class="add-supplementary-file-label add-qus-ans" data-id="' . $item->id . '" data-thumb-nail="' . $thumNail . '" data-video-url="' . $videoUrl . '">Add Interactive Questions</label> <br>';
       $html .= '<button type="button" data-id="' . $item->id . '" class="btn default-btn mt-3 delete-video">Delete Video</button>';
       $html .= '</div>';
       $html .= '</div>';
@@ -254,7 +286,8 @@ class ProfileController extends Controller
     return response()->json(['html' => $html, 'status' => 200]);
   }
 
-  public function addSupplementaryFile(Request $request){
+  public function addSupplementaryFile(Request $request)
+  {
     if ($request->hasFile('supplementary_file')) {
       $saveSupplementary = new Supplementary_document();
       $fileName = time() . '_' . $request->file('supplementary_file')->getClientOriginalName();
@@ -264,52 +297,95 @@ class ProfileController extends Controller
       $saveSupplementary->save();
       return response()->json(['message' => "File has been uploaded", 'status' => 200]);
     }
-  } 
+  }
 
-  public function addQuestionAnswer(Request $request){
+  public function indexToWord($index)
+  {
+    $words = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"];
+
+    // Subtract 1 from the index to match the array
+    return $words[$index - 1] ?? "";
+  }
+  public function addQuestionAnswer(Request $request)
+  {
+    $customMessages = [];
+
+    // Custom message for 'question'
+    $customMessages['question.required'] = 'The Question is required.';
+
+    // Custom message for 'correct_answer'
+    $customMessages['correct_answer.required'] = 'The Correct Answer is required.';
+
+    $answers = $request->answers;
+
+    foreach ($answers as $key => $answer) {
+      $wordIndex = $this->indexToWord($key + 1); // Convert numeric index to word
+      $customMessages["answers.$key.required"] = "$wordIndex Answer is required.";
+    }
+
     $request->validate([
       'question' => 'required',
       'correct_answer' => 'required',
-      'answer1' => 'required',
-      'answer2' => 'required',
-    ], [
-      'question.required' => 'The Question is required.',
-      'correct_answer.required' => 'The Correct Answer is required.',
-      'answer1.required' => 'The First Answer is required.',
-      'answer2.required' => 'The Second Answer is required.',
-    ]);
-    $question = $request->question;
-    $video = $request->video_id;
-    $correct_answer = $request->correct_answer;
+      'answers.*' => 'required',
+    ], $customMessages);
 
     $questionSave = new interacticeqestions();
-    $questionSave->lecture_videos_id = $video;
-    $questionSave->interactive_qestion = $question;
+    $questionSave->lecture_videos_id = $request->video_id;
+    $questionSave->interactive_qestion = $request->question;
     $questionSave->user_id = $request->user_id;
+    $questionSave->display_time = $request->display_time;
     $questionSave->save();
-    unset($request['_token']);
-    unset($request['video_id']);
-    unset($request['question']);
-    unset($request['correct_answer']);
-    unset($request['user_id']);
-    $correctAnswerKey = 'answer' . $correct_answer;
-    // dd($request->all());
-    foreach ($request->all() as $key => $value) {   
-      $saveAnswer = new interactiveanswers();
-      $saveAnswer->user_id = $questionSave->user_id;
-      $saveAnswer->lecture_videos_id = $video;
-      $saveAnswer->interactive_qestion_id = $questionSave->id;
+    foreach ($request->answers as $key => $answer) {
 
-      if ($key === $correctAnswerKey) {
-        $saveAnswer->correct_answer = $correct_answer; // Set as correct answer
+      if (($key + 1) == $request->correct_answer) {
+        $correct_answer = $request->correct_answer;
       } else {
-        $saveAnswer->correct_answer = 0; // Not the correct answer
+        $correct_answer = 0;
       }
-      $saveAnswer->interactive_answer = $value;
+      $saveAnswer = new interactiveanswers();
+      $saveAnswer->user_id = $request->user_id;
+      $saveAnswer->lecture_videos_id = $request->video_id;
+      $saveAnswer->interactive_qestion_id = $questionSave->id;
+      $saveAnswer->correct_answer = $correct_answer;
+      $saveAnswer->interactive_answer = $answer;
       $saveAnswer->save();
     }
-    
     return response()->json(['message' => "Question and Answer has been saved successfully.", 'status' => 200]);
+  }
+
+  public function getQuestionAnswer(Request $request){
+    $getQuestionAnswers = interacticeqestions::with('getAnswer')->where('lecture_videos_id','=',$request->video_id)->get();
+    // dd($getQuestionAnswers);
+    $html = '';
+    foreach($getQuestionAnswers as $key => $questionAnswer){
+      $html .= '<h2 class="accordion-header" id="flush-headingOne">';
+      $html .= '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-'.$key.'" aria-expanded="false" aria-controls="flush-collapseOne">';
+      $html .= 'Q-'.($key+1).'. '.$questionAnswer->interactive_qestion;
+      $html .= '</button>';
+      $html .= '</h2>';
+      $html .= '<div id="flush-collapseOne-'.$key.'" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">';
+      $html .= '<div class="accordion-body">';
+
+      $html .= '<div class="row">';
+      $html .= '<div class="col-6">';
+      $html .= '<div class="form-group">';
+      $html .= '<label for="s_time">Display Time</label>';
+      $html .= '<input id="e_time" class="form-control" type="text" value="'.$questionAnswer->display_time.'" name="ookk" disabled="">';
+      $html .= '</div>';
+      $html .= '</div>';
+      $html .= '</div>';
+      foreach($questionAnswer->getAnswer as $answer){
+        $html .= '<div class="form-group cust-label">';
+        $correctAnswer = $answer->correct_answer != 0 || $answer->correct_answer != null ? 'checked' : '';
+        $html .= '<input id="first" type="radio" name="ookk" '.$correctAnswer.'>';
+        $html .= '<label for="first">'.$answer->interactive_answer.'</label>';
+        $html .= '</div>';
+      }
+      $html .= '</div>';
+      $html .= '</div>';
+    }
+    // echo $html;
+    return response()->json(['html' => $html, 'status' => 200]);
   }
 
   public function videoDelete(Request $request)
@@ -345,7 +421,8 @@ class ProfileController extends Controller
   }
 
 
-  public function getSubChildCategory(Request $request) {
+  public function getSubChildCategory(Request $request)
+  {
     $getSchoolParent = ChildSubCategory::where([
       ['main_category_id', '=', $request->main_category_id],
       ['parent_sub_category_id', '=', $request->parent_sub_category_id]
@@ -370,9 +447,9 @@ class ProfileController extends Controller
       'User',
       'getRating'
     ])
-    ->where('user_id','=',$auth->id)->get();
+      ->where('user_id', '=', $auth->id)->get();
     // dd($courses);
-    return view('user.profile.i-profile.my-course',compact('courses'));
+    return view('user.profile.i-profile.my-course', compact('courses'));
   }
 
   public function instructor_profile()
@@ -392,7 +469,7 @@ class ProfileController extends Controller
     if (!isset($auth->id)) {
       return redirect()->route('login')->withErrors(["Please Login!"]);
     }
-    $trancationHistories = TrancationHistory::with('getCourse')->where('user_id','=',$auth->id)->get();
-    return view('user.profile.i-profile.wallet',compact('trancationHistories'));
+    $trancationHistories = TrancationHistory::with('getCourse')->where('user_id', '=', $auth->id)->get();
+    return view('user.profile.i-profile.wallet', compact('trancationHistories'));
   }
 }

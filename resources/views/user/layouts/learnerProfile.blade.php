@@ -233,11 +233,11 @@
             margin-left: 20px;
             /* Add spacing between the indicator and item name */
         }
+
     </style>
 </head>
 <!-- Modal -->
-<div class="modal fade" id="logout_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="logout_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -257,8 +257,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="ins_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="ins_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -269,94 +268,93 @@
             </div>
             <div class="modal-body">
                 @if (isset($auth))
-                    <div class="">
-                        <div class="d-flex flex-column align-items-center justify-content-center mb-5">
+                <div class="">
+                    <div class="d-flex flex-column align-items-center justify-content-center mb-5">
 
-                            <img class="img-fluid mb-3" src="{{ asset('storage/users/' . $auth->avatar) }}"
-                                style="border-radius: 20%; width:150px; height:150px;">
-                            <div>
-                                <h4 class="mb-3">{{ $auth->name }} {{ ' ' }} {{ $auth->last_name }}</h4>
+                        <img class="img-fluid mb-3" src="{{ asset('storage/users/' . $auth->avatar) }}" style="border-radius: 20%; width:150px; height:150px;">
+                        <div>
+                            <h4 class="mb-3">{{ $auth->name }} {{ ' ' }} {{ $auth->last_name }}</h4>
+                        </div>
+
+                    </div>
+
+                    <form class="profile-form ins-details">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Email: </h6>
+                                    <h5>{{ $auth->email }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Phone: </h6>
+                                    <h5>{{ $auth->country_code }}{{ ' ' }}{{ $auth->phone }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Country: </h6>
+                                    <h5>{{ $auth->country }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Qualification: </h6>
+                                    <h5>{{ $auth->qualification }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Profession / Workplace:</h6>
+                                    <h5>{{ $auth->workplace }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Teaching / Mentorship Experience:</h6>
+                                    <h5>{{ $auth->teaching_experience }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">About me:</h6>
+                                    <h5>{{ $auth->summary }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Document submit list:</h6>
+                                    @foreach ($auth->getdocument as $key => $document)
+                                    <h5>{{ $document->document_name }}</h5>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <h6 class="mb-1">Social media list:</h6>
+                                    @if (isset($auth->Facebook) && $auth->Facebook != null)
+                                    <h5><a href="{{ $auth->Facebook }}" target="_blank">Facebook</a></h5>
+                                    @endif
+                                    @if (isset($auth->Instagram) && $auth->Instagram != null)
+                                    <h5><a href="{{ $auth->Instagram }}" target="_blank">Instagram</a></h5>
+                                    @endif
+                                    @if (isset($auth->LinkedIn) && $auth->LinkedIn != null)
+                                    <h5><a href="{{ $auth->LinkedIn }}" target="_blank">LinkedIn</a></h5>
+                                    @endif
+                                    @if (isset($auth->Twitter) && $auth->Twitter != null)
+                                    <h5><a href="{{ $auth->Twitter }}" target="_blank">Twitter</a></h5>
+                                    @endif
+                                    @if (isset($auth->YouTube) && $auth->YouTube != null)
+                                    <h5><a href="{{ $auth->YouTube }}" target="_blank">YouTube</a></h5>
+                                    @endif
+                                </div>
                             </div>
 
                         </div>
 
-                        <form class="profile-form ins-details">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Email: </h6>
-                                        <h5>{{ $auth->email }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Phone: </h6>
-                                        <h5>{{ $auth->country_code }}{{ ' ' }}{{ $auth->phone }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Country: </h6>
-                                        <h5>{{ $auth->country }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Qualification: </h6>
-                                        <h5>{{ $auth->qualification }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Profession / Workplace:</h6>
-                                        <h5>{{ $auth->workplace }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Teaching / Mentorship Experience:</h6>
-                                        <h5>{{ $auth->teaching_experience }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">About me:</h6>
-                                        <h5>{{ $auth->summary }}</h5>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Document submit list:</h6>
-                                        @foreach ($auth->getdocument as $key => $document)
-                                            <h5>{{ $document->document_name }}</h5>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <h6 class="mb-1">Social media list:</h6>
-                                        @if (isset($auth->Facebook) && $auth->Facebook != null)
-                                            <h5><a href="{{ $auth->Facebook }}" target="_blank">Facebook</a></h5>
-                                        @endif
-                                        @if (isset($auth->Instagram) && $auth->Instagram != null)
-                                            <h5><a href="{{ $auth->Instagram }}" target="_blank">Instagram</a></h5>
-                                        @endif
-                                        @if (isset($auth->LinkedIn) && $auth->LinkedIn != null)
-                                            <h5><a href="{{ $auth->LinkedIn }}" target="_blank">LinkedIn</a></h5>
-                                        @endif
-                                        @if (isset($auth->Twitter) && $auth->Twitter != null)
-                                            <h5><a href="{{ $auth->Twitter }}" target="_blank">Twitter</a></h5>
-                                        @endif
-                                        @if (isset($auth->YouTube) && $auth->YouTube != null)
-                                            <h5><a href="{{ $auth->YouTube }}" target="_blank">YouTube</a></h5>
-                                        @endif
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </form>
-                    </div>
+                    </form>
+                </div>
                 @endif
             </div>
             <div class="modal-footer justify-content-center">
@@ -371,24 +369,17 @@
         <div class="section overflow-hidden position-relative" id="wrapper">
             <div class="sidebar-wrapper in-pro-sidewraper">
                 <div class="menu-list">
-                    <a class="active" href=""><img src="{{ asset('assets/images/menu-icon/icon-1.png') }}"
-                            alt="Icon"></a>
-                    <a href="messages.html"><img src="{{ asset('assets/images/menu-icon/icon-2.png') }}"
-                            alt="Icon"></a>
-                    <a href="overview.html"><img src="{{ asset('assets/images/menu-icon/icon-3.png') }}"
-                            alt="Icon"></a>
-                    <a href="engagement.html"><img src="{{ asset('assets/images/menu-icon/icon-4.png') }}"
-                            alt="Icon"></a>
-                    <a href="traffic-conversion.html"><img src="{{ asset('assets/images/menu-icon/icon-5.png') }}"
-                            alt="Icon"></a>
+                    <a class="active" href=""><img src="{{ asset('assets/images/menu-icon/icon-1.png') }}" alt="Icon"></a>
+                    <a href="messages.html"><img src="{{ asset('assets/images/menu-icon/icon-2.png') }}" alt="Icon"></a>
+                    <a href="overview.html"><img src="{{ asset('assets/images/menu-icon/icon-3.png') }}" alt="Icon"></a>
+                    <a href="engagement.html"><img src="{{ asset('assets/images/menu-icon/icon-4.png') }}" alt="Icon"></a>
+                    <a href="traffic-conversion.html"><img src="{{ asset('assets/images/menu-icon/icon-5.png') }}" alt="Icon"></a>
                 </div>
             </div>
             <div class="page-content-wrapper py-0">
                 <div class="nav flex-column admin-tab-menu in-pro-admin-tab-menu">
-                    <a class="action author" href="{{ route('index') }}"
-                        style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
-                        <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="Author"
-                            style="width:120px;">
+                    <a class="action author" href="{{ route('index') }}" style="height: 58px;text-align: center;background: none;border:none;padding-left: 0;padding-right: 0;">
+                        <img src="{{ asset('assets/images/apoGuru-logo.png') }}" alt="Author" style="width:120px;">
                     </a>
                     <h5 class="title"> Instructor Dashboard</h5>
                     <!-- <a href="profile-home.html" class=""><i class="icofont-home"></i> Home</a> -->
@@ -408,17 +399,13 @@
                     <div class="pro-header mb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-chevron-circle-right mob-menu-opener me-3 d-md-none"
-                                    style="font-size: 18px;"></i>
+                                <i class="fas fa-chevron-circle-right mob-menu-opener me-3 d-md-none" style="font-size: 18px;"></i>
                                 <h5 class="mb-0">Home</h5>
-                                <ul class="list-inline text-center switch-toggler-list icon-switch"
-                                    title="Learner Dashboard">
+                                <ul class="list-inline text-center switch-toggler-list icon-switch" title="Learner Dashboard">
                                     <li>
                                         <a href="{{ route('learner_profile') }}">
                                             <label class="switch on">
-                                                <span class="slider round"><img
-                                                        src="{{ asset('assets/images/icon-instructor-switch.png') }}"
-                                                        width="40"></span>
+                                                <span class="slider round"><img src="{{ asset('assets/images/icon-instructor-switch.png') }}" width="40"></span>
                                             </label>
                                         </a>
                                     </li>
@@ -433,8 +420,7 @@
                                     <div class="dropdown-menu dropdown-notification">
                                         <ul class="notification-items-list">
                                             <li class="notification-item">
-                                                <span class="notify-icon bg-success text-white"><i
-                                                        class="icofont-ui-user"></i></span>
+                                                <span class="notify-icon bg-success text-white"><i class="icofont-ui-user"></i></span>
                                                 <div class="dropdown-body">
                                                     <a href="#">
                                                         <p>
@@ -446,8 +432,7 @@
                                                 <span class="notify-time">3:20 am</span>
                                             </li>
                                             <li class="notification-item">
-                                                <span class="notify-icon bg-success text-white"><i
-                                                        class="icofont-shopping-cart"></i></span>
+                                                <span class="notify-icon bg-success text-white"><i class="icofont-shopping-cart"></i></span>
                                                 <div class="dropdown-body">
                                                     <a href="#">
                                                         <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
@@ -456,8 +441,7 @@
                                                 <span class="notify-time">3:20 am</span>
                                             </li>
                                             <li class="notification-item">
-                                                <span class="notify-icon bg-danger text-white"><i
-                                                        class="icofont-book-mark"></i></span>
+                                                <span class="notify-icon bg-danger text-white"><i class="icofont-book-mark"></i></span>
                                                 <div class="dropdown-body">
                                                     <a href="#">
                                                         <p><strong>Robin</strong> marked a <strong>ticket</strong> as
@@ -468,8 +452,7 @@
                                                 <span class="notify-time">3:20 am</span>
                                             </li>
                                             <li class="notification-item">
-                                                <span class="notify-icon bg-success text-white"><i
-                                                        class="icofont-heart-alt"></i></span>
+                                                <span class="notify-icon bg-success text-white"><i class="icofont-heart-alt"></i></span>
                                                 <div class="dropdown-body">
                                                     <a href="#">
                                                         <p><strong>David</strong> purchased Light Dashboard 1.0.</p>
@@ -478,8 +461,7 @@
                                                 <span class="notify-time">3:20 am</span>
                                             </li>
                                             <li class="notification-item">
-                                                <span class="notify-icon bg-success text-white"><i
-                                                        class="icofont-image"></i></span>
+                                                <span class="notify-icon bg-success text-white"><i class="icofont-image"></i></span>
                                                 <div class="dropdown-body">
                                                     <a href="#">
                                                         <p><strong> James.</strong> has added a<strong>customer</strong>
@@ -490,16 +472,14 @@
                                                 <span class="notify-time">3:20 am</span>
                                             </li>
                                         </ul>
-                                        <a class="all-notification" href="#">See all notifications <i
-                                                class="icofont-simple-right"></i></a>
+                                        <a class="all-notification" href="#">See all notifications <i class="icofont-simple-right"></i></a>
                                     </div>
                                 </div>
                                 <a class="action author" href="#">
                                     <img src="{{ asset('assets/images/author/author-07.jpg') }}" alt="Author">
                                 </a>
                                 <div class="dropdown">
-                                    <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown"
-                                        style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
+                                    <a href="javascript:voidmain(0);" class="" data-bs-toggle="dropdown" style="font-weight: 500;"> Martin nel <i class="icofont-caret-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a class="" href="#"><i class="icofont-user"></i> Profile</a>
                                         </li>
@@ -527,14 +507,14 @@
                         </div>
                     </div>
                     @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
                     @endif
                     @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
                     @endif
                     @yield('content')
 
@@ -546,16 +526,13 @@
 
         <div class="section footer-section">
             <div class="footer-widget-section">
-                <img class="shape-1 animation-down" src="{{ URL::asset('assets/images/shape/shape-21.png') }}"
-                    alt="Shape">
+                <img class="shape-1 animation-down" src="{{ URL::asset('assets/images/shape/shape-21.png') }}" alt="Shape">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 order-md-1 order-lg-1">
                             <div class="footer-widget">
                                 <div class="widget-logo">
-                                    <a href="{{ route('index') }}"><img
-                                            src="{{ URL::asset('assets/images/apoGuru-logo.png') }}" alt="Logo"
-                                            width="140"></a>
+                                    <a href="{{ route('index') }}"><img src="{{ URL::asset('assets/images/apoGuru-logo.png') }}" alt="Logo" width="140"></a>
                                 </div>
                                 <div class="widget-address">
                                     <h4 class="footer-widget-title">Caribbean Ct</h4>
@@ -563,8 +540,7 @@
                                 </div>
                                 <ul class="widget-info">
                                     <li>
-                                        <p> <i class="flaticon-email"></i> <a
-                                                href="mailto:address@gmail.com">address@gmail.com</a> </p>
+                                        <p> <i class="flaticon-email"></i> <a href="mailto:address@gmail.com">address@gmail.com</a> </p>
                                     </li>
                                     <li>
                                         <p> <i class="flaticon-phone-call"></i> <a href="tel:9702621413">(970)
@@ -620,8 +596,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="shape-2 animation-left" src="{{ URL::asset('assets/images/shape/shape-22.png') }}"
-                    alt="Shape">
+                <img class="shape-2 animation-left" src="{{ URL::asset('assets/images/shape/shape-22.png') }}" alt="Shape">
             </div>
             <div class="footer-copyright">
                 <div class="container">
@@ -648,8 +623,9 @@
     </div>
     <style>
         div[contenteditable] {
-        outline: 1px solid black;
-    }
+            outline: 1px solid black;
+        }
+
     </style>
     <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
     <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script>
@@ -669,793 +645,10 @@
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/inline/ckeditor.js"></script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-<!-- Include CKEditor library -->
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <!-- Include CKEditor library -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 
-    <script> 
-            $(document).ready(function () {
-                $(".switch.on").click(function () {
-                    $(this).removeClass("on");
-                    $(this).addClass("off");
-                    $(".switch img").attr("src", "{{ URL::asset('assets/images/icon-learner-switch.png')}}");
-                });
-
-                $(".cust-label").click(function () {
-                    $(".cust-label").removeClass("active");
-                    $(this).addClass("active");
-                });
-
-                $("#add_question").click(function () {
-                    $(".add-course-section").slideToggle("slow");
-                });
-
-                $("#add-option").click(function () {
-                    $("#option_list").append('<div class="col-12 col-md-6 option"><div class="form-group"><label>Option A</label><input class="form-control" type="text" placeholder="Write here..." name=""></div></div>');
-                });
-
-                $('.choose_image').on('click', function () {
-                    $('#avtar').click();
-                });
-
-                // Handle "Add New" button click
-                $('#addNewBtn').on('click', function () {
-                    cloneFields();
-                    updateDeleteButtonsVisibility();
-                });
-
-                // Handle "Delete" button click (using event delegation to handle dynamically added elements)
-                $(document).on('click', '.delete-btn', function () {
-                    if (!$('.field').length) {
-                        return;
-                    }
-
-                    $(this).closest('.field').remove();
-                    updateDeleteButtonsVisibility();
-                });
-
-                // Clone the fields and add them to the container
-                function cloneFields() {
-                    var clonedFields = $('.field:first').clone();
-                    clonedFields.find('input').val(''); // Clear input values if needed
-                    $('.fields-container').append(clonedFields);
-                }
-
-                // Update the visibility of "Delete" buttons
-                function updateDeleteButtonsVisibility() {
-                    var deleteButtons = $('.delete-btn');
-                    if (deleteButtons.length === 1) {
-                        deleteButtons.hide();
-                    } else {
-                        deleteButtons.show();
-                    }
-                }
-
-                $('#socialMediaSelect').on('change', function () {
-                    var selectedPlatforms = $(this).val();
-                    if (selectedPlatforms) {
-                        var newInput = '';
-
-                        // Check if the input box for the platform already exists
-                        if (selectedPlatforms === 'Facebook') {
-                            if ($('#additionalInputContainer input[name="facebook"]').length === 0) {
-                                $('#additionalInputContainer').append('<div class="form-group">' +
-                                    '<input type="text" class="form-control" name="facebook" placeholder="Enter your Facebook profile link">' +
-                                    '</div>');
-                            }
-                        } else if (selectedPlatforms === 'Instagram') {
-                            if ($('#additionalInputContainer input[name="instagram"]').length === 0) {
-                                $('#additionalInputContainer').append('<div class="form-group">' +
-                                    '<input type="text" class="form-control" name="instagram" placeholder="Enter your Instagram profile link">' +
-                                    '</div>');
-                            }
-                        } else if (selectedPlatforms === 'Youtube') {
-                            if ($('#additionalInputContainer input[name="youtube"]').length === 0) {
-                                $('#additionalInputContainer').append('<div class="form-group">' +
-                                    '<input type="text" class="form-control" name="youtube" placeholder="Enter your Youtube profile link">' +
-                                    '</div>');
-                            }
-                        } else if (selectedPlatforms === 'LinkedIn') {
-                            if ($('#additionalInputContainer input[name="linkedin"]').length === 0) {
-                                $('#additionalInputContainer').append('<div class="form-group">' +
-                                    '<input type="text" class="form-control" name="linkedin" placeholder="Enter your LinkedIn profile link">' +
-                                    '</div>');
-                            }
-                        } else if (selectedPlatforms === 'Twitter') {
-                            if ($('#additionalInputContainer input[name="twitter"]').length === 0) {
-                                $('#additionalInputContainer').append('<div class="form-group">' +
-                                    '<input type="text" class="form-control" name="twitter" placeholder="Enter your Twitter profile link">' +
-                                    '</div>');
-                            }
-                        }
-                    }
-                });
-
-                function deleteDocument(id) {
-                    $.ajax({
-                        url: "{{ route('profile-delete-document') }}",
-                        type: "POST",
-                        data: {
-                            id,
-                            "_token": "{{ csrf_token() }}",
-                        },
-                        success: function (res) {
-                            console.log(res);
-                        }
-                    })
-                }
-
-                $('#course-type-information').on('change', function () {
-                    $.ajax({
-                        url: "{{ route('get-parent-subcategroy') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            "id": this.value
-                        },
-                        success: function (res) {
-                            if (res.status === 200) {
-                                var selectElement = $('#parent-sub-category-information');
-                                let htmlParentSubCategory =
-                                    '<option value="">Select Parent Subcategory</option>';
-                                for (let index = 0; index < res.data.length; index++) {
-                                    let data = res.data[index];
-                                    htmlParentSubCategory +=
-                                        `<option value="${data.id}">${data.name}</option>`;
-                                }
-                                // Clear the existing options before appending new ones
-                                selectElement.find('option').remove();
-                                // Append the new options
-                                selectElement.append(htmlParentSubCategory);
-                                // Update the "nice-select" plugin after modifying options
-                                selectElement.niceSelect('update');
-                            }
-                        }
-                    });
-                });
-
-                $('#parent-sub-category-information').on('change', function () {
-                    $.ajax({
-                        url: "{{ route('get-school-parent') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            main_category_id: $('#course-type-information').val(),
-                            parent_sub_category_id: this.value
-                        },
-                        success: function (res) {
-                            if (res.status === 200) {
-                                var selectElement = $('#child-subcategory-information');
-                                let htmlParentSubCategory =
-                                    '<option value="">Select Parent Subcategory</option>';
-                                for (let index = 0; index < res.data.length; index++) {
-                                    let data = res.data[index];
-                                    htmlParentSubCategory +=
-                                        `<option value="${data.id}">${data.name}</option>`;
-                                }
-                                // Clear the existing options before appending new ones
-                                selectElement.find('option').remove();
-                                // Append the new options
-                                selectElement.append(htmlParentSubCategory);
-                                // Update the "nice-select" plugin after modifying options
-                                selectElement.niceSelect('update');
-                            }
-                        }
-                    })
-                });
-
-                // var description = CKEDITOR.replace('desc');
-                // CKFinder.setupCKEditor(description);
-                // CKEDITOR.add
-                var editor;
-                var uploadUrl = '{{ route('ckeditor.upload') }}' + '?_token={{ csrf_token() }}';
-
-                ClassicEditor.create( document.querySelector('#desc'),{
-                    ckfinder: {
-                        uploadUrl: uploadUrl//'{{route('ckeditor.upload').'?_token='.csrf_token()}}',
-                    }
-                }).then(createdEditor => {
-                    editor = createdEditor; // Store the editor instance
-                }).catch( error => {
-                        
-                });
-
-                $('#course-information-form').on('submit',function(e){
-                    e.preventDefault();
-                    // let courseType = $('#course-type-information').val();
-                    // let parentSubCategory = $('#parent-sub-category-information').val();
-                    // let childSubCategroy = $('#child-subcategory-information').val();
-                    // let courseName = $('#course-name-information').val()
-                    // let actualSellPriceType = $('#actual-sell-price').val();
-                    // let actualSellCurrent = $('#usd-price-information').val();
-                    // let sellPriceTypeOption = $('#sell-price-type-option').val();
-                    // let sellPriceOption = $('#sell-price-option').val();
-                    // let desc = ''
-                    let formData = new FormData(this);
-
-                    formData.append('image', $('#couse_image')[0].files[0]);
-                    formData.append('courseType', $('#course-type-information').val());
-                    formData.append('parentSubCategory', $('#parent-sub-category-information').val());
-                    formData.append('childSubCategroy', $('#child-subcategory-information').val());
-                    formData.append('courseName', $('#course-name-information').val());
-                    formData.append('actualSellPriceType', $('#actual-sell-price').val());
-                    formData.append('actualSellCurrent', $('#usd-price-information').val());
-                    formData.append('sellPriceTypeOption', $('#sell-price-type-option').val());
-                    formData.append('sellPriceOption', $('#sell-price-option').val());
-                    
-                    formData.append('user_id', $('#user_id').val());
-                    if (editor) {
-                        formData.append('desc', editor.getData());
-                    }
-                    
-                    // console.log('editor',formData);
-                    let user_id = $('#user_id').val()
-                    $('#creat_course').prop("disabled", true);
-
-                    $.ajax({
-                        url: "{{ route('save-learnere-course') }}",
-                        type: "POST",
-                        data: formData,
-                        contentType: false, // Set content type to false
-                        processData: false, // Prevent jQuery from processing the data
-                        success: function (res) {
-                            if (res.status === 200) {
-                                $('#creat_course').prop("disabled", false);
-                                toastr.success(res.message);
-                                editor.setData('')
-                                $('#course-information-form')[0].reset();
-                                $('select').niceSelect('destroy');
-                                $('select').niceSelect();
-                            }
-                        }, error: function (err) {
-                            $('#creat_course').prop("disabled", false);
-                            let error = err.responseJSON.errors;
-                            if (error.courseType) {
-                                $('#course-type-error').text(error.courseType[0])
-                            }
-                            if (error.parentSubCategory) {
-                                $('#parent-sub-category-information-error').text(error.parentSubCategory[0])
-                            }
-                            if (error.childSubCategroy) {
-                                $('#child-subcategory-information-error').text(error.childSubCategroy[0])
-                            }
-                            if (error.courseName) {
-                                $('#course-name-information-error').text(error.courseName[0])
-                            }
-                            if (error.actualSellPriceType) {
-                                $('#actual-sell-price-error').text(error.actualSellPriceType[0])
-                            }
-                            //console.log('err',err.responseJSON.errors.main_category_id[0]);
-                        }
-                    })
-                })
-
-                $('#add-principle-topic').on('click', function () {
-                    let principleCourseType = $('#principle-course-type').val()
-                    let principleTopic = $('#principle_topic').val()
-                    let user_id = $('#principl-user_id').val();
-                    $.ajax({
-                        url: "{{ route('save-prinicple-topic') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            principleCourseType: principleCourseType,
-                            principleTopic: principleTopic,
-                            user_id: user_id
-                        },
-                        success: function (res) {
-                            toastr.success(res.message);
-                            $('#principle-form')[0].reset();
-                            $('select').niceSelect('destroy');
-                            $('select').niceSelect();
-                        }
-                    })
-                });
-
-                $("#sortable-list").sortable({
-                    update: function (event, ui) {
-                        // Get the order of list items after reordering
-                        var order = $(this).sortable('toArray', {
-                            attribute: 'data-id'
-                        });
-
-                        // Send an AJAX request to update the positions in the database
-                        $.ajax({
-                            url: "{{ route('principle-position-update') }}",
-                            method: "POST",
-                            data: {
-                                _token: "{{ csrf_token() }}",
-                                order: order
-                            },
-                            success: function (response) {
-                                toastr.success(response.message);
-                            }
-                        });
-                    }
-                });
-
-                $('#principle-course').on('change', function () {
-                    $.ajax({
-                        url: "{{ route('get-principle-topic') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            course_id: this.value
-                        },
-                        success: function (res) {
-                            let html = '';
-                            if (res.status === 200) {
-                                for (let index = 0; index < res.data.length; index++) {
-                                    html +=
-                                        `<li class="list-group-item draggable-item" draggable="true" data-id="${res.data[index].id}">`
-                                    html +=
-                                        `<span class="reposition-indicator">&#9679;&#9679;&#9679;</span>`
-                                    html += `<span class="item-name">${res.data[index].name}</span>`
-                                    html += `</li>`
-                                }
-                                $('#sortable-list').html(html)
-                            }
-                        }
-                    })
-                });
-
-                $('#course-type-video').on('change', function () {
-                    $.ajax({
-                        url: "{{ route('get-principle-topic') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            course_id: this.value
-                        },
-                        success: function (res) {
-                            let html = '';
-                            if (res.status === 200) {
-                                var selectElement = $('#topic-type-video');
-                                let htmlParentSubCategory =
-                                    '<option value="">Select Topic</option>';
-                                for (let index = 0; index < res.data.length; index++) {
-                                    let data = res.data[index];
-                                    htmlParentSubCategory +=
-                                        `<option value="${data.id}">${data.name}</option>`;
-                                }
-                                // Clear the existing options before appending new ones
-                                selectElement.find('option').remove();
-                                // Append the new options
-                                selectElement.append(htmlParentSubCategory);
-                                // Update the "nice-select" plugin after modifying options
-                                selectElement.niceSelect('update');
-                            }
-                        }
-                    })
-                });
-
-                $('#add-new-video').on('click', function () {
-                    cloneVideoFields();
-                    updateDeleteVideoButtonsVisibility();
-                });
-
-                function cloneVideoFields() {
-                    var clonedFields = $('.video-repeating-section:first').clone();
-                    clonedFields.find('input').val(''); // Clear input values if needed
-                    $('.fields-container-video').append(clonedFields);
-                }
-
-                function updateDeleteVideoButtonsVisibility() {
-                    var deleteButtons = $('.delete-btn-video');
-                    if (deleteButtons.length === 1) {
-                        deleteButtons.hide();
-                    } else {
-                        deleteButtons.show();
-                    }
-                }
-                updateDeleteVideoButtonsVisibility()
-
-                $(document).on('click', '.delete-btn-video', function () {
-                    if ($('.video-repeating-section').length === 1) {
-                        return;
-                    }
-                    //{{-- $(this).parent('.video-repeating-section').remove(); --}}
-                    $(this).closest('.video-repeating-section').remove();
-                    updateDeleteVideoButtonsVisibility();
-                });
-
-                $('#video-section-form').submit(function (e) {
-                    e.preventDefault();
-                    // Select the submit button
-                    var button = $('#upload-videos');
-                    $('#upload-videos').attr("disabled", true);
-
-                    // Disable the button to prevent multiple clicks
-                    button.prop('disabled', true);
-
-                    // Add a class to apply the loading CSS
-                    button.addClass("loading");
-                    let progressBar = document.getElementById("progress-bar");
-                    $('.progress').removeClass('d-none')
-                    //return false;
-
-                    var fileInputs = document.querySelectorAll('#video-section-form input[name="video[]"]');
-
-                    var fileStatus = false; 
-                    var totalFileSizeInBytes = 0;
-                    var laravelFileSizeMax =  parseInt("{{ getFileSizeIn(ini_get('upload_max_filesize')) }}")
-                    fileInputs.forEach(function (fileInput, index) {
-                        var selectedFiles = fileInput.files;
-                        // Now, you can work with the selected files for each file input
-                        if (selectedFiles.length > 0 ) {
-                            //console.log(selectedFiles[index].file);
-                            var fileSizeInBytes = selectedFiles[index]; // Size in bytes
-                            var fileSizeInKilobytes = fileSizeInBytes / 1024; // Convert bytes to kilobytes (KB)
-                            var fileSizeInMegabytes = fileSizeInKilobytes / 1024; // Convert kilobytes to megabytes (MB)
-                            totalFileSizeInBytes += fileSizeInMegabytes;
-                            
-                        }else{
-                            toastr.error("Video is required.");
-                            button.prop('disabled', false);
-                            button.removeClass("loading");
-                            fileStatus = true;
-                        }
-                    });
-                    if(fileStatus){
-                        return;
-                    }
-                    if(totalFileSizeInBytes > laravelFileSizeMax){
-                        toastr.error("Videos size is too large.");
-                        button.prop('disabled', false);
-                        button.removeClass("loading");
-                        fileStatus = true;
-                        return;
-                    }
-                    var formData = new FormData(this);
-                    $.ajax({
-                        url: $(this).attr('action'),
-                        type: 'POST',
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        xhr: function () {
-                            const xhr = new window.XMLHttpRequest();
-
-                            // Upload progress event
-                            xhr.upload.addEventListener("progress", function (e) {
-                                if (e.lengthComputable) {
-                                    
-                                    const percentComplete = (e.loaded / e.total) * 100;
-                                    progressBar.style.width = percentComplete + "%";
-                                    $('#progress-bar-percentage').text(`${percentComplete.toFixed(2)}%`)
-                                }
-                            });
-
-                            return xhr;
-                        },
-                        success: function (response) {
-                            if (response.success) {
-                                $('#upload-videos').attr("disabled", false);
-                                progressBar.style.width = "0%";
-                                $('#video-section-form')[0].reset();
-                                $('select').niceSelect('destroy');
-                                $('select').niceSelect();
-                                button.prop('disabled', false);
-                                button.removeClass("loading");
-                                $('#progress-bar-percentage').text('')
-                                // window.location.reload
-                                $('.progress').addClass('d-none')
-                                toastr.success(response.message);
-                            }
-                        },
-                        error: function (xhr, status, error) {
-                            if (xhr.status !== 422) {
-                                // Server error is not 422, so display the progress bar
-                                progressBar.style.width = "0%";
-                                $('#progress-bar-percentage').text('');
-                            }
-                            toastr.clear();
-                            $.each(xhr.responseJSON.errors, function (field, messages) {
-                                $.each(messages, function (index, message) {
-                                    toastr.error(message);
-                                });
-                            });
-                            progressBar.style.width = "0%";
-                            $('#progress-bar-percentage').text('')
-                            button.prop('disabled', false);
-                            button.removeClass("loading");
-                            //alert('An error occurred while uploading files.');
-                        },
-                    });
-                });
-
-                $('#topic-video').on('change', function () {
-                    $.ajax({
-                        url: "{{ route('get-principle-topic') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            course_id: this.value
-                        },
-                        success: function (res) {
-                            let html = '';
-                            if (res.status === 200) {
-                                var selectElement = $('#topic-video-topic');
-                                let htmlParentSubCategory =
-                                    '<option value="">Select Topic</option>';
-                                for (let index = 0; index < res.data.length; index++) {
-                                    let data = res.data[index];
-                                    htmlParentSubCategory +=
-                                        `<option value="${data.id}">${data.name}</option>`;
-                                }
-                                // Clear the existing options before appending new ones
-                                selectElement.find('option').remove();
-                                // Append the new options
-                                selectElement.append(htmlParentSubCategory);
-                                // Update the "nice-select" plugin after modifying options
-                                selectElement.niceSelect('update');
-                            }
-                        }
-                    })
-                });
-
-                $('#topic-video-topic').on('change', function () {
-                    $('#video-id').val(this.value)
-                    $.ajax({
-                        url: "{{ route('get-lecture-video') }}",
-                        type: "POST",
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            principal_topic_id: this.value
-                        },
-                        success: function (res) {
-                            if (res.status === 200) {
-                                $('#sortable-list-video').html(res.html)
-                            }
-                        }
-                    })
-                });
-
-                $("#sortable-list-video").sortable({
-                    update: function (event, ui) {
-                        // Get the order of list items after reordering
-                        var order = $(this).sortable('toArray', {
-                            attribute: 'data-id'
-                        });
-
-                        // Send an AJAX request to update the positions in the database
-                        $.ajax({
-                            url: "{{ route('video-position-update') }}",
-                            method: "POST",
-                            data: {
-                                _token: "{{ csrf_token() }}",
-                                order: order
-                            },
-                            success: function (response) {
-                                toastr.success(response.message);
-                            }
-                        });
-                    }
-                });
-                $("body").on("click", ".delete-video", function(e){
-                    e.preventDefault();
-                    let text = "Are you sure you want to delete this plan?";
-                    if (confirm(text) == true) {
-                        // var id = $('.delete-video').getAttribute("data-id");
-                        var id = $('.delete-video').attr("data-id");
-
-                        $.ajax({
-                            url: "{{ route('video-delete') }}",
-                            type: "POST",
-                            data: {
-                                _token: "{{ csrf_token() }}",
-                                id: id
-                            },
-                            success: function (res) {
-                                if (res.status === 200) {
-                                    toastr.success(res.message);
-                                    $.ajax({
-                                        url: "{{ route('get-lecture-video') }}",
-                                        type: "POST",
-                                        data: {
-                                            "_token": "{{ csrf_token() }}",
-                                            principal_topic_id: $('#video-id').val()
-                                        },
-                                        success: function (res) {
-                                            if (res.status === 200) {
-                                                $('#sortable-list-video').html(res.html)
-                                            }
-                                        }
-                                    })
-                                }
-                            }
-                        })
-                    }
-                });
-                $('.publish').on('click',function(){
-                    let getPublishCourse = $('#publish-course').val();
-                    var selectElement = $('#publish-course');
-                    if(getPublishCourse === ''){
-                        toastr.error("Please your course.");
-                        return;
-                    }
-                    $.ajax({
-                        url:"{{ route('request-to-publish') }}",
-                        type:"POST",
-                        data:{
-                            "_token": "{{ csrf_token() }}",
-                            courser:getPublishCourse
-                        },
-                        success:function(res){
-                            if(res.status === 200){
-                                toastr.success(res.message);
-                                setTimeout(() => {
-                                    window.location.reload();
-                                },2000)
-                            }
-                            if(res.status === 201){
-                                toastr.error(res.message);
-                                $('#course-modal').modal('hide');
-                            }
-                        }
-                    });
-                });
-                $("body").on("change", ".add-supplementary-file", function (e) {
-                    e.preventDefault();
-                    let form = $(this).closest('form'); // Get the parent form of the changed file input
-                    console.log(form);
-                    
-                        console.log("hello");
-                        let formData = new FormData(form[0]); // Use form[0] to access the actual DOM element
-                        // Append the lecture_id from the same form
-                        formData.append('lecture_id', form.find('#lecture_id').val());
-
-                        $.ajax({
-                            url: "{{ route('add-supplementary-file') }}",
-                            type: "POST",
-                            data: formData,
-                            processData: false,
-                            contentType: false,
-                            success: function (res) {
-                                console.log(res);
-                            }
-                        });
-                    
-                });
-                $('#supplementary-form').on('submit',function(e){
-                    e.preventDefault();
-                    let formData = new FormData(this);
-
-                    formData.append('supplementary_file', $('#supplementary_file')[0].files[0]);
-                    formData.append('video_id', $('#video_id').val());
-                    $.ajax({
-                        url:"{{ route('add-supplementary-file') }}",
-                        type:"POST",
-                        data: formData,
-                        contentType: false, // Set content type to false
-                        processData: false,
-                        success:function(res){
-                            if(res.status === 200){
-                                toastr.success(res.message);
-                                $('#supplementary-form')[0].reset();
-                                $('#lecture_video_supplementary_modal').modal('hide');
-
-                            }
-                        }
-                    })
-                });
-                var question;
-                var answer_one;
-                var answer_two;
-                var answer_three;
-                var answer_four;
-                //var uploadUrl = '{{ route('ckeditor.upload') }}' + '?_token={{ csrf_token() }}';
-
-                ClassicEditor.create( document.querySelector('.question'),{
-                    ckfinder: {
-                        uploadUrl: uploadUrl
-                    }
-                }).then(createdEditor => {
-                    question = createdEditor; // Store the editor instance
-                }).catch( error => {
-                        
-                });
-
-                ClassicEditor.create( document.querySelector('.answer-1'),{
-                    ckfinder: {
-                        uploadUrl: uploadUrl
-                    }
-                }).then(createdEditor => {
-                    answer_one = createdEditor; // Store the editor instance
-                }).catch( error => {
-                        
-                });
-                ClassicEditor.create( document.querySelector('.answer-2'),{
-                    ckfinder: {
-                        uploadUrl: uploadUrl
-                    }
-                }).then(createdEditor => {
-                    answer_two = createdEditor; // Store the editor instance
-                }).catch( error => {
-                        
-                });
-                ClassicEditor.create( document.querySelector('.answer-3'),{
-                    ckfinder: {
-                        uploadUrl: uploadUrl
-                    }
-                }).then(createdEditor => {
-                    answer_three = createdEditor; // Store the editor instance
-                }).catch( error => {
-                        
-                });
-                ClassicEditor.create( document.querySelector('.answer-4'),{
-                    ckfinder: {
-                        uploadUrl: uploadUrl
-                    }
-                }).then(createdEditor => {
-                    answer_four = createdEditor; // Store the editor instance
-                }).catch( error => {
-                        
-                });
-
-                $('#question-answer-form').on('submit',function(e){
-                    e.preventDefault();
-                    const questionContent = question.getData();
-                    const answer1Content = answer_one.getData();
-                    const answer2Content = answer_two.getData();
-                    const answer3Content = answer_three.getData();
-                    const answer4Content = answer_four.getData();
-                    const correctAnswer = $('input[name="correct_answer"]:checked').val();;
-                    const user_id = $('#user_id').val()
-                    $.ajax({
-                        url:"{{ route('add-question-answer') }}",
-                        type:"POST",
-                        data:{
-                            "_token": "{{ csrf_token() }}",
-                            video_id: $('#video_id').val(),
-                            question: questionContent,
-                            answer1: answer1Content,
-                            answer2: answer2Content,
-                            answer3: answer3Content,
-                            answer4: answer4Content,
-                            user_id:user_id,
-                            correct_answer:correctAnswer
-                        },success:function(res){
-                            if(res.status === 200){
-                                toastr.success(res.message);
-                                $('#question-answer-form')[0].reset();
-                                $('#question-answer-modal').modal('hide');
-                                question.setData('')
-                                answer_one.setData('')
-                                answer_two.setData('')
-                                answer_three.setData('')
-                                answer_four.setData('')
-                            }
-                        },
-                        error:function(error){
-                            var errors = error.responseJSON.errors;
-                            if(errors.answer1){
-                                toastr.error(errors.answer1[0]);
-                            }
-                            if(errors.answer2){
-                                toastr.error(errors.answer2[0]);
-                            }
-                            if(errors.correct_answer){
-                                toastr.error(errors.correct_answer[0]);
-                            }
-                            if(errors.question){
-                                toastr.error(errors.question[0]);
-                            }
-                        }
-                    })
-                })
-            });
-            function openSupplementModal(id){
-                $("#lecture_video_supplementary_modal").modal("show");
-                $('#video_id').val(id)
-            }
-            function openQuestionModal(id){
-                $("#question-answer-modal").modal("show");
-                $('#video_id').val(id)
-
-                
-            }
-            
-    </script>
+    @include('user.layouts.ajax')
 </body>
 
 </html>

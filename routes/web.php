@@ -272,6 +272,7 @@ Route::post('/video-delete', 'Front\ProfileController@videoDelete')->name('video
 Route::post('/request-to-publish', 'Front\ProfileController@requestToPublishCourse')->name('request-to-publish');
 Route::post('/add-supplementary-file','Front\ProfileController@addSupplementaryFile')->name('add-supplementary-file');
 Route::post('/add-question-answer','Front\ProfileController@addQuestionAnswer')->name('add-question-answer');
+Route::post('/get-question-answer','Front\ProfileController@getQuestionAnswer')->name('get-question-answer');
 
 Route::get('/my-course', 'Front\ProfileController@course_i_have_created')->name('my-course');
 

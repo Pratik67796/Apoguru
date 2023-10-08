@@ -9,7 +9,7 @@ class LectureVideo extends Model
   protected $table = "lecture_videos";
 
   protected $fillable = [
-    'principal_topic_id', 'name', 'video', 'video_link', 'thumbnail', 'status','ordering_position'
+    'principal_topic_id', 'name', 'video', 'video_link', 'thumbnail', 'status','ordering_position','duration'
   ];
 
   public function principalTopic() {

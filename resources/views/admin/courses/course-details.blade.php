@@ -113,14 +113,14 @@
                         <label>Video Name:</label>
                         <p>{{ $video->name }}</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 video" style="display: flex;flex-direction: column;">
+                    {{-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 video" style="display: flex;flex-direction: column;">
                         <label>Thumbnail</label>
                         <img src="{{ asset('storage/videos/'.$video->thumbnail) }}" width='150' height="150" class="img-fluid">
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6  video" style="display: flex;flex-direction: column;">
                         <label>Video</label>
-                        <video controls class="img-fluid" width='200' height="150">
+                        <video controls class="img-fluid" width='400' height="400">
                             <source src="{{ asset('storage/videos/'.$video->video) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
