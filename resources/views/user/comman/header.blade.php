@@ -106,7 +106,7 @@
                                     <div class="dropdown-divider"></div>
                                     <div>
                                         <a href="{{ route('professional-dashboard') }}" class="dropdown-item d-flex align-items-center">
-                                            Go To Professional
+                                            Go To Apoguru Professional
                                         </a>
                                     </div>
                                     <div class="dropdown-divider"></div>

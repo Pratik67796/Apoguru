@@ -116,6 +116,7 @@ $cur_route = Route::current()->getName();
                                         <th>Course</th>
                                         <th>Added By</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -127,6 +128,11 @@ $cur_route = Route::current()->getName();
                                         <td>{{ $getAllCourse->title }}</td>
                                         <td>{{ $getAllCourse->User->name }}</td>
                                         <td><span class="label bg-red" >{{ $getAllCourse->status }}</span></td>
+                                        <td>
+                                            <a href="{{ route('admin.course.status-management',['uid'=>$getAllCourse->uid ]) }}">
+                                                View
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -135,9 +141,6 @@ $cur_route = Route::current()->getName();
                     </div>
                 </div>
             </div>
-            <!-- #END# Task Info -->
-            <!-- Browser Usage -->
-            <!-- #END# Browser Usage -->
         </div>
     </div>
 </section>
