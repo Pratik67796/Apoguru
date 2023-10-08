@@ -90,63 +90,6 @@
     <a class="btn btn-outline-primary mb-4">Download my Flyer</a>
 </div>
 
-{{-- Lecture Video Modal for add Question and answer file Start here --}}
-<div class="modal fade" id="question-answer-modal" tabindex="-1" aria-labelledby="question-answer-modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Question and Answer</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form id="question-answer-form" enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" name="video_id" id="video_id">
-            <input type="hidden" id="user_id" value="{{ $auth->id }}" />
-            <div class="modal-body">
-                <label>Question</label>
-                <div id="question" class='question'  contenteditable="true" style="border:10px;">
-                </div>
-            </div>
-
-            <div class="modal-body">
-                <label>First Answer Option</label>
-                <div id="answer-1" class='answer-1'  contenteditable="true" style="border:10px;">
-                </div>
-                <label><strong>Correct Answer ?</strong></label>
-                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="1">
-            </div>
-
-            <div class="modal-body">
-                <label>Second Answer Option</label>
-                <div id="answer-2" class='answer-2'  contenteditable="true" style="border:10px;">
-                </div>
-                <label><strong>Correct Answer ?</strong></label>
-                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="2">
-            </div>
-
-            <div class="modal-body">
-                <label>Third Answer Option</label>
-                <div id="answer-3" class='answer-3'  contenteditable="true" style="border:10px;">
-                </div>
-                <label><strong>Correct Answer ?</strong></label>
-                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="3">
-            </div>
-
-            <div class="modal-body">
-                <label>Fourth Answer Option</label>
-                <div id="answer-4" class='answer-4'  contenteditable="true" style="border:10px;">
-                </div>
-                <label><strong>Correct Answer ?</strong></label>
-                <input type="radio" id="correct-answer" name="correct_answer" class='correct-answer mt-1' value="4">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
 {{-- Lecture Video Modal for add Question and answer file End here --}}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
