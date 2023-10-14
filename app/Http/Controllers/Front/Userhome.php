@@ -42,7 +42,7 @@ class Userhome extends Controller
         $reqdata_id = $request->id;
         $parentcat_name = ParentSubCategory::where('id',$reqdata_id)->first();
         $childsubcat = ChildSubCategory::where('parent_sub_category_id',$reqdata_id)
-                                        ->with('getcourse_new','getcourse_new.User')
+                                        ->with('getcourse_new.getWishList','getcourse_new.User')
                                         ->get();
         // dd($childsubcat);
         return view('user.afrer_dashboard.subcategory',['childsubcat' => $childsubcat,'parentcat_name' => $parentcat_name]);
@@ -71,6 +71,11 @@ class Userhome extends Controller
     }   
     
     public function course_buy($slug,$uid){
+        // $auth = Auth::guard('user_new')->user();
+        // if (!isset($auth->id)) {
+        //     return redirect()->route('login')->withErrors(["Please Login!"]);
+        //     ;
+        //   }
         $singlecourse = Course::where([
             ['slug','=',$slug],
             ['uid','=',$uid]

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/school-css/default.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/school-css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/school-css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom-notification/toastr.css') }}">
 </head>
 
 <body>
@@ -65,7 +66,8 @@
                                     <input type="text" placeholder="Search...">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                 </form>
-                                <div class="header__cart">
+                                <div id="cart-block"></div>
+                                {{-- <div class="header__cart">
                                     <a href="javascript:void(0);" class="cart-toggle-btn">
                                         <div class="header__cart-icon">
                                             <svg viewBox="0 0 24 24">
@@ -79,7 +81,7 @@
                                         </div>
                                         <span class="cart-item">2</span>
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
 
                             @if (Auth::guard('user_new')->check())
@@ -140,7 +142,91 @@
         </div>
     </header>
     @yield('content')
-
+    <div class="cartmini__area">
+        <div class="cartmini__wrapper">
+            <div class="cartmini__title">
+                <h4>Shopping cart</h4>
+            </div>
+            <div class="cartmini__close">
+                <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
+            </div>
+            <div id="cart-list-block"></div>
+            {{-- <div class="cartmini__widget">
+                <div class="cartmini__inner">
+                    <ul>
+                        <li>
+                            <div class="cartmini__thumb">
+                                <a href="javascript:void(0)">
+                                    <img src="{{asset('assets/img/course/sm/cart-1.jpg')}}" alt="">
+                                </a>
+                            </div>
+                            <div class="cartmini__content">
+                                <h5><a href="javascript:void(0)">Strategy law and organisation Foundation </a></h5>
+                                <div class="product-quantity mt-10 mb-10">
+                                    <span class="cart-minus">-</span>
+                                    <input class="cart-input" type="text" value="1" />
+                                    <span class="cart-plus">+</span>
+                                </div>
+                                <div class="product__sm-price-wrapper">
+                                    <span class="product__sm-price">$46.00</span>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="cartmini__del"><i class="fal fa-times"></i></a>
+                        </li>
+                        <li>
+                            <div class="cartmini__thumb">
+                                <a href="javascript:void(0)">
+                                    <img src="{{ asset('assets/img/course/sm/cart-2.jpg') }}" alt="">
+                                </a>
+                            </div>
+                            <div class="cartmini__content">
+                                <h5><a href="javascript:void(0)">Fundamentals of music theory Learn new</a></h5>
+                                <div class="product-quantity mt-10 mb-10">
+                                    <span class="cart-minus">-</span>
+                                    <input class="cart-input" type="text" value="1" />
+                                    <span class="cart-plus">+</span>
+                                </div>
+                                <div class="product__sm-price-wrapper">
+                                    <span class="product__sm-price">$32.00</span>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="cartmini__del"><i class="fal fa-times"></i></a>
+                        </li>
+                        <li>
+                            <div class="cartmini__thumb">
+                                <a href="javascript:void(0)">
+                                    <img src="{{asset('assets/img/course/sm/cart-3.jpg')}}" alt="">
+                                </a>
+                            </div>
+                            <div class="cartmini__content">
+                                <h5><a href="javascript:void(0)">Strategy law and organization Foundation </a></h5>
+                                <div class="product-quantity mt-10 mb-10">
+                                    <span class="cart-minus">-</span>
+                                    <input class="cart-input" type="text" value="1" />
+                                    <span class="cart-plus">+</span>
+                                </div>
+                                <div class="product__sm-price-wrapper">
+                                    <span class="product__sm-price">$62.00</span>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="cartmini__del"><i class="fal fa-times"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cartmini__checkout">
+                    <div class="cartmini__checkout-title mb-30">
+                        <h4>Subtotal:</h4>
+                        <span>$113.00</span>
+                    </div>
+                    <div class="cartmini__checkout-btn">
+                        <a href="{{ route('cart') }}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                        <a href="checkout.html" class="e-btn w-100"> <span></span> checkout</a>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+    <div class="body-overlay"></div>
     <footer>
         <div class="footer__area footer-bg">
             <div class="footer__top pt-190 pb-40">
@@ -262,13 +348,89 @@
     <script src="{{ asset('assets/js/school-js/ajax-form.js') }}"></script>
     <script src="{{ asset('assets/js/school-js/wow.min.js')}}"></script>
     <script src="{{ asset('assets/js/school-js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/js/school-js/main.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/school-js/main.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/school-js/main.js')}}"></script>
 
     <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Popper.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="{{ asset('custom-notification/toastr.js') }}"></script>
+    <script>
+        function addToWishList(authId, courseId) {
+            $.ajax({
+                url: "{{ route('add-to-wishlist') }}"
+                , type: "POST"
+                , data: {
+                    "_token": "{{ csrf_token() }}"
+                    , user_id: authId
+                    , course_id: courseId
+                }
+                , success: function(res) {
+                    if (res.status === 200) {
+                        //$(`#fas-${courseId}`).addClass('fas')
+                        callingCart()
+                        toastr.success(res.message)
+                    }
+                }
+            })
+        }
+        $(document).ready(function() {
+            callingCart()
+        }); 
+        function callingCart(){
+            $.ajax({
+                url: "{{ route('cart-view') }}"
+                , type: "GET"
+                , success: function(res) {
+                    $('#cart-block').html(res.content)
+                    $(".cart-toggle-btn").on("click", function() {
+                        cartList(res.authId)
+                        $(".cartmini__wrapper").addClass("opened");
+                        $(".body-overlay").addClass("opened");
+                    });
+                    $(".cartmini__close-btn").on("click", function() {
+                        $(".cartmini__wrapper").removeClass("opened");
+                        $(".body-overlay").removeClass("opened");
+                    });
+                    $(".body-overlay").on("click", function() {
+                        $(".cartmini__wrapper").removeClass("opened");
+                        $(".sidebar__area").removeClass("sidebar-opened");
+                        $(".header__search-3").removeClass("search-opened");
+                        $(".body-overlay").removeClass("opened");
+                    });
+                }
+            })
+        }
+        function cartList(authId){
+            $.ajax({
+                url:"{{ route('cart-list') }}",
+                type:"POST",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    authId:authId
+                },success:function(res){
+                    $('#cart-list-block').html(res.content)
+                }
+            })
+        }
+        function removeFromCart(id){
+            $.ajax({
+                url:"{{ route('remove-from-cart') }}",
+                type:"POST",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    id:id
+                },success:function(res){
+                    callingCart()
+                    toastr.success(res.message)
+                    $(".cartmini__wrapper").removeClass("opened");
+                        $(".body-overlay").removeClass("opened");
+                }
+            })
+        }
+    </script>
 
     @yield('script')
 </body>

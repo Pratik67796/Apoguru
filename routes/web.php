@@ -228,6 +228,11 @@ Route::get('/pro-subcategory/{id?}', 'Front\Userhome@pro_subcategory')->name('pr
 Route::get('/pro-course-buy/{slug}/{uid}', 'Front\Userhome@pro_course_buy')->name('pro-course-buy');
 Route::post('/give-rating','RatingController@store')->name('give-rating');
 
+Route::post('/add-to-wishlist','WishListController@addWishList')->name('add-to-wishlist');
+Route::get('/cart-view','WishListController@cart')->name('cart-view');
+Route::post('/cart-list','WishListController@cartList')->name('cart-list');
+Route::post('/remove-from-cart','WishListController@removeFromCart')->name('remove-from-cart');
+
 //user register
 Route::get('/signup', 'Front\Logincontroller@registration')->name('signup');
 Route::post('/reg','Front\Logincontroller@reg_post')->name('reg');
