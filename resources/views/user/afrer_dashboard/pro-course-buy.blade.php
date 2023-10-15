@@ -19,19 +19,26 @@
         }
         foreach ($lecture->videos as $index => $video) {
         // Parse the duration string and add it to the total duration in seconds
-        list($hours, $minutes, $seconds) = explode(':', $video->duration);
-        $hours = str_pad($hours, 2, '0', STR_PAD_LEFT);
-        $minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
-        $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
+            if(isset($video->duratio)){
+                list($hours, $minutes, $seconds) = explode(':', $video->duration);
+                $hours = str_pad($hours, 2, '0', STR_PAD_LEFT);
+                $minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
+                $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
+            }
         }
         $totalVideos += $videos;
     }
 
     // Calculate hours, minutes, and seconds from total duration in seconds
-    $hours = floor($totalDurationInSeconds / 3600);
-    $minutes = floor(($totalDurationInSeconds % 3600) / 60);
-    $seconds = $totalDurationInSeconds % 60;
-
+    if(isset($totalDurationInSeconds)){
+        $hours = floor($totalDurationInSeconds / 3600);
+        $minutes = floor(($totalDurationInSeconds % 3600) / 60);
+        $seconds = $totalDurationInSeconds % 60;
+    }else{
+        $hours = 00;
+        $minutes = 00;
+        $seconds = 00;
+    }
 ?>
 
 @extends('user.comman.pro-header')
