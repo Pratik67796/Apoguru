@@ -68,11 +68,15 @@
                             $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
                           }
                         }
-                        //if(isset($totalDurationInSeconds)){
+                        if(isset($totalDurationInSeconds)){
                           $hours = floor($totalDurationInSeconds / 3600);
                           $minutes = floor(($totalDurationInSeconds % 3600) / 60);
                           $seconds = $totalDurationInSeconds % 60;
-                        //}
+                        }else{
+                          $hours = 00;
+                          $minutes = 00;
+                          $seconds = 00;
+                        }
                     } 
                   }
                   @endphp
