@@ -1,9 +1,39 @@
 <?php
-$number = $averageRating;
-$formattedNumber = number_format($number, 2);
+    $number = $averageRating;
+    $formattedNumber = number_format($number, 2);
 
-$formattedNumber; // Output: 2.33
+    $formattedNumber; // Output: 2.33
+    $videoLink = "";
+    $totalVideos = 0;
+    $totalDurationInSeconds = 0; // Initialize the total duration in seconds to 0
+
+    foreach ($singlecourse->getPrincipleTopic as $key => $lecture) {
+        $firstVideo = $lecture->videos->first();
+        $data = json_decode($firstVideo, true);
+        if (isset($data['video'])) {
+            $videoLink = $data['video'];
+        }
+        $videos = $lecture->videos->count();
+        if (!is_numeric($videos)) {
+        continue;
+        }
+        foreach ($lecture->videos as $index => $video) {
+        // Parse the duration string and add it to the total duration in seconds
+        list($hours, $minutes, $seconds) = explode(':', $video->duration);
+        $hours = str_pad($hours, 2, '0', STR_PAD_LEFT);
+        $minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
+        $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
+        }
+        $totalVideos += $videos;
+    }
+
+    // Calculate hours, minutes, and seconds from total duration in seconds
+    $hours = floor($totalDurationInSeconds / 3600);
+    $minutes = floor(($totalDurationInSeconds % 3600) / 60);
+    $seconds = $totalDurationInSeconds % 60;
+
 ?>
+
 @extends('user.comman.pro-header')
 @section('content')
 <link rel="stylesheet" href="{{ asset('assets/css/professional-css/vendor/plugins.min.css')}}">
@@ -93,7 +123,7 @@ $formattedNumber; // Output: 2.33
                             <span class="tags">BESTSELLER</span>
                             <div class="courses-play">
                                 <img src="{{ asset('assets/images/courses/circle-shape.png') }}" alt="Play">
-                                <a class="play video-popup" href="https://www.youtube.com/watch?v=Wif4ZkwC0AM"><i class="flaticon-play"></i></a>
+                                <a class="play video-popup" href="{{ asset('storage/videos/'.$videoLink) }}"><i class="flaticon-play"></i></a>
                             </div>
                         </div>
                         <h2 class="title">{{ $singlecourse->title }}</h2>
@@ -218,126 +248,111 @@ $formattedNumber; // Output: 2.33
                                                         @foreach ($singlecourse->getRating as $rating)
                                                         <div class="single-review swiper-slide">
                                                             <div class="review-author">
-                                                                {{-- <div class="author-thumb">
-                                    <img src="{{ asset('assets/images/author/author-06.jpg') }}" alt="Author">
-                                                                <i class="icofont-quote-left"></i>
-                                                            </div> --}}
-                                                            <div class="author-content" style="padding-left: 0px !important;">
-                                                                <h4 class="name">{{ $rating->getRatingUser->name }}</h4>
-                                                                {{-- <span class="designation">Product Designer, USA</span> --}}
-                                                                <span class="rating-star">
-                                                                    @php
-                                                                    $ratingBarSlider = number_format($rating->rating, 2) * 2 * 10;//$averageRating * 18;
-                                                                    @endphp
-                                                                    <span class="rating-bar {{ $ratingBarSlider }}-asd" style="width: {{ $ratingBarSlider }}% !important;"></span>
-                                                                </span>
+                                                                <div class="author-content" style="padding-left: 0px !important;">
+                                                                    <h4 class="name">{{ $rating->getRatingUser->name }}</h4>
+                                                                    {{-- <span class="designation">Product Designer, USA</span> --}}
+                                                                    <span class="rating-star">
+                                                                        @php
+                                                                        $ratingBarSlider = number_format($rating->rating, 2) * 2 * 10;//$averageRating * 18;
+                                                                        @endphp
+                                                                        <span class="rating-bar {{ $ratingBarSlider }}-asd" style="width: {{ $ratingBarSlider }}% !important;"></span>
+                                                                    </span>
+                                                                </div>
                                                             </div>
+                                                            <p>{{ $rating->comment }}</p>
                                                         </div>
-                                                        <p>{{ $rating->comment }}</p>
+                                                        @endforeach
                                                     </div>
-                                                    @endforeach
+                                                    <div class="swiper-pagination"></div>
                                                 </div>
-                                                <div class="swiper-pagination"></div>
                                             </div>
-                                        </div>
 
-                                        <div class="reviews-btn d-flex justify-content-between">
-                                            <button type="button" class="btn btn-primary btn-hover-dark" data-bs-toggle="modal" data-bs-target="#reviewsModal">Write A Review</button>
+                                            <div class="reviews-btn d-flex justify-content-between">
+                                                <button type="button" class="btn btn-primary btn-hover-dark" data-bs-toggle="modal" data-bs-target="#reviewsModal">Write A Review</button>
 
-                                            <button id="btn-vertical_reviews" type="button" class="btn btn-primary btn-hover-dark">View Reviews Vertically</button>
+                                                <button id="btn-vertical_reviews" type="button" class="btn btn-primary btn-hover-dark">View Reviews Vertically</button>
 
-                                        </div>
-                                        <div class="modal fade" id="reviewsModal">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Add a Review</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body reviews-form">
-                                                        {{-- <form action="#"> --}}
-                                                        <div class="row">
-
-                                                            <div class="col-md-12">
-                                                                <div class="reviews-rating">
-                                                                    <label>Rating</label>
-                                                                    <ul id="rating" class="rating">
-                                                                        <li class="star" title='Poor' data-value='1' onClick="ratingFun(1)"><i class="icofont-star"></i></li>
-                                                                        <li class="star" title='Not bad' data-value='2' onClick="ratingFun(2)"><i class="icofont-star"></i></li>
-                                                                        <li class="star" title='Average' data-value='3' onClick="ratingFun(3)"><i class="icofont-star"></i></li>
-                                                                        <li class="star" title='Good' data-value='4' onClick="ratingFun(4)"><i class="icofont-star"></i></li>
-                                                                        <li class="star" title='Excellent' data-value='5' onClick="ratingFun(5)"><i class="icofont-star"></i></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <input type="hidden" name="rating" class="rating-input">
-                                                            @php
-                                                            $id = 0;
-                                                            if(isset(Auth::guard('user_new')->user()->id)){
-                                                            $id = Auth::guard('user_new')->user()->id;
-                                                            }
-                                                            @endphp
-                                                            <input type="hidden" name="user_id" class="user_id" value="{{ $id }}">
-                                                            <input type="hidden" name="course_id" class="course_id" value={{ $singlecourse->id }}>
-                                                            <div class="col-md-12">
-                                                                <div class="single-form">
-                                                                    <textarea placeholder="Write your comments here" name="comment" id="comment"></textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="single-form">
-                                                                    <button class="btn btn-primary btn-hover-dark" onClick="submitReview()">Submit Review</button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="rating-success-message"></div>
-                                                            </div>
+                                            </div>
+                                            <div class="modal fade" id="reviewsModal">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Add a Review</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        {{-- </form> --}}
+                                                        <div class="modal-body reviews-form">
+                                                            {{-- <form action="#"> --}}
+                                                            <div class="row">
+
+                                                                <div class="col-md-12">
+                                                                    <div class="reviews-rating">
+                                                                        <label>Rating</label>
+                                                                        <ul id="rating" class="rating">
+                                                                            <li class="star" title='Poor' data-value='1' onClick="ratingFun(1)"><i class="icofont-star"></i></li>
+                                                                            <li class="star" title='Not bad' data-value='2' onClick="ratingFun(2)"><i class="icofont-star"></i></li>
+                                                                            <li class="star" title='Average' data-value='3' onClick="ratingFun(3)"><i class="icofont-star"></i></li>
+                                                                            <li class="star" title='Good' data-value='4' onClick="ratingFun(4)"><i class="icofont-star"></i></li>
+                                                                            <li class="star" title='Excellent' data-value='5' onClick="ratingFun(5)"><i class="icofont-star"></i></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="hidden" name="rating" class="rating-input">
+                                                                @php
+                                                                $id = 0;
+                                                                if(isset(Auth::guard('user_new')->user()->id)){
+                                                                $id = Auth::guard('user_new')->user()->id;
+                                                                }
+                                                                @endphp
+                                                                <input type="hidden" name="user_id" class="user_id" value="{{ $id }}">
+                                                                <input type="hidden" name="course_id" class="course_id" value={{ $singlecourse->id }}>
+                                                                <div class="col-md-12">
+                                                                    <div class="single-form">
+                                                                        <textarea placeholder="Write your comments here" name="comment" id="comment"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="single-form">
+                                                                        <button class="btn btn-primary btn-hover-dark" onClick="submitReview()">Submit Review</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="rating-success-message"></div>
+                                                                </div>
+                                                            </div>
+                                                            {{-- </form> --}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="outline">
-                                    <div class="course__curriculum">
-                                        @foreach($singlecourse->getPrincipleTopic as $key => $principleTopic)
-                                        <div class="accordion mt-4" id="course__accordion">
-                                            <div class="accordion-item mb-4">
-                                                <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $key }}" aria-expanded="true" aria-controls="collapseOne">
-                                                        {{ $principleTopic->name }}
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse-{{ $key }}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#course__accordion">
-                                                    @foreach($principleTopic->videos as $videoKey => $video)
-                                                    <div class="accordion-body">
-                                                        <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
-                                                            <div class="course__curriculum-info">
-                                                                <svg viewBox="0 0 24 24">
-                                                                    <polygon class="st0" points="23,7 16,12 23,17 " />
-                                                                    <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z" />
-                                                                </svg>
-                                                                <h3> <span>Lecture Title: </span> {{ $video->name }}</h3>
+                                    <div class="tab-pane fade" id="outline">
+                                        <div class="course__curriculum">
+                                            @foreach($singlecourse->getPrincipleTopic as $key => $principleTopic)
+                                            <div class="accordion mt-4" id="course__accordion">
+                                                <div class="accordion-item mb-4">
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $key }}" aria-expanded="true" aria-controls="collapseOne">
+                                                            {{ $principleTopic->name }}
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapse-{{ $key }}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#course__accordion">
+                                                        @foreach($principleTopic->videos as $videoKey => $video)
+                                                        <div class="accordion-body">
+                                                            <div class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                                <div class="course__curriculum-info">
+                                                                    <svg viewBox="0 0 24 24">
+                                                                        <polygon class="st0" points="23,7 16,12 23,17 " />
+                                                                        <path class="st0" d="M3,5h11c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H3c-1.1,0-2-0.9-2-2V7C1,5.9,1.9,5,3,5z" />
+                                                                    </svg>
+                                                                    <h3> <span>Lecture Title: </span> {{ $video->name }}</h3>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        @foreach($video->getSupplementary as $supplementaryKey => $supplementary)
-                                                        <div class="border-bottom">
-                                                            <div class="row justify-content-end">
-                                                                <div class="col-12 col-lg-10">
-                                                                    <div class="course__curriculum-content d-sm-flex justify-content-between border-0">
-                                                                        <div class="course__curriculum-info">
-                                                                            <svg class="document" viewBox="0 0 24 24">
-                                                                                <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z" />
-                                                                                <polyline class="st0" points="14,2 14,8 20,8 " />
-                                                                                <line class="st0" x1="16" y1="13" x2="8" y2="13" />
-                                                                                <line class="st0" x1="16" y1="17" x2="8" y2="17" />
-                                                                                <polyline class="st0" points="10,9 9,9 8,9 " />
-                                                                            </svg>
-                                                                            <h3> <span>Supplementry Materials:</span> </h3>
-                                                                        </div>
-                                                                        <div class="course__curriculum-meta">
+                                                            @foreach($video->getSupplementary as $supplementaryKey => $supplementary)
+                                                            <div class="border-bottom">
+                                                                <div class="row justify-content-end">
+                                                                    <div class="col-12 col-lg-10">
+                                                                        <div class="course__curriculum-content d-sm-flex justify-content-between border-0">
                                                                             <div class="course__curriculum-info">
                                                                                 <svg class="document" viewBox="0 0 24 24">
                                                                                     <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z" />
@@ -346,23 +361,35 @@ $formattedNumber; // Output: 2.33
                                                                                     <line class="st0" x1="16" y1="17" x2="8" y2="17" />
                                                                                     <polyline class="st0" points="10,9 9,9 8,9 " />
                                                                                 </svg>
-                                                                                <span class="time">
-                                                                                    <a href='{{ asset('storage/supplementary-files/'.$supplementary->document) }}' download>
-                                                                                        Simplified Reading
-                                                                                    </a>
-                                                                                </span>
+                                                                                <h3> <span>Supplementry Materials:</span> </h3>
+                                                                            </div>
+                                                                            <div class="course__curriculum-meta">
+                                                                                <div class="course__curriculum-info">
+                                                                                    <svg class="document" viewBox="0 0 24 24">
+                                                                                        <path class="st0" d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z" />
+                                                                                        <polyline class="st0" points="14,2 14,8 20,8 " />
+                                                                                        <line class="st0" x1="16" y1="13" x2="8" y2="13" />
+                                                                                        <line class="st0" x1="16" y1="17" x2="8" y2="17" />
+                                                                                        <polyline class="st0" points="10,9 9,9 8,9 " />
+                                                                                    </svg>
+                                                                                    <span class="time">
+                                                                                        <a href='{{ asset('storage/supplementary-files/'.$supplementary->document) }}' download>
+                                                                                            Simplified Reading
+                                                                                        </a>
+                                                                                    </span>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            @endforeach
                                                         </div>
                                                         @endforeach
                                                     </div>
-                                                    @endforeach
                                                 </div>
+                                                @endforeach
                                             </div>
-                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -370,8 +397,7 @@ $formattedNumber; // Output: 2.33
                         </div>
                     </div>
                 </div>
-
-
+                {{-- </div> --}}
 
                 <div class="col-lg-4">
                     <div class="sidebar">
@@ -380,10 +406,11 @@ $formattedNumber; // Output: 2.33
                                 <span class="price">${{ $singlecourse->sell_price }}</span>
                             </div>
                             <div class="info-list">
+                                
                                 <ul>
-                                    <li><i class="icofont-man-in-glasses"></i> <strong>Instructor</strong> <span>Pamela Foster</span></li>
-                                    <li><i class="icofont-clock-time"></i> <strong>Duration</strong> <span>08 hr 15 mins</span></li>
-                                    <li><i class="icofont-ui-video-play"></i> <strong>Lectures</strong> <span>29</span></li>
+                                    <li><i class="icofont-man-in-glasses"></i> <strong>Instructor</strong> <span>{{ isset($singlecourse->getAdmin) ? $singlecourse->getAdmin->name : $singlecourse->getPublisher->name }}</span></li>
+                                    <li><i class="icofont-clock-time"></i> <strong>Duration</strong> <span>{{ "$hours hr $minutes mins $seconds sec" }}</span></li>
+                                    <li><i class="icofont-ui-video-play"></i> <strong>Lectures</strong> <span>{{ $totalVideos }}</span></li>
                                     <li><i class="icofont-bars"></i> <strong>Level</strong> <span>Professional</span></li>
                                     <li><i class="icofont-book-alt"></i> <strong>Language</strong> <span>English</span></li>
                                     <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>

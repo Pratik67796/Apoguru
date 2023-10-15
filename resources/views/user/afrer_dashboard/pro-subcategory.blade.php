@@ -48,8 +48,32 @@
                   <a href="{{ route('pro-course-buy',['slug' => $data2->slug,'uid'=>$data2->uid]) }}">{{strip_tags($data2['title'])}}</a>
                 </h4>
                 <div class="courses-meta">
-                  <span> <i class="icofont-clock-time"></i> 08 hr 15 mins</span>
-                  <span> <i class="icofont-read-book"></i> 29 Lectures </span>
+                  @php
+                  $totalVideos = 0;
+                  $totalDurationInSeconds = 0;
+                  $videoArray = [];
+
+                  foreach($data2->getPrincipleTopic as $getPrincipleTopic){
+                    if($getPrincipleTopic->count() > 0 ){
+                        if($getPrincipleTopic->videos != null && $getPrincipleTopic->videos->count() != 0){
+                          $totalVideos = $getPrincipleTopic->videos->count();
+                          $videoArray[] = $getPrincipleTopic->videos;
+                        }
+                        foreach ($getPrincipleTopic->videos as $index => $video) {
+                        // Parse the duration string and add it to the total duration in seconds
+                          list($hours, $minutes, $seconds) = explode(':', $video->duration);
+                          $hours = str_pad($hours, 2, '0', STR_PAD_LEFT);
+                          $minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
+                          $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
+                        }
+                        $hours = floor($totalDurationInSeconds / 3600);
+                        $minutes = floor(($totalDurationInSeconds % 3600) / 60);
+                        $seconds = $totalDurationInSeconds % 60;
+                    } 
+                  }
+                  @endphp
+                  <span> <i class="icofont-clock-time"></i> {{ "$hours hr $minutes mins $seconds sec" }}</span>
+                  <span> <i class="icofont-read-book"></i> @if(count($videoArray) > 0){{$totalVideos}}@endif Lectures </span>
                 </div>
                 <div class="courses-price-review">
                   <div class="courses-price">

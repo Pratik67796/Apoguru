@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Rating;
 use App\Models\RemcomenderCourse;
+use App\Models\WishList;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
@@ -64,6 +65,10 @@ class Course extends Model
 
   public function getRating(){
     return $this->hasMany(Rating::class,'course_id','id');
+  }
+
+  public function getWishList(){
+    return $this->hasOne(WishList::class,'course_id','id');
   }
 
 }
