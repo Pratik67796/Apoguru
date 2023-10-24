@@ -450,7 +450,7 @@ class ProfileController extends Controller
     ])
       ->where('user_id', '=', $auth->id)->get();
     // dd($courses);
-    return view('user.profile.i-profile.my-course', compact('courses'));
+    return view('user.profile.i-profile.my-course', compact('courses','auth'));
   }
 
   public function instructor_profile()

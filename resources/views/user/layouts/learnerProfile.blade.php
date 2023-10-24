@@ -713,7 +713,7 @@
     </script>
     @endif
 
-
+@include('user.profile.i-profile.modals.add-signature')
     @include('user.layouts.ajax')
 </body>
 
