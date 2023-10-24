@@ -234,6 +234,16 @@
             /* Add spacing between the indicator and item name */
         }
 
+        .kbw-signature {
+            width: 100%;
+            height: 200px;
+        }
+
+        #sig canvas {
+            width: 100% !important;
+            height: auto;
+        }
+
     </style>
 </head>
 <!-- Modal -->
@@ -492,6 +502,7 @@
                             </div>
                         </div>
                         <div class="login-header-action d-flex align-items-center justify-content-end flex-wrap pe-0">
+                            <button class="btn-green mb-3" data-bs-toggle="modal" data-bs-target="#signature-modal">Add Signature</button>
                             <button class="btn-white mb-3"><i class="far fa-filter"></i></button>
                             <div class="d-flex align-items-center cust-dropdown mb-3">
                                 <p class="mb-0">Sort by</p>
@@ -647,6 +658,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <!-- Include CKEditor library -->
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            const canvas = document.getElementById('signatureCanvas');
+            const ctx = canvas.getContext('2d');
+            const clearButton = document.getElementById('clearButton');
+            const signatureDataInput = document.getElementById('signatureData');
+            let isDrawing = false;
+            const signatureImage = document.getElementById('signatureImage'); // Reference to the <img> tag
+
+            canvas.addEventListener('mousedown', function() {
+                isDrawing = true;
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                if (isDrawing) {
+                    isDrawing = false;
+                    updateSignatureData();
+                }
+            });
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDrawing) return;
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = 'black';
+                ctx.lineTo(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top);
+                ctx.stroke();
+            });
+
+            clearButton.addEventListener('click', () => {
+                clearCanvas();
+            });
+
+            function clearCanvas() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                signatureDataInput.value = '';
+                location.reload();
+            }
+
+            function updateSignatureData() {
+                signatureDataInput.value = canvas.toDataURL('image/png');
+                $('#sign-submit-btn').removeAttr('disabled');
+            }
+            if ($('#signatureData').val() === '') {
+                $('#sign-submit-btn').attr('disabled', 'disabled');
+            }
+        });
+
+    </script>
+    @if (session('message'))
+    <script>
+        toastr.success("{{ session('message') }}");
+
+    </script>
+    @endif
+
 
     @include('user.layouts.ajax')
 </body>

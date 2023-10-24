@@ -260,6 +260,8 @@ Route::get('/learner_profile', 'Front\ProfileController@learner_profile')->name(
 
 //Instructor Profile
 Route::get('/create-course', 'Front\ProfileController@create_course')->name('create_course');
+Route::post('signaturepad', 'Front\ProfileController@uploadSignature')->name('signaturepad.upload');
+
 
 Route::post('/get-parent-subcategroy','Front\ProfileController@getParentSubCategroy')->name('get-parent-subcategroy');
 Route::post('/get-sub-child_categroy','Front\ProfileController@getSubChildCategory')->name('get-school-parent');
