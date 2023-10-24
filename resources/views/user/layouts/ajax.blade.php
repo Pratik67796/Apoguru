@@ -777,9 +777,16 @@
 
     });
     document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("add-option").addEventListener("click", function() {
+        $('#add-option').click(function(){
             addOptionField();
-        });
+        })
+        //const element = document.getElementById('"add-option');
+        //console.log(element);
+        //if (element) {
+          //  document.getElementById("add-option").addEventListener("click", function() {
+            //    addOptionField();
+           // });
+       // }
     });
 
     $(document).ready(function() {

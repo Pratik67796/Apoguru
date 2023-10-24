@@ -183,7 +183,6 @@
         const currencyCode = geoplugin_currencyCode();
         const symbol = getCurrencySymbol(currencyCode);
         $('.append_currency_simbol').text(symbol);
-        console.log(symbol);
     });
 
 </script>
