@@ -15,6 +15,7 @@ use App\ChildSubCategory;
 use App\Http\Controllers\Controller;
 use App\PrincipalTopic;
 use App\Supplementary_document;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -471,5 +472,12 @@ class ProfileController extends Controller
     }
     $trancationHistories = TrancationHistory::with('getCourse')->where('user_id', '=', $auth->id)->get();
     return view('user.profile.i-profile.wallet', compact('trancationHistories'));
+  }
+
+  public function uploadSignature(Request $request){
+    // dd($request->all());
+    User::where('id','=',$request->id)->update(['signature' =>$request->signatureData]);
+    return redirect()->back()->with('message', 'Your Signature captured successfully.');
+
   }
 }

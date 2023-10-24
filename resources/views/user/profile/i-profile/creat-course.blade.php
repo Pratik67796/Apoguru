@@ -80,6 +80,8 @@
 
 @include('user.profile.i-profile.modals.add-question-answer')
 
+@include('user.profile.i-profile.modals.add-signature')
+
 
 
 <div class="mt-4 px-4 pt-4 d-flex align-items-center justify-content-between flex-wrap" style="background-color: #19875445;border-radius: 20px;">
