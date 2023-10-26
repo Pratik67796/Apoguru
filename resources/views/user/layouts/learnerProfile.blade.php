@@ -632,6 +632,8 @@
         </a>
 
     </div>
+    @include('user.profile.i-profile.modals.add-signature')
+    @include('user.profile.i-profile.modals.add-question-answer')
     <style>
         div[contenteditable] {
             outline: 1px solid black;
@@ -659,7 +661,7 @@
     <!-- Include CKEditor library -->
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+     $(document).ready(function() {
             const canvas = document.getElementById('signatureCanvas');
             const ctx = canvas.getContext('2d');
             const clearButton = document.getElementById('clearButton');
@@ -705,15 +707,9 @@
             }
         });
 
-    </script>
-    @if (session('message'))
-    <script>
-        toastr.success("{{ session('message') }}");
 
     </script>
-    @endif
 
-@include('user.profile.i-profile.modals.add-signature')
     @include('user.layouts.ajax')
 </body>
 

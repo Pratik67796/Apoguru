@@ -78,7 +78,7 @@
 
 @include('user.profile.i-profile.modals.add-supplementary')
 
-@include('user.profile.i-profile.modals.add-question-answer')
+
 
 
 

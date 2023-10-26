@@ -282,6 +282,7 @@ Route::post('/add-question-answer','Front\ProfileController@addQuestionAnswer')-
 Route::post('/get-question-answer','Front\ProfileController@getQuestionAnswer')->name('get-question-answer');
 
 Route::get('/my-course', 'Front\ProfileController@course_i_have_created')->name('my-course');
+Route::get('/certificate', 'CerficateController@index')->name('certificate');
 
 Route::get('/instructor_profile', 'Front\ProfileController@instructor_profile')->name('instructor_profile');
 Route::post('/profile-update','Front\ProfileManagementController@updateProfile')->name('profile-update');
