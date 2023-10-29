@@ -84,16 +84,7 @@ class PaymentController extends Controller
     }
 
     public function initialize(Request $request){
-        $request->validate([
-            'email' => 'required|email',
-            'phone' => 'required',
-            'name' => 'required'
-          ], [
-            'email.required' => 'Email Id is required',
-            'phone.required' => 'Phone Number is required.',
-            'name.required' => 'Name is required.',
-            'email.email' => "Please Enter valid email."
-          ]);
+        // dd($request->all());
         $reference = Flutterwave::generateReference();
         $data = [
             'payment_options' => 'card,banktransfer',
@@ -164,9 +155,16 @@ class PaymentController extends Controller
             // dd($trancationHistory);
             $trancationHistory->save();
             $findCourse = Course::find(intval(request('course_id')));
-            return redirect()->route('course-details',['slug'=>$findCourse->slug,'uid'=>$findCourse->uid])->with('message', 'Thank you, Your Crypto pay is done successfully.');
+            return redirect()->route('course-details',['slug'=>$findCourse->slug,'uid'=>$findCourse->uid])->with('message', 'Thank you, Your Transcation done successfully.');
         } elseif ($status ==  'cancelled'){
-                //Put desired action/code after transaction has been cancelled here
+            $trancationHistory = new TrancationHistory();
+            $trancationHistory->save();
+            $trancationHistory->course_id = intval(request('course_id'));
+            $trancationHistory->user_id = intval(request('user_id'));
+            $trancationHistory->payment_mode = 'flutterwave';
+            $trancationHistory->save();
+            $findCourse = Course::find(intval(request('course_id')));
+            return redirect()->route('course-details',['slug'=>$findCourse->slug,'uid'=>$findCourse->uid])->with('error', 'Sorry, Your Transcation failed.');
         } else{
             $transactionID = Flutterwave::getTransactionIDFromCallback();
             $data = Flutterwave::verifyTransaction($transactionID);

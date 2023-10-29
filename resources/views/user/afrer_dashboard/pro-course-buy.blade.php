@@ -75,7 +75,21 @@
         <div class="float-buttons" style="">
             <div class="d-flex align-items-center justify-content-start flex-wrap">
                 @if(isset(Auth::guard('user_new')->user()->id))
-                <a href="#" class="btn btn-primary btn-hover-dark text-center me-3 mb-2" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal"><i class="fas fa-sack-dollar me-1"></i> Pay</a>
+
+                <form method="post" action="{{ route('pay-with-flutterwave') }}">
+                    @csrf
+                    <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+                    <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+                    <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+                    <input type="hidden" name="email" value="@if(isset(Auth::guard('user_new')->user()->email)){{ Auth::guard('user_new')->user()->email }} @endif">
+                    <input type="hidden" name="phone" value="@if(isset(Auth::guard('user_new')->user()->phone)){{ Auth::guard('user_new')->user()->phone }} @endif">
+                    <input type="hidden" name="name" value="@if(isset(Auth::guard('user_new')->user()->name)){{ Auth::guard('user_new')->user()->name }} @endif">
+                    <button type='submit' id="flutter-user-form" class="btn btn-primary btn-hover-dark text-center me-3 mb-2">
+                        <i class="fas fa-sack-dollar me-1"></i>
+                        Pay
+                    </button>
+                </form>
+
                 <form method='post' action='{{ route('now-payment') }}'>
                     @csrf
                     <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
@@ -425,7 +439,16 @@
                             </div>
                             @if(isset(Auth::guard('user_new')->user()->id))
                             <div class="info-btn">
-                                <a href="#" class="btn btn-primary btn-hover-dark" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal"><i class="fas fa-sack-dollar me-1"></i> Pay </a>
+                                <a href="#" class="btn btn-primary btn-hover-dark" id="trigger-flutter-wave-form"><i class="fas fa-sack-dollar me-1"></i> Pay </a>
+                                <form method="post" action="{{ route('pay-with-flutterwave') }}" id="flutter-wave-form">
+                                    @csrf
+                                    <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+                                    <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+                                    <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+                                    <input type="hidden" name="email" value="@if(isset(Auth::guard('user_new')->user()->email)){{ Auth::guard('user_new')->user()->email }} @endif">
+                                    <input type="hidden" name="phone" value="@if(isset(Auth::guard('user_new')->user()->phone)){{ Auth::guard('user_new')->user()->phone }} @endif">
+                                    <input type="hidden" name="name" value="@if(isset(Auth::guard('user_new')->user()->name)){{ Auth::guard('user_new')->user()->name }} @endif">
+                                </form>
                             </div>
                             <div class="info-btn">
                                 <form method='post' action='{{ route('now-payment') }}'>
@@ -542,6 +565,10 @@
 
 <script type="">
     $(document).ready(function(){
+        $("#trigger-flutter-wave-form").on('click',function(){
+            $('#flutter-wave-form').submit();
+        })
+
       $(".wishlist-heart").click(function(){
         $(this).toggleClass("far");
         $(this).toggleClass("fas");
