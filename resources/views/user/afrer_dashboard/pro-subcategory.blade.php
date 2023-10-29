@@ -80,7 +80,11 @@
                     } 
                   }
                   @endphp
-                  <span> <i class="icofont-clock-time"></i> {{ "$hours hr $minutes mins $seconds sec" }}</span>
+                  <span> <i class="icofont-clock-time"></i>
+                    @if(isset($hours)) {{ "$hours hr " }} @endif
+                    @if(isset($minutes)) {{ "$minutes mins " }} @endif
+                    @if(isset($seconds)) {{ "$seconds sec" }} @endif
+                  </span>
                   <span> <i class="icofont-read-book"></i> @if(count($videoArray) > 0){{$totalVideos}}@endif Lectures </span>
                 </div>
                 <div class="courses-price-review">
