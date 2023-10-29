@@ -475,7 +475,6 @@ class ProfileController extends Controller
   }
 
   public function uploadSignature(Request $request){
-    // dd($request->all());
     User::where('id','=',$request->id)->update(['signature' =>$request->signatureData]);
     return redirect()->back()->with('message', 'Your Signature captured successfully.');
 

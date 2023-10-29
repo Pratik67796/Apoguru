@@ -89,9 +89,18 @@ $rating = (int)$averageRating; // Replace with the actual rating value
         <div class="pay-float-buttons float-buttons">
             <div class="d-flex align-items-center justify-content-start flex-wrap">
                 @if(isset(Auth::guard('user_new')->user()->id))
-                <a href="#" class="e-btn e-btn-7 text-center me-3 mb-20 pay-btn" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal">
+                <a href="#" class="e-btn e-btn-7 text-center me-3 mb-20 pay-btn" id="trigger-flutter-wave-form">
                     <i class="fas fa-sack-dollar me-2"></i> Pay
                 </a>
+                <form method="post" action="{{ route('pay-with-flutterwave') }}" id="flutter-wave-form">
+                    @csrf
+                    <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+                    <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+                    <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+                    <input type="hidden" name="email" value="@if(isset(Auth::guard('user_new')->user()->email)){{ Auth::guard('user_new')->user()->email }} @endif">
+                    <input type="hidden" name="phone" value="@if(isset(Auth::guard('user_new')->user()->phone)){{ Auth::guard('user_new')->user()->phone }} @endif">
+                    <input type="hidden" name="name" value="@if(isset(Auth::guard('user_new')->user()->name)){{ Auth::guard('user_new')->user()->name }} @endif">
+                </form>
                 <form method='post' action='{{ route('now-payment') }}'>
                     @csrf
                     <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
@@ -178,6 +187,13 @@ $rating = (int)$averageRating; // Replace with the actual rating value
             @if(session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+             @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
@@ -731,10 +747,19 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                             </div>
                             @if(isset(Auth::guard('user_new')->user()->id))
                             <div class="course__enroll-btn">
-                                <button type='button' id="flutter-user-form" class="e-btn e-btn-7 w-100" data-bs-toggle="modal" data-bs-target="#flutter-wave-modal">
+                            <form method="post" action="{{ route('pay-with-flutterwave') }}">
+                                @csrf
+                                <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
+                                <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
+                                <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
+                                <input type="hidden" name="email" value="@if(isset(Auth::guard('user_new')->user()->email)){{ Auth::guard('user_new')->user()->email }} @endif">
+                                <input type="hidden" name="phone" value="@if(isset(Auth::guard('user_new')->user()->phone)){{ Auth::guard('user_new')->user()->phone }} @endif">
+                                <input type="hidden" name="name" value="@if(isset(Auth::guard('user_new')->user()->name)){{ Auth::guard('user_new')->user()->name }} @endif">
+                                <button type='submit' id="flutter-user-form" class="e-btn e-btn-7 w-100">
                                     <i class="fas fa-sack-dollar me-2"></i>
                                     Pay
                                 </button>
+                            </form>
                             </div>
                             <div class="course__enroll-btn mt-20">
                                 <form method='post' action='{{ route('now-payment') }}'>
@@ -807,44 +832,6 @@ $rating = (int)$averageRating; // Replace with the actual rating value
 {{-- Flutter Wave Modal Start Here --}}
 <!-- Button trigger modal -->
 
-
-<!-- Modal -->
-<div class="modal fade" id="flutter-wave-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">PAY WITH FLUTTER WAVE</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form method="post" action="{{ route('pay-with-flutterwave') }}">
-                <div class="modal-body">
-                    @csrf
-                    <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
-                    <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
-                    <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
-                    <input type="email" name="email" class="form-control mt-2" placeholder="Email">
-                    @error('email')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <input type="text" name="name" class="form-control mt-2" placeholder="Name">
-                    @error('name')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <input type="number" name="phone" class="form-control mt-2" placeholder="Phone Number">
-                    @error('phone')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" name="submit" class="btn btn-primary" value="submit">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-{{-- Flutter Wave Modal End Here --}}
 @endsection
 @section('script')
 <script src="{{ asset('assets/js/school-js/vendor/jquery-3.5.1.min.js')}}"></script>
@@ -863,15 +850,6 @@ $rating = (int)$averageRating; // Replace with the actual rating value
 {{-- <script src="{{ asset('assets/js/school-js/wow.min.js')}}"></script> --}}
 <script src="{{ asset('assets/js/school-js/imagesloaded.pkgd.min.js')}}"></script>
 
-
-@if ($errors->any())
-<script>
-    $(document).ready(function() {
-        $('#flutter-wave-modal').modal('show');
-    });
-
-</script>
-@endif
 <script type="">
     $(document).ready(function(){
         $(".extra-buttons .wishlist-heart").click(function(){
@@ -898,8 +876,8 @@ $rating = (int)$averageRating; // Replace with the actual rating value
 
 
     $(document).ready(function() {
-                const api = "https://api.exchangerate-api.com/v4/latest/USD";
-                searchValue = <?php echo json_encode($singlecourse['actual_price']);?>;
+        const api = "https://api.exchangerate-api.com/v4/latest/USD";
+            searchValue = <?php echo json_encode($singlecourse['actual_price']);?>;
           searchValue_sell = <?php echo json_encode($singlecourse['sell_price']);?>;
           resultFrom = <?php echo json_encode($singlecourse['currency']);?>;
           resultTo = geoplugin_currencyCode();
@@ -908,7 +886,9 @@ $rating = (int)$averageRating; // Replace with the actual rating value
             return currency.json();
           }).then(displayResults); 
       });
-
+        $("#trigger-flutter-wave-form").on('click',function(){
+            $('#flutter-wave-form').submit();
+        })
       function displayResults(currency) {
         let fromRate = currency.rates[resultFrom];
         let toRate = currency.rates[resultTo];
