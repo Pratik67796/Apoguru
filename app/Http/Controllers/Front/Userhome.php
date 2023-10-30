@@ -35,7 +35,7 @@ class Userhome extends Controller
         // dd($professional_cat);
         // $profectio_course = Course::where('main_category_id',2)->get();
         $new = Course::where('main_category_id',2)->with('getRating')->orderBy("id", "DESC")->take(10)->get();
-        dd($new);
+        // dd($new);
     	return view('user.dashboard.professional-dashboard',compact('professional_cat','new'));
     }
 
