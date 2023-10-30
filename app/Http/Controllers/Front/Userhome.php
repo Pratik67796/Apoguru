@@ -83,18 +83,12 @@ class Userhome extends Controller
         $ratings = $singlecourse->getRating()->pluck('rating');
         $totalRatings = count($ratings);
         $averageRating = $totalRatings > 0 ? $ratings->sum() / $totalRatings : 0;
-        // $totalAmount = 0;
         // echo "<pre>";
         // foreach($singlecourse->getPrincipleTopic as $key => $value){
-        //     $price = $value->videos->count();
-        //     if (!is_numeric($price)) {
-        //         // Handle invalid or unexpected data
-        //         // You can log or print a message for debugging
-        //         continue;
-        //     }
-        //     $totalAmount += $price;
+        //     $price = $value->videos->first();
+        //     dd($price->getQuestion,$price->getQuestion->first()->getAnswer);
         // }
-        // echo $totalAmount;
+        // // echo $totalAmount;
         // exit;
         // dd($singlecourse);
         return view('user.afrer_dashboard.course-buy',compact('singlecourse','averageRating','totalRatings'));

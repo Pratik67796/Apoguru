@@ -44,7 +44,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group text-center">
-                                        {{-- <inpu href="" class="btn default-btn">Add Question </a> --}}
                                         <button type="submit" class="btn default-btn">Add Question</button>
                                     </div>
                                 </div>

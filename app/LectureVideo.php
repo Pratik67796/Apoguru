@@ -25,4 +25,8 @@ class LectureVideo extends Model
     return $this->hasMany(Supplementary_document::class,'lecture_videos_id','id');
   }
 
+  public function getQuestion(){
+    return $this->hasMany(interacticeqestions::class,"lecture_videos_id",'id');
+  }
+
 }
