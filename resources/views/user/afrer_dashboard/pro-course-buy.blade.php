@@ -28,7 +28,7 @@
         }
         $totalVideos += $videos;
     }
-
+    
     // Calculate hours, minutes, and seconds from total duration in seconds
     if(isset($totalDurationInSeconds)){
         $hours = floor($totalDurationInSeconds / 3600);
@@ -43,10 +43,7 @@
 
 @extends('user.comman.pro-header')
 @section('content')
-<link rel="stylesheet" href="{{ asset('assets/css/professional-css/vendor/plugins.min.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/professional-css/style.min.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/professional-css/custom.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/school-css/fontAwesome5Pro.css')}}">
+
 
 <div class="modal fade" id="course_vdo_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog course-vdo-modal" role="document">
@@ -144,7 +141,9 @@
                             <span class="tags">BESTSELLER</span>
                             <div class="courses-play">
                                 <img src="{{ asset('assets/images/courses/circle-shape.png') }}" alt="Play">
-                                <a class="play video-popup" href="{{ asset('storage/videos/'.$videoLink) }}"><i class="flaticon-play"></i></a>
+                                <a class="play video-popup" href="{{ asset('storage/videos/'.$videoLink) }}">
+                                    <i class="flaticon-play"></i>
+                                </a>
                             </div>
                         </div>
                         <h2 class="title">{{ $singlecourse->title }}</h2>
@@ -418,7 +417,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+
 
                 <div class="col-lg-4">
                     <div class="sidebar">
@@ -427,7 +426,7 @@
                                 <span class="price">${{ $singlecourse->sell_price }}</span>
                             </div>
                             <div class="info-list">
-                                
+
                                 <ul>
                                     <li><i class="icofont-man-in-glasses"></i> <strong>Instructor</strong> <span>{{ isset($singlecourse->getAdmin) ? $singlecourse->getAdmin->name : $singlecourse->getPublisher->name }}</span></li>
                                     <li><i class="icofont-clock-time"></i> <strong>Duration</strong> <span>{{ "$hours hr $minutes mins $seconds sec" }}</span></li>
@@ -494,73 +493,27 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     </div>
 </div>
+</div>
 
 </div>
-{{-- Flutter Wave Modal Start Here --}}
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="flutter-wave-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">PAY WITH FLUTTER WAVE</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form method="post" action="{{ route('pay-with-flutterwave') }}">
-                <div class="modal-body">
-                    @csrf
-                    <input type="hidden" name="price" value='{{ $singlecourse->actual_price }}'>
-                    <input type="hidden" name="course_id" value='{{ $singlecourse->id }}'>
-                    <input type="hidden" name="user_id" value="@if(isset(Auth::guard('user_new')->user()->id)){{ Auth::guard('user_new')->user()->id }} @endif">
-                    <input type="email" name="email" class="form-control mt-2" placeholder="Email">
-                    @error('email')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <input type="text" name="name" class="form-control mt-2" placeholder="Name">
-                    @error('name')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <input type="number" name="phone" class="form-control mt-2" placeholder="Phone Number">
-                    @error('phone')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" name="submit" class="btn btn-primary" value="submit">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-{{-- Flutter Wave Modal End Here --}}
 @endsection
 @section('script')
 <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
 <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/professional-js/plugins.min.js') }}"></script>
 <script src="{{ asset('assets/js/school-js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('assets/js/professional-js/main.js') }}"></script>
 <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js') }}"></script>
 <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/professional-js/plugins.min.js') }}"></script>
-<script src="{{ asset('assets/js/professional-js/main.js') }}"></script>
 
 
 <script src="{{ asset('assets/js/professional-js/vendor/modernizr-3.11.2.min.js')}}"></script>
 <script src="{{ asset('assets/js/professional-js/vendor/jquery-3.5.1.min.js')}}"></script>
 <script src="{{ asset('assets/js/professional-js/plugins.min.js')}}"></script>
-<script src="{{ asset('assets/js/professional-js/main.js')}}"></script>
 
 
 <script type="">
