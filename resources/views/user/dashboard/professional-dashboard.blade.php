@@ -366,7 +366,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-courses">
                                         <div class="courses-images">
-                                            <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
+                                            <a href="{{ route('pro-course-buy',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
                                                 <img src="{{asset('course_images/').'/'.$course['image']}}" alt="Courses">
                                             </a>
                                         </div>
@@ -385,11 +385,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="tag">
-                                                    <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">Science</a>
+                                                    <a href="{{ route('pro-course-buy',['slug'=>$course->slug,'uid'=>$course->uid]) }}">Science</a>
                                                 </div>
                                             </div>
                                             <h4 class="title">
-                                                <a href="{{ route('course-details',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
+                                                <a href="{{ route('pro-course-buy',['slug'=>$course->slug,'uid'=>$course->uid]) }}">
                                                     {{strip_tags($course['title'])}}
                                                 </a>
                                             </h4>
