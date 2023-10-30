@@ -21,8 +21,8 @@
         // Parse the duration string and add it to the total duration in seconds
             if(isset($video->duratio)){
                 list($hours, $minutes, $seconds) = explode(':', $video->duration);
-                $hours = str_pad($hours, 2, '0', STR_PAD_LEFT);
-                $minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
+                $hours = isset($hours) ? str_pad($hours, 2, '0', STR_PAD_LEFT) : 0;
+                $minutes = isset($minutes) ? str_pad($minutes, 2, '0', STR_PAD_LEFT) : 0;
                 $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
             }
         }
