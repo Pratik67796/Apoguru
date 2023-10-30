@@ -67,8 +67,7 @@ class ProfileController extends Controller
     $getPrincipleTopics = PrincipalTopic::orderBy('ordering_position')->where('user_id', '=', $auth->id)->get();
     $lecture = LectureVideo::where('user_id', '=', $auth->id)->get();
     // dd($getCourses);
-    return view(
-      'user.profile.i-profile.creat-course',
+    return view('user.profile.i-profile.creat-course',
       compact(
         'main_categories',
         'auth',

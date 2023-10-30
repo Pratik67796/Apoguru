@@ -672,24 +672,53 @@
             $('#video_id').val(id);
             $('.video-url-source').attr('src', videoUrl);
             $('.thumb-nail-image').attr('poster', 'mp4');
-            var html = `<video poster="${thumbNail}" width="100%" height="" controls style="max-width: 300px;">
+            var html = `<video poster="${thumbNail}" width="100%" height="" id="myVideo" controls style="max-width: 300px;">
                 <source src="${videoUrl}" type="" class="video-url-source">
                 <source src="${videoUrl}" type=""  class="video-url-source">
                 </video>`
             $(video_id).val(id)
             getQuestionAnswer(id)
+
             $('#video-section-modal').html(html);
+
+            var video = document.getElementById('myVideo'); // Use '#myVideo' to select the video element
+            var pauseTimeDisplay = $('#display_time');
+            video.onloadeddata = function() {
+                pauseTimeDisplay.click(function() {
+                    if (video && !video.paused) {
+                        video.pause();
+                        var pauseTime = video.currentTime;
+                        var formattedPauseTime = formatTime(pauseTime);
+                        pauseTimeDisplay.val(formattedPauseTime);
+                    }else {
+                        alert('The video is not playing.');
+                    }
+                });
+            };
         });
     });
-    function getQuestionAnswer(id){
+
+    function formatTime(timeInSeconds) {
+        var minutes = Math.floor(timeInSeconds / 60);
+        var seconds = Math.floor(timeInSeconds % 60);
+        return pad(minutes, 2) + ':' + pad(seconds, 2);
+    }
+
+    function pad(num, size) {
+        var s = num + '';
+        while (s.length < size) s = '0' + s;
+        return s;
+    }
+
+    function getQuestionAnswer(id) {
         $.ajax({
-            url:"{{ route('get-question-answer') }}",
-            type:"POST",
-            data: {
+            url: "{{ route('get-question-answer') }}"
+            , type: "POST"
+            , data: {
                 "_token": "{{ csrf_token() }}"
-                , video_id: id,
-            },
-            success:function(res){
+                , video_id: id
+            , }
+            , success: function(res) {
                 $('#question-answer').html(res.html)
             }
         })
@@ -801,14 +830,15 @@
                     , question: questionContent
                     , answers: ckeditorValues
                     , user_id: user_id
-                    , correct_answer: correctAnswer,
-                    display_time:display_time
+                    , correct_answer: correctAnswer
+                    , display_time: display_time
                 }
                 , success: function(res) {
                     if (res.status === 200) {
                         toastr.success(res.message);
                         $('#question-answer-form')[0].reset();
                         $("#int_que_Modal").modal("hide");
+                        location.reload(true);
                     }
                 }
                 , error: function(error) {
@@ -819,6 +849,8 @@
                 }
             });
         });
+
+
     });
 
 </script>

@@ -45,36 +45,54 @@ $rating = (int)$averageRating; // Replace with the actual rating value
             <div class="modal-body position-relative">
             @php
               $videoLink = "";
+              $questionAndAnswerArray = [];
               foreach($singlecourse->getPrincipleTopic as $principleTopic){
                 $firstVideo = $principleTopic->videos->first();
+                if(isset($firstVideo->getQuestion)){
+                    foreach($firstVideo->getQuestion as $question){
+                          $questionData = [
+                                'questions' => $question->interactive_qestion,
+                                'display_time' => $question->display_time,
+                                'id' => $question->id,
+                                'answers' => [], // Create an empty array to hold answers
+                            ];
+                        foreach($question->getAnswer as $answer){
+                            $answerData = [
+                                'answer' => $answer->interactive_answer,
+                                'correct_answer' => $answer->correct_answer,
+                            ];
+                            $questionData['answers'][] = $answerData;
+                        }
+                        $questionAndAnswerArray[] = $questionData;
+                    }
+                }
                 $data = json_decode($firstVideo, true);
                 if (isset($data['video'])) {
                     $videoLink = $data['video'];
                 }
               }
-              //echo $videoLink;
-              
               @endphp
+
                 <video class="" poster="{{ asset('storage/course-images/'.$singlecourse->image )}}" width="100%" height="" controls>
                     <source src="{{ asset('storage/videos/'.$videoLink) }}" type="">
                     <source src="{{ asset('storage/videos/'.$videoLink) }}" type="">
                 </video>
-              
-                <div class="question-section">
+                @if(count($questionAndAnswerArray) > 0) 
+                @foreach($questionAndAnswerArray as $key => $questionAndAnswer)
+                <div class="question-section d-none" id="question-section-{{ $questionAndAnswer['id'] }}">
                     <div class="form-group mb-4">
-                        <p>Which is option A ?</p>
+                        <p>{{ $questionAndAnswer['questions'] }}</p>
+                        <input type="hidden" name="display_time" value="{{ $questionAndAnswer['display_time'] }}">
                     </div>
+                    @foreach($questionAndAnswer['answers'] as $anwser)
                     <div class="form-group cust-label cust-option-label mb-3">
                         <input id="first" type="radio" name="ookk">
-                        <label for="first">Here is my A option</label>
+                        <label for="first">{{ $anwser['answer'] }}</label>
                     </div>
-
-                    <div class="form-group cust-label cust-option-label mb-3">
-                        <input id="first" type="radio" name="ookk">
-                        <label for="first">Here is my B option</label>
-                    </div>
-
+                    @endforeach
                 </div>
+                @endforeach
+                @endif
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -233,6 +251,12 @@ $rating = (int)$averageRating; // Replace with the actual rating value
                         <div class="course__img w-img mb-30 position-relative">
 
                             <img src="{{ asset('storage/course-images/'.$singlecourse->image )}}" alt="">
+                            <div class="courses-play">
+                                <img src="{{ asset('assets/images/courses/circle-shape.png') }}" alt="Play">
+                                <a class="play " href="" data-bs-toggle="modal" data-bs-target="#course_vdo_Modal">
+                                <i class="fas fa-play"></i>
+                                </a>
+                            </div>
                             <div class="position-absolute" style="top: 1rem;left: 1rem;z-index: 2">
                                 <a href="javascript:void(0)"><i class="far fa-heart wishlist-heart fa-lg"></i></a>
                             </div>
@@ -645,7 +669,9 @@ $rating = (int)$averageRating; // Replace with the actual rating value
 
                                 <img src="{{ asset('storage/course-images/'.$singlecourse->image )}}" alt="">
                                 <div class="course__video-play">
-                                    <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn" data-bs-toggle="modal" data-bs-target="#course_vdo_Modal"> <i class="fas fa-play"></i> </a>
+                                    <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </a>
                                 </div>
                             </div>
                             <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
@@ -856,6 +882,28 @@ $rating = (int)$averageRating; // Replace with the actual rating value
           $(this).toggleClass("far");
           $(this).toggleClass("fas");
         })
+        @if(count($questionAndAnswerArray) > 0)
+            var video = document.querySelector('video');
+            var questionAndAnswerArray = @json($questionAndAnswerArray);
+
+            video.addEventListener('timeupdate', function () {
+                var currentTime = video.currentTime;
+
+                // Convert currentTime to minutes:seconds format
+                var currentMinutes = Math.floor(currentTime / 60);
+                var currentSeconds = Math.floor(currentTime % 60);
+                var currentTimeString = currentMinutes.toString().padStart(2, '0') + ':' + currentSeconds.toString().padStart(2, '0');
+
+                questionAndAnswerArray.forEach(function (qa) {
+                    if (currentTimeString === qa.display_time) {
+                        // Display the question and answer information as an alert
+                        video.pause();
+                        $(`#question-section-${qa.id}`).removeClass('d-none');
+                        // You can also display the answers here
+                    }
+                });
+            });
+        @endif
       });
     </script>
 <script type="">

@@ -79,11 +79,6 @@
 @include('user.profile.i-profile.modals.add-supplementary')
 
 
-
-
-
-
-
 <div class="mt-4 px-4 pt-4 d-flex align-items-center justify-content-between flex-wrap" style="background-color: #19875445;border-radius: 20px;">
     <button type="button" class="btn btn-outline-primary mb-4 me-2" data-bs-toggle="modal" data-bs-target="#course-modal">
         Publish 10 USD
